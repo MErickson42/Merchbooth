@@ -7,7 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+namespace Merchbooth
+{
 
 
-public partial class Merchbooth_Default {
+    public partial class Default
+    {
+    }
 }
