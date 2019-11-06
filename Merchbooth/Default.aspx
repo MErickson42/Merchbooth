@@ -1,11 +1,15 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Merchbooth._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Merchbooth.Default" %>
 
+<asp:Content ID="HeaderImage1" ContentPlaceHolderID="HeaderImage" runat="server">
+  
+    <div class="headerImage">
+         
+   </div>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-    <img id = "merchboothImage" src="../Images/merchbooth_stars_full_scr.JPG" alt="" >
-
-
     <div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">A!!!!_B!!!!ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
@@ -13,7 +17,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">test
+        <div class="col-md-4">test for us.....
             <h2>Getting started</h2>
             <p>
                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Merchbooth
 {
-    public partial class Default : Page
+    public partial class LINQ_Practice : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
