@@ -9,6 +9,12 @@
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body>
+
+        <%--    added ben--%>
+        <asp:ContentPlaceHolder ID="HeaderImage" runat="server">
+        </asp:ContentPlaceHolder>
+
+
     <form id="form1" runat="server">
     <div>
         <h1>Mobile Master Page</h1>
