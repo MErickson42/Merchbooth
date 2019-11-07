@@ -23,7 +23,7 @@ namespace Merchbooth
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CPDM_EricksonM")]
-	public partial class DbClassesDataContext : System.Data.Linq.DataContext
+	public partial class SiteDCDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -33,27 +33,30 @@ namespace Merchbooth
     partial void InsertTBand(TBand instance);
     partial void UpdateTBand(TBand instance);
     partial void DeleteTBand(TBand instance);
+    partial void InsertTType(TType instance);
+    partial void UpdateTType(TType instance);
+    partial void DeleteTType(TType instance);
     partial void InsertTBandsOrder(TBandsOrder instance);
     partial void UpdateTBandsOrder(TBandsOrder instance);
     partial void DeleteTBandsOrder(TBandsOrder instance);
-    partial void InsertTColor(TColor instance);
-    partial void UpdateTColor(TColor instance);
-    partial void DeleteTColor(TColor instance);
     partial void InsertTBaseType(TBaseType instance);
     partial void UpdateTBaseType(TBaseType instance);
     partial void DeleteTBaseType(TBaseType instance);
+    partial void InsertTColor(TColor instance);
+    partial void UpdateTColor(TColor instance);
+    partial void DeleteTColor(TColor instance);
     partial void InsertTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
     partial void UpdateTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
     partial void DeleteTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
     partial void InsertTCustomerPurchase(TCustomerPurchase instance);
     partial void UpdateTCustomerPurchase(TCustomerPurchase instance);
     partial void DeleteTCustomerPurchase(TCustomerPurchase instance);
-    partial void InsertTGender(TGender instance);
-    partial void UpdateTGender(TGender instance);
-    partial void DeleteTGender(TGender instance);
     partial void InsertTCustomer(TCustomer instance);
     partial void UpdateTCustomer(TCustomer instance);
     partial void DeleteTCustomer(TCustomer instance);
+    partial void InsertTGender(TGender instance);
+    partial void UpdateTGender(TGender instance);
+    partial void DeleteTGender(TGender instance);
     partial void InsertTMember(TMember instance);
     partial void UpdateTMember(TMember instance);
     partial void DeleteTMember(TMember instance);
@@ -72,36 +75,33 @@ namespace Merchbooth
     partial void InsertTSupplier(TSupplier instance);
     partial void UpdateTSupplier(TSupplier instance);
     partial void DeleteTSupplier(TSupplier instance);
-    partial void InsertTType(TType instance);
-    partial void UpdateTType(TType instance);
-    partial void DeleteTType(TType instance);
     #endregion
 		
-		public DbClassesDataContext() : 
+		public SiteDCDataContext() : 
 				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CPDM_EricksonMConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DbClassesDataContext(string connection) : 
+		public SiteDCDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DbClassesDataContext(System.Data.IDbConnection connection) : 
+		public SiteDCDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DbClassesDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public SiteDCDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DbClassesDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public SiteDCDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -115,6 +115,14 @@ namespace Merchbooth
 			}
 		}
 		
+		public System.Data.Linq.Table<TType> TTypes
+		{
+			get
+			{
+				return this.GetTable<TType>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TBandsOrder> TBandsOrders
 		{
 			get
@@ -123,19 +131,19 @@ namespace Merchbooth
 			}
 		}
 		
-		public System.Data.Linq.Table<TColor> TColors
-		{
-			get
-			{
-				return this.GetTable<TColor>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TBaseType> TBaseTypes
 		{
 			get
 			{
 				return this.GetTable<TBaseType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TColor> TColors
+		{
+			get
+			{
+				return this.GetTable<TColor>();
 			}
 		}
 		
@@ -155,19 +163,19 @@ namespace Merchbooth
 			}
 		}
 		
-		public System.Data.Linq.Table<TGender> TGenders
-		{
-			get
-			{
-				return this.GetTable<TGender>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TCustomer> TCustomers
 		{
 			get
 			{
 				return this.GetTable<TCustomer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TGender> TGenders
+		{
+			get
+			{
+				return this.GetTable<TGender>();
 			}
 		}
 		
@@ -219,19 +227,19 @@ namespace Merchbooth
 			}
 		}
 		
-		public System.Data.Linq.Table<TType> TTypes
-		{
-			get
-			{
-				return this.GetTable<TType>();
-			}
-		}
-		
 		public System.Data.Linq.Table<VBandsMember> VBandsMembers
 		{
 			get
 			{
 				return this.GetTable<VBandsMember>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VSuppliersProduct> VSuppliersProducts
+		{
+			get
+			{
+				return this.GetTable<VSuppliersProduct>();
 			}
 		}
 		
@@ -251,19 +259,19 @@ namespace Merchbooth
 			}
 		}
 		
-		public System.Data.Linq.Table<VSuppliersProduct> VSuppliersProducts
-		{
-			get
-			{
-				return this.GetTable<VSuppliersProduct>();
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddBand")]
 		public int uspAddBand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intBandID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strBandName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intBandID, intStateID, strBandName, strPhone, strEmail, strCity, strAddress, strZip);
 			intBandID = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddSupplierProduct")]
+		public int uspAddSupplierProduct([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intSupplierProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSupplierID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(9,2)")] System.Nullable<decimal> decSupplierPrice)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSupplierProductID, intSupplierID, intProductID, decSupplierPrice);
+			intSupplierProductID = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -299,19 +307,19 @@ namespace Merchbooth
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddCustomer")]
-		public int uspAddCustomer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intCustomerID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intGenderID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strFirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strLastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCustomerID, intStateID, intGenderID, strFirstName, strLastName, strPhone, strEmail, strAddress, strCity, strZip);
-			intCustomerID = ((System.Nullable<int>)(result.GetParameterValue(0)));
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddColor")]
 		public int uspAddColor([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intColorID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strColor)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intColorID, strColor);
 			intColorID = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddCustomer")]
+		public int uspAddCustomer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intCustomerID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intGenderID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strFirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strLastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCustomerID, intStateID, intGenderID, strFirstName, strLastName, strPhone, strEmail, strAddress, strCity, strZip);
+			intCustomerID = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -323,19 +331,19 @@ namespace Merchbooth
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddProduct")]
-		public int uspAddProduct([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBandID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strProductName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(9,2)")] System.Nullable<decimal> decBandPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAmountAvialable, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strImageLink)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProductID, intBandID, intTypeID, strProductName, decBandPrice, intAmountAvialable, strImageLink);
-			intProductID = ((System.Nullable<int>)(result.GetParameterValue(0)));
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddCustomerPurchaseProduct")]
 		public int uspAddCustomerPurchaseProduct([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intCustomerPurchaseProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intCustomerPurchaseID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProductPurchaseCount)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCustomerPurchaseProductID, intCustomerPurchaseID, intProductID, intProductPurchaseCount);
 			intCustomerPurchaseProductID = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddProduct")]
+		public int uspAddProduct([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBandID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strProductName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(9,2)")] System.Nullable<decimal> decBandPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intAmountAvialable, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strImageLink)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intProductID, intBandID, intTypeID, strProductName, decBandPrice, intAmountAvialable, strImageLink);
+			intProductID = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -352,14 +360,6 @@ namespace Merchbooth
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSupplierID, intStateID, strSupplierName, strPhone, strEmail, strCity, strAddress, strZip);
 			intSupplierID = ((System.Nullable<int>)(result.GetParameterValue(0)));
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddSupplierProduct")]
-		public int uspAddSupplierProduct([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intSupplierProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intSupplierID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intProductID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(9,2)")] System.Nullable<decimal> decSupplierPrice)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intSupplierProductID, intSupplierID, intProductID, decSupplierPrice);
-			intSupplierProductID = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -691,6 +691,250 @@ namespace Merchbooth
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TTypes")]
+	public partial class TType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _intTypeID;
+		
+		private int _intBaseTypeID;
+		
+		private int _intColorID;
+		
+		private string _strQrCode;
+		
+		private EntitySet<TProduct> _TProducts;
+		
+		private EntityRef<TBaseType> _TBaseType;
+		
+		private EntityRef<TColor> _TColor;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnintTypeIDChanging(int value);
+    partial void OnintTypeIDChanged();
+    partial void OnintBaseTypeIDChanging(int value);
+    partial void OnintBaseTypeIDChanged();
+    partial void OnintColorIDChanging(int value);
+    partial void OnintColorIDChanged();
+    partial void OnstrQrCodeChanging(string value);
+    partial void OnstrQrCodeChanged();
+    #endregion
+		
+		public TType()
+		{
+			this._TProducts = new EntitySet<TProduct>(new Action<TProduct>(this.attach_TProducts), new Action<TProduct>(this.detach_TProducts));
+			this._TBaseType = default(EntityRef<TBaseType>);
+			this._TColor = default(EntityRef<TColor>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int intTypeID
+		{
+			get
+			{
+				return this._intTypeID;
+			}
+			set
+			{
+				if ((this._intTypeID != value))
+				{
+					this.OnintTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._intTypeID = value;
+					this.SendPropertyChanged("intTypeID");
+					this.OnintTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBaseTypeID", DbType="Int NOT NULL")]
+		public int intBaseTypeID
+		{
+			get
+			{
+				return this._intBaseTypeID;
+			}
+			set
+			{
+				if ((this._intBaseTypeID != value))
+				{
+					if (this._TBaseType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintBaseTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._intBaseTypeID = value;
+					this.SendPropertyChanged("intBaseTypeID");
+					this.OnintBaseTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL")]
+		public int intColorID
+		{
+			get
+			{
+				return this._intColorID;
+			}
+			set
+			{
+				if ((this._intColorID != value))
+				{
+					if (this._TColor.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintColorIDChanging(value);
+					this.SendPropertyChanging();
+					this._intColorID = value;
+					this.SendPropertyChanged("intColorID");
+					this.OnintColorIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strQrCode", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strQrCode
+		{
+			get
+			{
+				return this._strQrCode;
+			}
+			set
+			{
+				if ((this._strQrCode != value))
+				{
+					this.OnstrQrCodeChanging(value);
+					this.SendPropertyChanging();
+					this._strQrCode = value;
+					this.SendPropertyChanged("strQrCode");
+					this.OnstrQrCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TType_TProduct", Storage="_TProducts", ThisKey="intTypeID", OtherKey="intTypeID")]
+		public EntitySet<TProduct> TProducts
+		{
+			get
+			{
+				return this._TProducts;
+			}
+			set
+			{
+				this._TProducts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBaseType_TType", Storage="_TBaseType", ThisKey="intBaseTypeID", OtherKey="intBaseTypeID", IsForeignKey=true)]
+		public TBaseType TBaseType
+		{
+			get
+			{
+				return this._TBaseType.Entity;
+			}
+			set
+			{
+				TBaseType previousValue = this._TBaseType.Entity;
+				if (((previousValue != value) 
+							|| (this._TBaseType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TBaseType.Entity = null;
+						previousValue.TTypes.Remove(this);
+					}
+					this._TBaseType.Entity = value;
+					if ((value != null))
+					{
+						value.TTypes.Add(this);
+						this._intBaseTypeID = value.intBaseTypeID;
+					}
+					else
+					{
+						this._intBaseTypeID = default(int);
+					}
+					this.SendPropertyChanged("TBaseType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TColor_TType", Storage="_TColor", ThisKey="intColorID", OtherKey="intColorID", IsForeignKey=true)]
+		public TColor TColor
+		{
+			get
+			{
+				return this._TColor.Entity;
+			}
+			set
+			{
+				TColor previousValue = this._TColor.Entity;
+				if (((previousValue != value) 
+							|| (this._TColor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TColor.Entity = null;
+						previousValue.TTypes.Remove(this);
+					}
+					this._TColor.Entity = value;
+					if ((value != null))
+					{
+						value.TTypes.Add(this);
+						this._intColorID = value.intColorID;
+					}
+					else
+					{
+						this._intColorID = default(int);
+					}
+					this.SendPropertyChanged("TColor");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TProducts(TProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.TType = this;
+		}
+		
+		private void detach_TProducts(TProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.TType = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TBandsOrders")]
 	public partial class TBandsOrder : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -918,120 +1162,6 @@ namespace Merchbooth
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TColors")]
-	public partial class TColor : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _intColorID;
-		
-		private string _strColor;
-		
-		private EntitySet<TType> _TTypes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnintColorIDChanging(int value);
-    partial void OnintColorIDChanged();
-    partial void OnstrColorChanging(string value);
-    partial void OnstrColorChanged();
-    #endregion
-		
-		public TColor()
-		{
-			this._TTypes = new EntitySet<TType>(new Action<TType>(this.attach_TTypes), new Action<TType>(this.detach_TTypes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int intColorID
-		{
-			get
-			{
-				return this._intColorID;
-			}
-			set
-			{
-				if ((this._intColorID != value))
-				{
-					this.OnintColorIDChanging(value);
-					this.SendPropertyChanging();
-					this._intColorID = value;
-					this.SendPropertyChanged("intColorID");
-					this.OnintColorIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strColor", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strColor
-		{
-			get
-			{
-				return this._strColor;
-			}
-			set
-			{
-				if ((this._strColor != value))
-				{
-					this.OnstrColorChanging(value);
-					this.SendPropertyChanging();
-					this._strColor = value;
-					this.SendPropertyChanged("strColor");
-					this.OnstrColorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TColor_TType", Storage="_TTypes", ThisKey="intColorID", OtherKey="intColorID")]
-		public EntitySet<TType> TTypes
-		{
-			get
-			{
-				return this._TTypes;
-			}
-			set
-			{
-				this._TTypes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TTypes(TType entity)
-		{
-			this.SendPropertyChanging();
-			entity.TColor = this;
-		}
-		
-		private void detach_TTypes(TType entity)
-		{
-			this.SendPropertyChanging();
-			entity.TColor = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TBaseTypes")]
 	public partial class TBaseType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1143,6 +1273,120 @@ namespace Merchbooth
 		{
 			this.SendPropertyChanging();
 			entity.TBaseType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TColors")]
+	public partial class TColor : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _intColorID;
+		
+		private string _strColor;
+		
+		private EntitySet<TType> _TTypes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnintColorIDChanging(int value);
+    partial void OnintColorIDChanged();
+    partial void OnstrColorChanging(string value);
+    partial void OnstrColorChanged();
+    #endregion
+		
+		public TColor()
+		{
+			this._TTypes = new EntitySet<TType>(new Action<TType>(this.attach_TTypes), new Action<TType>(this.detach_TTypes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int intColorID
+		{
+			get
+			{
+				return this._intColorID;
+			}
+			set
+			{
+				if ((this._intColorID != value))
+				{
+					this.OnintColorIDChanging(value);
+					this.SendPropertyChanging();
+					this._intColorID = value;
+					this.SendPropertyChanged("intColorID");
+					this.OnintColorIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strColor", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strColor
+		{
+			get
+			{
+				return this._strColor;
+			}
+			set
+			{
+				if ((this._strColor != value))
+				{
+					this.OnstrColorChanging(value);
+					this.SendPropertyChanging();
+					this._strColor = value;
+					this.SendPropertyChanged("strColor");
+					this.OnstrColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TColor_TType", Storage="_TTypes", ThisKey="intColorID", OtherKey="intColorID")]
+		public EntitySet<TType> TTypes
+		{
+			get
+			{
+				return this._TTypes;
+			}
+			set
+			{
+				this._TTypes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TTypes(TType entity)
+		{
+			this.SendPropertyChanging();
+			entity.TColor = this;
+		}
+		
+		private void detach_TTypes(TType entity)
+		{
+			this.SendPropertyChanging();
+			entity.TColor = null;
 		}
 	}
 	
@@ -1613,148 +1857,6 @@ namespace Merchbooth
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TGenders")]
-	public partial class TGender : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _intGenderID;
-		
-		private string _strGender;
-		
-		private EntitySet<TCustomer> _TCustomers;
-		
-		private EntitySet<TMember> _TMembers;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnintGenderIDChanging(int value);
-    partial void OnintGenderIDChanged();
-    partial void OnstrGenderChanging(string value);
-    partial void OnstrGenderChanged();
-    #endregion
-		
-		public TGender()
-		{
-			this._TCustomers = new EntitySet<TCustomer>(new Action<TCustomer>(this.attach_TCustomers), new Action<TCustomer>(this.detach_TCustomers));
-			this._TMembers = new EntitySet<TMember>(new Action<TMember>(this.attach_TMembers), new Action<TMember>(this.detach_TMembers));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int intGenderID
-		{
-			get
-			{
-				return this._intGenderID;
-			}
-			set
-			{
-				if ((this._intGenderID != value))
-				{
-					this.OnintGenderIDChanging(value);
-					this.SendPropertyChanging();
-					this._intGenderID = value;
-					this.SendPropertyChanged("intGenderID");
-					this.OnintGenderIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strGender", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strGender
-		{
-			get
-			{
-				return this._strGender;
-			}
-			set
-			{
-				if ((this._strGender != value))
-				{
-					this.OnstrGenderChanging(value);
-					this.SendPropertyChanging();
-					this._strGender = value;
-					this.SendPropertyChanged("strGender");
-					this.OnstrGenderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TCustomer", Storage="_TCustomers", ThisKey="intGenderID", OtherKey="intGenderID")]
-		public EntitySet<TCustomer> TCustomers
-		{
-			get
-			{
-				return this._TCustomers;
-			}
-			set
-			{
-				this._TCustomers.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TMember", Storage="_TMembers", ThisKey="intGenderID", OtherKey="intGenderID")]
-		public EntitySet<TMember> TMembers
-		{
-			get
-			{
-				return this._TMembers;
-			}
-			set
-			{
-				this._TMembers.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TCustomers(TCustomer entity)
-		{
-			this.SendPropertyChanging();
-			entity.TGender = this;
-		}
-		
-		private void detach_TCustomers(TCustomer entity)
-		{
-			this.SendPropertyChanging();
-			entity.TGender = null;
-		}
-		
-		private void attach_TMembers(TMember entity)
-		{
-			this.SendPropertyChanging();
-			entity.TGender = this;
-		}
-		
-		private void detach_TMembers(TMember entity)
-		{
-			this.SendPropertyChanging();
-			entity.TGender = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TCustomers")]
 	public partial class TCustomer : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2140,6 +2242,148 @@ namespace Merchbooth
 		{
 			this.SendPropertyChanging();
 			entity.TCustomer = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TGenders")]
+	public partial class TGender : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _intGenderID;
+		
+		private string _strGender;
+		
+		private EntitySet<TCustomer> _TCustomers;
+		
+		private EntitySet<TMember> _TMembers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnintGenderIDChanging(int value);
+    partial void OnintGenderIDChanged();
+    partial void OnstrGenderChanging(string value);
+    partial void OnstrGenderChanged();
+    #endregion
+		
+		public TGender()
+		{
+			this._TCustomers = new EntitySet<TCustomer>(new Action<TCustomer>(this.attach_TCustomers), new Action<TCustomer>(this.detach_TCustomers));
+			this._TMembers = new EntitySet<TMember>(new Action<TMember>(this.attach_TMembers), new Action<TMember>(this.detach_TMembers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int intGenderID
+		{
+			get
+			{
+				return this._intGenderID;
+			}
+			set
+			{
+				if ((this._intGenderID != value))
+				{
+					this.OnintGenderIDChanging(value);
+					this.SendPropertyChanging();
+					this._intGenderID = value;
+					this.SendPropertyChanged("intGenderID");
+					this.OnintGenderIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strGender", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strGender
+		{
+			get
+			{
+				return this._strGender;
+			}
+			set
+			{
+				if ((this._strGender != value))
+				{
+					this.OnstrGenderChanging(value);
+					this.SendPropertyChanging();
+					this._strGender = value;
+					this.SendPropertyChanged("strGender");
+					this.OnstrGenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TCustomer", Storage="_TCustomers", ThisKey="intGenderID", OtherKey="intGenderID")]
+		public EntitySet<TCustomer> TCustomers
+		{
+			get
+			{
+				return this._TCustomers;
+			}
+			set
+			{
+				this._TCustomers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TMember", Storage="_TMembers", ThisKey="intGenderID", OtherKey="intGenderID")]
+		public EntitySet<TMember> TMembers
+		{
+			get
+			{
+				return this._TMembers;
+			}
+			set
+			{
+				this._TMembers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TCustomers(TCustomer entity)
+		{
+			this.SendPropertyChanging();
+			entity.TGender = this;
+		}
+		
+		private void detach_TCustomers(TCustomer entity)
+		{
+			this.SendPropertyChanging();
+			entity.TGender = null;
+		}
+		
+		private void attach_TMembers(TMember entity)
+		{
+			this.SendPropertyChanging();
+			entity.TGender = this;
+		}
+		
+		private void detach_TMembers(TMember entity)
+		{
+			this.SendPropertyChanging();
+			entity.TGender = null;
 		}
 	}
 	
@@ -3876,250 +4120,6 @@ namespace Merchbooth
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TTypes")]
-	public partial class TType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _intTypeID;
-		
-		private int _intBaseTypeID;
-		
-		private int _intColorID;
-		
-		private string _strQrCode;
-		
-		private EntitySet<TProduct> _TProducts;
-		
-		private EntityRef<TBaseType> _TBaseType;
-		
-		private EntityRef<TColor> _TColor;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnintTypeIDChanging(int value);
-    partial void OnintTypeIDChanged();
-    partial void OnintBaseTypeIDChanging(int value);
-    partial void OnintBaseTypeIDChanged();
-    partial void OnintColorIDChanging(int value);
-    partial void OnintColorIDChanged();
-    partial void OnstrQrCodeChanging(string value);
-    partial void OnstrQrCodeChanged();
-    #endregion
-		
-		public TType()
-		{
-			this._TProducts = new EntitySet<TProduct>(new Action<TProduct>(this.attach_TProducts), new Action<TProduct>(this.detach_TProducts));
-			this._TBaseType = default(EntityRef<TBaseType>);
-			this._TColor = default(EntityRef<TColor>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int intTypeID
-		{
-			get
-			{
-				return this._intTypeID;
-			}
-			set
-			{
-				if ((this._intTypeID != value))
-				{
-					this.OnintTypeIDChanging(value);
-					this.SendPropertyChanging();
-					this._intTypeID = value;
-					this.SendPropertyChanged("intTypeID");
-					this.OnintTypeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBaseTypeID", DbType="Int NOT NULL")]
-		public int intBaseTypeID
-		{
-			get
-			{
-				return this._intBaseTypeID;
-			}
-			set
-			{
-				if ((this._intBaseTypeID != value))
-				{
-					if (this._TBaseType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnintBaseTypeIDChanging(value);
-					this.SendPropertyChanging();
-					this._intBaseTypeID = value;
-					this.SendPropertyChanged("intBaseTypeID");
-					this.OnintBaseTypeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL")]
-		public int intColorID
-		{
-			get
-			{
-				return this._intColorID;
-			}
-			set
-			{
-				if ((this._intColorID != value))
-				{
-					if (this._TColor.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnintColorIDChanging(value);
-					this.SendPropertyChanging();
-					this._intColorID = value;
-					this.SendPropertyChanged("intColorID");
-					this.OnintColorIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strQrCode", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strQrCode
-		{
-			get
-			{
-				return this._strQrCode;
-			}
-			set
-			{
-				if ((this._strQrCode != value))
-				{
-					this.OnstrQrCodeChanging(value);
-					this.SendPropertyChanging();
-					this._strQrCode = value;
-					this.SendPropertyChanged("strQrCode");
-					this.OnstrQrCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TType_TProduct", Storage="_TProducts", ThisKey="intTypeID", OtherKey="intTypeID")]
-		public EntitySet<TProduct> TProducts
-		{
-			get
-			{
-				return this._TProducts;
-			}
-			set
-			{
-				this._TProducts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBaseType_TType", Storage="_TBaseType", ThisKey="intBaseTypeID", OtherKey="intBaseTypeID", IsForeignKey=true)]
-		public TBaseType TBaseType
-		{
-			get
-			{
-				return this._TBaseType.Entity;
-			}
-			set
-			{
-				TBaseType previousValue = this._TBaseType.Entity;
-				if (((previousValue != value) 
-							|| (this._TBaseType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBaseType.Entity = null;
-						previousValue.TTypes.Remove(this);
-					}
-					this._TBaseType.Entity = value;
-					if ((value != null))
-					{
-						value.TTypes.Add(this);
-						this._intBaseTypeID = value.intBaseTypeID;
-					}
-					else
-					{
-						this._intBaseTypeID = default(int);
-					}
-					this.SendPropertyChanged("TBaseType");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TColor_TType", Storage="_TColor", ThisKey="intColorID", OtherKey="intColorID", IsForeignKey=true)]
-		public TColor TColor
-		{
-			get
-			{
-				return this._TColor.Entity;
-			}
-			set
-			{
-				TColor previousValue = this._TColor.Entity;
-				if (((previousValue != value) 
-							|| (this._TColor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TColor.Entity = null;
-						previousValue.TTypes.Remove(this);
-					}
-					this._TColor.Entity = value;
-					if ((value != null))
-					{
-						value.TTypes.Add(this);
-						this._intColorID = value.intColorID;
-					}
-					else
-					{
-						this._intColorID = default(int);
-					}
-					this.SendPropertyChanged("TColor");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TProducts(TProduct entity)
-		{
-			this.SendPropertyChanging();
-			entity.TType = this;
-		}
-		
-		private void detach_TProducts(TProduct entity)
-		{
-			this.SendPropertyChanging();
-			entity.TType = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.VBandsMembers")]
 	public partial class VBandsMember
 	{
@@ -4466,6 +4466,375 @@ namespace Merchbooth
 				if ((this._intGenderID != value))
 				{
 					this._intGenderID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.VSuppliersProducts")]
+	public partial class VSuppliersProduct
+	{
+		
+		private int _intSupplierID;
+		
+		private string _strSupplierName;
+		
+		private string _strPhone;
+		
+		private string _strEmail;
+		
+		private string _strStateName;
+		
+		private int _intStateID;
+		
+		private string _strAddress;
+		
+		private string _strCity;
+		
+		private string _strZip;
+		
+		private int _intBandID;
+		
+		private string _strBandName;
+		
+		private int _intProductID;
+		
+		private string _strProductName;
+		
+		private decimal _decBandPrice;
+		
+		private int _intAmountAvialable;
+		
+		private string _strImageLink;
+		
+		private string _strBaseType;
+		
+		private string _strColor;
+		
+		private int _intTypeID;
+		
+		private int _intColorID;
+		
+		public VSuppliersProduct()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSupplierID", DbType="Int NOT NULL")]
+		public int intSupplierID
+		{
+			get
+			{
+				return this._intSupplierID;
+			}
+			set
+			{
+				if ((this._intSupplierID != value))
+				{
+					this._intSupplierID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strSupplierName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strSupplierName
+		{
+			get
+			{
+				return this._strSupplierName;
+			}
+			set
+			{
+				if ((this._strSupplierName != value))
+				{
+					this._strSupplierName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strPhone", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strPhone
+		{
+			get
+			{
+				return this._strPhone;
+			}
+			set
+			{
+				if ((this._strPhone != value))
+				{
+					this._strPhone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strEmail", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strEmail
+		{
+			get
+			{
+				return this._strEmail;
+			}
+			set
+			{
+				if ((this._strEmail != value))
+				{
+					this._strEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strStateName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strStateName
+		{
+			get
+			{
+				return this._strStateName;
+			}
+			set
+			{
+				if ((this._strStateName != value))
+				{
+					this._strStateName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intStateID", DbType="Int NOT NULL")]
+		public int intStateID
+		{
+			get
+			{
+				return this._intStateID;
+			}
+			set
+			{
+				if ((this._intStateID != value))
+				{
+					this._intStateID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strAddress", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strAddress
+		{
+			get
+			{
+				return this._strAddress;
+			}
+			set
+			{
+				if ((this._strAddress != value))
+				{
+					this._strAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strCity", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strCity
+		{
+			get
+			{
+				return this._strCity;
+			}
+			set
+			{
+				if ((this._strCity != value))
+				{
+					this._strCity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strZip", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strZip
+		{
+			get
+			{
+				return this._strZip;
+			}
+			set
+			{
+				if ((this._strZip != value))
+				{
+					this._strZip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandID", DbType="Int NOT NULL")]
+		public int intBandID
+		{
+			get
+			{
+				return this._intBandID;
+			}
+			set
+			{
+				if ((this._intBandID != value))
+				{
+					this._intBandID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strBandName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strBandName
+		{
+			get
+			{
+				return this._strBandName;
+			}
+			set
+			{
+				if ((this._strBandName != value))
+				{
+					this._strBandName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductID", DbType="Int NOT NULL")]
+		public int intProductID
+		{
+			get
+			{
+				return this._intProductID;
+			}
+			set
+			{
+				if ((this._intProductID != value))
+				{
+					this._intProductID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strProductName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strProductName
+		{
+			get
+			{
+				return this._strProductName;
+			}
+			set
+			{
+				if ((this._strProductName != value))
+				{
+					this._strProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decBandPrice", DbType="Decimal(9,2) NOT NULL")]
+		public decimal decBandPrice
+		{
+			get
+			{
+				return this._decBandPrice;
+			}
+			set
+			{
+				if ((this._decBandPrice != value))
+				{
+					this._decBandPrice = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAmountAvialable", DbType="Int NOT NULL")]
+		public int intAmountAvialable
+		{
+			get
+			{
+				return this._intAmountAvialable;
+			}
+			set
+			{
+				if ((this._intAmountAvialable != value))
+				{
+					this._intAmountAvialable = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strImageLink", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strImageLink
+		{
+			get
+			{
+				return this._strImageLink;
+			}
+			set
+			{
+				if ((this._strImageLink != value))
+				{
+					this._strImageLink = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strBaseType", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strBaseType
+		{
+			get
+			{
+				return this._strBaseType;
+			}
+			set
+			{
+				if ((this._strBaseType != value))
+				{
+					this._strBaseType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strColor", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strColor
+		{
+			get
+			{
+				return this._strColor;
+			}
+			set
+			{
+				if ((this._strColor != value))
+				{
+					this._strColor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", DbType="Int NOT NULL")]
+		public int intTypeID
+		{
+			get
+			{
+				return this._intTypeID;
+			}
+			set
+			{
+				if ((this._intTypeID != value))
+				{
+					this._intTypeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL")]
+		public int intColorID
+		{
+			get
+			{
+				return this._intColorID;
+			}
+			set
+			{
+				if ((this._intColorID != value))
+				{
+					this._intColorID = value;
 				}
 			}
 		}
@@ -5456,375 +5825,6 @@ namespace Merchbooth
 				if ((this._strBandName != value))
 				{
 					this._strBandName = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.VSuppliersProducts")]
-	public partial class VSuppliersProduct
-	{
-		
-		private int _intSupplierID;
-		
-		private string _strSupplierName;
-		
-		private string _strPhone;
-		
-		private string _strEmail;
-		
-		private string _strStateName;
-		
-		private int _intStateID;
-		
-		private string _strAddress;
-		
-		private string _strCity;
-		
-		private string _strZip;
-		
-		private int _intBandID;
-		
-		private string _strBandName;
-		
-		private int _intProductID;
-		
-		private string _strProductName;
-		
-		private decimal _decBandPrice;
-		
-		private int _intAmountAvialable;
-		
-		private string _strImageLink;
-		
-		private string _strBaseType;
-		
-		private string _strColor;
-		
-		private int _intTypeID;
-		
-		private int _intColorID;
-		
-		public VSuppliersProduct()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSupplierID", DbType="Int NOT NULL")]
-		public int intSupplierID
-		{
-			get
-			{
-				return this._intSupplierID;
-			}
-			set
-			{
-				if ((this._intSupplierID != value))
-				{
-					this._intSupplierID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strSupplierName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strSupplierName
-		{
-			get
-			{
-				return this._strSupplierName;
-			}
-			set
-			{
-				if ((this._strSupplierName != value))
-				{
-					this._strSupplierName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strPhone", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strPhone
-		{
-			get
-			{
-				return this._strPhone;
-			}
-			set
-			{
-				if ((this._strPhone != value))
-				{
-					this._strPhone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strEmail", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strEmail
-		{
-			get
-			{
-				return this._strEmail;
-			}
-			set
-			{
-				if ((this._strEmail != value))
-				{
-					this._strEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strStateName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strStateName
-		{
-			get
-			{
-				return this._strStateName;
-			}
-			set
-			{
-				if ((this._strStateName != value))
-				{
-					this._strStateName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intStateID", DbType="Int NOT NULL")]
-		public int intStateID
-		{
-			get
-			{
-				return this._intStateID;
-			}
-			set
-			{
-				if ((this._intStateID != value))
-				{
-					this._intStateID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strAddress", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strAddress
-		{
-			get
-			{
-				return this._strAddress;
-			}
-			set
-			{
-				if ((this._strAddress != value))
-				{
-					this._strAddress = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strCity", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strCity
-		{
-			get
-			{
-				return this._strCity;
-			}
-			set
-			{
-				if ((this._strCity != value))
-				{
-					this._strCity = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strZip", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strZip
-		{
-			get
-			{
-				return this._strZip;
-			}
-			set
-			{
-				if ((this._strZip != value))
-				{
-					this._strZip = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandID", DbType="Int NOT NULL")]
-		public int intBandID
-		{
-			get
-			{
-				return this._intBandID;
-			}
-			set
-			{
-				if ((this._intBandID != value))
-				{
-					this._intBandID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strBandName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strBandName
-		{
-			get
-			{
-				return this._strBandName;
-			}
-			set
-			{
-				if ((this._strBandName != value))
-				{
-					this._strBandName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductID", DbType="Int NOT NULL")]
-		public int intProductID
-		{
-			get
-			{
-				return this._intProductID;
-			}
-			set
-			{
-				if ((this._intProductID != value))
-				{
-					this._intProductID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strProductName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strProductName
-		{
-			get
-			{
-				return this._strProductName;
-			}
-			set
-			{
-				if ((this._strProductName != value))
-				{
-					this._strProductName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decBandPrice", DbType="Decimal(9,2) NOT NULL")]
-		public decimal decBandPrice
-		{
-			get
-			{
-				return this._decBandPrice;
-			}
-			set
-			{
-				if ((this._decBandPrice != value))
-				{
-					this._decBandPrice = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAmountAvialable", DbType="Int NOT NULL")]
-		public int intAmountAvialable
-		{
-			get
-			{
-				return this._intAmountAvialable;
-			}
-			set
-			{
-				if ((this._intAmountAvialable != value))
-				{
-					this._intAmountAvialable = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strImageLink", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strImageLink
-		{
-			get
-			{
-				return this._strImageLink;
-			}
-			set
-			{
-				if ((this._strImageLink != value))
-				{
-					this._strImageLink = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strBaseType", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strBaseType
-		{
-			get
-			{
-				return this._strBaseType;
-			}
-			set
-			{
-				if ((this._strBaseType != value))
-				{
-					this._strBaseType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strColor", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strColor
-		{
-			get
-			{
-				return this._strColor;
-			}
-			set
-			{
-				if ((this._strColor != value))
-				{
-					this._strColor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", DbType="Int NOT NULL")]
-		public int intTypeID
-		{
-			get
-			{
-				return this._intTypeID;
-			}
-			set
-			{
-				if ((this._intTypeID != value))
-				{
-					this._intTypeID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL")]
-		public int intColorID
-		{
-			get
-			{
-				return this._intColorID;
-			}
-			set
-			{
-				if ((this._intColorID != value))
-				{
-					this._intColorID = value;
 				}
 			}
 		}

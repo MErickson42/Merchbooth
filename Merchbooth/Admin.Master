@@ -1,12 +1,13 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Merchbooth.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Merchbooth.Admin" %>
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
+
 <head runat="server">
-    <meta charset="utf-8" />
+   <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Merchbooth</title>
+    <title><%: Page.Title %> - My ASP.NET Application</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -15,9 +16,11 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form runat="server">
+    <form id="form1" runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -38,44 +41,37 @@
             </Scripts>
         </asp:ScriptManager>
 
-
-        
-        <asp:ContentPlaceHolder ID="HeaderImage" runat="server">
-        </asp:ContentPlaceHolder>
-
-
+        <div class="Header">
+        <img style="margin-left:30px;margin-top:50px;width:350px;" runat="server" src="~/Images/600.jpg"  />
+            
+        </div>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-
-
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <%--<a class="navbar-brand" runat="server" href="~/">Application name</a>--%>
+                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/AdminHome">Home</a></li>
+                        
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="container body-content">
-            
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                 
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
-        </div>
+        
 
+        <div style="margin-top:5%;">
+            
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>
