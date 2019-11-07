@@ -127,6 +127,103 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Images\600.jpg" />
+    <Content Include="Images\background-2944077_1920.jpg" />
+    <Content Include="Images\backup\halfstarts - Copy.jpg" />
+    <Content Include="Images\backup\merchbooth_stars_full_scr.jpg" />
+    <Content Include="Images\backup\merchbooth_stars_full_scrA.jpg" />
+    <Content Include="Images\backup\merchbooth_stars_new.jpg" />
+    <Content Include="Images\backup\MERCHBOOTH_YUP.jpg" />
+    <Content Include="Images\backup\strat_newwww.jpg" />
+    <Content Include="Images\blackback.jpg" />
+    <Content Include="Images\blurred-1226286_1920.jpg" />
+    <Content Include="Images\concert-336695_1920.jpg" />
+    <Content Include="Images\crowd-4312230_640.jpg" />
+    <Content Include="Images\CrowdSized.jpg" />
+    <Content Include="Images\CrowdSized_1280.jpg" />
+    <Content Include="Images\CrowdSized_AA.jpg" />
+    <Content Include="Images\CrowdSized_b.jpg" />
+    <Content Include="Images\crowdSized_c.jpg" />
+    <Content Include="Images\CrowdSized_d.jpg" />
+    <Content Include="Images\CrowdSized_f.jpg" />
+    <Content Include="Images\CrowdSized_h.jpg" />
+    <Content Include="Images\eCommerceProduct1.JPG" />
+    <Content Include="Images\EcommerceProduct_OverMerchboth_HomePage_1.jpg" />
+    <Content Include="Images\eCommerce_BAND_SNAPP1.JPG" />
+    <Content Include="Images\electric-guitar-161740_640.png" />
+    <Content Include="Images\ElectricGuitarSized.png" />
+    <Content Include="Images\fantasy-2955354_1920.jpg" />
+    <Content Include="Images\grid-826831_1920.jpg" />
+    <Content Include="Images\guitar-2925274_640.jpg" />
+    <Content Include="Images\GuitarSized.jpg" />
+    <Content Include="Images\GuitarSized_b.jpg" />
+    <Content Include="Images\Guitar_Sized_c%281%29.jpg" />
+    <Content Include="Images\halfstarts - Copy.jpg" />
+    <Content Include="Images\halfstarts.jpg" />
+    <Content Include="Images\halfstarts_left_right.jpg" />
+    <Content Include="Images\jellyfish-3964165_1920.jpg" />
+    <Content Include="Images\jellyfish-3964165_1920PixlerB.jpg" />
+    <Content Include="Images\jellyfish-3964165_1920Pixler_UPSIDE.jpg" />
+    <Content Include="Images\jellyfish-3964165_1920_pixler.jpg" />
+    <Content Include="Images\LightLarger.jpg" />
+    <Content Include="Images\Lights_440.jpg" />
+    <Content Include="Images\Lights_Sized.jpg" />
+    <Content Include="Images\LihjtsNew_500.jpg" />
+    <Content Include="Images\merchboothHeader.JPG" />
+    <Content Include="Images\Merchbooth_1.JPG" />
+    <Content Include="Images\MERCHBOOTH_137.jpg" />
+    <Content Include="Images\MERCHBOOTH_165.jpg" />
+    <Content Include="Images\MERCHBOOTH_165_B.jpg" />
+    <Content Include="Images\merchbooth_b.JPG" />
+    <Content Include="Images\merchbooth_stars_800.jpg" />
+    <Content Include="Images\merchbooth_stars_new.jpg" />
+    <Content Include="Images\merchbooth_stars_new2.jpg" />
+    <Content Include="Images\merchbooth_stars_newW.jpg" />
+    <Content Include="Images\merchbooth_stars_perfect.jpg" />
+    <Content Include="Images\MERCHBOOTH_YUP.jpg" />
+    <Content Include="Images\Merchboth_HomePage_1.JPG" />
+    <Content Include="Images\merchHeader.jpg" />
+    <Content Include="Images\merchHeader_100.jpg" />
+    <Content Include="Images\merchHeader_133.jpg" />
+    <Content Include="Images\merchHeader_133_b.jpg" />
+    <Content Include="Images\milky-way-2695569_1920.jpg" />
+    <Content Include="Images\moving-walkway-64359_1920.jpg" />
+    <Content Include="Images\mrch_c.JPG" />
+    <Content Include="Images\narrow.jpg" />
+    <Content Include="Images\navBackground.jpg" />
+    <Content Include="Images\NavBackStars.jpg" />
+    <Content Include="Images\navbar_background_c.jpg" />
+    <Content Include="Images\navbar_background_d.jpg" />
+    <Content Include="Images\navbar_bakround_b.jpg" />
+    <Content Include="Images\painted-guitar-1087209_640.jpg" />
+    <Content Include="Images\PaintedGuitarSized.jpg" />
+    <Content Include="Images\PaintedGuitarSized_c.jpg" />
+    <Content Include="Images\panorama-1993645_1920.jpg" />
+    <Content Include="Images\PlaneBlue - Copy.png" />
+    <Content Include="Images\PlaneBlue.png" />
+    <Content Include="Images\PlaneBlueSized.png" />
+    <Content Include="Images\PlaneBlueSized_2.png" />
+    <Content Include="Images\PlaneGreen - Copy.png" />
+    <Content Include="Images\PlaneGreen.png" />
+    <Content Include="Images\PlaneGreenSized.png" />
+    <Content Include="Images\PlaneRed - Copy.png" />
+    <Content Include="Images\PlaneRed.png" />
+    <Content Include="Images\PlaneRedSized.jpg" />
+    <Content Include="Images\PlaneWhite - Copy.png" />
+    <Content Include="Images\PlaneWhite.png" />
+    <Content Include="Images\PlaneWhiteSized.jpg" />
+    <Content Include="Images\SignInCustomer_orBand.JPG" />
+    <Content Include="Images\SignIn_Band_vs_Customer.jpg" />
+    <Content Include="Images\silver-313347_640.jpg" />
+    <Content Include="Images\strat_newwww.jpg" />
+    <Content Include="Images\strat_newwww2.jpg" />
+    <Content Include="Images\strat_newwww3.jpg" />
+    <Content Include="Images\strat_new_1200.jpg" />
+    <Content Include="Images\t-shirt-181707_1280.png" />
+    <Content Include="Images\t-shirt-181707_640 - Copy.png" />
+    <Content Include="Images\t-shirt-181707_640.png" />
+    <Content Include="Images\whiteSpace.JPG" />
+    <Content Include="Practice.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -155,9 +252,12 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="SignInOptions.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
@@ -202,7 +302,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Practice.aspx.cs">
+      <DependentUpon>Practice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Practice.aspx.designer.cs">
+      <DependentUpon>Practice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignInOptions.aspx.cs">
+      <DependentUpon>SignInOptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignInOptions.aspx.designer.cs">
+      <DependentUpon>SignInOptions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

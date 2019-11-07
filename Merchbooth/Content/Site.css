@@ -1,66 +1,73 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    //padding-top: 50px;
     padding-bottom: 20px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
+    padding-left: 15px;
+    padding-right: 15px;
+    
 }
 
+
+.headerImage {
+    width: 100vw;
+    height: 160px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: fixed;
+    top: 0;
+    padding-bottom: 0px;
+    background-color: rgb(0, 0, 0);
+    background-image: url("../Images/MERCHBOOTH_137.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 105px;
+    background-color: rgb(0, 0, 0);
+    /*background-image: url("../Images/NavBackStars.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    font-size: 15px;
+    height: 0px;
+    width: 0px;
+    margin-left: 0px;
+    padding: 0px;
+}
+.navbar-nav {
+    position: fixed;
+    top: 125px;
+    left:230px;
+    background-color: rgb(0, 0, 0);
+    /*background-image: url("../Images/NavBackStars.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    font-size: 13px;
+    font-weight:bold;
+    height: 0px;
+    width: 300px;
+    /*margin-left: 18vw;*/
+    opacity: 1;
+    padding:0px;
+}
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 260px;
 }
 
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
-        margin-top: 20px;
+        margin-top: 270px;
     }
-
-    .body-content {
-        padding: 0;
-        margin:0px;
-    }
-
-    #merchboothImage {
-        width: 100vw;
-        height: 200px;
-        object-fit:cover;
-        margin-left:0px;
-    }
-    .navbar {
-        position: relative;
-        /*top: 200px;*/
-        background-color: rgb(0, 0, 0);
-        background-image: url("../Images/strat_newwww.JPG");
-        background-repeat: no-repeat;
-        background-size: cover; /* Resize the background image to cover the entire container */
-        font-size: 24px;
-    }
-    a.navbar-brand{
-        display:none;
-    }
-    /*a {
-        color: rgb(255, 255, 255);
-    }
-
-    .navbar-inverse .navbar-nav a, .navbar-inverse a {
-        color: rgb(255, 255, 255);
-    }*/
-
-
-}
-
-.Header {
-    background-color:black;
-    height:200px;
-
 }
