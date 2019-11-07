@@ -13,7 +13,10 @@ namespace Merchbooth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //A connection to the database to be used when geting or updatinh data            SiteDCDataContext _siteContext = new SiteDCDataContext();
             SiteDCDataContext _siteContext = new SiteDCDataContext();
+
+            //A tool that we use to bild the html fof each data item comig in from the database
             StringBuilder sb = new StringBuilder();
 
             int intProductId = 1;
@@ -30,6 +33,7 @@ namespace Merchbooth
             {
                 int intCount = 1;
                 sb.Append("<div class='column-left'><div class='col-md-12'><hr /></div></div>");
+
                 foreach (TProduct prod in queryProducts)
                 {
 
@@ -40,12 +44,12 @@ namespace Merchbooth
                     if (prod.strImageLink != "" && intCount == 1)
                     {
 
-                        sb.Append("<img src='/" + prod.strImageLink + "' class='img-responsive' style='display: block !important;margin-left: auto !important;margin-right: auto !important; '" + " />");
+                        sb.Append("<img src='../" + prod.strImageLink + "' class='img-responsive' style='display: block !important;margin-left: auto !important;margin-right: auto !important; '" + " />");
                     }
                     if (prod.strImageLink != "" && intCount != 1)
                     {
 
-                        sb.Append("<img src='/" + prod.strImageLink + "' class='img-responsive''" + " />");
+                        sb.Append("<img src='../" + prod.strImageLink + "' class='img-responsive''" + " />");
                     }
                     sb.Append("</div>");
 
