@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
-    <img id = "merchboothImage" src="../Images/merchbooth_stars_full_scr.JPG" alt="" >
+   
 
 
     <div class="jumbotron">
