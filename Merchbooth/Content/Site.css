@@ -4,6 +4,10 @@ body {
     height: 100%;
 }
 
+hr {
+    border:2px solid black;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -93,4 +97,10 @@ textarea {
     margin-bottom:0px;
     padding-bottom:20px;
     padding-top:10px;
+}
+
+.container {
+    width:auto;
+    padding-left:10%;
+    padding-right:10%;
 }
