@@ -58,7 +58,7 @@ namespace Merchbooth
 
                             if (blnNewBandDetected == true)
                             {
-                                sb.Append("<div class='row'><div class='col-md-12'><hr /></div></div>");
+                                sb.Append("<div class='row'><div class='col-md-12'><br /><hr /></div></div>");
                             }
 
                             if (blnNewBandDetected == true)
@@ -87,11 +87,11 @@ namespace Merchbooth
 
                             
                             // MDE - Here is where the product details and image are displayed
-                            sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;border:1px solid gray;' class='col-md-6'>" + "Product Name: " +item.p.strProductName + "<br />" + "Price: $" + item.p.decBandPrice + "<br />" + "Quantity Remaining: " + item.p.intAmountAvialable + "<br />");
+                            sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;max-width:23% !important;height:445px;' class='col-md-3'>" + "Product Name: " +item.p.strProductName + "<br />" + "Price: $" + item.p.decBandPrice + "<br />" + "Quantity Remaining: " + item.p.intAmountAvialable + "<br />");
                             if (item.p.strImageLink != "")
                             {
 
-                                sb.Append("<img src='/" + item.p.strImageLink + "' class='imgHome''" + " />");
+                                sb.Append(" <img src='../" + item.p.strImageLink + "' class='imgHome''" + " />");
                             }
 
                              sb.Append("</div>");
