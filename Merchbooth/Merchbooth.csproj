@@ -107,7 +107,9 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="BoothSalesPoint.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -126,6 +128,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin.Master" />
+    <Content Include="Images\CrowdSized_160.jpg" />
+    <Content Include="Images\CrowdSized_87h_483w.jpg" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignUp.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -159,7 +163,7 @@
     <Content Include="Images\guitar-2925274_640.jpg" />
     <Content Include="Images\GuitarSized.jpg" />
     <Content Include="Images\GuitarSized_b.jpg" />
-    <Content Include="Images\Guitar_Sized_c%281%29.jpg" />
+    <Content Include="Images\Guitar_Sized_c.jpg" />
     <Content Include="Images\halfstarts - Copy.jpg" />
     <Content Include="Images\halfstarts.jpg" />
     <Content Include="Images\halfstarts_left_right.jpg" />
@@ -287,6 +291,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BoothSalesPoint.aspx.cs">
+      <DependentUpon>BoothSalesPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BoothSalesPoint.aspx.designer.cs">
+      <DependentUpon>BoothSalesPoint.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

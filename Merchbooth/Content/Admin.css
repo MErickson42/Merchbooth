@@ -1,0 +1,82 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    /*padding-bottom: 20px;*/
+    background-color: cadetblue;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin:0px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    /*padding-left: 15px;
+    padding-right: 15px;*/ 
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+/*TODO Change to bands image!!!!!!!!!!!!!!!!!!*/
+.headerImage {
+    width: 100vw;
+    height: 140px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0PX;
+    position: fixed;
+    top: 0;
+    padding-bottom: 0px;
+    background-color: rgb(0, 0, 0);
+    background-image: url("../Images/CrowdSized_87h_483w.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10;
+}
+.ImRows {
+    position: relative;
+    top: 120px;
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.ImageRow {
+    margin-top: 25px;
+}
+.OneImage {
+    margin-left: 30px;
+    height: 160px;
+    display: inline;
+}
+
+.ImageRow p {
+    display: inline;
+    position:relative;
+    top: 20px;
+    right:80px;
+    font-size: 15px;
+    line-height:25px;
+      
+}
+
+.image-responsive {
+    border-radius: 24px;
+    height: 140px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 260px;
+}
+.navbar-nav {
+    display: none;
+    height:0px;
+}
+.navbar {
+    display: none;
+    height: 0px;
+}

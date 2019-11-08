@@ -43,7 +43,6 @@ namespace Merchbooth
                     sb.Append("<div class='col-md-2'>");
                     if (prod.strImageLink != "" && intCount == 1)
                     {
-
                         sb.Append("<img src='../" + prod.strImageLink + "' class='img-responsive' style='display: block !important;margin-left: auto !important;margin-right: auto !important; '" + " />");
                     }
                     if (prod.strImageLink != "" && intCount != 1)
