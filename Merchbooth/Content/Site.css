@@ -1,6 +1,7 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-bottom: 20px;
+    
+    height: 100%;
 }
 
 /* Wrapping element */
@@ -25,6 +26,7 @@ body {
     background-image: url("../Images/MERCHBOOTH_137.JPG");
     background-repeat: no-repeat;
     background-size: cover;
+    z-index:99;
 }
 
 
@@ -73,5 +75,22 @@ textarea {
 }
 
 .imgHome {
-    max-width:300px !important;
+    max-width:250px !important;
+}
+.page-wrap {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.site-footer {
+    background: black;
+    color: white;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    margin-top:25px;
+    margin-bottom:0px;
+    padding-bottom:20px;
+    padding-top:10px;
 }

@@ -25,12 +25,14 @@ namespace Merchbooth
             if (queryProducts.Count() > 0)
             {
                 int intCount = 1;
+                    // MDE this linq to sql query does a join - joining the intBandID from tables TBands and TProducts 
                     var queryBands = from b in _siteContext.TBands
                                      join p in _siteContext.TProducts
                                      on b.intBandID equals p.intBandID
-                                    // where b.intBandID == prod.intBandID
+                                     orderby p.intBandID
                                      select new { b, p };
 
+                    
                     queryBands.ToList();
                     if (queryBands.Count() > 0)
                     {
@@ -39,25 +41,33 @@ namespace Merchbooth
                         int intPreviousBandID = 1;
                         bool blnFirstTimeThroughLoop = true;
                         bool blnNewBandDetected = false;
+
+                        // This loop will loop through each product from the queryBands query we made
                         foreach (var item in queryBands)
                         {
+                            // MDE - item.p refrers to the 'p' in the 'select new {b, p}' part of the linq query. p represents products
+                            // we are setting the variable intBandID equal to the band ID of the item in the current loop
                             intBandID = item.p.intBandID;
 
+
+                            // We are checking to see if a new bandID  has been detected by seeing if the Band ID of the current loop does NOT equal the BandID of the previous loop
                             if (intBandID != intPreviousBandID && blnFirstTimeThroughLoop == false)
                             {
                                 blnNewBandDetected = true;
                             }
+
                             if (blnNewBandDetected == true)
                             {
                                 sb.Append("<div class='row'><div class='col-md-12'><hr /></div></div>");
                             }
+
                             if (blnNewBandDetected == true)
                             {
                                 sb.Append("</div>");
                                 blnNewBandDetected = false;
                             }
 
-                        if (blnFirstTimeThroughLoop == true)
+                            if (blnFirstTimeThroughLoop == true)
                             {
                                 sb.Append("<div class='row'>");
                                 // MDE - Get the band name from the current loop
@@ -77,7 +87,7 @@ namespace Merchbooth
 
                             
                             // MDE - Here is where the product details and image are displayed
-                            sb.Append("<div style='' class='col-md-6'>" + "Product Name: " +item.p.strProductName + "<br />" + "Price: $" + item.p.decBandPrice + "<br />" + "Quantity Remaining: " + item.p.intAmountAvialable + "<br />");
+                            sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;border:1px solid gray;' class='col-md-6'>" + "Product Name: " +item.p.strProductName + "<br />" + "Price: $" + item.p.decBandPrice + "<br />" + "Quantity Remaining: " + item.p.intAmountAvialable + "<br />");
                             if (item.p.strImageLink != "")
                             {
 

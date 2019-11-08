@@ -18,6 +18,7 @@
 </head>
 <body>
     <form runat="server">
+        <div class="page-wrap">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -71,11 +72,13 @@
                  
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
+            
         </div>
-
+            
+    </div>
+        <footer class="site-footer">
+                <p style="padding-left:10%;color:white;">&copy; <%: DateTime.Now.Year %> - Merchbooth</p>
+         </footer>
     </form>
 </body>
 </html>
