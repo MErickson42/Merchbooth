@@ -7,11 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Merchbooth
-{
-
-
-    public partial class Default
-    {
+namespace Merchbooth {
+    
+    
+    public partial class Default {
+        
+        /// <summary>
+        /// ltrProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrProducts;
     }
 }

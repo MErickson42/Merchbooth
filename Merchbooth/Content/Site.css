@@ -71,3 +71,7 @@ textarea {
         margin-top: 270px;
     }
 }
+
+.imgHome {
+    max-width:300px !important;
+}
