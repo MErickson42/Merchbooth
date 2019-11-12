@@ -108,6 +108,7 @@
     <Content Include="About.aspx" />
     <Content Include="AdminHome.aspx" />
     <Content Include="BoothSalesPoint.aspx" />
+    <Content Include="Checkout.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -128,6 +129,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin.Master" />
+    <Content Include="Images\AwerrnessaLBUM2_200.jpg" />
+    <Content Include="Images\AwerrnessBeginging_200.jpg" />
+    <Content Include="Images\basketbalAwarrness_200.jpg" />
     <Content Include="Images\CrowdSized_160.jpg" />
     <Content Include="Images\CrowdSized_87h_483w.jpg" />
     <Content Include="SignIn.aspx" />
@@ -297,6 +301,13 @@
     </Compile>
     <Compile Include="BoothSalesPoint.aspx.designer.cs">
       <DependentUpon>BoothSalesPoint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

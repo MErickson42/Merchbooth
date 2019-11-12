@@ -1,10 +1,11 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
     /*padding-bottom: 20px;*/
-    background-color: cadetblue;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin:0px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left:0px;
+    padding:0;
+    box-sizing:border-box;
 }
 
 /* Wrapping element */
@@ -12,8 +13,8 @@ body {
 .body-content {
     /*padding-left: 15px;
     padding-right: 15px;*/ 
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
@@ -21,40 +22,102 @@ body {
 .headerImage {
     width: 100vw;
     height: 140px;
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-left: 0PX;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
     position: fixed;
     top: 0;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     background-color: rgb(0, 0, 0);
     background-image: url("../Images/CrowdSized_87h_483w.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 10;
+    -webkit-user-drag: none;
 }
-.ImRows {
+
+#cartImage {
+    object-fit: cover;
+    /* padding-top: 15px; */
+    float: right;
+    margin-right: 34px;
+    margin-left: 10px;
+    height:30px;
+    z-index: 15;
+    margin-top: -10px;
+}
+
+#cartCount {
+    line-height: 28px;
+    margin-right: 40px;
+    color: rgb(226, 207, 207);
+    float: right;
+    font-size: 18px;
+    z-index: 15;
+    margin-top: -10px;
+}
+
+#cartCount:hover {
+    cursor: default;
+}
+
+.cartLink {
+    background-color:gold;
+}
+
+.buttonlink {
+    padding:20px;
+}
+.buttonlink:hover {
+    cursor:pointer;
+}
+
+#CartImgBtn {
+    height: 60px;
+    width: 100px;
+    background-color: goldenrod;
+    color: burlywood;
+    position: fixed;
+    top: 190px;
+    right: 50px;
+    z-index: 17;
+}
+.Wrapper {
     position: relative;
-    top: 120px;
+    top: 200px;
     display: block;
     padding-left: 15px;
     padding-right: 15px;
+    text-align: center;
+    margin: 0 auto;
 }
+
+/*.ImRows {
+    
+}*/
 
 .ImageRow {
     margin-top: 25px;
+    display:block;
+    text-align:left;
+
 }
 .OneImage {
     margin-left: 30px;
-    height: 160px;
+    /*height: 160px;*/
     display: inline;
+}
+
+.OneImage:hover {
+    cursor: pointer;
+    opacity: 0.85;
+    transition-duration: 0.3s
 }
 
 .ImageRow p {
     display: inline;
     position:relative;
-    top: 20px;
+    top: 1px;
     right:80px;
     font-size: 15px;
     line-height:25px;
@@ -62,9 +125,22 @@ body {
 }
 
 .image-responsive {
-    border-radius: 24px;
+    border-radius: 50px;
     height: 140px;
+    width:140px;
+    -webkit-user-drag: none;
+    display:inline;
 }
+.saleImage {
+    border-radius: 50px;
+    height: 140px;
+    width: 140px;
+    -webkit-user-drag: none;
+    display: inline;
+    margin-bottom:25px;
+}
+
+
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -72,11 +148,66 @@ select,
 textarea {
     max-width: 260px;
 }
-.navbar-nav {
-    display: none;
-    height:0px;
+.navbar-collapse {
+    position: fixed;
+    background-color: rgb(31, 29, 29);
+    color: rgb(100, 87, 87);
+    width: 100vw;
+    top: 140px;
+    z-index: 11;
+    height:40px;
 }
-.navbar {
-    display: none;
-    height: 0px;
+div{
+    margin:0;
+}
+ul {
+    list-style-type: none;
+}
+
+.nav a {
+    color: rgb(100, 87, 87);
+    text-decoration: none;
+    float: left;
+    /*line-height: 30px;*/
+    font-size: 20px;
+    vertical-align: central;
+    margin-top:-10px;
+}
+
+.nav a:hover {
+    color: white;
+}
+
+
+.CartWrapper{
+    position:absolute;
+    top:300px;
+    /*margin-left:auto;*/
+    border:3px solid black;
+    background-color:bisque;
+}
+.CartRow {
+    width: 300px;
+    font-size: 20px;
+    border: 3px solid black;
+    background-color: bisque;
+    padding: 20px 0px 20px 20px;
+}
+.CartTotalRow {
+    font-size: 20px;
+    height: 60px;
+    border: 3px solid black;
+    background-color: bisque;
+}
+.ProductTotal {
+    position: relative;
+    bottom: 60px;
+    left: 30px;
+    margin-right: 25px;
+    font-size: 20px;
+    display: inline;
+}
+.CartTotal{
+    margin-left:190px;
+    border:none;
 }
