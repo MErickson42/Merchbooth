@@ -48,9 +48,9 @@
                 //objCart.Products{objCart.intTotalCount-1 } = "{Id:" + intProductID + ",TypeId:" + intTypeID + ",Image:" + strImageUrl + ",Price:" + decPrice + ",Amount:" + intAmount + "},";
 			    //document.getElementById(id).innerHTML =  objCart.ThirstIDs + objCart.intTotalCount;
 			    document.getElementById("cartCount").innerHTML =  intTotalCount + " +";
-			    document.getElementById("testing").innerHTML =  Products;
+			    //document.getElementById("testing").innerHTML =  Products;
 
-                document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products)
+                document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
 
             }
 
@@ -72,11 +72,10 @@
         </script>
 
         <style type="text/css">
-                 #testing
+                 /*#testing
                  {
                     padding: 5px 10px;
                     text-decoration: none;
-                    /*border: solid 3px #cf6c0a;*/
                     background-color: bisque;
                     z-index:50;
                     position:fixed;
@@ -87,7 +86,7 @@
                     color:#262422;
                     font-size: 20px;
                     border-radius:4px 4px 4px 4px;
-                 }
+                 }*/
                 .buttonClass
                 {
                     padding: 5px 10px;
@@ -117,7 +116,7 @@
     <asp:LinkButton ID="LnkButtion" CssClass="buttonClass" runat="server" Text="Checkout" OnClick="LinkButton1_Click"/>
 
 
-    <p id="testing"></p>
+    <%--<p id="testing"></p>--%>
 
 
 

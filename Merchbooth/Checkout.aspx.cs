@@ -21,14 +21,17 @@ namespace Merchbooth
             int intCount = 0;
             string n = Request.RawUrl;
             n = HttpUtility.UrlDecode(n);
-            n = n.Substring(10);
+            StringBuilder sb = new StringBuilder();
+
+            if (n.Length >9)
+            {
+                n = n.Substring(10);
 
             String[] spearator = { "}" };
 
 
             //If somthig was past in as query string 
-            if (n != "")
-            {
+
 
 
                 // using the method 
@@ -55,7 +58,6 @@ namespace Merchbooth
 
                 //now that all the product are orgeized as Hastables in ArrayList - populate view
 
-                StringBuilder sb = new StringBuilder();
 
                 sb.Append("<div class = 'CartWrapper'>");
 
@@ -124,7 +126,9 @@ namespace Merchbooth
             }
             else
             {
-                //sb.Append("<div class='row'><div class='col-md-12'>No products in this category are currently available.</div></div>");
+                //sb.Append("<div class='row'><div class='col-md-12'>No products in cart.</div></div>");
+                //ltrCart.Text += sb.ToString();
+
             }
         }
 

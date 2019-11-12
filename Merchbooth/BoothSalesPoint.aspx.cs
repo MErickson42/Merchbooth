@@ -62,7 +62,7 @@ namespace Merchbooth
                             sb.Append("</div>");
                             sb.Append("<div class = 'ImageRow'>");
                             sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='../" + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + ","+ 1 + ")'" + "/>");
+                            sb.Append(" <img src='" + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + ","+ 1 + ")'" + "/>");
 
                             sb.Append("<p>");
                             sb.Append("<p>");
