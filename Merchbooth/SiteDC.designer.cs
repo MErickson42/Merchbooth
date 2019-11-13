@@ -260,9 +260,9 @@ namespace Merchbooth
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddBand")]
-		public int uspAddBand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intBandID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strBandName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip)
+		public int uspAddBand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intBandID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strBandName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPassword, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strTeamPassword, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strHeaderImage, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strBackroundImage)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intBandID, intStateID, strBandName, strPhone, strEmail, strCity, strAddress, strZip);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intBandID, intStateID, strBandName, strPhone, strEmail, strCity, strAddress, strZip, strPassword, strTeamPassword, strHeaderImage, strBackroundImage);
 			intBandID = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
@@ -276,9 +276,9 @@ namespace Merchbooth
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddBandMember")]
-		public int uspAddBandMember([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intMemberID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBandID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intGenderID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strFirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strLastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(9,2)")] System.Nullable<decimal> decSalary)
+		public int uspAddBandMember([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intMemberID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBandID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intGenderID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strFirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strLastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(9,2)")] System.Nullable<decimal> decSalary, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPassword)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intMemberID, intBandID, intStateID, intGenderID, strFirstName, strLastName, strPhone, strEmail, strAddress, strCity, strZip, decSalary);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intMemberID, intBandID, intStateID, intGenderID, strFirstName, strLastName, strPhone, strEmail, strAddress, strCity, strZip, decSalary, strPassword);
 			intMemberID = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
@@ -316,9 +316,9 @@ namespace Merchbooth
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddCustomer")]
-		public int uspAddCustomer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intCustomerID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intGenderID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strFirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strLastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip)
+		public int uspAddCustomer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intCustomerID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intStateID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intGenderID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strFirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strLastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strCity, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strZip, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strPassword)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCustomerID, intStateID, intGenderID, strFirstName, strLastName, strPhone, strEmail, strAddress, strCity, strZip);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intCustomerID, intStateID, intGenderID, strFirstName, strLastName, strPhone, strEmail, strAddress, strCity, strZip, strPassword);
 			intCustomerID = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
@@ -348,9 +348,9 @@ namespace Merchbooth
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="db_owner.uspAddProductType")]
-		public int uspAddProductType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBaseTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intColorID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strQrCode)
+		public int uspAddProductType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> intTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intBaseTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intColorID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> intGenderID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string strQrCode)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTypeID, intBaseTypeID, intColorID, strQrCode);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), intTypeID, intBaseTypeID, intColorID, intGenderID, strQrCode);
 			intTypeID = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
@@ -386,6 +386,14 @@ namespace Merchbooth
 		
 		private string _strZip;
 		
+		private string _strPassword;
+		
+		private string _strTeamPassword;
+		
+		private string _strHeaderImage;
+		
+		private string _strBackroundImage;
+		
 		private EntitySet<TBandsOrder> _TBandsOrders;
 		
 		private EntitySet<TMember> _TMembers;
@@ -412,6 +420,14 @@ namespace Merchbooth
     partial void OnstrAddressChanged();
     partial void OnstrZipChanging(string value);
     partial void OnstrZipChanged();
+    partial void OnstrPasswordChanging(string value);
+    partial void OnstrPasswordChanged();
+    partial void OnstrTeamPasswordChanging(string value);
+    partial void OnstrTeamPasswordChanged();
+    partial void OnstrHeaderImageChanging(string value);
+    partial void OnstrHeaderImageChanged();
+    partial void OnstrBackroundImageChanging(string value);
+    partial void OnstrBackroundImageChanged();
     #endregion
 		
 		public TBand()
@@ -422,7 +438,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intBandID
 		{
 			get
@@ -586,6 +602,86 @@ namespace Merchbooth
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strPassword", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strPassword
+		{
+			get
+			{
+				return this._strPassword;
+			}
+			set
+			{
+				if ((this._strPassword != value))
+				{
+					this.OnstrPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._strPassword = value;
+					this.SendPropertyChanged("strPassword");
+					this.OnstrPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strTeamPassword", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strTeamPassword
+		{
+			get
+			{
+				return this._strTeamPassword;
+			}
+			set
+			{
+				if ((this._strTeamPassword != value))
+				{
+					this.OnstrTeamPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._strTeamPassword = value;
+					this.SendPropertyChanged("strTeamPassword");
+					this.OnstrTeamPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strHeaderImage", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strHeaderImage
+		{
+			get
+			{
+				return this._strHeaderImage;
+			}
+			set
+			{
+				if ((this._strHeaderImage != value))
+				{
+					this.OnstrHeaderImageChanging(value);
+					this.SendPropertyChanging();
+					this._strHeaderImage = value;
+					this.SendPropertyChanged("strHeaderImage");
+					this.OnstrHeaderImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strBackroundImage", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strBackroundImage
+		{
+			get
+			{
+				return this._strBackroundImage;
+			}
+			set
+			{
+				if ((this._strBackroundImage != value))
+				{
+					this.OnstrBackroundImageChanging(value);
+					this.SendPropertyChanging();
+					this._strBackroundImage = value;
+					this.SendPropertyChanged("strBackroundImage");
+					this.OnstrBackroundImageChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBand_TBandsOrder", Storage="_TBandsOrders", ThisKey="intBandID", OtherKey="intBandID")]
 		public EntitySet<TBandsOrder> TBandsOrders
 		{
@@ -703,6 +799,8 @@ namespace Merchbooth
 		
 		private int _intColorID;
 		
+		private int _intGenderID;
+		
 		private string _strQrCode;
 		
 		private EntitySet<TProduct> _TProducts;
@@ -710,6 +808,8 @@ namespace Merchbooth
 		private EntityRef<TBaseType> _TBaseType;
 		
 		private EntityRef<TColor> _TColor;
+		
+		private EntityRef<TGender> _TGender;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -721,6 +821,8 @@ namespace Merchbooth
     partial void OnintBaseTypeIDChanged();
     partial void OnintColorIDChanging(int value);
     partial void OnintColorIDChanged();
+    partial void OnintGenderIDChanging(int value);
+    partial void OnintGenderIDChanged();
     partial void OnstrQrCodeChanging(string value);
     partial void OnstrQrCodeChanged();
     #endregion
@@ -730,10 +832,11 @@ namespace Merchbooth
 			this._TProducts = new EntitySet<TProduct>(new Action<TProduct>(this.attach_TProducts), new Action<TProduct>(this.detach_TProducts));
 			this._TBaseType = default(EntityRef<TBaseType>);
 			this._TColor = default(EntityRef<TColor>);
+			this._TGender = default(EntityRef<TGender>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intTypeID
 		{
 			get
@@ -797,6 +900,30 @@ namespace Merchbooth
 					this._intColorID = value;
 					this.SendPropertyChanged("intColorID");
 					this.OnintColorIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", DbType="Int NOT NULL")]
+		public int intGenderID
+		{
+			get
+			{
+				return this._intGenderID;
+			}
+			set
+			{
+				if ((this._intGenderID != value))
+				{
+					if (this._TGender.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintGenderIDChanging(value);
+					this.SendPropertyChanging();
+					this._intGenderID = value;
+					this.SendPropertyChanged("intGenderID");
+					this.OnintGenderIDChanged();
 				}
 			}
 		}
@@ -902,6 +1029,40 @@ namespace Merchbooth
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TType", Storage="_TGender", ThisKey="intGenderID", OtherKey="intGenderID", IsForeignKey=true)]
+		public TGender TGender
+		{
+			get
+			{
+				return this._TGender.Entity;
+			}
+			set
+			{
+				TGender previousValue = this._TGender.Entity;
+				if (((previousValue != value) 
+							|| (this._TGender.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TGender.Entity = null;
+						previousValue.TTypes.Remove(this);
+					}
+					this._TGender.Entity = value;
+					if ((value != null))
+					{
+						value.TTypes.Add(this);
+						this._intGenderID = value.intGenderID;
+					}
+					else
+					{
+						this._intGenderID = default(int);
+					}
+					this.SendPropertyChanged("TGender");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -978,7 +1139,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandOrderID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandOrderID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intBandOrderID
 		{
 			get
@@ -1190,7 +1351,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBaseTypeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBaseTypeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intBaseTypeID
 		{
 			get
@@ -1304,7 +1465,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intColorID
 		{
 			get
@@ -1433,7 +1594,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerPurchaseProductID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerPurchaseProductID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intCustomerPurchaseProductID
 		{
 			get
@@ -1673,7 +1834,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerPurchaseID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerPurchaseID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intCustomerPurchaseID
 		{
 			get
@@ -1883,6 +2044,8 @@ namespace Merchbooth
 		
 		private string _strZip;
 		
+		private string _strPassword;
+		
 		private EntitySet<TCustomerPurchase> _TCustomerPurchases;
 		
 		private EntityRef<TGender> _TGender;
@@ -1913,6 +2076,8 @@ namespace Merchbooth
     partial void OnstrCityChanged();
     partial void OnstrZipChanging(string value);
     partial void OnstrZipChanged();
+    partial void OnstrPasswordChanging(string value);
+    partial void OnstrPasswordChanged();
     #endregion
 		
 		public TCustomer()
@@ -1923,7 +2088,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intCustomerID
 		{
 			get
@@ -2131,6 +2296,26 @@ namespace Merchbooth
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strPassword", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strPassword
+		{
+			get
+			{
+				return this._strPassword;
+			}
+			set
+			{
+				if ((this._strPassword != value))
+				{
+					this.OnstrPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._strPassword = value;
+					this.SendPropertyChanged("strPassword");
+					this.OnstrPasswordChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TCustomer_TCustomerPurchase", Storage="_TCustomerPurchases", ThisKey="intCustomerID", OtherKey="intCustomerID")]
 		public EntitySet<TCustomerPurchase> TCustomerPurchases
 		{
@@ -2255,6 +2440,8 @@ namespace Merchbooth
 		
 		private string _strGender;
 		
+		private EntitySet<TType> _TTypes;
+		
 		private EntitySet<TCustomer> _TCustomers;
 		
 		private EntitySet<TMember> _TMembers;
@@ -2271,12 +2458,13 @@ namespace Merchbooth
 		
 		public TGender()
 		{
+			this._TTypes = new EntitySet<TType>(new Action<TType>(this.attach_TTypes), new Action<TType>(this.detach_TTypes));
 			this._TCustomers = new EntitySet<TCustomer>(new Action<TCustomer>(this.attach_TCustomers), new Action<TCustomer>(this.detach_TCustomers));
 			this._TMembers = new EntitySet<TMember>(new Action<TMember>(this.attach_TMembers), new Action<TMember>(this.detach_TMembers));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intGenderID
 		{
 			get
@@ -2313,6 +2501,19 @@ namespace Merchbooth
 					this.SendPropertyChanged("strGender");
 					this.OnstrGenderChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TType", Storage="_TTypes", ThisKey="intGenderID", OtherKey="intGenderID")]
+		public EntitySet<TType> TTypes
+		{
+			get
+			{
+				return this._TTypes;
+			}
+			set
+			{
+				this._TTypes.Assign(value);
 			}
 		}
 		
@@ -2360,6 +2561,18 @@ namespace Merchbooth
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_TTypes(TType entity)
+		{
+			this.SendPropertyChanging();
+			entity.TGender = this;
+		}
+		
+		private void detach_TTypes(TType entity)
+		{
+			this.SendPropertyChanging();
+			entity.TGender = null;
 		}
 		
 		private void attach_TCustomers(TCustomer entity)
@@ -2415,6 +2628,8 @@ namespace Merchbooth
 		
 		private string _strZip;
 		
+		private string _strPassword;
+		
 		private decimal _decSalary;
 		
 		private EntityRef<TBand> _TBand;
@@ -2449,6 +2664,8 @@ namespace Merchbooth
     partial void OnstrCityChanged();
     partial void OnstrZipChanging(string value);
     partial void OnstrZipChanged();
+    partial void OnstrPasswordChanging(string value);
+    partial void OnstrPasswordChanged();
     partial void OndecSalaryChanging(decimal value);
     partial void OndecSalaryChanged();
     #endregion
@@ -2461,7 +2678,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intMemberID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intMemberID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intMemberID
 		{
 			get
@@ -2693,6 +2910,26 @@ namespace Merchbooth
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strPassword", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strPassword
+		{
+			get
+			{
+				return this._strPassword;
+			}
+			set
+			{
+				if ((this._strPassword != value))
+				{
+					this.OnstrPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._strPassword = value;
+					this.SendPropertyChanged("strPassword");
+					this.OnstrPasswordChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decSalary", DbType="Decimal(9,2) NOT NULL")]
 		public decimal decSalary
 		{
@@ -2879,7 +3116,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intOrderSupplierProductID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intOrderSupplierProductID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intOrderSupplierProductID
 		{
 			get
@@ -3130,7 +3367,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intProductID
 		{
 			get
@@ -3416,7 +3653,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intStateID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intStateID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intStateID
 		{
 			get
@@ -3619,7 +3856,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSupplierProductID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSupplierProductID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intSupplierProductID
 		{
 			get
@@ -3876,7 +4113,7 @@ namespace Merchbooth
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSupplierID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSupplierID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int intSupplierID
 		{
 			get
@@ -4140,6 +4377,10 @@ namespace Merchbooth
 		
 		private string _Zip;
 		
+		private string _strHeaderImage;
+		
+		private string _strBackroundImage;
+		
 		private int _intStateID;
 		
 		private string _strLastName;
@@ -4290,6 +4531,38 @@ namespace Merchbooth
 				if ((this._Zip != value))
 				{
 					this._Zip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strHeaderImage", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strHeaderImage
+		{
+			get
+			{
+				return this._strHeaderImage;
+			}
+			set
+			{
+				if ((this._strHeaderImage != value))
+				{
+					this._strHeaderImage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strBackroundImage", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strBackroundImage
+		{
+			get
+			{
+				return this._strBackroundImage;
+			}
+			set
+			{
+				if ((this._strBackroundImage != value))
+				{
+					this._strBackroundImage = value;
 				}
 			}
 		}
@@ -4510,6 +4783,8 @@ namespace Merchbooth
 		private string _strBaseType;
 		
 		private string _strColor;
+		
+		private int _intGenderID;
 		
 		private int _intTypeID;
 		
@@ -4807,6 +5082,22 @@ namespace Merchbooth
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", DbType="Int NOT NULL")]
+		public int intGenderID
+		{
+			get
+			{
+				return this._intGenderID;
+			}
+			set
+			{
+				if ((this._intGenderID != value))
+				{
+					this._intGenderID = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", DbType="Int NOT NULL")]
 		public int intTypeID
 		{
@@ -4862,6 +5153,10 @@ namespace Merchbooth
 		
 		private string _strZip;
 		
+		private string _strHeaderImage;
+		
+		private string _strBackroundImage;
+		
 		private int _intBandOrderID;
 		
 		private int _intOrderNumber;
@@ -4889,6 +5184,8 @@ namespace Merchbooth
 		private string _strBaseType;
 		
 		private string _strColor;
+		
+		private int _intGenderID;
 		
 		private int _intTypeID;
 		
@@ -5038,6 +5335,38 @@ namespace Merchbooth
 				if ((this._strZip != value))
 				{
 					this._strZip = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strHeaderImage", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strHeaderImage
+		{
+			get
+			{
+				return this._strHeaderImage;
+			}
+			set
+			{
+				if ((this._strHeaderImage != value))
+				{
+					this._strHeaderImage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strBackroundImage", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strBackroundImage
+		{
+			get
+			{
+				return this._strBackroundImage;
+			}
+			set
+			{
+				if ((this._strBackroundImage != value))
+				{
+					this._strBackroundImage = value;
 				}
 			}
 		}
@@ -5262,6 +5591,22 @@ namespace Merchbooth
 				if ((this._strColor != value))
 				{
 					this._strColor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", DbType="Int NOT NULL")]
+		public int intGenderID
+		{
+			get
+			{
+				return this._intGenderID;
+			}
+			set
+			{
+				if ((this._intGenderID != value))
+				{
+					this._intGenderID = value;
 				}
 			}
 		}

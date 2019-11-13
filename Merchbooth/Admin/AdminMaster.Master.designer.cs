@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Merchbooth {
+namespace Merchbooth.Admin {
     
     
-    public partial class Admin {
+    public partial class AdminMaster {
         
         /// <summary>
         /// head control.
@@ -29,15 +29,6 @@ namespace Merchbooth {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// HeaderImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderImage;
         
         /// <summary>
         /// ContentPlaceHolder1 control.
