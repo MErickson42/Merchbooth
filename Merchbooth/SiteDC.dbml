@@ -2,7 +2,7 @@
   <Connection Mode="WebSettings" ConnectionString="Data Source=itd2.cincinnatistate.edu;Initial Catalog=CPDM_EricksonM;Persist Security Info=True;User ID=CPDM_mderickson" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CPDM_EricksonMConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="db_owner.TBands" Member="TBands">
     <Type Name="TBand">
-      <Column Name="intBandID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intBandID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intStateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="strBandName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strPhone" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
@@ -10,6 +10,10 @@
       <Column Name="strCity" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strZip" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strPassword" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strTeamPassword" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strHeaderImage" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strBackroundImage" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="TBand_TBandsOrder" Member="TBandsOrders" ThisKey="intBandID" OtherKey="intBandID" Type="TBandsOrder" />
       <Association Name="TBand_TMember" Member="TMembers" ThisKey="intBandID" OtherKey="intBandID" Type="TMember" />
       <Association Name="TState_TBand" Member="TState" ThisKey="intStateID" OtherKey="intStateID" Type="TState" IsForeignKey="true" />
@@ -17,18 +21,20 @@
   </Table>
   <Table Name="db_owner.TTypes" Member="TTypes">
     <Type Name="TType">
-      <Column Name="intTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intBaseTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intColorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intGenderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="strQrCode" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="TType_TProduct" Member="TProducts" ThisKey="intTypeID" OtherKey="intTypeID" Type="TProduct" />
       <Association Name="TBaseType_TType" Member="TBaseType" ThisKey="intBaseTypeID" OtherKey="intBaseTypeID" Type="TBaseType" IsForeignKey="true" />
       <Association Name="TColor_TType" Member="TColor" ThisKey="intColorID" OtherKey="intColorID" Type="TColor" IsForeignKey="true" />
+      <Association Name="TGender_TType" Member="TGender" ThisKey="intGenderID" OtherKey="intGenderID" Type="TGender" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="db_owner.TBandsOrders" Member="TBandsOrders">
     <Type Name="TBandsOrder">
-      <Column Name="intBandOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intBandOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intBandID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intOrderNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
@@ -39,21 +45,21 @@
   </Table>
   <Table Name="db_owner.TBaseTypes" Member="TBaseTypes">
     <Type Name="TBaseType">
-      <Column Name="intBaseTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intBaseTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="strBaseType" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="TBaseType_TType" Member="TTypes" ThisKey="intBaseTypeID" OtherKey="intBaseTypeID" Type="TType" />
     </Type>
   </Table>
   <Table Name="db_owner.TColors" Member="TColors">
     <Type Name="TColor">
-      <Column Name="intColorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intColorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="strColor" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="TColor_TType" Member="TTypes" ThisKey="intColorID" OtherKey="intColorID" Type="TType" />
     </Type>
   </Table>
   <Table Name="db_owner.TCustomerPurchaseProducts" Member="TCustomerPurchaseProducts">
     <Type Name="TCustomerPurchaseProduct">
-      <Column Name="intCustomerPurchaseProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intCustomerPurchaseProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intCustomerPurchaseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intProductPurchaseCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -64,7 +70,7 @@
   </Table>
   <Table Name="db_owner.TCustomerPurchases" Member="TCustomerPurchases">
     <Type Name="TCustomerPurchase">
-      <Column Name="intCustomerPurchaseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intCustomerPurchaseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intCustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intPurchaseNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
@@ -75,7 +81,7 @@
   </Table>
   <Table Name="db_owner.TCustomers" Member="TCustomers">
     <Type Name="TCustomer">
-      <Column Name="intCustomerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intCustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intStateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intGenderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="strFirstName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
@@ -85,6 +91,7 @@
       <Column Name="strAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strCity" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strZip" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strPassword" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="TCustomer_TCustomerPurchase" Member="TCustomerPurchases" ThisKey="intCustomerID" OtherKey="intCustomerID" Type="TCustomerPurchase" />
       <Association Name="TGender_TCustomer" Member="TGender" ThisKey="intGenderID" OtherKey="intGenderID" Type="TGender" IsForeignKey="true" />
       <Association Name="TState_TCustomer" Member="TState" ThisKey="intStateID" OtherKey="intStateID" Type="TState" IsForeignKey="true" />
@@ -92,15 +99,16 @@
   </Table>
   <Table Name="db_owner.TGenders" Member="TGenders">
     <Type Name="TGender">
-      <Column Name="intGenderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intGenderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="strGender" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="TGender_TType" Member="TTypes" ThisKey="intGenderID" OtherKey="intGenderID" Type="TType" />
       <Association Name="TGender_TCustomer" Member="TCustomers" ThisKey="intGenderID" OtherKey="intGenderID" Type="TCustomer" />
       <Association Name="TGender_TMember" Member="TMembers" ThisKey="intGenderID" OtherKey="intGenderID" Type="TMember" />
     </Type>
   </Table>
   <Table Name="db_owner.TMembers" Member="TMembers">
     <Type Name="TMember">
-      <Column Name="intMemberID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intMemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intBandID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intStateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intGenderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -111,6 +119,7 @@
       <Column Name="strAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strCity" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strZip" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strPassword" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="decSalary" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
       <Association Name="TBand_TMember" Member="TBand" ThisKey="intBandID" OtherKey="intBandID" Type="TBand" IsForeignKey="true" />
       <Association Name="TGender_TMember" Member="TGender" ThisKey="intGenderID" OtherKey="intGenderID" Type="TGender" IsForeignKey="true" />
@@ -119,7 +128,7 @@
   </Table>
   <Table Name="db_owner.TOrdersSupplierProducts" Member="TOrdersSupplierProducts">
     <Type Name="TOrdersSupplierProduct">
-      <Column Name="intOrderSupplierProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intOrderSupplierProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intBandOrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intSupplierProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intProductOrderCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -130,7 +139,7 @@
   </Table>
   <Table Name="db_owner.TProducts" Member="TProducts">
     <Type Name="TProduct">
-      <Column Name="intProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intBandID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="strProductName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
@@ -144,7 +153,7 @@
   </Table>
   <Table Name="db_owner.TStates" Member="TStates">
     <Type Name="TState">
-      <Column Name="intStateID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intStateID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="strStateName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="TState_TBand" Member="TBands" ThisKey="intStateID" OtherKey="intStateID" Type="TBand" />
       <Association Name="TState_TCustomer" Member="TCustomers" ThisKey="intStateID" OtherKey="intStateID" Type="TCustomer" />
@@ -154,7 +163,7 @@
   </Table>
   <Table Name="db_owner.TSupplierProducts" Member="TSupplierProducts">
     <Type Name="TSupplierProduct">
-      <Column Name="intSupplierProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intSupplierProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intSupplierID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="decSupplierPrice" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
@@ -165,7 +174,7 @@
   </Table>
   <Table Name="db_owner.TSuppliers" Member="TSuppliers">
     <Type Name="TSupplier">
-      <Column Name="intSupplierID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intSupplierID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intStateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="strSupplierName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strPhone" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
@@ -187,6 +196,8 @@
       <Column Name="City" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="Address" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="Zip" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strHeaderImage" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strBackroundImage" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="intStateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="strLastName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strFirstName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
@@ -220,6 +231,7 @@
       <Column Name="strImageLink" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strBaseType" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strColor" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="intGenderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intColorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
@@ -235,6 +247,8 @@
       <Column Name="strCity" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strZip" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strHeaderImage" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strBackroundImage" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="intBandOrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intOrderNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
@@ -249,6 +263,7 @@
       <Column Name="strImageLink" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strBaseType" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="strColor" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="intGenderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="intColorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
@@ -295,6 +310,10 @@
     <Parameter Name="strCity" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="strAddress" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="strZip" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="strPassword" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="strTeamPassword" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="strHeaderImage" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="strBackroundImage" Type="System.String" DbType="VarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="db_owner.uspAddSupplierProduct" Method="uspAddSupplierProduct">
@@ -317,6 +336,7 @@
     <Parameter Name="strCity" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="strZip" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="decSalary" Type="System.Decimal" DbType="Decimal(9,2)" />
+    <Parameter Name="strPassword" Type="System.String" DbType="VarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="db_owner.uspAddBandOrder" Method="uspAddBandOrder">
@@ -355,6 +375,7 @@
     <Parameter Name="strAddress" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="strCity" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="strZip" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="strPassword" Type="System.String" DbType="VarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="db_owner.uspAddCustomerPurchase" Method="uspAddCustomerPurchase">
@@ -386,6 +407,7 @@
     <Parameter Name="intTypeID" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Parameter Name="intBaseTypeID" Type="System.Int32" DbType="Int" />
     <Parameter Name="intColorID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intGenderID" Type="System.Int32" DbType="Int" />
     <Parameter Name="strQrCode" Type="System.String" DbType="VarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
