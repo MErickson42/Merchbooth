@@ -12,8 +12,18 @@ namespace Merchbooth
 {
     public partial class BoothSalesPoint : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            string strUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+
+            int index1 = strUrl.LastIndexOf('/');
+
+            index1 += 1;
+
+            strUrl = strUrl.Substring(0, index1);
+
+
             //A connection to the database to be used when geting or updatinh data  
             SiteDCDataContext _siteContext = new SiteDCDataContext();
 
@@ -50,7 +60,7 @@ namespace Merchbooth
                         if (prod.intTypeID == intTypeCompare)
                         {
                             sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='../" + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
+                            sb.Append(" <img src='" + strUrl  + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
 
                             sb.Append("<p>");
                             sb.Append(prod.decBandPrice);
@@ -62,7 +72,7 @@ namespace Merchbooth
                             sb.Append("</div>");
                             sb.Append("<div class = 'ImageRow'>");
                             sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='" + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + ","+ 1 + ")'" + "/>");
+                            sb.Append(" <img src='" + strUrl + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + ","+ 1 + ")'" + "/>");
 
                             sb.Append("<p>");
                             sb.Append("<p>");
