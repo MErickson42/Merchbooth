@@ -23,9 +23,9 @@ namespace Merchbooth
             n = HttpUtility.UrlDecode(n);
             StringBuilder sb = new StringBuilder();
 
-            if (n.Length >9)
+            if (n.Length >15)
             {
-                n = n.Substring(10);
+                n = n.Substring(16);
 
             String[] spearator = { "}" };
 

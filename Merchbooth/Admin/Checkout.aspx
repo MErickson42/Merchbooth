@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="Merchbooth.Checkout" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterB.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="Merchbooth.Checkout" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderImage" runat="server">
 

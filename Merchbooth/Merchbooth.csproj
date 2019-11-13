@@ -109,8 +109,8 @@
     <Content Include="AdminHome.aspx" />
     <Content Include="Admin\ModifyProduct.aspx" />
     <Content Include="Admin\Products.aspx" />
-    <Content Include="BoothSalesPoint.aspx" />
-    <Content Include="Checkout.aspx" />
+    <Content Include="Admin\BoothSalesPoint.aspx" />
+    <Content Include="Admin\Checkout.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -138,6 +138,7 @@
     <Content Include="SignIn.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Admin\AdminMaster.Master" />
+    <Content Include="Admin\AdminMasterB.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\600.jpg" />
     <Content Include="Images\background-2944077_1920.jpg" />
@@ -281,6 +282,13 @@
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminMasterB.Master.cs">
+      <DependentUpon>AdminMasterB.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMasterB.Master.designer.cs">
+      <DependentUpon>AdminMasterB.Master</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,18 +319,18 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="BoothSalesPoint.aspx.cs">
+    <Compile Include="Admin\BoothSalesPoint.aspx.cs">
       <DependentUpon>BoothSalesPoint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BoothSalesPoint.aspx.designer.cs">
+    <Compile Include="Admin\BoothSalesPoint.aspx.designer.cs">
       <DependentUpon>BoothSalesPoint.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Checkout.aspx.cs">
+    <Compile Include="Admin\Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Checkout.aspx.designer.cs">
+    <Compile Include="Admin\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">

@@ -10,7 +10,7 @@
 namespace Merchbooth.Admin {
     
     
-    public partial class AdminMaster {
+    public partial class AdminMadterB {
         
         /// <summary>
         /// head control.

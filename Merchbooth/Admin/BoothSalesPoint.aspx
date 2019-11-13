@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="BoothSalesPoint.aspx.cs" Inherits="Merchbooth.BoothSalesPoint" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterB.Master" AutoEventWireup="true" CodeBehind="BoothSalesPoint.aspx.cs" Inherits="Merchbooth.BoothSalesPoint" %>
         
 <asp:Content ID="HeaderImage1" ContentPlaceHolderID="HeaderImage" runat="server">
   
@@ -47,8 +47,12 @@
 
                 //objCart.Products{objCart.intTotalCount-1 } = "{Id:" + intProductID + ",TypeId:" + intTypeID + ",Image:" + strImageUrl + ",Price:" + decPrice + ",Amount:" + intAmount + "},";
 			    //document.getElementById(id).innerHTML =  objCart.ThirstIDs + objCart.intTotalCount;
-			    document.getElementById("cartCount").innerHTML =  intTotalCount + " +";
-			    //document.getElementById("testing").innerHTML =  Products;
+                //
+
+
+                document.getElementById("cartCount").innerHTML = intTotalCount + " +";
+
+                //document.getElementById("testing").innerHTML =  Products;
 
                 document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
 
