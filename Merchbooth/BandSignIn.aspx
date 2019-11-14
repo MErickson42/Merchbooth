@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Band Sign In" Language="C#" MasterPageFile="~/Admin/AdminMasterB.Master" AutoEventWireup="true" CodeBehind="BandSignIn.aspx.cs" Inherits="Merchbooth.SignIn" %>
+﻿<%@ Page Title="Band Sign In" Language="C#" MasterPageFile="~/Sign.Master" AutoEventWireup="true" CodeBehind="BandSignIn.aspx.cs" Inherits="Merchbooth.SignIn" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

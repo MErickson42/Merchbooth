@@ -367,6 +367,13 @@
     <Compile Include="BandSignIn.aspx.designer.cs">
       <DependentUpon>BandSignIn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sign.Master.cs">
+      <DependentUpon>Sign.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sign.Master.designer.cs">
+      <DependentUpon>Sign.Master</DependentUpon>
+    </Compile>
     <Compile Include="SignInOptions.aspx.cs">
       <DependentUpon>SignInOptions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -422,6 +429,7 @@
       <LastGenOutput>SiteDC.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Sign.Master" />
     <None Include="SiteDC.dbml.layout">
       <DependentUpon>SiteDC.dbml</DependentUpon>
     </None>
