@@ -119,7 +119,7 @@ namespace Merchbooth.Classes
                 ud.isValidUser = true;
                 ud.Username = user.strEmail;
                 ud.Name = user.strBandName;
-                
+             
                 
             }
 
