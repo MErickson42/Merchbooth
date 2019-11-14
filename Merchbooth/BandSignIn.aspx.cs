@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Merchbooth.Classes;
 
 namespace Merchbooth
 {
@@ -50,13 +51,18 @@ namespace Merchbooth
             {
                 if(BandKey >0)
                 {
-                    message = "Welcom back " + strBandName;
+                    message = "Welcome back " + strBandName;
 
                     //TODO For now there is no home page
                     //Response.Redirect("/Admin/?pk=" + BandKey + "&message=" + Server.UrlEncode(message));
 
                     //So sending to modify product page
-                    Response.Redirect("/Admin/Products.aspx?&message=" + Server.UrlEncode(message));
+                   // Response.Redirect("/Admin/Products.aspx?&message=" + Server.UrlEncode(message));
+                    if (DataHelper.ValidateUser(txtEmail.Text, txtPassword.Text))
+                    {
+                        Response.Redirect("/Admin/Products.aspx?&message=" + Server.UrlEncode(message));
+                    }
+
 
                 }
                 else

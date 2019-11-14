@@ -333,6 +333,8 @@
     <Compile Include="Admin\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DataHelper.cs" />
+    <Compile Include="Classes\UserDetails.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -409,7 +411,6 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Classes\" />
     <Folder Include="Uploads\Products\" />
   </ItemGroup>
   <ItemGroup>

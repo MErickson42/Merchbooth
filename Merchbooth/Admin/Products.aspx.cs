@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Merchbooth.Classes;
 
 namespace Merchbooth.Admin
 {
@@ -13,6 +14,13 @@ namespace Merchbooth.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             lblMessage.Text = Server.UrlDecode(Request.QueryString["message"]);
+            int intBandID = 0;
+            if (HttpContext.Current.Session["UserDetails"] != null)
+            {
+                UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+
+                intBandID = ud.UserKey;
+            }
 
             SiteDCDataContext _siteContent = new SiteDCDataContext();
 
@@ -20,7 +28,7 @@ namespace Merchbooth.Admin
 
                                 orderby p.intProductID
                                 // MDE - For now - we will just query band 1 until we have a functioning login system
-                                where p.intBandID == 1
+                                where p.intBandID == intBandID
                                 select p;
 
             queryProducts.ToList();

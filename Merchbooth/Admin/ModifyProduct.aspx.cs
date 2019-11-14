@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Merchbooth.Classes;
 
 namespace Merchbooth.Admin
 {
@@ -15,6 +16,14 @@ namespace Merchbooth.Admin
             if (!IsPostBack)
             {
                 SiteDCDataContext _siteContext = new SiteDCDataContext();
+
+                int intBandID = 0;
+                if (HttpContext.Current.Session["UserDetails"] != null)
+                {
+                    UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+
+                    intBandID = ud.UserKey;
+                }
 
                 string Action = Request.QueryString["a"];
                 int ProductKey = 0;
@@ -28,7 +37,8 @@ namespace Merchbooth.Admin
                     if (ProductKey > 0) // Delete a product.
                     {
                         var queryProducts = from p in _siteContext.TProducts
-                                            where p.intProductID == ProductKey
+                                            where p.intProductID == ProductKey && p.intBandID == intBandID
+
                                             select p;
 
                       
@@ -50,7 +60,7 @@ namespace Merchbooth.Admin
                     FormHeader.Text = "Update a Product";
 
                     var queryProducts = from p in _siteContext.TProducts
-                                        where p.intProductID == ProductKey
+                                        where p.intProductID == ProductKey && p.intBandID == intBandID
                                         select p;
 
                     foreach (TProduct prod in queryProducts)
@@ -69,6 +79,15 @@ namespace Merchbooth.Admin
 
         protected void btnUpdateProduct_Click(object sender, EventArgs e)
         {
+
+            int intBandID = 0;
+            if (HttpContext.Current.Session["UserDetails"] != null)
+            {
+                UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+
+                intBandID = ud.UserKey;
+            }
+
             string message = "";
             int ProductKey = 0;
             if (!String.IsNullOrEmpty(Request.QueryString["pk"]))
@@ -88,7 +107,7 @@ namespace Merchbooth.Admin
             if (ProductKey > 0) // Update the Product
             {
                 var queryProducts = from p in _siteContext.TProducts
-                                    where p.intProductID== ProductKey
+                                    where p.intProductID== ProductKey && p.intBandID == intBandID
                                     select p;
 
                 foreach (TProduct prod in queryProducts)
@@ -98,8 +117,8 @@ namespace Merchbooth.Admin
                     prod.strImageLink = sOldProductPath;
                     prod.decBandPrice = decPrice;
                     prod.intAmountAvialable = intQuantity;
-                    //MDE - For now - just hardcoding bandID 1 and TypeID 1 until login finished - and I write the join for type
-                    prod.intBandID = 1;
+                   
+                    prod.intBandID = intBandID;
                     prod.intTypeID = 1;
                 }
 
@@ -115,8 +134,8 @@ namespace Merchbooth.Admin
                 prod.strImageLink = "";
                 prod.decBandPrice = decPrice;
                 prod.intAmountAvialable = intQuantity;
-                //MDE - For now - just hardcoding bandID 1 and TypeID 1 until login finished - and I write the join for type
-                prod.intBandID = 1;
+                //MDE - For now - just hardcoding TypeID 1 until  I write the join for type
+                prod.intBandID = intBandID;
                 prod.intTypeID = 1;
 
 
