@@ -135,6 +135,7 @@ namespace Merchbooth
 
         protected void LinkButtonPurchase_Click(object sender, EventArgs e)
         {
+            string message = "";
 
             SiteDCDataContext _siteContext = new SiteDCDataContext();
 
@@ -157,9 +158,12 @@ namespace Merchbooth
                     }
                 }
             }
+            message = "Purchase complete";
 
-            string strUrl = "BoothSalesPoint.aspx";
-            Response.RedirectPermanent(strUrl);
+            Response.Redirect("/Admin/BoothSalePoint.aspx?message=" + Server.UrlEncode(message));
+
+            //string strUrl = "../Admin/BoothSalePoint.aspx?message=Purchase complete.";
+            //Response.RedirectPermanent(strUrl);
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert ('Sale Complete')", true);
 
         }

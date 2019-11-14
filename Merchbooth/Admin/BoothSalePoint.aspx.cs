@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
-
+using Merchbooth.Classes;
 
 namespace Merchbooth
 {
@@ -15,14 +15,22 @@ namespace Merchbooth
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int intBandID = 0;
+            if (HttpContext.Current.Session["UserDetails"] != null)
+            {
+                UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+
+                intBandID = ud.UserKey;
+            }
+
+
+
             //string strUrl = HttpContext.Current.Request.Url.AbsoluteUri;
 
             //int index1 = strUrl.LastIndexOf('/');
 
-
-            //index1 = strUrl.LastIndexOf('/');
+            //strUrl = strUrl.Substring(0, index1);
             //index1 += 1;
-
             //strUrl = strUrl.Substring(0, index1);
 
             //A connection to the database to be used when geting or updatinh data  
@@ -32,8 +40,8 @@ namespace Merchbooth
             StringBuilder sb = new StringBuilder();
 
             var queryProducts = from c in _siteContext.TProducts
-                                    // where c.intProductID == intProductId
-                                    orderby c.intTypeID
+                                    where c.intBandID == intBandID
+                                orderby c.intTypeID
                                 select c ;
 
 
@@ -61,7 +69,7 @@ namespace Merchbooth
                         if (prod.intTypeID == intTypeCompare)
                         {
                             sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='../"   + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
+                            sb.Append(" <img src='../../"  + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
 
                             sb.Append("<p>");
                             sb.Append(prod.decBandPrice);
@@ -73,7 +81,7 @@ namespace Merchbooth
                             sb.Append("</div>");
                             sb.Append("<div class = 'ImageRow'>");
                             sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='../"  + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + ","+ 1 + ")'" + "/>");
+                            sb.Append(" <img src='../../"   + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + ","+ 1 + ")'" + "/>");
 
                             sb.Append("<p>");
                             sb.Append("<p>");
@@ -101,7 +109,7 @@ namespace Merchbooth
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            string strUrl = "Checkout.aspx?" + hdnCartItemsVariable.Value.ToString();
+            string strUrl = "../Checkout.aspx?" + hdnCartItemsVariable.Value.ToString();
             Response.RedirectPermanent(strUrl);
            //base.OnLoad(e);??
         }
