@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterB.Master" AutoEventWireup="true" CodeBehind="BoothSalesPoint.aspx.cs" Inherits="Merchbooth.BoothSalesPoint" %>
+﻿<%@ Page Title="Make a Sale" Language="C#" MasterPageFile="~/Admin/AdminMasterB.Master" AutoEventWireup="true" CodeBehind="BoothSalesPoint.aspx.cs" Inherits="Merchbooth.BoothSalesPoint" %>
         
 <asp:Content ID="HeaderImage1" ContentPlaceHolderID="HeaderImage" runat="server">
   
