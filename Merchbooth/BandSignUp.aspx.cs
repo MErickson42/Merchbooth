@@ -6,11 +6,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+//TODO 11/14     1.add regular expreeesion for password textbox.
+//               2.change state input from txtbox to drop down.
 namespace Merchbooth {
 	public partial class WebForm1 : System.Web.UI.Page {
 
+
         protected void Page_Load(object sender, EventArgs e)
-        {}
+        {
+        }
+
 
         protected void btnSigmUpBand_Click(object sender, EventArgs e)
         {
@@ -35,6 +40,7 @@ namespace Merchbooth {
             {
                 //Name used
                 Response.Write("The band name is already used.");
+                txtBandName.Focus();
             }
             else
             {
@@ -148,7 +154,12 @@ namespace Merchbooth {
                     _siteContext.SubmitChanges();
                 }
 
-                Response.Redirect("/Admin/Products.aspx?message=" + Server.UrlEncode(message));
+
+                //TODO For now there is no home page
+                //Response.Redirect("/Admin/?pk=" + BandKey + "&message=" + Server.UrlEncode(message));
+
+                //So sending to modify product page
+                Response.Redirect("/Admin/Products.aspx?&message=" + Server.UrlEncode(message));
             }
         }
 

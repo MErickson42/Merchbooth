@@ -135,8 +135,8 @@
     <Content Include="Images\basketbalAwarrness_200.jpg" />
     <Content Include="Images\CrowdSized_160.jpg" />
     <Content Include="Images\CrowdSized_87h_483w.jpg" />
-    <Content Include="SignIn.aspx" />
-    <Content Include="SignUp.aspx" />
+    <Content Include="BandSignIn.aspx" />
+    <Content Include="BandSignUp.aspx" />
     <Content Include="Admin\AdminMaster.Master" />
     <Content Include="Admin\AdminMasterB.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -358,12 +358,12 @@
       <DependentUpon>Practice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignIn.aspx.cs">
-      <DependentUpon>SignIn.aspx</DependentUpon>
+    <Compile Include="BandSignIn.aspx.cs">
+      <DependentUpon>BandSignIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SignIn.aspx.designer.cs">
-      <DependentUpon>SignIn.aspx</DependentUpon>
+    <Compile Include="BandSignIn.aspx.designer.cs">
+      <DependentUpon>BandSignIn.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignInOptions.aspx.cs">
       <DependentUpon>SignInOptions.aspx</DependentUpon>
@@ -398,12 +398,12 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="SignUp.aspx.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
+    <Compile Include="BandSignUp.aspx.cs">
+      <DependentUpon>BandSignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SignUp.aspx.designer.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
+    <Compile Include="BandSignUp.aspx.designer.cs">
+      <DependentUpon>BandSignUp.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
