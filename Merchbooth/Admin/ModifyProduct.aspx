@@ -8,6 +8,7 @@
             <ul class="breadcrumb pull-right">
                 <li><a href="/Admin/">Home</a></li>
                 <li><a href="/Admin/Products/">Products</a></li>
+                <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
                 <li class="active">Modify Product</li>
             </ul>
         </div>

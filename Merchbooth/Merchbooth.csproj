@@ -109,7 +109,7 @@
     <Content Include="AdminHome.aspx" />
     <Content Include="Admin\ModifyProduct.aspx" />
     <Content Include="Admin\Products.aspx" />
-    <Content Include="Admin\BoothSalesPoint.aspx" />
+    <Content Include="Admin\BoothSalePoint.aspx" />
     <Content Include="Admin\Checkout.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
@@ -319,12 +319,12 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Admin\BoothSalesPoint.aspx.cs">
-      <DependentUpon>BoothSalesPoint.aspx</DependentUpon>
+    <Compile Include="Admin\BoothSalePoint.aspx.cs">
+      <DependentUpon>BoothSalePoint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\BoothSalesPoint.aspx.designer.cs">
-      <DependentUpon>BoothSalesPoint.aspx</DependentUpon>
+    <Compile Include="Admin\BoothSalePoint.aspx.designer.cs">
+      <DependentUpon>BoothSalePoint.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
