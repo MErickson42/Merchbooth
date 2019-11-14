@@ -40,13 +40,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// ProductTitle control.
+        /// txtBandName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductTitle;
+        protected global::System.Web.UI.WebControls.TextBox txtBandName;
         
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -58,22 +58,31 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// regPrice control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regPrice;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// txtPrice control.
+        /// RequiredFieldValidator10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrice;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        
+        /// <summary>
+        /// txtPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -85,22 +94,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// txtPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-        
-        /// <summary>
-        /// txtQuantity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
+        protected global::System.Web.UI.WebControls.TextBox txtPhone;
         
         /// <summary>
         /// RequiredFieldValidator4 control.
@@ -110,15 +110,6 @@ namespace Merchbooth {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
-        /// <summary>
-        /// RegularExpressionValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
         /// txtState control.
@@ -139,15 +130,6 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
-        /// RegularExpressionValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
-        
-        /// <summary>
         /// txtCity control.
         /// </summary>
         /// <remarks>
@@ -164,15 +146,6 @@ namespace Merchbooth {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
-        
-        /// <summary>
-        /// RegularExpressionValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         /// <summary>
         /// txtAddress control.
@@ -193,15 +166,6 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
         
         /// <summary>
-        /// RegularExpressionValidator7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
-        
-        /// <summary>
         /// txtZip control.
         /// </summary>
         /// <remarks>
@@ -211,67 +175,40 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtZip;
         
         /// <summary>
-        /// RequiredFieldValidator10 control.
+        /// BandHeaderImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        protected global::System.Web.UI.WebControls.FileUpload BandHeaderImage;
         
         /// <summary>
-        /// RegularExpressionValidator8 control.
+        /// ltrHeaderImagePath control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator8;
+        protected global::System.Web.UI.WebControls.Literal ltrHeaderImagePath;
         
         /// <summary>
-        /// txtPassword control.
+        /// BandBackgroundImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.FileUpload BandBackgroundImage;
         
         /// <summary>
-        /// ProductImage control.
+        /// ltrBackgroundImagePath control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ProductImage;
-        
-        /// <summary>
-        /// FileUpload1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-        
-        /// <summary>
-        /// FileUpload2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
-        
-        /// <summary>
-        /// ltrImagePath control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrImagePath;
+        protected global::System.Web.UI.WebControls.Literal ltrBackgroundImagePath;
         
         /// <summary>
         /// btnBandSignUp control.

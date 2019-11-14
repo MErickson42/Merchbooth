@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -64,121 +65,127 @@ namespace Merchbooth {
 
         }
 
-        protected void btnUpdateProduct_Click(object sender, EventArgs e)
+        protected void btnSigmUpBand_Click(object sender, EventArgs e)
         {
-            //    string message = "";
-            //    int ProductKey = 0;
-            //    if (!String.IsNullOrEmpty(Request.QueryString["pk"]))
-            //    {
-            //        ProductKey = Convert.ToInt32(Request.QueryString["pk"]);
-            //    }
+            string message = "";
+
+            string strBandName  = txtBandName.Text;
+            string strPassword  = txtPassword.Text;
+            string strPhone     = txtPhone.Text;
+            string strEmail     = txtEmail.Text;
+            string strCity      = txtCity.Text;
+            string strAddress   = txtAddress.Text;
+            string strZip       = txtZip.Text;
+
+            int intState = 1;
+
+            SiteDCDataContext _siteContext = new SiteDCDataContext();
 
 
-            //    string strTitle = ProductTitle.Text;
-            //    int intQuantity = Int32.Parse(txtQuantity.Text);
-            //    decimal decPrice = Decimal.Parse(txtPrice.Text);
+            TBand band = new TBand();
 
-            //    string sOldProductPath = "";
+            band.strBandName = strBandName;
+            band.strPassword = strPassword;
+            band.strPhone = strPhone;
+            band.strEmail = strEmail;
+            band.intStateID = intState;
+            band.strCity = strCity;
 
-            //    SiteDCDataContext _siteContext = new SiteDCDataContext();
+            band.strAddress = strAddress;
+            band.strZip = strZip;
 
-            //    if (ProductKey > 0) // Update the Product
-            //    {
-            //        var queryProducts = from p in _siteContext.TProducts
-            //                            where p.intProductID == ProductKey
-            //                            select p;
+            band.strHeaderImage = "";
+            band.strBackroundImage = "";
+            band.strTeamPassword = "";
 
-            //        foreach (TProduct prod in queryProducts)
-            //        {
-            //            prod.strProductName = strTitle;
-            //            sOldProductPath = prod.strImageLink;
-            //            prod.strImageLink = sOldProductPath;
-            //            prod.decBandPrice = decPrice;
-            //            prod.intAmountAvialable = intQuantity;
-            //            //MDE - For now - just hardcoding bandID 1 and TypeID 1 until login finished - and I write the join for type
-            //            prod.intBandID = 1;
-            //            prod.intTypeID = 1;
-            //        }
+            _siteContext.TBands.InsertOnSubmit(band);
 
-            //        _siteContext.SubmitChanges();
+            _siteContext.SubmitChanges();
 
-            //        message = strTitle + " has been updated.";
-            //    }
-            //    else // Add a Product
-            //    {
-            //        TProduct prod = new TProduct();
+            int BandKey = band.intBandID;
 
-            //        prod.strProductName = strTitle;
-            //        prod.strImageLink = "";
-            //        prod.decBandPrice = decPrice;
-            //        prod.intAmountAvialable = intQuantity;
-            //        //MDE - For now - just hardcoding bandID 1 and TypeID 1 until login finished - and I write the join for type
-            //        prod.intBandID = 1;
-            //        prod.intTypeID = 1;
+            message = "Band " + band.strBandName + " has registered.";
 
 
-            //        _siteContext.TProducts.InsertOnSubmit(prod);
 
-            //        _siteContext.SubmitChanges();
+            //}
+            string newFileDirectory = Request.PhysicalApplicationPath.ToString() + "Uploads\\Bands\\" + BandKey + "\\";
+            string newBandHeaderPath = "";
 
-            //        ProductKey = prod.intProductID;
-
-            //        message = strTitle + " has been added.";
-            //    }
-            //    string newFileDirectory = Request.PhysicalApplicationPath.ToString() + "Uploads\\Products\\" + ProductKey + "\\";
-            //    string newProductPath = "";
-
-            //    if (!Directory.Exists(newFileDirectory))
-            //    {
-            //        Directory.CreateDirectory(newFileDirectory);
-            //    }
-
-            //    if ((ProductImage.HasFile) && (ProductImage.PostedFile.ContentType.ToLower() == "image/jpeg"))
-            //    {
-            //        if (sOldProductPath.Length > 0)
-            //        {
-            //            string OldDocumentFilePath = Request.PhysicalApplicationPath.ToString() + sOldProductPath.Replace("/", "\\");
-
-            //            if (File.Exists(OldDocumentFilePath))
-            //            {
-            //                File.Delete(OldDocumentFilePath);
-            //            }
-            //        }
-            //        string newFileName = ProductImage.FileName;
-
-
-            //        string newFilePath = newFileDirectory + newFileName;
-
-            //        ProductImage.PostedFile.SaveAs(newFilePath);
-
-            //        newProductPath = "Uploads/Products/" + ProductKey + "/" + ProductImage.FileName;
-
-            //    }
-            //    else
-            //    {
-            //        newProductPath = sOldProductPath;
-            //    }
-
-            //    if (newProductPath.Length > 0)
-            //    {
-            //        var queryProducts = from p in _siteContext.TProducts
-            //                            where p.intProductID == ProductKey
-            //                            select p;
-
-            //        foreach (TProduct prod in queryProducts)
-            //        {
-            //            prod.strImageLink = newProductPath;
-            //        }
-
-            //        _siteContext.SubmitChanges();
-            //    }
-
-            //    Response.Redirect("/Admin/Products.aspx?message=" + Server.UrlEncode(message));
+            if (!Directory.Exists(newFileDirectory))
+            {
+                Directory.CreateDirectory(newFileDirectory);
             }
+
+            if ((BandHeaderImage.HasFile) && (BandHeaderImage.PostedFile.ContentType.ToLower() == "image/jpeg"))
+            {
+                string newFileName = BandHeaderImage.FileName;
+
+
+                string newFilePath = newFileDirectory + newFileName;
+
+                BandHeaderImage.PostedFile.SaveAs(newFilePath);
+
+                newBandHeaderPath = "Uploads/Bands/" + BandKey + "/" + BandHeaderImage.FileName;
+
+            }
+
+            if (newBandHeaderPath.Length > 0)
+            {
+                var queryBands = from b in _siteContext.TBands
+                                    where b.intBandID == BandKey
+                                    select b;
+
+                foreach (TBand tband in queryBands)
+                {
+                    tband.strHeaderImage = newBandHeaderPath;
+                }
+
+                _siteContext.SubmitChanges();
+            }
+
+
+
+            string newBandBackgroundPath = "";
+
+            if (!Directory.Exists(newFileDirectory))
+            {
+                Directory.CreateDirectory(newFileDirectory);
+            }
+
+            if ((BandHeaderImage.HasFile) && (BandHeaderImage.PostedFile.ContentType.ToLower() == "image/jpeg"))
+            {
+                string newFileName = BandHeaderImage.FileName;
+
+
+                string newFilePath = newFileDirectory + newFileName;
+
+                BandHeaderImage.PostedFile.SaveAs(newFilePath);
+
+                newBandBackgroundPath = "Uploads/Bands/" + BandKey + "/" + BandHeaderImage.FileName;
+
+            }
+
+            if (newBandBackgroundPath.Length > 0)
+            {
+                var queryBands = from b in _siteContext.TBands
+                                 where b.intBandID == BandKey
+                                 select b;
+
+                foreach (TBand tband in queryBands)
+                {
+                    tband.strBackroundImage = newBandBackgroundPath;
+                }
+
+                _siteContext.SubmitChanges();
+            }
+
+            Response.Redirect("/Admin/Products.aspx?message=" + Server.UrlEncode(message));
+        }
 
             protected void btnCancel_Click(object sender, EventArgs e)
             {
-                //Response.Redirect("/Admin/Products.aspx/");
+                Response.Redirect("/");
             }
         
     }
