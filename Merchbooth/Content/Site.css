@@ -34,35 +34,8 @@ hr {
 }
 
 
-.navbar {
-    position: fixed;
-    top: 105px;
-    background-color: rgb(0, 0, 0);
-    /*background-image: url("../Images/NavBackStars.JPG");
-    background-repeat: no-repeat;
-    background-size: cover;*/
-    font-size: 15px;
-    height: 0px;
-    width: 0px;
-    margin-left: 0px;
-    padding: 0px;
-}
-.navbar-nav {
-    position: fixed;
-    top: 125px;
-    left:230px;
-    background-color: rgb(0, 0, 0);
-    /*background-image: url("../Images/NavBackStars.JPG");
-    background-repeat: no-repeat;
-    background-size: cover;*/
-    font-size: 13px;
-    font-weight:bold;
-    height: 0px;
-    width: 300px;
-    /*margin-left: 18vw;*/
-    opacity: 1;
-    padding:0px;
-}
+
+
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,
@@ -105,3 +78,4 @@ textarea {
     padding-left:10%;
     padding-right:10%;
 }
+
