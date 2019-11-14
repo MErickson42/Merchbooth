@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
-
+using Merchbooth.Classes;
 
 namespace Merchbooth
 {
@@ -15,10 +15,20 @@ namespace Merchbooth
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int intBandID = 0;
+            if (HttpContext.Current.Session["UserDetails"] != null)
+            {
+                UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+
+                intBandID = ud.UserKey;
+            }
+
+
+
             //string strUrl = HttpContext.Current.Request.Url.AbsoluteUri;
 
             //int index1 = strUrl.LastIndexOf('/');
-       
+
             //strUrl = strUrl.Substring(0, index1);
             //index1 += 1;
             //strUrl = strUrl.Substring(0, index1);
@@ -30,8 +40,8 @@ namespace Merchbooth
             StringBuilder sb = new StringBuilder();
 
             var queryProducts = from c in _siteContext.TProducts
-                                    // where c.intProductID == intProductId
-                                    orderby c.intTypeID
+                                    where c.intBandID == intBandID
+                                orderby c.intTypeID
                                 select c ;
 
 
