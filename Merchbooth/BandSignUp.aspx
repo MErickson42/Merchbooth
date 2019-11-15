@@ -6,8 +6,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
     <div class="row">
+
         <div class="col-lg-1 col-sm-1"></div>
         <div class="col-lg-10 col-sm-10">
+
             <ul class="breadcrumb pull-right">
                 <li><a href="/">Merchbooth</a></li>
                 <li><a href="About.aspx">About</a></li>
@@ -19,6 +21,10 @@
     
     <div class="form-wide">
         <div class="errormessage"><asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal></div>
+        <!-- Added image to make it pretty  -->
+                <h1 style=" color:blue">Welcome to the music's world </h1>
+
+        <asp:Image ID="Image1" runat="server" ImageAlign="Right" Height="300" Width="650" ImageUrl="~/Images/download3.jpg" BorderStyle="Groove" />
         <h2 class="form-signin-heading"><asp:Literal ID="FormHeader" runat="server" EnableViewState="True" Text="Band Sign Up"></asp:Literal></h2>
         <label for="BandName">
             Band Name * 
