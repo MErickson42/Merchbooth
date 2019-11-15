@@ -18,6 +18,7 @@
     </div>
     
     <div class="form-wide">
+                        <asp:Image ID="Image1" runat="server" ImageAlign="Right" Height="300" Width="550" ImageUrl="~/Images/download1.jpg" />
 
         <div class="errormessage"><asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal></div>
         <h2 class="form-signin-heading"><asp:Literal ID="FormHeader" runat="server" EnableViewState="True" Text="Band Sign In"></asp:Literal></h2>
@@ -37,7 +38,8 @@
         <br>
         <asp:Button ID="btnBandSignIn" runat="server" CssClass="btn btn-primary" Text ="Sign In" OnClick="btnSigmInBand_Click"/> &nbsp; 
         <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="btn btn-primary" OnClick="btnCancel_Click" CausesValidation="false" />
-    
+
+
     </div>
 
 </asp:Content>

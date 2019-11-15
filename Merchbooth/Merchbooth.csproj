@@ -160,6 +160,9 @@
     <Content Include="Images\CrowdSized_d.jpg" />
     <Content Include="Images\CrowdSized_f.jpg" />
     <Content Include="Images\CrowdSized_h.jpg" />
+    <Content Include="Images\download1.jpg" />
+    <Content Include="Images\download2.jpg" />
+    <Content Include="Images\download3.jpg" />
     <Content Include="Images\eCommerceProduct1.JPG" />
     <Content Include="Images\EcommerceProduct_OverMerchboth_HomePage_1.jpg" />
     <Content Include="Images\eCommerce_BAND_SNAPP1.JPG" />
