@@ -119,6 +119,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CustomerSignIn.aspx" />
+    <Content Include="CustomerSignUp.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -352,6 +353,13 @@
     </Compile>
     <Compile Include="CustomerSignIn.aspx.designer.cs">
       <DependentUpon>CustomerSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSignUp.aspx.cs">
+      <DependentUpon>CustomerSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerSignUp.aspx.designer.cs">
+      <DependentUpon>CustomerSignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
