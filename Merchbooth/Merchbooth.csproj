@@ -111,6 +111,7 @@
     <Content Include="Admin\Products.aspx" />
     <Content Include="Admin\BoothSalePoint.aspx" />
     <Content Include="Admin\Checkout.aspx" />
+    <Content Include="AllBands.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -242,6 +243,7 @@
     <Content Include="Images\t-shirt-181707_640.png" />
     <Content Include="Images\whiteSpace.JPG" />
     <Content Include="Practice.aspx" />
+    <Content Include="Products\Product-Details.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -272,6 +274,10 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="SignInOptions.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="Uploads\Bands\10\CrowdSized_b.jpg" />
+    <Content Include="Uploads\Bands\13\background-2944077_1920.jpg" />
+    <Content Include="Uploads\Bands\6\background-2944077_1920.jpg" />
+    <Content Include="Uploads\Bands\7\background-2944077_1920.jpg" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -314,6 +320,13 @@
     </Compile>
     <Compile Include="Admin\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllBands.aspx.cs">
+      <DependentUpon>AllBands.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllBands.aspx.designer.cs">
+      <DependentUpon>AllBands.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -378,6 +391,13 @@
     <Compile Include="Practice.aspx.designer.cs">
       <DependentUpon>Practice.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Products\Product-Details.aspx.cs">
+      <DependentUpon>Product-Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\Product-Details.aspx.designer.cs">
+      <DependentUpon>Product-Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BandSignIn.aspx.cs">
       <DependentUpon>BandSignIn.aspx</DependentUpon>
@@ -437,6 +457,7 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Bands\14\" />
     <Folder Include="Uploads\Products\" />
   </ItemGroup>
   <ItemGroup>
