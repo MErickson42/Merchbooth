@@ -36,7 +36,7 @@
         <asp:TextBox ID="txtPassword" Type="Password" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>
             
         <br>
-        <asp:Button ID="btnBandSignIn" runat="server" CssClass="btn btn-primary" Text ="Sign In" OnClick="btnSigmInBand_Click"/> &nbsp; 
+        <asp:Button ID="btnBandSignIn" runat="server" CssClass="btn btn-primary" Text ="Sign In" OnClick="btnSignInBand_Click"/> &nbsp; 
         <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="btn btn-primary" OnClick="btnCancel_Click" CausesValidation="false" />
 
 

@@ -17,7 +17,7 @@ namespace Merchbooth {
         }
 
 
-        protected void btnSigmUpBand_Click(object sender, EventArgs e)
+        protected void btnSignUpBand_Click(object sender, EventArgs e)
         {
             SiteDCDataContext _siteContext = new SiteDCDataContext();
 

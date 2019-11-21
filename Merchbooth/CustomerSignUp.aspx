@@ -26,11 +26,17 @@
 
         <asp:Image ID="Image1" runat="server" ImageAlign="Right" Height="300" Width="650" ImageUrl="~/Images/download3.jpg" BorderStyle="Groove" />
         <h2 class="form-signin-heading"><asp:Literal ID="FormHeader" runat="server" EnableViewState="True" Text="Customer Sign Up"></asp:Literal></h2>
-        <label for="BandName">
-            Band Name * 
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtBandName" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+        <label for="FirstName">
+            First Name * 
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtFirstName" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
         </label>
-        <asp:TextBox ID="txtBandName" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>
+        <asp:TextBox ID="txtFirstName" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>
+
+        <label for="LastName">
+            Last Name * 
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtLastName" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+        </label>
+        <asp:TextBox ID="txtLastName" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>
 
         <label for="Email">
             Email * 
@@ -80,13 +86,19 @@
         </label>
         <asp:TextBox ID="txtZip" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>
      
-                                                                                                    
+          
+        <label for="Gender">
+            Gender* 
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtZip" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+
+        </label>
+        <asp:TextBox ID="txtGender" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>
         
         <br /><br />
         
-        <asp:Button ID="btnCustomerSignUp" runat="server" Text="Sign Up" CssClass="btn btn-primary" OnClientClick="btnSigmUpCustomer_Click" />
+        <asp:Button ID="btnCustomerSignUp" runat="server" Text="Sign Up" CssClass="btn btn-primary" OnClick="btnSignUpCustomer_Click" />
         &nbsp;&nbsp;
-        <asp:Button ID="Cancel" runat="server" Text="Button" CausesValidation="False" CssClass="btn btn-primary" OnClientClick="btnCancel_Click" />
+        <asp:Button ID="Cancel" runat="server" Text="Button" CausesValidation="False" CssClass="btn btn-primary" OnClick="btnCancel_Click" />
     </div>
 
 

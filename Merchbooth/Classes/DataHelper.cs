@@ -125,5 +125,55 @@ namespace Merchbooth.Classes
 
             return ud;
         }
+
+
+
+        //copied these for customer ben_11_21
+        public static bool ValidateCustomer(string Username, string Password)
+        {
+            SiteDCDataContext _siteContext = new SiteDCDataContext();
+            bool validUser = false;
+
+            var queryUsers = from u in _siteContext.TCustomers
+                             where u.strEmail == Username && u.strPassword == Password
+                             select u;
+
+            if (queryUsers.Count() > 0)
+            {
+                foreach (TCustomer user in queryUsers)
+                {
+                    UpdateUserDetailsSession(user.intCustomerID);
+
+                    validUser = true;
+                }
+            }
+
+
+            return validUser;
+        }
+
+
+        public static UserDetails GetCustomerDetails(int UserKey)
+        {
+            UserDetails ud = new UserDetails();
+            SiteDCDataContext _siteContext = new SiteDCDataContext();
+
+            var queryUsers = from u in _siteContext.TCustomers
+                             orderby u.strLastName
+                             where u.intCustomerID == UserKey
+                             select u;
+
+            foreach (TCustomer user in queryUsers)
+            {
+                ud.UserKey = user.intCustomerID;
+                ud.isValidUser = true;
+                ud.Username = user.strEmail;
+                ud.Name = user.strLastName + user.strLastName;
+
+
+            }
+
+            return ud;
+        }
     }
 }

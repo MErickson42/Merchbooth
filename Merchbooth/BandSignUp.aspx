@@ -91,7 +91,7 @@
         <strong>Current Image Path: <asp:Literal ID="ltrBackgroundImagePath" runat="server"></asp:Literal></strong>
         <br /><br />
         
-        <asp:Button ID="btnBandSignUp" runat="server" CssClass="btn btn-primary" Text ="Sign Up" OnClick="btnSigmUpBand_Click"/> &nbsp; 
+        <asp:Button ID="btnBandSignUp" runat="server" CssClass="btn btn-primary" Text ="Sign Up" OnClick="btnSignUpBand_Click"/> &nbsp; 
         <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="btn btn-primary" OnClick="btnCancel_Click" CausesValidation="false" />
     
     </div>

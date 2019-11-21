@@ -16,10 +16,10 @@ namespace Merchbooth
         }
 
 
-        protected void btnSigmInBand_Click(object sender, EventArgs e)
+        protected void btnSignInBand_Click(object sender, EventArgs e)
         {
             SiteDCDataContext _siteContext = new SiteDCDataContext();
-            string message = "Band name and passwored to not match.";
+            string message = "Band email and passwored do not match.";
             int BandKey = 0;
             string strBandName = "";
 
