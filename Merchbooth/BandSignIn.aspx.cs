@@ -13,6 +13,7 @@ namespace Merchbooth
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtEmail.Focus();
         }
 
 
@@ -60,7 +61,8 @@ namespace Merchbooth
                    // Response.Redirect("/Admin/Products.aspx?&message=" + Server.UrlEncode(message));
                     if (DataHelper.ValidateUser(txtEmail.Text, txtPassword.Text))
                     {
-                        Response.Redirect("/Admin/Products.aspx?&message=" + Server.UrlEncode(message));
+                        //Response.Redirect("/Admin/Products.aspx?&message=" + Server.UrlEncode(message));
+                        Response.Redirect("/Admin/Default.aspx?&message=" + Server.UrlEncode(message));
                     }
 
 

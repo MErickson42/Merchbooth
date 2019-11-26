@@ -7,10 +7,9 @@
         <div class="col-lg-1 col-sm-1"></div>
         <div class="col-lg-10 col-sm-10">
             <ul class="breadcrumb pull-right">
-
-                <asp:HyperLink ID="hlHome" NavigateUrl="~/bandSignIn.aspx" runat="server">Back</asp:HyperLink>
+                <li><a href="/Admin/Default/">Home</a></li>
                 <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
-                <li class="active">Content</li>
+                <li class="active">Podects</li>
             </ul>
         </div>
         <div class="col-lg-1 col-sm-1"></div>
@@ -20,7 +19,7 @@
         <div class="col-lg-10 col-sm-10">
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <h1>Content</h1>
+                    <h1>Podects</h1>
                 </div>
             </div>
             <div class="row"><div class="col-lg-12 col-sm-12" style="text-align: center;"><asp:Label ID="lblMessage" runat="server" CssClass="errormessage" Text=""></asp:Label></div></div>

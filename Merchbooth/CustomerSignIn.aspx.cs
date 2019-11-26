@@ -11,7 +11,10 @@ namespace Merchbooth
     public partial class CustomerSignIn1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {}
+        {
+            txtEmail.Focus();
+
+        }
 
         protected void btnSignInCustomer_Click(object sender, EventArgs e)
         {
