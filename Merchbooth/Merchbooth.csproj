@@ -114,9 +114,8 @@
     <Content Include="Admin\Checkout.aspx" />
     <Content Include="Admin\Reports\SalesByCustomer.aspx" />
     <Content Include="Admin\Reports\SalesByEvent.aspx" />
-    <Content Include="Admin\Reports\SalesByMonth.aspx" />
     <Content Include="Admin\Reports\SalesByProduct.aspx" />
-    <Content Include="Admin\Reports\SalesByYear.aspx" />
+    <Content Include="Admin\Reports\SalesByDate.aspx" />
     <Content Include="AllBands.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
@@ -348,13 +347,6 @@
     <Compile Include="Admin\Reports\SalesByEvent.aspx.designer.cs">
       <DependentUpon>SalesByEvent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Reports\SalesByMonth.aspx.cs">
-      <DependentUpon>SalesByMonth.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Reports\SalesByMonth.aspx.designer.cs">
-      <DependentUpon>SalesByMonth.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Reports\SalesByProduct.aspx.cs">
       <DependentUpon>SalesByProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -362,12 +354,12 @@
     <Compile Include="Admin\Reports\SalesByProduct.aspx.designer.cs">
       <DependentUpon>SalesByProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Reports\SalesByYear.aspx.cs">
-      <DependentUpon>SalesByYear.aspx</DependentUpon>
+    <Compile Include="Admin\Reports\SalesByDate.aspx.cs">
+      <DependentUpon>SalesByDate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Reports\SalesByYear.aspx.designer.cs">
-      <DependentUpon>SalesByYear.aspx</DependentUpon>
+    <Compile Include="Admin\Reports\SalesByDate.aspx.designer.cs">
+      <DependentUpon>SalesByDate.aspx</DependentUpon>
     </Compile>
     <Compile Include="AllBands.aspx.cs">
       <DependentUpon>AllBands.aspx</DependentUpon>

@@ -52,7 +52,7 @@ namespace Merchbooth.Admin.Reports
                 foreach (var saleYear in querySalesByYear)
                 {
 
-                    tl.Append("<tr><td class='saleReport'>" + saleYear.Year+" </td><td class='reportAmount'>    $" + saleYear.Total + "</td></tr>");
+                    tl.Append("<tr><td class='datecolumn'>" + saleYear.Year+" </td><td class='reportAmount'>    $" + saleYear.Total + "</td></tr>");
 
                 }
             }
@@ -94,7 +94,7 @@ namespace Merchbooth.Admin.Reports
                 foreach (var saleMonth in querySalesByMonth)
                 {
 
-                    tl.Append("<tr><td class='saleReport'>" + saleMonth.Year + "-" + saleMonth.Month+ " </td><td class='reportAmount'>    $" + saleMonth.Total + "</td></tr>");
+                    tl.Append("<tr><td class='datecolumn'>" + saleMonth.Year + "-" + saleMonth.Month+ " </td><td class='reportAmount'>    $" + saleMonth.Total + "</td></tr>");
 
                 }
             }
