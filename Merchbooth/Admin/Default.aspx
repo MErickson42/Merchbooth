@@ -10,7 +10,7 @@
             <ul class="breadcrumb pull-right">
                 <li class= "active">Home</li>
                 <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
-                <li><a href="/Admin/Products/">products</a></li>
+                <li><a href="/Admin/Products/">Products</a></li>
             </ul>
         </div>
         <div class="col-lg-1 col-sm-1"></div>

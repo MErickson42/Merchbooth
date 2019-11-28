@@ -44,7 +44,7 @@ namespace Merchbooth
                         int intPreviousBandID = 1;
                         bool blnFirstTimeThroughLoop = true;
                         bool blnNewBandDetected = false;
-                        int intProductCount = 1;
+                        //int intProductCount = 1;
 
                     // This loop will loop through each product from the queryBands query we made
                     foreach (var item in queryBands)

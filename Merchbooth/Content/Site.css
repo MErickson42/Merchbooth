@@ -129,6 +129,7 @@ textarea {
 
 
 @media(min-width:1200px) {
+
     .DivBorderTableWrapp {
         border-right: 1px solid #52527a;
         margin-right: 10px;
@@ -248,4 +249,24 @@ textarea {
 }
 .reports {
     margin-bottom: 16px;
+}
+/*///////////////////////////////////////////////////*/
+
+
+.ReportTable td {
+    border: 1px solid #52527a;
+    padding: 5px 20px;
+}
+
+.reportTableHeader {
+    height: 40px;
+    vertical-align: text-top;
+    color: #47476b;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.reportTitle {
+    color: mediumblue;
+    margin-bottom: 30px;
 }

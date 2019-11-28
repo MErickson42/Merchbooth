@@ -67,12 +67,6 @@ namespace Merchbooth.Admin
             lblLowInventory.Text = tl.ToString();
 
 
-
-
-
-
-
-
             //Ceating- Sales String
             tl.Clear();
             int intCount = 0;
@@ -119,16 +113,6 @@ namespace Merchbooth.Admin
 
 
 
-
-
-
-
-
-
-
-
-
-
             //Ceating- Reports String
             tl.Clear();
 
@@ -148,22 +132,13 @@ namespace Merchbooth.Admin
             tl.Append("<tr><td class='reports'> <a href ='' >Sales by Event</a></d></tr>");
             tl.Append("<tr><td class='reports'>&nbsp;</td></tr>");
 
-            tl.Append("<tr><td class='reports'> <a href ='' >Sales by Month</a></td></tr>");
-            tl.Append("<tr><td class='reports'> <a href ='' >Sales by Year</a></td></tr>");
+            tl.Append("<tr><td class='reports'> <a href ='/Admin/Reports/SalesByYear/' >Sales by Date</a></td></tr>");
 
             tl.Append("</tbody>");
             tl.Append("</table>");
             tl.Append("</div>");
 
             lblReports.Text = tl.ToString();
-
-
-
-
-
-
-
-
 
 
             //Ceating- Upcoming Events String
@@ -209,32 +184,6 @@ namespace Merchbooth.Admin
 
             lblUpcoming.Text = tl.ToString();
 
-
-
-
-
-
-
-
-
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
-  
+        } 
     }
 }

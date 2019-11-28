@@ -19,7 +19,7 @@ namespace Merchbooth
             //A tool that we use to bild the html fof each data item comig in from the database
             StringBuilder sb = new StringBuilder();
 
-            int intProductId = 1;
+            //int intProductId = 1;
       
 
             var queryProducts = from c in _siteContext.TProducts

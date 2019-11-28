@@ -112,6 +112,11 @@
     <Content Include="Admin\Products.aspx" />
     <Content Include="Admin\BoothSalePoint.aspx" />
     <Content Include="Admin\Checkout.aspx" />
+    <Content Include="Admin\Reports\SalesByCustomer.aspx" />
+    <Content Include="Admin\Reports\SalesByEvent.aspx" />
+    <Content Include="Admin\Reports\SalesByMonth.aspx" />
+    <Content Include="Admin\Reports\SalesByProduct.aspx" />
+    <Content Include="Admin\Reports\SalesByYear.aspx" />
     <Content Include="AllBands.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
@@ -328,6 +333,41 @@
     </Compile>
     <Compile Include="Admin\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByCustomer.aspx.cs">
+      <DependentUpon>SalesByCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByCustomer.aspx.designer.cs">
+      <DependentUpon>SalesByCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByEvent.aspx.cs">
+      <DependentUpon>SalesByEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByEvent.aspx.designer.cs">
+      <DependentUpon>SalesByEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByMonth.aspx.cs">
+      <DependentUpon>SalesByMonth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByMonth.aspx.designer.cs">
+      <DependentUpon>SalesByMonth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByProduct.aspx.cs">
+      <DependentUpon>SalesByProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByProduct.aspx.designer.cs">
+      <DependentUpon>SalesByProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByYear.aspx.cs">
+      <DependentUpon>SalesByYear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\SalesByYear.aspx.designer.cs">
+      <DependentUpon>SalesByYear.aspx</DependentUpon>
     </Compile>
     <Compile Include="AllBands.aspx.cs">
       <DependentUpon>AllBands.aspx</DependentUpon>
