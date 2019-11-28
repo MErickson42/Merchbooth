@@ -31,6 +31,15 @@ namespace Merchbooth.Admin {
         protected global::System.Web.UI.WebControls.Label lblLowInventory;
         
         /// <summary>
+        /// lblSales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSales;
+        
+        /// <summary>
         /// lblReports control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace Merchbooth.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReports;
-        
-        /// <summary>
-        /// lbl3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl3;
         
         /// <summary>
         /// lblUpcoming control.

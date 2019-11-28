@@ -10,7 +10,7 @@
             <ul class="breadcrumb pull-right">
                 <li class= "active">Home</li>
                 <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
-                <li><a href="/Admin/Products/">Podects</a></li>
+                <li><a href="/Admin/Products/">products</a></li>
             </ul>
         </div>
         <div class="col-lg-1 col-sm-1"></div>
@@ -29,7 +29,7 @@
             
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <h1>Manager</h1>
+                    <h1 class="titleAdminDefualt">Manager</h1>
                 </div>
             </div>
            
@@ -48,13 +48,13 @@
                     <asp:Label ID="lblLowInventory" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
-                    <asp:Label ID="lblReports" runat="server" Text="Reports"></asp:Label>
+                    <asp:Label ID="lblSales" runat="server" Text="Reports"></asp:Label>
                 </div>
                 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
-                    <asp:Label ID="lbl3" runat="server" Text="Sales"></asp:Label>
+                    <asp:Label ID="lblReports" runat="server" Text="Sales"></asp:Label>
                 </div>
                 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
-                    <asp:Label ID="lblUpcoming" runat="server" Text="Upcoming Events"></asp:Label>
+                    <asp:Label ID="lblUpcoming" runat="server" Text=""></asp:Label>
                 </div>
             </div>
 

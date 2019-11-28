@@ -14,7 +14,7 @@ namespace Merchbooth.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblMessage.Text = Server.UrlDecode(Request.QueryString["message"]);
+            //lblMessage.Text = Server.UrlDecode(Request.QueryString["message"]);
             int intBandID = 0;
             if (HttpContext.Current.Session["UserDetails"] != null)
             {
@@ -25,11 +25,13 @@ namespace Merchbooth.Admin
 
             SiteDCDataContext _siteContent = new SiteDCDataContext();
 
+
+            //Ceating- Low Inventory String
             var queryProducts = from p in _siteContent.TProducts
 
                                 orderby p.intProductID
                                 where   p.intBandID == intBandID &&
-                                        p.intAmountAvialable < 100
+                                        p.intAmountAvialable < 50
                                 select p;
 
             queryProducts.ToList();
@@ -38,7 +40,7 @@ namespace Merchbooth.Admin
             tl.Append("<div class='DivBorderTableWrapp'>");
             tl.Append("<table>");
             tl.Append("<thead>");
-            tl.Append("<tr class='bandHomeTableH' colspan='2'><th>Low Inventory</th></tr>");
+            tl.Append("<tr class='bandHomeTableH'><th colspan='2'>Low Inventory</th></tr>");
             tl.Append("</thead>");
             tl.Append("<tbody>");
 
@@ -48,14 +50,14 @@ namespace Merchbooth.Admin
                 {
 
 
-                    tl.Append("<tr><td> <a href = '/Admin/ModifyProduct.aspx?pk=" + item.intProductID + "' >"+ item.strProductName+ "</a>" + " </td><td class='warning'>" + item.intAmountAvialable + "</td></tr>");
+                    tl.Append("<tr><td class='productLow'> <a href = '/Admin/ModifyProduct.aspx?pk=" + item.intProductID + "' >"+ item.strProductName+ "</a>" + " </td><td class='warning'>" + item.intAmountAvialable + "</td></tr>");
                     
                 }
-                tl.Append("<tr><td colspan='3'>&nbsp;</td></tr>");
+                tl.Append("<tr><td colspan='2'>&nbsp;</td></tr>");
             }
             else
             {
-                tl.Append("<tr><td colspan='3'>No Content currently available.</td></tr>");
+                tl.Append("<tr><td colspan='2'>No Content currently available.</td></tr>");
             }
 
             tl.Append("</tbody>");
@@ -64,26 +66,175 @@ namespace Merchbooth.Admin
 
             lblLowInventory.Text = tl.ToString();
 
+
+
+
+
+
+
+
+            //Ceating- Sales String
             tl.Clear();
-            tl.Append("<div class='DivBorderTableWrapp'>Reports");
+            int intCount = 0;
+            var queryLastEvents = from E in _siteContent.TEvents
+
+                              orderby E.dtmDate
+                              where E.dtmDate < DateTime.Now &&
+                                    E.dtmDate.Year == DateTime.Now.Year &&  //This year only
+
+                                  E.intBandID == intBandID
+                              select E;
+
+            queryLastEvents.ToList();
+
+            tl.Append("<div class='DivBorderTableWrapp'>");
+            tl.Append("<table>");
+            tl.Append("<thead>");
+            tl.Append("<tr class='bandHomeTableH'><th colspan='2'>Latest Sales</th></tr>");
+            tl.Append("</thead>");
+            tl.Append("<tbody>");
+
+            if (queryLastEvents.Count() > 0)
+            {
+                foreach (var LastEvents in queryLastEvents)
+                {
+                    intCount += 1;
+                    if (intCount > 3) { break; }
+                    //TODO
+                    tl.Append("<tr><td class='bandNaeSales'> <a href ='' >" + LastEvents.strEventName + "</a></td><td style='color:#7575a3'>$ " + Convert.ToInt32(LastEvents.decEventSales)  + " </td></tr>");
+
+                }
+                tl.Append("<tr><td colspan='2'>&nbsp;</td></tr>");
+            }
+            else
+            {
+                tl.Append("<tr><td colspan='2'>No Content currently available.</td></tr>");
+            }
+
+            tl.Append("</tbody>");
+            tl.Append("</table>");
+            tl.Append("</div>");
+
+            lblSales.Text = tl.ToString();
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Ceating- Reports String
+            tl.Clear();
+
+            tl.Append("<div class='DivBorderTableWrapp'>");
+            tl.Append("<table>");
+            tl.Append("<thead>");
+            tl.Append("<tr class='bandHomeTableH'><th >Reports</th></tr>");
+            tl.Append("</thead>");
+            tl.Append("<tbody>");
+
+            tl.Append("<tr><td class='reports'> <a href ='' >Top 10 Customers</a></td></tr>");
+
+            tl.Append("<tr><td class='reports'>&nbsp;</td></tr>");
+
+
+            tl.Append("<tr><td class='reports'> <a href ='' >Sales by Product</a></d></tr>");
+            tl.Append("<tr><td class='reports'> <a href ='' >Sales by Event</a></d></tr>");
+            tl.Append("<tr><td class='reports'>&nbsp;</td></tr>");
+
+            tl.Append("<tr><td class='reports'> <a href ='' >Sales by Month</a></td></tr>");
+            tl.Append("<tr><td class='reports'> <a href ='' >Sales by Year</a></td></tr>");
+
+            tl.Append("</tbody>");
+            tl.Append("</table>");
             tl.Append("</div>");
 
             lblReports.Text = tl.ToString();
 
+
+
+
+
+
+
+
+
+
+            //Ceating- Upcoming Events String
             tl.Clear();
-            tl.Append("<div class='DivBorderTableWrapp'> Sales");
+
+            var queryEvents = from E in _siteContent.TEvents
+
+                                orderby E.dtmDate
+                                where E.dtmDate >= DateTime.Now &&
+                                    E.intBandID == intBandID
+                              select E;
+
+            queryEvents.ToList();
+
+            tl.Append("<div class='DivBorderTableWrapp'>");
+            tl.Append("<table>");
+            tl.Append("<thead>");
+            tl.Append("<tr class='bandHomeTableH'><th colspan='2'>Upcoming Events</th></tr>");
+            tl.Append("</thead>");
+            tl.Append("<tbody>");
+
+            if (queryEvents.Count() > 0)
+            {
+                foreach (var Event in queryEvents)
+                {
+
+                                                         //TODO
+                    tl.Append("<tr><td class='upcomming'> <a href ='' >" + Event.strEventName + "</a></td><td style='color:#7575a3'>" + Event.dtmDate.Month +"/" + Event.dtmDate.Day + " </td></tr>");
+
+                }
+                tl.Append("<tr><td colspan='2'>&nbsp;</td></tr>");
+            }
+            else
+            {
+                tl.Append("<tr><td colspan='2'>No Content currently available.</td></tr>");
+            }
+
+            tl.Append("</tbody>");
+            tl.Append("</table>");
             tl.Append("</div>");
 
-            lbl3.Text = tl.ToString();
 
-
-
-            tl.Clear();
-            tl.Append("<div class='DivBorderTableWrapp'>Upcoming Events");
-            tl.Append("</div>");
 
             lblUpcoming.Text = tl.ToString();
 
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
+  
     }
 }

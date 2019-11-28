@@ -16,7 +16,11 @@
     </div>
     <div class="form-wide">
         <div class="errormessage"><asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal></div>
-        <h2 class="form-signin-heading"><asp:Literal ID="FormHeader" runat="server" EnableViewState="True" Text="Add a News Story"></asp:Literal></h2>
+       
+        <%-- changed the class to fit the other admin pages Ben 11_27--%>
+        <%--<h2 class="form-signin-heading"><asp:Literal ID="FormHeader" runat="server" EnableViewState="True" Text="Add a News Story"></asp:Literal></h2>--%>
+        <h2 class="titleAdminDefualt"><asp:Literal ID="FormHeader" runat="server" EnableViewState="True" Text="Add a News Story"></asp:Literal></h2>
+       
         <label for="ProductTitle">
             Title * 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="ProductTitle" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>

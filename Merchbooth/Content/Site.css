@@ -109,9 +109,9 @@ textarea {
     padding-right:10%;
 }
 
-.adminDefault{
-    /*font-size:13px;*/
-}
+/*.adminDefault{
+    font-size:13px;
+}*/
 
 
 /*  /////////////////////////////////// /   */
@@ -121,9 +121,13 @@ textarea {
 .bandHomeTableH {
     height: 40px;
     vertical-align: text-top;
-    color: #33334d;
-    font-size:15px;
+    color: #47476b;
+    font-size: 17px;
+    font-weight: 400;
 }
+
+
+
 @media(min-width:1200px) {
     .DivBorderTableWrapp {
         border-right: 1px solid #52527a;
@@ -136,9 +140,11 @@ textarea {
         font-size: 13px;
         height: 22px;
         margin-top: 10px;
-        padding-left:25px;
+        /*padding-left:25px;*/
     }
-    
+    .productLow {
+        min-width: 145px;
+    }
 }
 @media(min-width: 768px) and (max-width: 1199.98px) {
     .DivBorderTableWrapp {
@@ -154,17 +160,22 @@ textarea {
         font-size: 13px;
         height: 22px;
         margin-top: 10px;
-        padding-left: 75px;
+        padding-left:25px;
     }
+    .productLow {
+        min-width: 180px;
+    }
+
 }
 
 @media(min-width: 576px) and (max-width: 767.98px) {
     .DivBorderTableWrapp {
-        border-right: 1px solid #52527a;
-        margin-right: 10px;
+        /*border-right: 1px solid #52527a;*/
+        /*margin-right: 10px;*/
         height: 300px;
         margin-bottom: 50px;
         max-width: 240px;
+        padding-left:25vw;
     }
 
     .warning {
@@ -172,14 +183,21 @@ textarea {
         font-size: 13px;
         height: 22px;
         margin-top: 10px;
-        padding-left: 75px;
+        padding-left: 30px;
+    }
+    .productLow {
+        min-width: 180px;
+    }
+    .titleAdminDefualt {
+        padding-left: 25vw;
+        font-size: 50px;
     }
 }
 
 
 @media(max-width: 575.98px) {
     .DivBorderTableWrapp {
-        border-right: 1px solid #52527a;
+        /*border-right: 1px solid #52527a;*/
         margin-right: 10px;
         height: 300px;
         margin-bottom: 50px;
@@ -193,4 +211,41 @@ textarea {
         margin-top: 10px;
         padding-left: 25px;
     }
+    .productLow {
+        min-width: 170px;
+    }
+}
+
+
+.titleAdminDefualt {
+    color: mediumblue;
+    margin-bottom: 30px;
+}
+
+@media(min-width:1200px) {
+    .titleAdminDefualt {
+        margin-bottom: 50px;
+        font-size:60px;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 1199.98px) {
+
+    .titleAdminDefualt {
+        margin-bottom: 40px;
+        font-size: 50px;
+    }
+}
+
+.bandNaeSales{
+    min-width: 110px;
+    margin-bottom: 16px;
+}
+
+.upcomming {
+    min-width: 110px;
+    margin-bottom: 16px;
+}
+.reports {
+    margin-bottom: 16px;
 }

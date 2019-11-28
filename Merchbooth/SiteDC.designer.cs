@@ -33,9 +33,6 @@ namespace Merchbooth
     partial void InsertTBand(TBand instance);
     partial void UpdateTBand(TBand instance);
     partial void DeleteTBand(TBand instance);
-    partial void InsertTType(TType instance);
-    partial void UpdateTType(TType instance);
-    partial void DeleteTType(TType instance);
     partial void InsertTBandsOrder(TBandsOrder instance);
     partial void UpdateTBandsOrder(TBandsOrder instance);
     partial void DeleteTBandsOrder(TBandsOrder instance);
@@ -75,6 +72,15 @@ namespace Merchbooth
     partial void InsertTSupplier(TSupplier instance);
     partial void UpdateTSupplier(TSupplier instance);
     partial void DeleteTSupplier(TSupplier instance);
+    partial void InsertTEvent(TEvent instance);
+    partial void UpdateTEvent(TEvent instance);
+    partial void DeleteTEvent(TEvent instance);
+    partial void InsertTSize(TSize instance);
+    partial void UpdateTSize(TSize instance);
+    partial void DeleteTSize(TSize instance);
+    partial void InsertTType(TType instance);
+    partial void UpdateTType(TType instance);
+    partial void DeleteTType(TType instance);
     #endregion
 		
 		public SiteDCDataContext() : 
@@ -112,14 +118,6 @@ namespace Merchbooth
 			get
 			{
 				return this.GetTable<TBand>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TType> TTypes
-		{
-			get
-			{
-				return this.GetTable<TType>();
 			}
 		}
 		
@@ -256,6 +254,30 @@ namespace Merchbooth
 			get
 			{
 				return this.GetTable<VCustomersPurchase>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TEvent> TEvents
+		{
+			get
+			{
+				return this.GetTable<TEvent>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TSize> TSizes
+		{
+			get
+			{
+				return this.GetTable<TSize>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TType> TTypes
+		{
+			get
+			{
+				return this.GetTable<TType>();
 			}
 		}
 		
@@ -398,6 +420,8 @@ namespace Merchbooth
 		
 		private EntitySet<TMember> _TMembers;
 		
+		private EntitySet<TEvent> _TEvents;
+		
 		private EntityRef<TState> _TState;
 		
     #region Extensibility Method Definitions
@@ -434,6 +458,7 @@ namespace Merchbooth
 		{
 			this._TBandsOrders = new EntitySet<TBandsOrder>(new Action<TBandsOrder>(this.attach_TBandsOrders), new Action<TBandsOrder>(this.detach_TBandsOrders));
 			this._TMembers = new EntitySet<TMember>(new Action<TMember>(this.attach_TMembers), new Action<TMember>(this.detach_TMembers));
+			this._TEvents = new EntitySet<TEvent>(new Action<TEvent>(this.attach_TEvents), new Action<TEvent>(this.detach_TEvents));
 			this._TState = default(EntityRef<TState>);
 			OnCreated();
 		}
@@ -708,6 +733,19 @@ namespace Merchbooth
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBand_TEvent", Storage="_TEvents", ThisKey="intBandID", OtherKey="intBandID")]
+		public EntitySet<TEvent> TEvents
+		{
+			get
+			{
+				return this._TEvents;
+			}
+			set
+			{
+				this._TEvents.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TState_TBand", Storage="_TState", ThisKey="intStateID", OtherKey="intStateID", IsForeignKey=true)]
 		public TState TState
 		{
@@ -785,314 +823,17 @@ namespace Merchbooth
 			this.SendPropertyChanging();
 			entity.TBand = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TTypes")]
-	public partial class TType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _intTypeID;
-		
-		private int _intBaseTypeID;
-		
-		private int _intColorID;
-		
-		private int _intGenderID;
-		
-		private string _strQrCode;
-		
-		private EntitySet<TProduct> _TProducts;
-		
-		private EntityRef<TBaseType> _TBaseType;
-		
-		private EntityRef<TColor> _TColor;
-		
-		private EntityRef<TGender> _TGender;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnintTypeIDChanging(int value);
-    partial void OnintTypeIDChanged();
-    partial void OnintBaseTypeIDChanging(int value);
-    partial void OnintBaseTypeIDChanged();
-    partial void OnintColorIDChanging(int value);
-    partial void OnintColorIDChanged();
-    partial void OnintGenderIDChanging(int value);
-    partial void OnintGenderIDChanged();
-    partial void OnstrQrCodeChanging(string value);
-    partial void OnstrQrCodeChanged();
-    #endregion
-		
-		public TType()
-		{
-			this._TProducts = new EntitySet<TProduct>(new Action<TProduct>(this.attach_TProducts), new Action<TProduct>(this.detach_TProducts));
-			this._TBaseType = default(EntityRef<TBaseType>);
-			this._TColor = default(EntityRef<TColor>);
-			this._TGender = default(EntityRef<TGender>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int intTypeID
-		{
-			get
-			{
-				return this._intTypeID;
-			}
-			set
-			{
-				if ((this._intTypeID != value))
-				{
-					this.OnintTypeIDChanging(value);
-					this.SendPropertyChanging();
-					this._intTypeID = value;
-					this.SendPropertyChanged("intTypeID");
-					this.OnintTypeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBaseTypeID", DbType="Int NOT NULL")]
-		public int intBaseTypeID
-		{
-			get
-			{
-				return this._intBaseTypeID;
-			}
-			set
-			{
-				if ((this._intBaseTypeID != value))
-				{
-					if (this._TBaseType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnintBaseTypeIDChanging(value);
-					this.SendPropertyChanging();
-					this._intBaseTypeID = value;
-					this.SendPropertyChanged("intBaseTypeID");
-					this.OnintBaseTypeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL")]
-		public int intColorID
-		{
-			get
-			{
-				return this._intColorID;
-			}
-			set
-			{
-				if ((this._intColorID != value))
-				{
-					if (this._TColor.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnintColorIDChanging(value);
-					this.SendPropertyChanging();
-					this._intColorID = value;
-					this.SendPropertyChanged("intColorID");
-					this.OnintColorIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", DbType="Int NOT NULL")]
-		public int intGenderID
-		{
-			get
-			{
-				return this._intGenderID;
-			}
-			set
-			{
-				if ((this._intGenderID != value))
-				{
-					if (this._TGender.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnintGenderIDChanging(value);
-					this.SendPropertyChanging();
-					this._intGenderID = value;
-					this.SendPropertyChanged("intGenderID");
-					this.OnintGenderIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strQrCode", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strQrCode
-		{
-			get
-			{
-				return this._strQrCode;
-			}
-			set
-			{
-				if ((this._strQrCode != value))
-				{
-					this.OnstrQrCodeChanging(value);
-					this.SendPropertyChanging();
-					this._strQrCode = value;
-					this.SendPropertyChanged("strQrCode");
-					this.OnstrQrCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TType_TProduct", Storage="_TProducts", ThisKey="intTypeID", OtherKey="intTypeID")]
-		public EntitySet<TProduct> TProducts
-		{
-			get
-			{
-				return this._TProducts;
-			}
-			set
-			{
-				this._TProducts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBaseType_TType", Storage="_TBaseType", ThisKey="intBaseTypeID", OtherKey="intBaseTypeID", IsForeignKey=true)]
-		public TBaseType TBaseType
-		{
-			get
-			{
-				return this._TBaseType.Entity;
-			}
-			set
-			{
-				TBaseType previousValue = this._TBaseType.Entity;
-				if (((previousValue != value) 
-							|| (this._TBaseType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBaseType.Entity = null;
-						previousValue.TTypes.Remove(this);
-					}
-					this._TBaseType.Entity = value;
-					if ((value != null))
-					{
-						value.TTypes.Add(this);
-						this._intBaseTypeID = value.intBaseTypeID;
-					}
-					else
-					{
-						this._intBaseTypeID = default(int);
-					}
-					this.SendPropertyChanged("TBaseType");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TColor_TType", Storage="_TColor", ThisKey="intColorID", OtherKey="intColorID", IsForeignKey=true)]
-		public TColor TColor
-		{
-			get
-			{
-				return this._TColor.Entity;
-			}
-			set
-			{
-				TColor previousValue = this._TColor.Entity;
-				if (((previousValue != value) 
-							|| (this._TColor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TColor.Entity = null;
-						previousValue.TTypes.Remove(this);
-					}
-					this._TColor.Entity = value;
-					if ((value != null))
-					{
-						value.TTypes.Add(this);
-						this._intColorID = value.intColorID;
-					}
-					else
-					{
-						this._intColorID = default(int);
-					}
-					this.SendPropertyChanged("TColor");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TType", Storage="_TGender", ThisKey="intGenderID", OtherKey="intGenderID", IsForeignKey=true)]
-		public TGender TGender
-		{
-			get
-			{
-				return this._TGender.Entity;
-			}
-			set
-			{
-				TGender previousValue = this._TGender.Entity;
-				if (((previousValue != value) 
-							|| (this._TGender.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TGender.Entity = null;
-						previousValue.TTypes.Remove(this);
-					}
-					this._TGender.Entity = value;
-					if ((value != null))
-					{
-						value.TTypes.Add(this);
-						this._intGenderID = value.intGenderID;
-					}
-					else
-					{
-						this._intGenderID = default(int);
-					}
-					this.SendPropertyChanged("TGender");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TProducts(TProduct entity)
+		private void attach_TEvents(TEvent entity)
 		{
 			this.SendPropertyChanging();
-			entity.TType = this;
+			entity.TBand = this;
 		}
 		
-		private void detach_TProducts(TProduct entity)
+		private void detach_TEvents(TEvent entity)
 		{
 			this.SendPropertyChanging();
-			entity.TType = null;
+			entity.TBand = null;
 		}
 	}
 	
@@ -2440,11 +2181,11 @@ namespace Merchbooth
 		
 		private string _strGender;
 		
-		private EntitySet<TType> _TTypes;
-		
 		private EntitySet<TCustomer> _TCustomers;
 		
 		private EntitySet<TMember> _TMembers;
+		
+		private EntitySet<TType> _TTypes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2458,9 +2199,9 @@ namespace Merchbooth
 		
 		public TGender()
 		{
-			this._TTypes = new EntitySet<TType>(new Action<TType>(this.attach_TTypes), new Action<TType>(this.detach_TTypes));
 			this._TCustomers = new EntitySet<TCustomer>(new Action<TCustomer>(this.attach_TCustomers), new Action<TCustomer>(this.detach_TCustomers));
 			this._TMembers = new EntitySet<TMember>(new Action<TMember>(this.attach_TMembers), new Action<TMember>(this.detach_TMembers));
+			this._TTypes = new EntitySet<TType>(new Action<TType>(this.attach_TTypes), new Action<TType>(this.detach_TTypes));
 			OnCreated();
 		}
 		
@@ -2504,19 +2245,6 @@ namespace Merchbooth
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TType", Storage="_TTypes", ThisKey="intGenderID", OtherKey="intGenderID")]
-		public EntitySet<TType> TTypes
-		{
-			get
-			{
-				return this._TTypes;
-			}
-			set
-			{
-				this._TTypes.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TCustomer", Storage="_TCustomers", ThisKey="intGenderID", OtherKey="intGenderID")]
 		public EntitySet<TCustomer> TCustomers
 		{
@@ -2543,6 +2271,19 @@ namespace Merchbooth
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TType", Storage="_TTypes", ThisKey="intGenderID", OtherKey="intGenderID")]
+		public EntitySet<TType> TTypes
+		{
+			get
+			{
+				return this._TTypes;
+			}
+			set
+			{
+				this._TTypes.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2561,18 +2302,6 @@ namespace Merchbooth
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_TTypes(TType entity)
-		{
-			this.SendPropertyChanging();
-			entity.TGender = this;
-		}
-		
-		private void detach_TTypes(TType entity)
-		{
-			this.SendPropertyChanging();
-			entity.TGender = null;
 		}
 		
 		private void attach_TCustomers(TCustomer entity)
@@ -2594,6 +2323,18 @@ namespace Merchbooth
 		}
 		
 		private void detach_TMembers(TMember entity)
+		{
+			this.SendPropertyChanging();
+			entity.TGender = null;
+		}
+		
+		private void attach_TTypes(TType entity)
+		{
+			this.SendPropertyChanging();
+			entity.TGender = this;
+		}
+		
+		private void detach_TTypes(TType entity)
 		{
 			this.SendPropertyChanging();
 			entity.TGender = null;
@@ -6172,6 +5913,861 @@ namespace Merchbooth
 					this._strBandName = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TEvents")]
+	public partial class TEvent : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _intEventID;
+		
+		private int _intBandID;
+		
+		private string _strEventName;
+		
+		private string _strLocation;
+		
+		private string _strImageUrl;
+		
+		private decimal _decEntryPrice;
+		
+		private decimal _decEventSales;
+		
+		private System.DateTime _dtmDate;
+		
+		private System.Nullable<int> _intIsDeleted;
+		
+		private EntityRef<TBand> _TBand;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnintEventIDChanging(int value);
+    partial void OnintEventIDChanged();
+    partial void OnintBandIDChanging(int value);
+    partial void OnintBandIDChanged();
+    partial void OnstrEventNameChanging(string value);
+    partial void OnstrEventNameChanged();
+    partial void OnstrLocationChanging(string value);
+    partial void OnstrLocationChanged();
+    partial void OnstrImageUrlChanging(string value);
+    partial void OnstrImageUrlChanged();
+    partial void OndecEntryPriceChanging(decimal value);
+    partial void OndecEntryPriceChanged();
+    partial void OndecEventSalesChanging(decimal value);
+    partial void OndecEventSalesChanged();
+    partial void OndtmDateChanging(System.DateTime value);
+    partial void OndtmDateChanged();
+    partial void OnintIsDeletedChanging(System.Nullable<int> value);
+    partial void OnintIsDeletedChanged();
+    #endregion
+		
+		public TEvent()
+		{
+			this._TBand = default(EntityRef<TBand>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intEventID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int intEventID
+		{
+			get
+			{
+				return this._intEventID;
+			}
+			set
+			{
+				if ((this._intEventID != value))
+				{
+					this.OnintEventIDChanging(value);
+					this.SendPropertyChanging();
+					this._intEventID = value;
+					this.SendPropertyChanged("intEventID");
+					this.OnintEventIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandID", DbType="Int NOT NULL")]
+		public int intBandID
+		{
+			get
+			{
+				return this._intBandID;
+			}
+			set
+			{
+				if ((this._intBandID != value))
+				{
+					if (this._TBand.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintBandIDChanging(value);
+					this.SendPropertyChanging();
+					this._intBandID = value;
+					this.SendPropertyChanged("intBandID");
+					this.OnintBandIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strEventName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strEventName
+		{
+			get
+			{
+				return this._strEventName;
+			}
+			set
+			{
+				if ((this._strEventName != value))
+				{
+					this.OnstrEventNameChanging(value);
+					this.SendPropertyChanging();
+					this._strEventName = value;
+					this.SendPropertyChanged("strEventName");
+					this.OnstrEventNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strLocation", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strLocation
+		{
+			get
+			{
+				return this._strLocation;
+			}
+			set
+			{
+				if ((this._strLocation != value))
+				{
+					this.OnstrLocationChanging(value);
+					this.SendPropertyChanging();
+					this._strLocation = value;
+					this.SendPropertyChanged("strLocation");
+					this.OnstrLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strImageUrl", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strImageUrl
+		{
+			get
+			{
+				return this._strImageUrl;
+			}
+			set
+			{
+				if ((this._strImageUrl != value))
+				{
+					this.OnstrImageUrlChanging(value);
+					this.SendPropertyChanging();
+					this._strImageUrl = value;
+					this.SendPropertyChanged("strImageUrl");
+					this.OnstrImageUrlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decEntryPrice", DbType="Decimal(9,2) NOT NULL")]
+		public decimal decEntryPrice
+		{
+			get
+			{
+				return this._decEntryPrice;
+			}
+			set
+			{
+				if ((this._decEntryPrice != value))
+				{
+					this.OndecEntryPriceChanging(value);
+					this.SendPropertyChanging();
+					this._decEntryPrice = value;
+					this.SendPropertyChanged("decEntryPrice");
+					this.OndecEntryPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decEventSales", DbType="Decimal(9,2) NOT NULL")]
+		public decimal decEventSales
+		{
+			get
+			{
+				return this._decEventSales;
+			}
+			set
+			{
+				if ((this._decEventSales != value))
+				{
+					this.OndecEventSalesChanging(value);
+					this.SendPropertyChanging();
+					this._decEventSales = value;
+					this.SendPropertyChanged("decEventSales");
+					this.OndecEventSalesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dtmDate", DbType="Date NOT NULL")]
+		public System.DateTime dtmDate
+		{
+			get
+			{
+				return this._dtmDate;
+			}
+			set
+			{
+				if ((this._dtmDate != value))
+				{
+					this.OndtmDateChanging(value);
+					this.SendPropertyChanging();
+					this._dtmDate = value;
+					this.SendPropertyChanged("dtmDate");
+					this.OndtmDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intIsDeleted", DbType="Int")]
+		public System.Nullable<int> intIsDeleted
+		{
+			get
+			{
+				return this._intIsDeleted;
+			}
+			set
+			{
+				if ((this._intIsDeleted != value))
+				{
+					this.OnintIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._intIsDeleted = value;
+					this.SendPropertyChanged("intIsDeleted");
+					this.OnintIsDeletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBand_TEvent", Storage="_TBand", ThisKey="intBandID", OtherKey="intBandID", IsForeignKey=true)]
+		public TBand TBand
+		{
+			get
+			{
+				return this._TBand.Entity;
+			}
+			set
+			{
+				TBand previousValue = this._TBand.Entity;
+				if (((previousValue != value) 
+							|| (this._TBand.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TBand.Entity = null;
+						previousValue.TEvents.Remove(this);
+					}
+					this._TBand.Entity = value;
+					if ((value != null))
+					{
+						value.TEvents.Add(this);
+						this._intBandID = value.intBandID;
+					}
+					else
+					{
+						this._intBandID = default(int);
+					}
+					this.SendPropertyChanged("TBand");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TSizes")]
+	public partial class TSize : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _intSizeID;
+		
+		private string _strSize;
+		
+		private string _strFullSize;
+		
+		private System.Nullable<int> _intIsDeleted;
+		
+		private EntitySet<TType> _TTypes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnintSizeIDChanging(int value);
+    partial void OnintSizeIDChanged();
+    partial void OnstrSizeChanging(string value);
+    partial void OnstrSizeChanged();
+    partial void OnstrFullSizeChanging(string value);
+    partial void OnstrFullSizeChanged();
+    partial void OnintIsDeletedChanging(System.Nullable<int> value);
+    partial void OnintIsDeletedChanged();
+    #endregion
+		
+		public TSize()
+		{
+			this._TTypes = new EntitySet<TType>(new Action<TType>(this.attach_TTypes), new Action<TType>(this.detach_TTypes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSizeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int intSizeID
+		{
+			get
+			{
+				return this._intSizeID;
+			}
+			set
+			{
+				if ((this._intSizeID != value))
+				{
+					this.OnintSizeIDChanging(value);
+					this.SendPropertyChanging();
+					this._intSizeID = value;
+					this.SendPropertyChanged("intSizeID");
+					this.OnintSizeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strSize", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string strSize
+		{
+			get
+			{
+				return this._strSize;
+			}
+			set
+			{
+				if ((this._strSize != value))
+				{
+					this.OnstrSizeChanging(value);
+					this.SendPropertyChanging();
+					this._strSize = value;
+					this.SendPropertyChanged("strSize");
+					this.OnstrSizeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strFullSize", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string strFullSize
+		{
+			get
+			{
+				return this._strFullSize;
+			}
+			set
+			{
+				if ((this._strFullSize != value))
+				{
+					this.OnstrFullSizeChanging(value);
+					this.SendPropertyChanging();
+					this._strFullSize = value;
+					this.SendPropertyChanged("strFullSize");
+					this.OnstrFullSizeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intIsDeleted", DbType="Int")]
+		public System.Nullable<int> intIsDeleted
+		{
+			get
+			{
+				return this._intIsDeleted;
+			}
+			set
+			{
+				if ((this._intIsDeleted != value))
+				{
+					this.OnintIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._intIsDeleted = value;
+					this.SendPropertyChanged("intIsDeleted");
+					this.OnintIsDeletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TSize_TType", Storage="_TTypes", ThisKey="intSizeID", OtherKey="intSizeID")]
+		public EntitySet<TType> TTypes
+		{
+			get
+			{
+				return this._TTypes;
+			}
+			set
+			{
+				this._TTypes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TTypes(TType entity)
+		{
+			this.SendPropertyChanging();
+			entity.TSize = this;
+		}
+		
+		private void detach_TTypes(TType entity)
+		{
+			this.SendPropertyChanging();
+			entity.TSize = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TTypes")]
+	public partial class TType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _intTypeID;
+		
+		private int _intBaseTypeID;
+		
+		private int _intColorID;
+		
+		private int _intSizeID;
+		
+		private int _intGenderID;
+		
+		private string _strQrCode;
+		
+		private System.Nullable<int> _intIsDeleted;
+		
+		private EntitySet<TProduct> _TProducts;
+		
+		private EntityRef<TBaseType> _TBaseType;
+		
+		private EntityRef<TColor> _TColor;
+		
+		private EntityRef<TGender> _TGender;
+		
+		private EntityRef<TSize> _TSize;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnintTypeIDChanging(int value);
+    partial void OnintTypeIDChanged();
+    partial void OnintBaseTypeIDChanging(int value);
+    partial void OnintBaseTypeIDChanged();
+    partial void OnintColorIDChanging(int value);
+    partial void OnintColorIDChanged();
+    partial void OnintSizeIDChanging(int value);
+    partial void OnintSizeIDChanged();
+    partial void OnintGenderIDChanging(int value);
+    partial void OnintGenderIDChanged();
+    partial void OnstrQrCodeChanging(string value);
+    partial void OnstrQrCodeChanged();
+    partial void OnintIsDeletedChanging(System.Nullable<int> value);
+    partial void OnintIsDeletedChanged();
+    #endregion
+		
+		public TType()
+		{
+			this._TProducts = new EntitySet<TProduct>(new Action<TProduct>(this.attach_TProducts), new Action<TProduct>(this.detach_TProducts));
+			this._TBaseType = default(EntityRef<TBaseType>);
+			this._TColor = default(EntityRef<TColor>);
+			this._TGender = default(EntityRef<TGender>);
+			this._TSize = default(EntityRef<TSize>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int intTypeID
+		{
+			get
+			{
+				return this._intTypeID;
+			}
+			set
+			{
+				if ((this._intTypeID != value))
+				{
+					this.OnintTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._intTypeID = value;
+					this.SendPropertyChanged("intTypeID");
+					this.OnintTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBaseTypeID", DbType="Int NOT NULL")]
+		public int intBaseTypeID
+		{
+			get
+			{
+				return this._intBaseTypeID;
+			}
+			set
+			{
+				if ((this._intBaseTypeID != value))
+				{
+					if (this._TBaseType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintBaseTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._intBaseTypeID = value;
+					this.SendPropertyChanged("intBaseTypeID");
+					this.OnintBaseTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intColorID", DbType="Int NOT NULL")]
+		public int intColorID
+		{
+			get
+			{
+				return this._intColorID;
+			}
+			set
+			{
+				if ((this._intColorID != value))
+				{
+					if (this._TColor.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintColorIDChanging(value);
+					this.SendPropertyChanging();
+					this._intColorID = value;
+					this.SendPropertyChanged("intColorID");
+					this.OnintColorIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSizeID", DbType="Int NOT NULL")]
+		public int intSizeID
+		{
+			get
+			{
+				return this._intSizeID;
+			}
+			set
+			{
+				if ((this._intSizeID != value))
+				{
+					if (this._TSize.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintSizeIDChanging(value);
+					this.SendPropertyChanging();
+					this._intSizeID = value;
+					this.SendPropertyChanged("intSizeID");
+					this.OnintSizeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intGenderID", DbType="Int NOT NULL")]
+		public int intGenderID
+		{
+			get
+			{
+				return this._intGenderID;
+			}
+			set
+			{
+				if ((this._intGenderID != value))
+				{
+					if (this._TGender.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintGenderIDChanging(value);
+					this.SendPropertyChanging();
+					this._intGenderID = value;
+					this.SendPropertyChanged("intGenderID");
+					this.OnintGenderIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strQrCode", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strQrCode
+		{
+			get
+			{
+				return this._strQrCode;
+			}
+			set
+			{
+				if ((this._strQrCode != value))
+				{
+					this.OnstrQrCodeChanging(value);
+					this.SendPropertyChanging();
+					this._strQrCode = value;
+					this.SendPropertyChanged("strQrCode");
+					this.OnstrQrCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intIsDeleted", DbType="Int")]
+		public System.Nullable<int> intIsDeleted
+		{
+			get
+			{
+				return this._intIsDeleted;
+			}
+			set
+			{
+				if ((this._intIsDeleted != value))
+				{
+					this.OnintIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._intIsDeleted = value;
+					this.SendPropertyChanged("intIsDeleted");
+					this.OnintIsDeletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TType_TProduct", Storage="_TProducts", ThisKey="intTypeID", OtherKey="intTypeID")]
+		public EntitySet<TProduct> TProducts
+		{
+			get
+			{
+				return this._TProducts;
+			}
+			set
+			{
+				this._TProducts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBaseType_TType", Storage="_TBaseType", ThisKey="intBaseTypeID", OtherKey="intBaseTypeID", IsForeignKey=true)]
+		public TBaseType TBaseType
+		{
+			get
+			{
+				return this._TBaseType.Entity;
+			}
+			set
+			{
+				TBaseType previousValue = this._TBaseType.Entity;
+				if (((previousValue != value) 
+							|| (this._TBaseType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TBaseType.Entity = null;
+						previousValue.TTypes.Remove(this);
+					}
+					this._TBaseType.Entity = value;
+					if ((value != null))
+					{
+						value.TTypes.Add(this);
+						this._intBaseTypeID = value.intBaseTypeID;
+					}
+					else
+					{
+						this._intBaseTypeID = default(int);
+					}
+					this.SendPropertyChanged("TBaseType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TColor_TType", Storage="_TColor", ThisKey="intColorID", OtherKey="intColorID", IsForeignKey=true)]
+		public TColor TColor
+		{
+			get
+			{
+				return this._TColor.Entity;
+			}
+			set
+			{
+				TColor previousValue = this._TColor.Entity;
+				if (((previousValue != value) 
+							|| (this._TColor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TColor.Entity = null;
+						previousValue.TTypes.Remove(this);
+					}
+					this._TColor.Entity = value;
+					if ((value != null))
+					{
+						value.TTypes.Add(this);
+						this._intColorID = value.intColorID;
+					}
+					else
+					{
+						this._intColorID = default(int);
+					}
+					this.SendPropertyChanged("TColor");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TGender_TType", Storage="_TGender", ThisKey="intGenderID", OtherKey="intGenderID", IsForeignKey=true)]
+		public TGender TGender
+		{
+			get
+			{
+				return this._TGender.Entity;
+			}
+			set
+			{
+				TGender previousValue = this._TGender.Entity;
+				if (((previousValue != value) 
+							|| (this._TGender.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TGender.Entity = null;
+						previousValue.TTypes.Remove(this);
+					}
+					this._TGender.Entity = value;
+					if ((value != null))
+					{
+						value.TTypes.Add(this);
+						this._intGenderID = value.intGenderID;
+					}
+					else
+					{
+						this._intGenderID = default(int);
+					}
+					this.SendPropertyChanged("TGender");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TSize_TType", Storage="_TSize", ThisKey="intSizeID", OtherKey="intSizeID", IsForeignKey=true)]
+		public TSize TSize
+		{
+			get
+			{
+				return this._TSize.Entity;
+			}
+			set
+			{
+				TSize previousValue = this._TSize.Entity;
+				if (((previousValue != value) 
+							|| (this._TSize.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TSize.Entity = null;
+						previousValue.TTypes.Remove(this);
+					}
+					this._TSize.Entity = value;
+					if ((value != null))
+					{
+						value.TTypes.Add(this);
+						this._intSizeID = value.intSizeID;
+					}
+					else
+					{
+						this._intSizeID = default(int);
+					}
+					this.SendPropertyChanged("TSize");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TProducts(TProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.TType = this;
+		}
+		
+		private void detach_TProducts(TProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.TType = null;
 		}
 	}
 }
