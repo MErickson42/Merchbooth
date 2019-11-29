@@ -44,8 +44,11 @@
             </div>
             
             <div class="row">
-                <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
-                    <asp:Label ID="lblLowInventory" runat="server" Text=""></asp:Label>
+                <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">         
+                   <asp:Label ID="lblLowInventory" runat="server" Text=""></asp:Label>
+                    <%-- *added user entered low threshhold //EH 11.29.19 --%>
+                    <asp:Label ID="lbllowInventoryThreshold" runat="server" Text="Low Inventory Threshold:"></asp:Label>
+                    <asp:TextBox ID="lowInventoryThreshold" type="text" MaxLength="25" CssClass="form-control" runat="server" Text="50" Width="80%"></asp:TextBox>                
                 </div>
                 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
                     <asp:Label ID="lblSales" runat="server" Text="Reports"></asp:Label>

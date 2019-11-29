@@ -19,7 +19,7 @@ namespace Merchbooth
         protected void btnSignInCustomer_Click(object sender, EventArgs e)
         {
             SiteDCDataContext _siteContext = new SiteDCDataContext();
-            string message = "Customer email and passwored do not match.";
+            string message = "Customer email and password do not match.";
             int CustomerKey = 0;
             string strCustomerName = "";
 
