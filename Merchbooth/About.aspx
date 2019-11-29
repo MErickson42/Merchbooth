@@ -14,7 +14,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <div style="margin-top:200px"></div>
   
-    <h2><%: Title %>.</h2>
+    <h2><%: Title %></h2>
 
     <h3>What is Merchbooth?</h3>
         <p>
@@ -23,7 +23,7 @@
     <h3>What Can Merchbooth do?</h3>
         <p>
 	        Provides bands with easy to use UI to design and manage an inventory system that fits their unique needs.	<br />
-	        Provides bands with e-commerce and in-person merchandise sales.<br />
+	        Provides bands with e-commerce and in-person merchandise sales options.<br />
 	        Connects all sales to one centralized inventory system.<br />
 	        Efficiently manages sales tracking in the hectic environment of merch sales.<br />
 	        Centralizes all inventory changes and provides valuable data analysis features to account admins.<br />

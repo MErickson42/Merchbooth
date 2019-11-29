@@ -25,14 +25,16 @@ namespace Merchbooth.Admin
 
             SiteDCDataContext _siteContent = new SiteDCDataContext();
 
-
-            //Ceating- Low Inventory String
-            var queryProducts = from p in _siteContent.TProducts
+			// *added user entered low threshhold variable //EH 11.29.19
+			int intQuantity = Convert.ToInt32(lowInventoryThreshold.Text);
+	
+			//Ceating- Low Inventory String
+				var queryProducts = from p in _siteContent.TProducts
 
                                 orderby p.intProductID
                                 where   p.intBandID == intBandID &&
-                                        p.intAmountAvialable < 50
-                                select p;
+                                        p.intAmountAvialable < intQuantity
+								select p;
 
             queryProducts.ToList();
 

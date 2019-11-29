@@ -200,6 +200,12 @@ ul {
     border: 3px solid black;
     background-color: bisque;
 }
+
+
+
+
+
+
 .ProductTotal {
     position: relative;
     bottom: 60px;
@@ -208,6 +214,10 @@ ul {
     font-size: 20px;
     display: inline;
 }
+
+
+
+
 .CartTotal{
     margin-left:190px;
     border:none;

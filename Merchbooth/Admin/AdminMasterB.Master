@@ -60,8 +60,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <%--<li><a runat="server" href="~/AdminHome">Home</a></li>--%>
-                        <li><a runat="server" href="../Admin/Products">Products</a></li>
+                        <%--Added Manager home page link to booth sales/checkout navbar / EH 11-29-19--%>
+                        <li><a runat="server" href="../Admin/Default">Home  - </a></li>
+                        <li><a runat="server" href="../Admin/Products"> Products  </a></li>
                         <li><img id = "cartImage" src="../../Images/untitled_4.jpg" alt="" ></li>
 				        <li><div id="cartCount"></div> </li>
                     </ul>

@@ -33,6 +33,27 @@ hr {
     z-index:99;
 }
 
+
+
+.bandHeaderImage {
+    width: 100vw;
+    height: 160px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: fixed;
+    top: 0;
+    padding-bottom: 0px;
+    background-color: rgb(0, 0, 0);
+    background-image: url("../Images/MERCHBOOTH_137.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 99;
+}
+
+
+
+
 .navbar {
     position: fixed;
     top: 105px;
