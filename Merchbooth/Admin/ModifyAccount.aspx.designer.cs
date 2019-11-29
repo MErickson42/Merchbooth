@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Merchbooth {
+namespace Merchbooth.Admin {
     
     
-    public partial class WebForm1 {
+    public partial class Account {
         
         /// <summary>
         /// FailureText control.
@@ -211,13 +211,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.Literal ltrBackgroundImagePath;
         
         /// <summary>
-        /// btnBandSignUp control.
+        /// btnUpdateProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBandSignUp;
+        protected global::System.Web.UI.WebControls.Button btnUpdateProduct;
         
         /// <summary>
         /// btnCancel control.

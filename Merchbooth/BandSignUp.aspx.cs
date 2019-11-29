@@ -154,12 +154,7 @@ namespace Merchbooth {
                     _siteContext.SubmitChanges();
                 }
 
-
-                //TODO For now there is no home page
-                //Response.Redirect("/Admin/?pk=" + BandKey + "&message=" + Server.UrlEncode(message));
-
-                //So sending to modify product page
-                Response.Redirect("/Admin/Products.aspx?&message=" + Server.UrlEncode(message));
+                Response.Redirect("/Admin/Defaults.aspx?&message=" + Server.UrlEncode(message));
             }
         }
 

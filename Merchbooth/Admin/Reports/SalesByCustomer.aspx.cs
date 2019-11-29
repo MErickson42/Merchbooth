@@ -58,7 +58,7 @@ namespace Merchbooth.Admin.Reports
                     tl.Append("<td class='datecolumnCustomer customerTotal'>$" + cus.Total + " </td>");
                     tl.Append("<td class='datecolumnCustomer'>" + cus.strStateName + " </td>");
                     tl.Append("<td class='datecolumnCustomer'>" + cus.strCity + " </td>");
-                    tl.Append("<td class='datecolumnCustomer'>" + cus.strAddress + " </td>");
+                    tl.Append("<td class='datecolumnCustomer cusAddress'>" + cus.strAddress + " </td>");
                     tl.Append("<td class='datecolumnCustomer'>" + cus.strEmail + " </td>");
                     tl.Append("<td class='datecolumnCustomer'>" + cus.strPhone + " </td>");
 

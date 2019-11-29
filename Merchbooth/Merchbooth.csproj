@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="Admin\ModifyAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\ModifyProduct.aspx" />
     <Content Include="Admin\Products.aspx" />
@@ -297,6 +298,13 @@
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ModifyAccount.aspx.cs">
+      <DependentUpon>ModifyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ModifyAccount.aspx.designer.cs">
+      <DependentUpon>ModifyAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminMasterB.Master.cs">
       <DependentUpon>AdminMasterB.Master</DependentUpon>

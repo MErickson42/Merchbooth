@@ -297,4 +297,7 @@ textarea {
     background-color: white;
     font-weight: bold;
 }
+.cusAddress{
+    min-width:220px;
+}
 

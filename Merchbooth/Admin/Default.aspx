@@ -9,8 +9,10 @@
         <div class="col-lg-10 col-sm-10">
             <ul class="breadcrumb pull-right">
                 <li class= "active">Home</li>
-                <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
                 <li><a href="/Admin/Products/">Products</a></li>
+                <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
+                <li><a href="/Admin/ModifyAccount/">Account</a></li>
+
             </ul>
         </div>
         <div class="col-lg-1 col-sm-1"></div>
