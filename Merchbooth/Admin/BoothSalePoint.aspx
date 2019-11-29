@@ -58,6 +58,41 @@
 
             }
 
+
+
+            function subtractFromCart(intProductID, intTypeID, strImageUrl, decPrice, intAmount) {
+
+                intTotalCount -= 1;
+                var strProductNumber = "" + intProductID;
+
+                if (strProductNumber in Products) {
+
+                    Products[strProductNumber].Amount -= intAmount
+
+                }
+                else {
+
+                    Products[strProductNumber] = { Id: intProductID, TypeId: intTypeID, Image: "\"" + strImageUrl + "\"", Price: decPrice, Amount: intAmount };
+
+
+                }
+
+                //objCart.Products{objCart.intTotalCount-1 } = "{Id:" + intProductID + ",TypeId:" + intTypeID + ",Image:" + strImageUrl + ",Price:" + decPrice + ",Amount:" + intAmount + "},";
+                //document.getElementById(id).innerHTML =  objCart.ThirstIDs + objCart.intTotalCount;
+                //
+
+
+                document.getElementById("cartCount").innerHTML = intTotalCount + " +";
+
+                //document.getElementById("testing").innerHTML =  Products;
+
+                document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
+
+            }
+
+
+
+
 			function ObjToString(Products) {
 
                 var strProductString = "";

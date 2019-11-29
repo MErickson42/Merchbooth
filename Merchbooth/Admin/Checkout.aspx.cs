@@ -91,7 +91,7 @@ namespace Merchbooth
                         }
                         else if ((string)pair.Key == "Amount")
                         {
-                            intAmount = Convert.ToInt32(pair.Value);
+							intAmount = Convert.ToInt32(pair.Value);
                         }
 
                     }
@@ -102,20 +102,30 @@ namespace Merchbooth
 
                     //sb.Append("<div class='CartItemImage'>");
                     sb.Append(" <img src='../" + strImageLink + "' class='image-responsive'/>");
+					//added item qty and unit price //EH 11.29.19
+					sb.Append("<p >Qty: ");
+					sb.Append(intAmount);
+					
+					sb.Append("<p >Unit price: $");
+					sb.Append(decBandPrice);
+					sb.Append("</p> </br>");
 
-                    sb.Append("<p class='ProductTotal'>Price $: ");
-                    sb.Append(sngProductTotal);
-                    sb.Append("</p>");
+					sb.Append("</br><p class='ProductTotal'>Price: $");
+					sb.Append(sngProductTotal);
+					sb.Append("</p>");
 
-                    //sb.Append("</div>");
-                    sb.Append("</div>");
+
+
+
+
+					sb.Append("</div>");
 
 
                 }
 
 
                 sb.Append("<div class = 'CartTotalRow'>");
-                sb.Append("<p class='CartTotal'>Total $: ");
+                sb.Append("<p class='CartTotal'>Total: $");
                 sb.Append(sngCartTotal);
                 sb.Append("</p>");
                 sb.Append("</div>");
