@@ -250,8 +250,10 @@ textarea {
 .reports {
     margin-bottom: 16px;
 }
-/*///////////////////////////////////////////////////*/
 
+
+/*///////////////////////////////////////////////////*/
+/*  Report - Sales By Date - START  */
 
 .ReportTable td {
     border: 1px solid #52527a;
@@ -273,3 +275,26 @@ textarea {
 .datecolumn {
     background-color: #c2c2d6;
 }
+/*////////////////////////////////////////////*/
+
+
+/*///////////////////////////////////////////////////*/
+/*  Report - Sales By Customer - START  */
+
+.DivBorderTableWrappCustomer {
+    height: 100%;
+    width: 100%;
+}
+.datecolumnCustomer {
+    background-color: #e4e4ed;
+}
+.customerTotal {
+    color: blue;
+    background-color: white;
+    font-weight: bold;
+}
+.customerName {
+    background-color: white;
+    font-weight: bold;
+}
+
