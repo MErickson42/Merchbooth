@@ -42,7 +42,20 @@ namespace Merchbooth.Admin.Reports
             tl.Append("<div class='DivBorderTableWrappCustomer'>");
             tl.Append("<table class='ReportTable'>");
             tl.Append("<thead>");
-            tl.Append("<tr class='reportTableHeader'><th colspan='7'>Customer</th></tr>");
+
+            tl.Append("<tr class='reportTableHeader'>");
+
+            tl.Append("<th class='tableDataHeaders cusnameTHeader'>Last Name</th>");
+            tl.Append("<th class='tableDataHeaders cusnameTHeader'>First Name</th>");
+            tl.Append("<th class='tableDataHeaders'>Total</th>");
+            tl.Append("<th class='tableDataHeaders'>State</th>");
+            tl.Append("<th class='tableDataHeaders'>City</th>");
+            tl.Append("<th class='tableDataHeaders'>Address</th>");
+            tl.Append("<th class='tableDataHeaders'>Email</th>");
+            tl.Append("<th class='tableDataHeaders'>Phone</th>");
+
+            tl.Append("</tr>");
+
             tl.Append("</thead>");
             tl.Append("<tbody>");
 

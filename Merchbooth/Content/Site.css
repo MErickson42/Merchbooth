@@ -308,6 +308,9 @@ textarea {
 }
 .datecolumnCustomer {
     background-color: #e4e4ed;
+    min-width: 80px;
+    text-align: center;
+    padding:2px;
 }
 .customerTotal {
     color: blue;
@@ -320,5 +323,50 @@ textarea {
 }
 .cusAddress{
     min-width:220px;
+}
+.cusnameTHeader {
+    min-width: 130px;
+}
+/*///////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////*/
+/*  Report - Sales By Product - START  */
+.DivBorderTableWrappProduct {
+    height: 100%;
+    width: 100%;
+    margin-bottom:50px;
+}
+
+.datecolumnProduct {
+    background-color: #e4e4ed;
+    text-align: center;
+    padding: 4px;
+    min-width: 50px;
+}
+
+.productTotal {
+    color: blue;
+    background-color: white;
+    font-weight: bold;
+    min-width: 120px;
+}
+
+.productType {
+    background-color: white;
+    font-weight: bold;
+    min-width: 120px;
+}
+
+.TypeSelected {
+    min-width: 130px;
+    text-align:left;
+    padding-left:20px;
+}
+.productAvrege {
+    min-width: 120px;
+}
+.tableDataHeaders {
+    border: 1px solid #52527a;
+    padding-top: 6px;
+    text-align: center;
 }
 
