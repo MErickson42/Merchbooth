@@ -137,7 +137,7 @@ namespace Merchbooth.Admin
                 //MDE - For now - just hardcoding TypeID 1 until  I write the join for type
                 prod.intBandID = intBandID;
                 prod.intTypeID = 1;
-
+                prod.intSortLevel = 10;
 
                 _siteContext.TProducts.InsertOnSubmit(prod);
 

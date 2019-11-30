@@ -42,9 +42,6 @@ namespace Merchbooth
     partial void InsertTColor(TColor instance);
     partial void UpdateTColor(TColor instance);
     partial void DeleteTColor(TColor instance);
-    partial void InsertTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
-    partial void UpdateTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
-    partial void DeleteTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
     partial void InsertTCustomerPurchase(TCustomerPurchase instance);
     partial void UpdateTCustomerPurchase(TCustomerPurchase instance);
     partial void DeleteTCustomerPurchase(TCustomerPurchase instance);
@@ -60,9 +57,6 @@ namespace Merchbooth
     partial void InsertTOrdersSupplierProduct(TOrdersSupplierProduct instance);
     partial void UpdateTOrdersSupplierProduct(TOrdersSupplierProduct instance);
     partial void DeleteTOrdersSupplierProduct(TOrdersSupplierProduct instance);
-    partial void InsertTProduct(TProduct instance);
-    partial void UpdateTProduct(TProduct instance);
-    partial void DeleteTProduct(TProduct instance);
     partial void InsertTState(TState instance);
     partial void UpdateTState(TState instance);
     partial void DeleteTState(TState instance);
@@ -81,6 +75,12 @@ namespace Merchbooth
     partial void InsertTType(TType instance);
     partial void UpdateTType(TType instance);
     partial void DeleteTType(TType instance);
+    partial void InsertTProduct(TProduct instance);
+    partial void UpdateTProduct(TProduct instance);
+    partial void DeleteTProduct(TProduct instance);
+    partial void InsertTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
+    partial void UpdateTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
+    partial void DeleteTCustomerPurchaseProduct(TCustomerPurchaseProduct instance);
     #endregion
 		
 		public SiteDCDataContext() : 
@@ -145,14 +145,6 @@ namespace Merchbooth
 			}
 		}
 		
-		public System.Data.Linq.Table<TCustomerPurchaseProduct> TCustomerPurchaseProducts
-		{
-			get
-			{
-				return this.GetTable<TCustomerPurchaseProduct>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TCustomerPurchase> TCustomerPurchases
 		{
 			get
@@ -190,14 +182,6 @@ namespace Merchbooth
 			get
 			{
 				return this.GetTable<TOrdersSupplierProduct>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TProduct> TProducts
-		{
-			get
-			{
-				return this.GetTable<TProduct>();
 			}
 		}
 		
@@ -278,6 +262,22 @@ namespace Merchbooth
 			get
 			{
 				return this.GetTable<TType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TProduct> TProducts
+		{
+			get
+			{
+				return this.GetTable<TProduct>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TCustomerPurchaseProduct> TCustomerPurchaseProducts
+		{
+			get
+			{
+				return this.GetTable<TCustomerPurchaseProduct>();
 			}
 		}
 		
@@ -1289,246 +1289,6 @@ namespace Merchbooth
 		{
 			this.SendPropertyChanging();
 			entity.TColor = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TCustomerPurchaseProducts")]
-	public partial class TCustomerPurchaseProduct : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _intCustomerPurchaseProductID;
-		
-		private int _intCustomerPurchaseID;
-		
-		private int _intProductID;
-		
-		private int _intProductPurchaseCount;
-		
-		private decimal _decProductTotal;
-		
-		private EntityRef<TCustomerPurchase> _TCustomerPurchase;
-		
-		private EntityRef<TProduct> _TProduct;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnintCustomerPurchaseProductIDChanging(int value);
-    partial void OnintCustomerPurchaseProductIDChanged();
-    partial void OnintCustomerPurchaseIDChanging(int value);
-    partial void OnintCustomerPurchaseIDChanged();
-    partial void OnintProductIDChanging(int value);
-    partial void OnintProductIDChanged();
-    partial void OnintProductPurchaseCountChanging(int value);
-    partial void OnintProductPurchaseCountChanged();
-    partial void OndecProductTotalChanging(decimal value);
-    partial void OndecProductTotalChanged();
-    #endregion
-		
-		public TCustomerPurchaseProduct()
-		{
-			this._TCustomerPurchase = default(EntityRef<TCustomerPurchase>);
-			this._TProduct = default(EntityRef<TProduct>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerPurchaseProductID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int intCustomerPurchaseProductID
-		{
-			get
-			{
-				return this._intCustomerPurchaseProductID;
-			}
-			set
-			{
-				if ((this._intCustomerPurchaseProductID != value))
-				{
-					this.OnintCustomerPurchaseProductIDChanging(value);
-					this.SendPropertyChanging();
-					this._intCustomerPurchaseProductID = value;
-					this.SendPropertyChanged("intCustomerPurchaseProductID");
-					this.OnintCustomerPurchaseProductIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerPurchaseID", DbType="Int NOT NULL")]
-		public int intCustomerPurchaseID
-		{
-			get
-			{
-				return this._intCustomerPurchaseID;
-			}
-			set
-			{
-				if ((this._intCustomerPurchaseID != value))
-				{
-					if (this._TCustomerPurchase.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnintCustomerPurchaseIDChanging(value);
-					this.SendPropertyChanging();
-					this._intCustomerPurchaseID = value;
-					this.SendPropertyChanged("intCustomerPurchaseID");
-					this.OnintCustomerPurchaseIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductID", DbType="Int NOT NULL")]
-		public int intProductID
-		{
-			get
-			{
-				return this._intProductID;
-			}
-			set
-			{
-				if ((this._intProductID != value))
-				{
-					if (this._TProduct.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnintProductIDChanging(value);
-					this.SendPropertyChanging();
-					this._intProductID = value;
-					this.SendPropertyChanged("intProductID");
-					this.OnintProductIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductPurchaseCount", DbType="Int NOT NULL")]
-		public int intProductPurchaseCount
-		{
-			get
-			{
-				return this._intProductPurchaseCount;
-			}
-			set
-			{
-				if ((this._intProductPurchaseCount != value))
-				{
-					this.OnintProductPurchaseCountChanging(value);
-					this.SendPropertyChanging();
-					this._intProductPurchaseCount = value;
-					this.SendPropertyChanged("intProductPurchaseCount");
-					this.OnintProductPurchaseCountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decProductTotal", DbType="Decimal(9,2) NOT NULL")]
-		public decimal decProductTotal
-		{
-			get
-			{
-				return this._decProductTotal;
-			}
-			set
-			{
-				if ((this._decProductTotal != value))
-				{
-					this.OndecProductTotalChanging(value);
-					this.SendPropertyChanging();
-					this._decProductTotal = value;
-					this.SendPropertyChanged("decProductTotal");
-					this.OndecProductTotalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TCustomerPurchase_TCustomerPurchaseProduct", Storage="_TCustomerPurchase", ThisKey="intCustomerPurchaseID", OtherKey="intCustomerPurchaseID", IsForeignKey=true)]
-		public TCustomerPurchase TCustomerPurchase
-		{
-			get
-			{
-				return this._TCustomerPurchase.Entity;
-			}
-			set
-			{
-				TCustomerPurchase previousValue = this._TCustomerPurchase.Entity;
-				if (((previousValue != value) 
-							|| (this._TCustomerPurchase.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TCustomerPurchase.Entity = null;
-						previousValue.TCustomerPurchaseProducts.Remove(this);
-					}
-					this._TCustomerPurchase.Entity = value;
-					if ((value != null))
-					{
-						value.TCustomerPurchaseProducts.Add(this);
-						this._intCustomerPurchaseID = value.intCustomerPurchaseID;
-					}
-					else
-					{
-						this._intCustomerPurchaseID = default(int);
-					}
-					this.SendPropertyChanged("TCustomerPurchase");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TProduct_TCustomerPurchaseProduct", Storage="_TProduct", ThisKey="intProductID", OtherKey="intProductID", IsForeignKey=true)]
-		public TProduct TProduct
-		{
-			get
-			{
-				return this._TProduct.Entity;
-			}
-			set
-			{
-				TProduct previousValue = this._TProduct.Entity;
-				if (((previousValue != value) 
-							|| (this._TProduct.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TProduct.Entity = null;
-						previousValue.TCustomerPurchaseProducts.Remove(this);
-					}
-					this._TProduct.Entity = value;
-					if ((value != null))
-					{
-						value.TCustomerPurchaseProducts.Add(this);
-						this._intProductID = value.intProductID;
-					}
-					else
-					{
-						this._intProductID = default(int);
-					}
-					this.SendPropertyChanged("TProduct");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -3054,309 +2814,6 @@ namespace Merchbooth
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TProducts")]
-	public partial class TProduct : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _intProductID;
-		
-		private int _intBandID;
-		
-		private int _intTypeID;
-		
-		private string _strProductName;
-		
-		private decimal _decBandPrice;
-		
-		private int _intAmountAvialable;
-		
-		private string _strImageLink;
-		
-		private EntitySet<TCustomerPurchaseProduct> _TCustomerPurchaseProducts;
-		
-		private EntitySet<TSupplierProduct> _TSupplierProducts;
-		
-		private EntityRef<TType> _TType;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnintProductIDChanging(int value);
-    partial void OnintProductIDChanged();
-    partial void OnintBandIDChanging(int value);
-    partial void OnintBandIDChanged();
-    partial void OnintTypeIDChanging(int value);
-    partial void OnintTypeIDChanged();
-    partial void OnstrProductNameChanging(string value);
-    partial void OnstrProductNameChanged();
-    partial void OndecBandPriceChanging(decimal value);
-    partial void OndecBandPriceChanged();
-    partial void OnintAmountAvialableChanging(int value);
-    partial void OnintAmountAvialableChanged();
-    partial void OnstrImageLinkChanging(string value);
-    partial void OnstrImageLinkChanged();
-    #endregion
-		
-		public TProduct()
-		{
-			this._TCustomerPurchaseProducts = new EntitySet<TCustomerPurchaseProduct>(new Action<TCustomerPurchaseProduct>(this.attach_TCustomerPurchaseProducts), new Action<TCustomerPurchaseProduct>(this.detach_TCustomerPurchaseProducts));
-			this._TSupplierProducts = new EntitySet<TSupplierProduct>(new Action<TSupplierProduct>(this.attach_TSupplierProducts), new Action<TSupplierProduct>(this.detach_TSupplierProducts));
-			this._TType = default(EntityRef<TType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int intProductID
-		{
-			get
-			{
-				return this._intProductID;
-			}
-			set
-			{
-				if ((this._intProductID != value))
-				{
-					this.OnintProductIDChanging(value);
-					this.SendPropertyChanging();
-					this._intProductID = value;
-					this.SendPropertyChanged("intProductID");
-					this.OnintProductIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandID", DbType="Int NOT NULL")]
-		public int intBandID
-		{
-			get
-			{
-				return this._intBandID;
-			}
-			set
-			{
-				if ((this._intBandID != value))
-				{
-					this.OnintBandIDChanging(value);
-					this.SendPropertyChanging();
-					this._intBandID = value;
-					this.SendPropertyChanged("intBandID");
-					this.OnintBandIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", DbType="Int NOT NULL")]
-		public int intTypeID
-		{
-			get
-			{
-				return this._intTypeID;
-			}
-			set
-			{
-				if ((this._intTypeID != value))
-				{
-					if (this._TType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnintTypeIDChanging(value);
-					this.SendPropertyChanging();
-					this._intTypeID = value;
-					this.SendPropertyChanged("intTypeID");
-					this.OnintTypeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strProductName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strProductName
-		{
-			get
-			{
-				return this._strProductName;
-			}
-			set
-			{
-				if ((this._strProductName != value))
-				{
-					this.OnstrProductNameChanging(value);
-					this.SendPropertyChanging();
-					this._strProductName = value;
-					this.SendPropertyChanged("strProductName");
-					this.OnstrProductNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decBandPrice", DbType="Decimal(9,2) NOT NULL")]
-		public decimal decBandPrice
-		{
-			get
-			{
-				return this._decBandPrice;
-			}
-			set
-			{
-				if ((this._decBandPrice != value))
-				{
-					this.OndecBandPriceChanging(value);
-					this.SendPropertyChanging();
-					this._decBandPrice = value;
-					this.SendPropertyChanged("decBandPrice");
-					this.OndecBandPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAmountAvialable", DbType="Int NOT NULL")]
-		public int intAmountAvialable
-		{
-			get
-			{
-				return this._intAmountAvialable;
-			}
-			set
-			{
-				if ((this._intAmountAvialable != value))
-				{
-					this.OnintAmountAvialableChanging(value);
-					this.SendPropertyChanging();
-					this._intAmountAvialable = value;
-					this.SendPropertyChanged("intAmountAvialable");
-					this.OnintAmountAvialableChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strImageLink", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string strImageLink
-		{
-			get
-			{
-				return this._strImageLink;
-			}
-			set
-			{
-				if ((this._strImageLink != value))
-				{
-					this.OnstrImageLinkChanging(value);
-					this.SendPropertyChanging();
-					this._strImageLink = value;
-					this.SendPropertyChanged("strImageLink");
-					this.OnstrImageLinkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TProduct_TCustomerPurchaseProduct", Storage="_TCustomerPurchaseProducts", ThisKey="intProductID", OtherKey="intProductID")]
-		public EntitySet<TCustomerPurchaseProduct> TCustomerPurchaseProducts
-		{
-			get
-			{
-				return this._TCustomerPurchaseProducts;
-			}
-			set
-			{
-				this._TCustomerPurchaseProducts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TProduct_TSupplierProduct", Storage="_TSupplierProducts", ThisKey="intProductID", OtherKey="intProductID")]
-		public EntitySet<TSupplierProduct> TSupplierProducts
-		{
-			get
-			{
-				return this._TSupplierProducts;
-			}
-			set
-			{
-				this._TSupplierProducts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TType_TProduct", Storage="_TType", ThisKey="intTypeID", OtherKey="intTypeID", IsForeignKey=true)]
-		public TType TType
-		{
-			get
-			{
-				return this._TType.Entity;
-			}
-			set
-			{
-				TType previousValue = this._TType.Entity;
-				if (((previousValue != value) 
-							|| (this._TType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TType.Entity = null;
-						previousValue.TProducts.Remove(this);
-					}
-					this._TType.Entity = value;
-					if ((value != null))
-					{
-						value.TProducts.Add(this);
-						this._intTypeID = value.intTypeID;
-					}
-					else
-					{
-						this._intTypeID = default(int);
-					}
-					this.SendPropertyChanged("TType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TCustomerPurchaseProducts(TCustomerPurchaseProduct entity)
-		{
-			this.SendPropertyChanging();
-			entity.TProduct = this;
-		}
-		
-		private void detach_TCustomerPurchaseProducts(TCustomerPurchaseProduct entity)
-		{
-			this.SendPropertyChanging();
-			entity.TProduct = null;
-		}
-		
-		private void attach_TSupplierProducts(TSupplierProduct entity)
-		{
-			this.SendPropertyChanging();
-			entity.TProduct = this;
-		}
-		
-		private void detach_TSupplierProducts(TSupplierProduct entity)
-		{
-			this.SendPropertyChanging();
-			entity.TProduct = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TStates")]
 	public partial class TState : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3571,9 +3028,9 @@ namespace Merchbooth
 		
 		private EntitySet<TOrdersSupplierProduct> _TOrdersSupplierProducts;
 		
-		private EntityRef<TProduct> _TProduct;
-		
 		private EntityRef<TSupplier> _TSupplier;
+		
+		private EntityRef<TProduct> _TProduct;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3592,8 +3049,8 @@ namespace Merchbooth
 		public TSupplierProduct()
 		{
 			this._TOrdersSupplierProducts = new EntitySet<TOrdersSupplierProduct>(new Action<TOrdersSupplierProduct>(this.attach_TOrdersSupplierProducts), new Action<TOrdersSupplierProduct>(this.detach_TOrdersSupplierProducts));
-			this._TProduct = default(EntityRef<TProduct>);
 			this._TSupplier = default(EntityRef<TSupplier>);
+			this._TProduct = default(EntityRef<TProduct>);
 			OnCreated();
 		}
 		
@@ -3698,40 +3155,6 @@ namespace Merchbooth
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TProduct_TSupplierProduct", Storage="_TProduct", ThisKey="intProductID", OtherKey="intProductID", IsForeignKey=true)]
-		public TProduct TProduct
-		{
-			get
-			{
-				return this._TProduct.Entity;
-			}
-			set
-			{
-				TProduct previousValue = this._TProduct.Entity;
-				if (((previousValue != value) 
-							|| (this._TProduct.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TProduct.Entity = null;
-						previousValue.TSupplierProducts.Remove(this);
-					}
-					this._TProduct.Entity = value;
-					if ((value != null))
-					{
-						value.TSupplierProducts.Add(this);
-						this._intProductID = value.intProductID;
-					}
-					else
-					{
-						this._intProductID = default(int);
-					}
-					this.SendPropertyChanged("TProduct");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TSupplier_TSupplierProduct", Storage="_TSupplier", ThisKey="intSupplierID", OtherKey="intSupplierID", IsForeignKey=true)]
 		public TSupplier TSupplier
 		{
@@ -3762,6 +3185,40 @@ namespace Merchbooth
 						this._intSupplierID = default(int);
 					}
 					this.SendPropertyChanged("TSupplier");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TProduct_TSupplierProduct", Storage="_TProduct", ThisKey="intProductID", OtherKey="intProductID", IsForeignKey=true)]
+		public TProduct TProduct
+		{
+			get
+			{
+				return this._TProduct.Entity;
+			}
+			set
+			{
+				TProduct previousValue = this._TProduct.Entity;
+				if (((previousValue != value) 
+							|| (this._TProduct.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TProduct.Entity = null;
+						previousValue.TSupplierProducts.Remove(this);
+					}
+					this._TProduct.Entity = value;
+					if ((value != null))
+					{
+						value.TSupplierProducts.Add(this);
+						this._intProductID = value.intProductID;
+					}
+					else
+					{
+						this._intProductID = default(int);
+					}
+					this.SendPropertyChanged("TProduct");
 				}
 			}
 		}
@@ -6768,6 +6225,669 @@ namespace Merchbooth
 		{
 			this.SendPropertyChanging();
 			entity.TType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TProducts")]
+	public partial class TProduct : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _intProductID;
+		
+		private int _intBandID;
+		
+		private int _intTypeID;
+		
+		private string _strProductName;
+		
+		private decimal _decBandPrice;
+		
+		private int _intAmountAvialable;
+		
+		private string _strImageLink;
+		
+		private System.Nullable<int> _intIsDeleted;
+		
+		private int _intSortLevel;
+		
+		private EntitySet<TSupplierProduct> _TSupplierProducts;
+		
+		private EntitySet<TCustomerPurchaseProduct> _TCustomerPurchaseProducts;
+		
+		private EntityRef<TType> _TType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnintProductIDChanging(int value);
+    partial void OnintProductIDChanged();
+    partial void OnintBandIDChanging(int value);
+    partial void OnintBandIDChanged();
+    partial void OnintTypeIDChanging(int value);
+    partial void OnintTypeIDChanged();
+    partial void OnstrProductNameChanging(string value);
+    partial void OnstrProductNameChanged();
+    partial void OndecBandPriceChanging(decimal value);
+    partial void OndecBandPriceChanged();
+    partial void OnintAmountAvialableChanging(int value);
+    partial void OnintAmountAvialableChanged();
+    partial void OnstrImageLinkChanging(string value);
+    partial void OnstrImageLinkChanged();
+    partial void OnintIsDeletedChanging(System.Nullable<int> value);
+    partial void OnintIsDeletedChanged();
+    partial void OnintSortLevelChanging(int value);
+    partial void OnintSortLevelChanged();
+    #endregion
+		
+		public TProduct()
+		{
+			this._TSupplierProducts = new EntitySet<TSupplierProduct>(new Action<TSupplierProduct>(this.attach_TSupplierProducts), new Action<TSupplierProduct>(this.detach_TSupplierProducts));
+			this._TCustomerPurchaseProducts = new EntitySet<TCustomerPurchaseProduct>(new Action<TCustomerPurchaseProduct>(this.attach_TCustomerPurchaseProducts), new Action<TCustomerPurchaseProduct>(this.detach_TCustomerPurchaseProducts));
+			this._TType = default(EntityRef<TType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int intProductID
+		{
+			get
+			{
+				return this._intProductID;
+			}
+			set
+			{
+				if ((this._intProductID != value))
+				{
+					this.OnintProductIDChanging(value);
+					this.SendPropertyChanging();
+					this._intProductID = value;
+					this.SendPropertyChanged("intProductID");
+					this.OnintProductIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intBandID", DbType="Int NOT NULL")]
+		public int intBandID
+		{
+			get
+			{
+				return this._intBandID;
+			}
+			set
+			{
+				if ((this._intBandID != value))
+				{
+					this.OnintBandIDChanging(value);
+					this.SendPropertyChanging();
+					this._intBandID = value;
+					this.SendPropertyChanged("intBandID");
+					this.OnintBandIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intTypeID", DbType="Int NOT NULL")]
+		public int intTypeID
+		{
+			get
+			{
+				return this._intTypeID;
+			}
+			set
+			{
+				if ((this._intTypeID != value))
+				{
+					if (this._TType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._intTypeID = value;
+					this.SendPropertyChanged("intTypeID");
+					this.OnintTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strProductName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strProductName
+		{
+			get
+			{
+				return this._strProductName;
+			}
+			set
+			{
+				if ((this._strProductName != value))
+				{
+					this.OnstrProductNameChanging(value);
+					this.SendPropertyChanging();
+					this._strProductName = value;
+					this.SendPropertyChanged("strProductName");
+					this.OnstrProductNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decBandPrice", DbType="Decimal(9,2) NOT NULL")]
+		public decimal decBandPrice
+		{
+			get
+			{
+				return this._decBandPrice;
+			}
+			set
+			{
+				if ((this._decBandPrice != value))
+				{
+					this.OndecBandPriceChanging(value);
+					this.SendPropertyChanging();
+					this._decBandPrice = value;
+					this.SendPropertyChanged("decBandPrice");
+					this.OndecBandPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intAmountAvialable", DbType="Int NOT NULL")]
+		public int intAmountAvialable
+		{
+			get
+			{
+				return this._intAmountAvialable;
+			}
+			set
+			{
+				if ((this._intAmountAvialable != value))
+				{
+					this.OnintAmountAvialableChanging(value);
+					this.SendPropertyChanging();
+					this._intAmountAvialable = value;
+					this.SendPropertyChanged("intAmountAvialable");
+					this.OnintAmountAvialableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strImageLink", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strImageLink
+		{
+			get
+			{
+				return this._strImageLink;
+			}
+			set
+			{
+				if ((this._strImageLink != value))
+				{
+					this.OnstrImageLinkChanging(value);
+					this.SendPropertyChanging();
+					this._strImageLink = value;
+					this.SendPropertyChanged("strImageLink");
+					this.OnstrImageLinkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intIsDeleted", DbType="Int")]
+		public System.Nullable<int> intIsDeleted
+		{
+			get
+			{
+				return this._intIsDeleted;
+			}
+			set
+			{
+				if ((this._intIsDeleted != value))
+				{
+					this.OnintIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._intIsDeleted = value;
+					this.SendPropertyChanged("intIsDeleted");
+					this.OnintIsDeletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intSortLevel", DbType="Int NOT NULL")]
+		public int intSortLevel
+		{
+			get
+			{
+				return this._intSortLevel;
+			}
+			set
+			{
+				if ((this._intSortLevel != value))
+				{
+					this.OnintSortLevelChanging(value);
+					this.SendPropertyChanging();
+					this._intSortLevel = value;
+					this.SendPropertyChanged("intSortLevel");
+					this.OnintSortLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TProduct_TSupplierProduct", Storage="_TSupplierProducts", ThisKey="intProductID", OtherKey="intProductID")]
+		public EntitySet<TSupplierProduct> TSupplierProducts
+		{
+			get
+			{
+				return this._TSupplierProducts;
+			}
+			set
+			{
+				this._TSupplierProducts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TProduct_TCustomerPurchaseProduct", Storage="_TCustomerPurchaseProducts", ThisKey="intProductID", OtherKey="intProductID")]
+		public EntitySet<TCustomerPurchaseProduct> TCustomerPurchaseProducts
+		{
+			get
+			{
+				return this._TCustomerPurchaseProducts;
+			}
+			set
+			{
+				this._TCustomerPurchaseProducts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TType_TProduct", Storage="_TType", ThisKey="intTypeID", OtherKey="intTypeID", IsForeignKey=true)]
+		public TType TType
+		{
+			get
+			{
+				return this._TType.Entity;
+			}
+			set
+			{
+				TType previousValue = this._TType.Entity;
+				if (((previousValue != value) 
+							|| (this._TType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TType.Entity = null;
+						previousValue.TProducts.Remove(this);
+					}
+					this._TType.Entity = value;
+					if ((value != null))
+					{
+						value.TProducts.Add(this);
+						this._intTypeID = value.intTypeID;
+					}
+					else
+					{
+						this._intTypeID = default(int);
+					}
+					this.SendPropertyChanged("TType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TSupplierProducts(TSupplierProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.TProduct = this;
+		}
+		
+		private void detach_TSupplierProducts(TSupplierProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.TProduct = null;
+		}
+		
+		private void attach_TCustomerPurchaseProducts(TCustomerPurchaseProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.TProduct = this;
+		}
+		
+		private void detach_TCustomerPurchaseProducts(TCustomerPurchaseProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.TProduct = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="db_owner.TCustomerPurchaseProducts")]
+	public partial class TCustomerPurchaseProduct : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _intCustomerPurchaseProductID;
+		
+		private int _intCustomerPurchaseID;
+		
+		private int _intProductID;
+		
+		private decimal _decMomentPurchaseUnitPrice;
+		
+		private int _intProductPurchaseCount;
+		
+		private decimal _decProductTotal;
+		
+		private string _strMomentPurchaseIMG;
+		
+		private System.Nullable<int> _intIsDeleted;
+		
+		private EntityRef<TCustomerPurchase> _TCustomerPurchase;
+		
+		private EntityRef<TProduct> _TProduct;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnintCustomerPurchaseProductIDChanging(int value);
+    partial void OnintCustomerPurchaseProductIDChanged();
+    partial void OnintCustomerPurchaseIDChanging(int value);
+    partial void OnintCustomerPurchaseIDChanged();
+    partial void OnintProductIDChanging(int value);
+    partial void OnintProductIDChanged();
+    partial void OndecMomentPurchaseUnitPriceChanging(decimal value);
+    partial void OndecMomentPurchaseUnitPriceChanged();
+    partial void OnintProductPurchaseCountChanging(int value);
+    partial void OnintProductPurchaseCountChanged();
+    partial void OndecProductTotalChanging(decimal value);
+    partial void OndecProductTotalChanged();
+    partial void OnstrMomentPurchaseIMGChanging(string value);
+    partial void OnstrMomentPurchaseIMGChanged();
+    partial void OnintIsDeletedChanging(System.Nullable<int> value);
+    partial void OnintIsDeletedChanged();
+    #endregion
+		
+		public TCustomerPurchaseProduct()
+		{
+			this._TCustomerPurchase = default(EntityRef<TCustomerPurchase>);
+			this._TProduct = default(EntityRef<TProduct>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerPurchaseProductID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int intCustomerPurchaseProductID
+		{
+			get
+			{
+				return this._intCustomerPurchaseProductID;
+			}
+			set
+			{
+				if ((this._intCustomerPurchaseProductID != value))
+				{
+					this.OnintCustomerPurchaseProductIDChanging(value);
+					this.SendPropertyChanging();
+					this._intCustomerPurchaseProductID = value;
+					this.SendPropertyChanged("intCustomerPurchaseProductID");
+					this.OnintCustomerPurchaseProductIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intCustomerPurchaseID", DbType="Int NOT NULL")]
+		public int intCustomerPurchaseID
+		{
+			get
+			{
+				return this._intCustomerPurchaseID;
+			}
+			set
+			{
+				if ((this._intCustomerPurchaseID != value))
+				{
+					if (this._TCustomerPurchase.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintCustomerPurchaseIDChanging(value);
+					this.SendPropertyChanging();
+					this._intCustomerPurchaseID = value;
+					this.SendPropertyChanged("intCustomerPurchaseID");
+					this.OnintCustomerPurchaseIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductID", DbType="Int NOT NULL")]
+		public int intProductID
+		{
+			get
+			{
+				return this._intProductID;
+			}
+			set
+			{
+				if ((this._intProductID != value))
+				{
+					if (this._TProduct.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnintProductIDChanging(value);
+					this.SendPropertyChanging();
+					this._intProductID = value;
+					this.SendPropertyChanged("intProductID");
+					this.OnintProductIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decMomentPurchaseUnitPrice", DbType="Decimal(9,2) NOT NULL")]
+		public decimal decMomentPurchaseUnitPrice
+		{
+			get
+			{
+				return this._decMomentPurchaseUnitPrice;
+			}
+			set
+			{
+				if ((this._decMomentPurchaseUnitPrice != value))
+				{
+					this.OndecMomentPurchaseUnitPriceChanging(value);
+					this.SendPropertyChanging();
+					this._decMomentPurchaseUnitPrice = value;
+					this.SendPropertyChanged("decMomentPurchaseUnitPrice");
+					this.OndecMomentPurchaseUnitPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intProductPurchaseCount", DbType="Int NOT NULL")]
+		public int intProductPurchaseCount
+		{
+			get
+			{
+				return this._intProductPurchaseCount;
+			}
+			set
+			{
+				if ((this._intProductPurchaseCount != value))
+				{
+					this.OnintProductPurchaseCountChanging(value);
+					this.SendPropertyChanging();
+					this._intProductPurchaseCount = value;
+					this.SendPropertyChanged("intProductPurchaseCount");
+					this.OnintProductPurchaseCountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decProductTotal", DbType="Decimal(9,2) NOT NULL")]
+		public decimal decProductTotal
+		{
+			get
+			{
+				return this._decProductTotal;
+			}
+			set
+			{
+				if ((this._decProductTotal != value))
+				{
+					this.OndecProductTotalChanging(value);
+					this.SendPropertyChanging();
+					this._decProductTotal = value;
+					this.SendPropertyChanged("decProductTotal");
+					this.OndecProductTotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strMomentPurchaseIMG", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string strMomentPurchaseIMG
+		{
+			get
+			{
+				return this._strMomentPurchaseIMG;
+			}
+			set
+			{
+				if ((this._strMomentPurchaseIMG != value))
+				{
+					this.OnstrMomentPurchaseIMGChanging(value);
+					this.SendPropertyChanging();
+					this._strMomentPurchaseIMG = value;
+					this.SendPropertyChanged("strMomentPurchaseIMG");
+					this.OnstrMomentPurchaseIMGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intIsDeleted", DbType="Int")]
+		public System.Nullable<int> intIsDeleted
+		{
+			get
+			{
+				return this._intIsDeleted;
+			}
+			set
+			{
+				if ((this._intIsDeleted != value))
+				{
+					this.OnintIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._intIsDeleted = value;
+					this.SendPropertyChanged("intIsDeleted");
+					this.OnintIsDeletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TCustomerPurchase_TCustomerPurchaseProduct", Storage="_TCustomerPurchase", ThisKey="intCustomerPurchaseID", OtherKey="intCustomerPurchaseID", IsForeignKey=true)]
+		public TCustomerPurchase TCustomerPurchase
+		{
+			get
+			{
+				return this._TCustomerPurchase.Entity;
+			}
+			set
+			{
+				TCustomerPurchase previousValue = this._TCustomerPurchase.Entity;
+				if (((previousValue != value) 
+							|| (this._TCustomerPurchase.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TCustomerPurchase.Entity = null;
+						previousValue.TCustomerPurchaseProducts.Remove(this);
+					}
+					this._TCustomerPurchase.Entity = value;
+					if ((value != null))
+					{
+						value.TCustomerPurchaseProducts.Add(this);
+						this._intCustomerPurchaseID = value.intCustomerPurchaseID;
+					}
+					else
+					{
+						this._intCustomerPurchaseID = default(int);
+					}
+					this.SendPropertyChanged("TCustomerPurchase");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TProduct_TCustomerPurchaseProduct", Storage="_TProduct", ThisKey="intProductID", OtherKey="intProductID", IsForeignKey=true)]
+		public TProduct TProduct
+		{
+			get
+			{
+				return this._TProduct.Entity;
+			}
+			set
+			{
+				TProduct previousValue = this._TProduct.Entity;
+				if (((previousValue != value) 
+							|| (this._TProduct.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TProduct.Entity = null;
+						previousValue.TCustomerPurchaseProducts.Remove(this);
+					}
+					this._TProduct.Entity = value;
+					if ((value != null))
+					{
+						value.TCustomerPurchaseProducts.Add(this);
+						this._intProductID = value.intProductID;
+					}
+					else
+					{
+						this._intProductID = default(int);
+					}
+					this.SendPropertyChanged("TProduct");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
