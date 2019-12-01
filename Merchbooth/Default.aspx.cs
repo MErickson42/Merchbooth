@@ -26,18 +26,19 @@ namespace Merchbooth
             {
                 int intCount = 1;
                     // MDE this linq to sql query does a join - joining the intBandID from tables TBands and TProducts 
-                    var queryBands = from b in _siteContext.TBands
+                    var queryBandsProducts = from b in _siteContext.TBands
                                      join p in _siteContext.TProducts
                                      on b.intBandID equals p.intBandID
                                      orderby p.intBandID
                                      select new { b, p };
+               
+                //Ben -11/30 Changed from queryBands to queryBandsProducts
 
-                    
-                    
 
 
-                    queryBands.ToList();
-                    if (queryBands.Count() > 0)
+
+                queryBandsProducts.ToList();
+                    if (queryBandsProducts.Count() > 0)
                     {
                         string strBandName = "";
                         int intBandID = 1;
@@ -47,7 +48,7 @@ namespace Merchbooth
                         //int intProductCount = 1;
 
                     // This loop will loop through each product from the queryBands query we made
-                    foreach (var item in queryBands)
+                    foreach (var item in queryBandsProducts)
                         {
 
                    
@@ -105,11 +106,13 @@ namespace Merchbooth
                             sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:445px;' class='col-md-3'>" + "Product Name: " +item.p.strProductName + "<br />" + "Price: $" + item.p.decBandPrice + "<br />" + "Quantity Remaining: " + item.p.intAmountAvialable + "<br />");
                             if (item.p.strImageLink != "")
                             {
+                                //Ben -11/30 Changed 
+                                //sb.Append(" <img src='../" + item.p.strImageLink + "' runat='server' class='imgHome''" + " />");
+                                sb.Append(" <img src='../" + item.p.strImageLink + "' runat='server' class='imgHome' onclick='addToCart(" + item.p.intProductID + "," + item.p.intTypeID + ",\"" + item.p.strImageLink + "\"," + item.p.decBandPrice + "," + 1 + ")'" + "/>");
 
-                                sb.Append(" <img src='../" + item.p.strImageLink + "' runat='server' class='imgHome''" + " />");
                             }
 
-                             sb.Append("</div>");
+                        sb.Append("</div>");
 
                             intCount += 1;
                             blnFirstTimeThroughLoop = false;
@@ -129,6 +132,13 @@ namespace Merchbooth
             }
 
             ltrProducts.Text = sb.ToString();
+        }
+
+        protected void checkoutMain_Click(object sender, EventArgs e)
+        {
+            string strUrl = "http://localhost:10349/CheckoutMain.aspx?" + hdnCartItemsVariable.Value.ToString();
+            Response.RedirectPermanent(strUrl);
+            //base.OnLoad(e);??
         }
     }
 }

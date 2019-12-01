@@ -10,25 +10,16 @@
 namespace Merchbooth {
     
     
-    public partial class Default {
+    public partial class CheckoutMain {
         
         /// <summary>
-        /// ltrProducts control.
+        /// ltrCartMain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrProducts;
-        
-        /// <summary>
-        /// hdnCartItemsVariable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnCartItemsVariable;
+        protected global::System.Web.UI.WebControls.Literal ltrCartMain;
         
         /// <summary>
         /// LnkButtion control.
@@ -38,5 +29,14 @@ namespace Merchbooth {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LnkButtion;
+        
+        /// <summary>
+        /// hdnPutchaseItemsVariable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPutchaseItemsVariable;
     }
 }

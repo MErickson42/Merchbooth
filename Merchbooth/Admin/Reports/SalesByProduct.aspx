@@ -69,7 +69,7 @@
     <script type="text/javascript">
 
             function radioOnClick(radioButtonId,strTypeValue) {
-                document.getElementById(radioButtonId).checked = true;
+                //document.getElementById(radioButtonId).checked = true;
                 document.getElementById("<%= hdnSelecteType.ClientID%>").value = strTypeValue;
                 __doPostBack('hfStartDate');
             }

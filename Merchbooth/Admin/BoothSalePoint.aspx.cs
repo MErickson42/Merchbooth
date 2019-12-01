@@ -16,6 +16,9 @@ namespace Merchbooth
         protected void Page_Load(object sender, EventArgs e)
         {
             int intBandID = 0;
+
+            lblMessage.Text = Server.UrlDecode(Request.QueryString["message"]);
+
             if (HttpContext.Current.Session["UserDetails"] != null)
             {
                 UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
@@ -96,7 +99,7 @@ namespace Merchbooth
             }
             else
             {
-                //sb.Append("<div class='row'><div class='col-md-12'>No products in this category are currently available.</div></div>");
+                sb.Append("<div class='row'><div class='col-md-12'>No products are currently available.</div></div>");
             }
 
             sb.Append("</div>");

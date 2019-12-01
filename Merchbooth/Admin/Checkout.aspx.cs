@@ -9,12 +9,17 @@ using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Text;
+using Merchbooth.Classes;
 
 namespace Merchbooth
 {
     public partial class Checkout : System.Web.UI.Page
     {
+
         ArrayList productArrayList = new ArrayList();
+        float sngCartTotal = 0;
+        DateTime dtmTodayDate = DateTime.Now.Date;
+        int intBandID = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,9 +35,17 @@ namespace Merchbooth
             String[] spearator = { "}" };
 
 
-            //If somthig was past in as query string 
+                //If somthig was past in as query string 
 
 
+
+
+                if (HttpContext.Current.Session["UserDetails"] != null)
+                {
+                    UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+
+                    intBandID = ud.UserKey;
+                }
 
                 // using the method 
                 String[] strlist = n.Split(spearator,
@@ -67,7 +80,6 @@ namespace Merchbooth
                 Decimal decBandPrice = 0;
                 int intAmount = 0;
                 float sngProductTotal = 0;
-                float sngCartTotal = 0;
 
                 foreach (Hashtable htProd in productArrayList)
                 {
@@ -146,6 +158,8 @@ namespace Merchbooth
         protected void LinkButtonPurchase_Click(object sender, EventArgs e)
         {
             string message = "";
+            string messageSold = "";
+            string messageNotSold = "";
 
             SiteDCDataContext _siteContext = new SiteDCDataContext();
 
@@ -158,17 +172,41 @@ namespace Merchbooth
                         var queryProduct = (from c in _siteContext.TProducts
                                             where c.intProductID == Convert.ToInt32(htProd["Id"])
                                             select c).First();
-                        if (queryProduct.intAmountAvialable >= Convert.ToInt32(htProd["Amount"]))
+
+                        var queryEvent = (from ev in _siteContext.TEvents
+                                            where ev.intBandID == intBandID &&
+                                            ev.dtmDate == dtmTodayDate
+                                            select ev).First();
+
+                        if (queryProduct !=null && queryEvent!= null)
                         {
-                            queryProduct.intAmountAvialable -= Convert.ToInt32(htProd["Amount"]);
-                            _siteContext.SubmitChanges();
+
+                            if (queryProduct.intAmountAvialable >= Convert.ToInt32(htProd["Amount"]))
+                            {
+                                //Removing amount from inventory
+                                queryProduct.intAmountAvialable -= Convert.ToInt32(htProd["Amount"]);
+
+                                //Adding amount sold in this sale from booth to event sales
+                                queryEvent.decEventSales += Convert.ToDecimal(htProd["Amount"])* Convert.ToDecimal(htProd["Price"]);
+
+                                messageSold += "\n" + Convert.ToInt32(htProd["Amount"]) + " " + queryProduct.strProductName + " sold!.";
+
+                                _siteContext.SubmitChanges();
+
+                            }
+                            else //If not enough in inventory for product
+                            {    //sellig all products accept the one which there is not have enough in inventory
+
+                                messageNotSold += "\nWe only have" + queryProduct.intAmountAvialable + queryProduct.strProductName + ".";
+                            }
+
 
                         }
 
                     }
                 }
             }
-            message = "Purchase complete";
+            message = "Purchase proccesed:" + messageSold + messageNotSold;
 
             Response.Redirect("/Admin/BoothSalePoint.aspx?message=" + Server.UrlEncode(message));
 

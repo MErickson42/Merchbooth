@@ -160,6 +160,7 @@
 
 
 
+    <asp:Label ID="lblMessage" runat="server" CssClass="errormessage" Text=""></asp:Label>
 
     <asp:Literal  ID="ltrProducts" runat="server">
 

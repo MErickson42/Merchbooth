@@ -118,6 +118,7 @@
     <Content Include="Admin\Reports\SalesByProduct.aspx" />
     <Content Include="Admin\Reports\SalesByDate.aspx" />
     <Content Include="AllBands.aspx" />
+    <Content Include="CheckoutMain.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -148,6 +149,7 @@
     <Content Include="BandSignUp.aspx" />
     <Content Include="Admin\AdminMaster.Master" />
     <Content Include="Admin\AdminMasterB.Master" />
+    <Content Include="Purchase.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\600.jpg" />
     <Content Include="Images\background-2944077_1920.jpg" />
@@ -399,6 +401,13 @@
     <Compile Include="Admin\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CheckoutMain.aspx.cs">
+      <DependentUpon>CheckoutMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutMain.aspx.designer.cs">
+      <DependentUpon>CheckoutMain.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DataHelper.cs" />
     <Compile Include="Classes\UserDetails.cs" />
     <Compile Include="Contact.aspx.cs">
@@ -454,6 +463,13 @@
     <Compile Include="BandSignIn.aspx.designer.cs">
       <DependentUpon>BandSignIn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Purchase.Master.cs">
+      <DependentUpon>Purchase.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Purchase.Master.designer.cs">
+      <DependentUpon>Purchase.Master</DependentUpon>
+    </Compile>
     <Compile Include="Sign.Master.cs">
       <DependentUpon>Sign.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -474,6 +490,12 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.MasterB.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.MasterB.designer.cs">
+      <DependentUpon>Site.MasterB.cs</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
