@@ -89,6 +89,70 @@ hr {
     padding: 0px;
 }
 
+/*.ImRows {
+    
+}*/
+
+
+.ImageRow {
+    margin-top: 25px;
+    display: block;
+    text-align: left;
+    position:relative;
+}
+
+.BacroundECommerceImages {
+    height: 260px;
+    width: 100vw;
+    z-index: 1;
+    display: inline;
+    position:absolute;
+    left:-8.5vw;
+    top:-82px;
+    /*opacity:0.5;*/
+
+}
+
+.OneImage {
+    margin-left: 30px;
+    /*height: 160px;*/
+    display: inline;
+    position: relative;
+    z-index: 10;
+}
+
+    .OneImage:hover {
+        cursor: pointer;
+        opacity: 0.85;
+        transition-duration: 0.3s
+    }
+
+
+.ImageRow p {
+    display: inline;
+    position: relative;
+    top: 1px;
+    right: 80px;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.image-responsive {
+    border-radius: 50px;
+    height: 140px;
+    width: 140px;
+    -webkit-user-drag: none;
+    display: inline;
+}
+
+.saleImage {
+    border-radius: 50px;
+    height: 140px;
+    width: 140px;
+    -webkit-user-drag: none;
+    display: inline;
+    margin-bottom: 25px;
+}
 
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
