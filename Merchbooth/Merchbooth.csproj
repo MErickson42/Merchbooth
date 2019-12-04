@@ -118,7 +118,8 @@
     <Content Include="Admin\Reports\SalesByProduct.aspx" />
     <Content Include="Admin\Reports\SalesByDate.aspx" />
     <Content Include="AllBands.aspx" />
-    <Content Include="CheckoutMain.aspx" />
+    <Content Include="Content\Customer.css" />
+    <Content Include="Customer\CheckoutMain.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -128,6 +129,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CustomerSignIn.aspx" />
     <Content Include="CustomerSignUp.aspx" />
+    <Content Include="Customer\Default.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -149,7 +151,8 @@
     <Content Include="BandSignUp.aspx" />
     <Content Include="Admin\AdminMaster.Master" />
     <Content Include="Admin\AdminMasterB.Master" />
-    <Content Include="Purchase.Master" />
+    <Content Include="Customer\Purchase.Master" />
+    <Content Include="Customer\CustomerMaster.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\600.jpg" />
     <Content Include="Images\background-2944077_1920.jpg" />
@@ -401,11 +404,11 @@
     <Compile Include="Admin\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CheckoutMain.aspx.cs">
+    <Compile Include="Customer\CheckoutMain.aspx.cs">
       <DependentUpon>CheckoutMain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CheckoutMain.aspx.designer.cs">
+    <Compile Include="Customer\CheckoutMain.aspx.designer.cs">
       <DependentUpon>CheckoutMain.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\DataHelper.cs" />
@@ -430,6 +433,20 @@
     </Compile>
     <Compile Include="CustomerSignUp.aspx.designer.cs">
       <DependentUpon>CustomerSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerMaster.Master.cs">
+      <DependentUpon>CustomerMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerMaster.Master.designer.cs">
+      <DependentUpon>CustomerMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -463,11 +480,11 @@
     <Compile Include="BandSignIn.aspx.designer.cs">
       <DependentUpon>BandSignIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Purchase.Master.cs">
+    <Compile Include="Customer\Purchase.Master.cs">
       <DependentUpon>Purchase.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Purchase.Master.designer.cs">
+    <Compile Include="Customer\Purchase.Master.designer.cs">
       <DependentUpon>Purchase.Master</DependentUpon>
     </Compile>
     <Compile Include="Sign.Master.cs">

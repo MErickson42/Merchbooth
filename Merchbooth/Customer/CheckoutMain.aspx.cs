@@ -31,9 +31,9 @@ namespace Merchbooth
             StringBuilder sb = new StringBuilder();
 
             //If somthig was past in as query string 
-            if (n.Length > 14)
+            if (n.Length > 23)
             {
-                n = n.Substring(14);
+                n = n.Substring(23);
 
                 String[] spearator = { "}" };
 
@@ -153,28 +153,28 @@ namespace Merchbooth
         }
 
 
-    protected void ButtonCustomerPurchase_Click(object sender, EventArgs e)
-    {
-        string message = "";
-        string messageSold = "";
-        string messageNotSold = "";
-        int intLoopCount = 0;
-        SiteDCDataContext _siteContext = new SiteDCDataContext();
-
-        foreach (Hashtable htProd in productArrayList)
+        protected void ButtonCustomerPurchase_Click(object sender, EventArgs e)
         {
-            if (htProd.ContainsKey("Id"))
+            string message = "";
+            string messageSold = "";
+            string messageNotSold = "";
+            int intLoopCount = 0;
+            SiteDCDataContext _siteContext = new SiteDCDataContext();
+
+            foreach (Hashtable htProd in productArrayList)
             {
-                if (htProd.ContainsKey("Amount"))
+                if (htProd.ContainsKey("Id"))
                 {
-                    intLoopCount += 1;
-
-                    var queryProduct = (from p in _siteContext.TProducts
-                                        where p.intProductID == Convert.ToInt32(htProd["Id"])
-                                        select p).First();
-
-                    if (intLoopCount == 1)
+                    if (htProd.ContainsKey("Amount"))
                     {
+                        intLoopCount += 1;
+
+                        var queryProduct = (from p in _siteContext.TProducts
+                                            where p.intProductID == Convert.ToInt32(htProd["Id"])
+                                            select p).First();
+
+                        if (intLoopCount == 1)
+                        {
 
                             var quryMaxPurchaseNumber = (from p in _siteContext.TCustomerPurchases
                                                         select p.intPurchaseNumber).Max();
@@ -259,16 +259,17 @@ namespace Merchbooth
                         }
 
                     }
+                }
             }
+
+            message = "Purchase proccesed:" + messageSold + messageNotSold;
+
+            Response.Redirect("/Default.aspx?message=" + Server.UrlEncode(message));
+
+            //string strUrl = "../Admin/BoothSalePoint.aspx?message=Purchase complete.";
+            //Response.RedirectPermanent(strUrl);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert ('Sale Complete')", true);
+
         }
-        message = "Purchase proccesed:" + messageSold + messageNotSold;
-
-        Response.Redirect("/Default.aspx?message=" + Server.UrlEncode(message));
-
-        //string strUrl = "../Admin/BoothSalePoint.aspx?message=Purchase complete.";
-        //Response.RedirectPermanent(strUrl);
-        //ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert ('Sale Complete')", true);
-
     }
-}
 }

@@ -56,7 +56,7 @@ namespace Merchbooth
 
                     if (DataHelper.ValidateCustomer(txtEmail.Text, txtPassword.Text))
                     {
-                        Response.Redirect("/?&message=" + Server.UrlEncode(message), false);
+                        Response.Redirect("/Customer/Default?&message=" + Server.UrlEncode(message), false);
                     }
 
 

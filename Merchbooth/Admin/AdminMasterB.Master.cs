@@ -12,7 +12,7 @@ namespace Merchbooth.Admin
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-            if (!DataHelper.IsLoggedIn())
+            if (!DataHelper.IsBandLoggedIn())
             {
                 Response.Redirect("/bandsignin.aspx?message=" + Server.UrlEncode("Your User Session Has Expired.||Please Login to Continue."));
             }

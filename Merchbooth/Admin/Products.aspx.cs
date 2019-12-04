@@ -37,7 +37,7 @@ namespace Merchbooth.Admin
 
             tl.Append("<table class='table table-condensed'>");
             tl.Append("<thead>");
-            tl.Append("<tr><th colspan='3' class='alignright'><strong><a href='/Admin/ModifyProduct.aspx'>add Content &nbsp; <i class='fa fa-plus fa-lg'></i></a></strong></th></tr>");
+            tl.Append("<tr><th colspan='3' class='alignright'><strong><a style='font-size:18px;' href='/Admin/ModifyProduct.aspx'>add Product &nbsp; <i class='fa fa-plus fa-lg'></i></a></strong></th></tr>");
             tl.Append("</thead>");
             tl.Append("<tbody>");
 

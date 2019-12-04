@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Merchbooth {
+namespace Merchbooth.Customer {
     
     
-    public partial class Default {
+    public partial class CustomerMaster {
         
         /// <summary>
-        /// ltrProducts control.
+        /// HeaderImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrProducts;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderImage;
         
         /// <summary>
-        /// hdnCartItemsVariable control.
+        /// CustomerContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnCartItemsVariable;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CustomerContent;
     }
 }

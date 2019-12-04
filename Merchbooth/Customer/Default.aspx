@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Merchbooth.Default" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Merchbooth.Customer.Default" %>
 <asp:Content ID="HeaderImage1" ContentPlaceHolderID="HeaderImage" runat="server">
   
     <div class="headerImage">
@@ -8,7 +7,7 @@
 
 </asp:Content>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="CustomerContent" runat="server">
     <div style="margin-top:200px"></div>
     <asp:Literal  ID="ltrProducts" runat="server"></asp:Literal>
    
@@ -18,7 +17,7 @@
 
     <%--Added ben 11/30--%>
     <asp:HiddenField ID="hdnCartItemsVariable" value="" runat="server" />
-    <%--<asp:LinkButton ID="LnkButtion" CssClass="buttonClass" runat="server" Text="Checkout" OnClick="checkoutMain_Click"/>--%>
+    <asp:LinkButton ID="LnkButtion" CssClass="buttonClass" runat="server" Text="Checkout" OnClick="checkoutMain_Click"/>
 
 
     <style type="text/css">
@@ -37,9 +36,11 @@
                     font-size: 20px;
                     border-radius:4px 4px 4px 4px;
                  }*/
-                /*.buttonClass
+                .buttonClass
                 {
-
+                    padding: 5px 10px;
+                    text-decoration: none;
+                    /*border: solid 3px #cf6c0a;*/
                     background-color: #ed7f11;
                     z-index:50;
                     position:fixed;
@@ -57,7 +58,7 @@
                     padding:20px,10px;
                     text-decoration:none;
 
-                }*/
+                }
             </style>
     	    <script type="text/javascript">
 

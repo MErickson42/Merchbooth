@@ -11,7 +11,8 @@ namespace Merchbooth.Classes
         public bool isValidUser { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }
-   
+
         public bool IsSystemAdmin { get; set; }
+        public bool IsBand { get; set; }
     }
 }

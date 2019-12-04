@@ -31,7 +31,7 @@ namespace Merchbooth.Classes
             return ud;
         }
 
-        public static bool IsLoggedIn()
+        public static bool IsBandLoggedIn()
         {
             bool loggedIn = false;
 
@@ -39,7 +39,7 @@ namespace Merchbooth.Classes
             {
                 UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
 
-                if (ud.isValidUser)
+                if (ud.isValidUser && ud.IsBand)
                 {
                     loggedIn = true;
                 }
@@ -119,8 +119,8 @@ namespace Merchbooth.Classes
                 ud.isValidUser = true;
                 ud.Username = user.strEmail;
                 ud.Name = user.strBandName;
-             
-                
+                ud.IsBand = true;
+
             }
 
             return ud;
@@ -142,7 +142,7 @@ namespace Merchbooth.Classes
             {
                 foreach (TCustomer user in queryUsers)
                 {
-                    UpdateUserDetailsSession(user.intCustomerID);
+                    UpdateCustomerDetailsSession(user.intCustomerID);
 
                     validUser = true;
                 }
@@ -150,6 +150,17 @@ namespace Merchbooth.Classes
 
 
             return validUser;
+        }
+
+        public static bool UpdateCustomerDetailsSession(int UserKey)
+        {
+            UserDetails ud = GetCustomerDetails(UserKey);
+
+            HttpContext.Current.Session.Clear();
+
+            HttpContext.Current.Session.Add("UserDetails", ud);
+
+            return true;
         }
 
 
@@ -169,11 +180,35 @@ namespace Merchbooth.Classes
                 ud.isValidUser = true;
                 ud.Username = user.strEmail;
                 ud.Name = user.strLastName + user.strLastName;
-
+                ud.IsBand = false;
 
             }
 
             return ud;
+        }
+
+
+        public static bool IsCustomerLoggedIn()
+        {
+            bool loggedIn = false;
+
+            if (HttpContext.Current.Session["UserDetails"] != null)
+            {
+                UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+
+                if (ud.isValidUser && ud.IsBand== false)
+                {
+                    loggedIn = true;
+                }
+            }
+
+            return loggedIn;
+        }
+
+
+        public static void LogOut()
+        {
+            HttpContext.Current.Session.Clear();
         }
     }
 }

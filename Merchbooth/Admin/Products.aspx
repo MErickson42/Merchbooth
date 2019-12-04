@@ -20,7 +20,7 @@
         <div class="col-lg-10 col-sm-10">
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <h1 class="titleAdminDefualt">products</h1>
+                    <h1 class="titleAdminDefualt">Products</h1>
                 </div>
             </div>
             <div class="row"><div class="col-lg-12 col-sm-12" style="text-align: center;"><asp:Label ID="lblMessage" runat="server" CssClass="errormessage" Text=""></asp:Label></div></div>

@@ -6,16 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Merchbooth.Classes;
 
-namespace Merchbooth.Admin
+namespace Merchbooth.Customer
 {
-    public partial class AdminMaster : System.Web.UI.MasterPage
+    public partial class CustomerMaster : System.Web.UI.MasterPage
     {
-
         protected void Page_Init(object sender, EventArgs e)
         {
-            if (!DataHelper.IsBandLoggedIn())
+            if (!DataHelper.IsCustomerLoggedIn())
             {
-                Response.Redirect("/bandsignin.aspx?message=" + Server.UrlEncode("Your User Session Has Expired.||Please Login to Continue."));
+                Response.Redirect("/customersignin.aspx?message=" + Server.UrlEncode("Your User Session Has Expired.||Please Login to Continue."));
             }
         }
         protected void Page_Load(object sender, EventArgs e)
