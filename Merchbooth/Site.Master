@@ -63,6 +63,7 @@
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/SignInOptions">Sign In</a></li>
+                        <li><a runat="server" href="~/AllBands">All Bands</a></li>
                         <%--<li><img id = "cartImage" src="../../Images/untitled_4.jpg" alt="" ></li>--%>
                         <%--<li><div id="cartCount"></div> </li>--%>
                     </ul>
