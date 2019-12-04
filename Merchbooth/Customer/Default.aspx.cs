@@ -65,20 +65,25 @@ namespace Merchbooth.Customer
                         if (intBandID != intPreviousBandID && blnFirstTimeThroughLoop == false)
                         {
                             blnNewBandDetected = true;
-
+                            intCount = 1;
                         }
 
                         if (blnNewBandDetected == true)
                         {
+                            // istead of line 106**  Added:
+                            sb.Append("</div>");
+                            sb.Append("</div>");
+
                             sb.Append("<div class='row'><div class='col-md-12'><br /><hr /></div></div>");
                         }
 
-                        if (blnNewBandDetected == true)
-                        {
-                            sb.Append("</div>");
+                        //if (blnNewBandDetected == true)
+                        //{
+                        //    sb.Append("</div>");
 
+                        //}
 
-                        }
+                        if (intCount > 4) continue;
 
                         if (blnFirstTimeThroughLoop == true)
                         {
@@ -87,15 +92,49 @@ namespace Merchbooth.Customer
                             strBandName = item.b.strBandName;
 
                             sb.Append("<h1><strong>Band Name: </strong>" + strBandName + "</h1><h2>Products for Sale:" + "</h2>");
+
+                            //ben 12/4
+                            if(item.b.strBackroundImage != "")
+                            {
+                                //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage+ "')\"; \"background-repeat: no-repeat\"; \"background-size:cover\"; >");
+                                //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage + "');\" >");
+                                sb.Append("<div class='ImageRow'> <img class='BacroundECommerceImages' src='..\\"+ item.b.strBackroundImage + "'  >");
+
+                            }
+                            else
+                            {
+                                sb.Append("<div class='ImageRow'>");
+                            }
                         }
-                        if (intBandID != intPreviousBandID)
+
+                        //Ben 12/4 changed
+                        //if (intBandID != intPreviousBandID)
+                        if (intBandID != intPreviousBandID && blnFirstTimeThroughLoop == false)
                         {
                             sb.Append("<br />");
                             sb.Append("<div class='row'>");
+                      
                             // MDE - Get the band name from the current loop
                             strBandName = item.b.strBandName;
                             // MDE - Show the band name and a header 'Products for Sale'
                             sb.Append("<h1><strong>Band Name: </strong>" + strBandName + "</h1><h2>Products for Sale:" + "</h2>");
+
+
+                            //ben 12/4
+
+                            //ben 12/4
+                            if (item.b.strBackroundImage != "")
+                            {
+                                //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage+ "')\"; \"background-repeat: no-repeat\"; \"background-size:cover\"; >");
+                                //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage + "');\" >");
+                                sb.Append("<div class='ImageRow'> <img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
+
+                            }
+                            else
+                            {
+                                sb.Append("<div class='ImageRow'>");
+                            }
+
                         }
 
                         if (blnNewBandDetected == true)
@@ -103,22 +142,40 @@ namespace Merchbooth.Customer
                             blnNewBandDetected = false;
                         }
                         // MDE - Here is where the product details and image are displayed
-                        sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:445px;' class='col-md-3'>" + "Product Name: " + item.p.strProductName + "<br />" + "Price: $" + item.p.decBandPrice + "<br />" + "Quantity Remaining: " + item.p.intAmountAvialable + "<br />");
+                        //ben 12/4 commneted out** line 106 out
+                        //sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:140;' class='col-md-3'>" + "Product Name: " + item.p.strProductName + "<br />" + "Price: $" + item.p.decBandPrice + "<br />" + "Quantity Remaining: " + item.p.intAmountAvialable + "<br />");
+
+
+
                         if (item.p.strImageLink != "")
                         {
                             //Ben -11/30 Changed 
                             //sb.Append(" <img src='../" + item.p.strImageLink + "' runat='server' class='imgHome''" + " />");
-                            sb.Append(" <img src='../" + item.p.strImageLink + "' runat='server' class='imgHome' onclick='addToCart(" + item.p.intProductID + "," + item.p.intTypeID + ",\"" + item.p.strImageLink + "\"," + item.p.decBandPrice + "," + 1 + ")'" + "/>");
 
+                            //Instead added
+                            sb.Append("<div class='OneImage'>");
+                            sb.Append(" <img style='display:inline;' class='image-responsive saleImage' src='../" + item.p.strImageLink + "' runat='server' onclick='addToCart(" + item.p.intProductID + "," + item.p.intTypeID + ",\"" + item.p.strImageLink + "\"," + item.p.decBandPrice + "," + 1 + ")'" + "/>");
+                            sb.Append("<p>");
+                            sb.Append(item.p.decBandPrice);
+                            sb.Append("</p>");
+                            sb.Append("</div>");
                         }
 
-                        sb.Append("</div>");
+                        ////sb.Append("</div>");
+
+
 
                         intCount += 1;
+                        if (intCount > 4) continue;
+
                         blnFirstTimeThroughLoop = false;
                         intPreviousBandID = intBandID;
 
                     }
+
+                    //Added due due to changes on 12/4
+                    sb.Append("</div>");
+                    sb.Append("</div>");
                 }
 
 
