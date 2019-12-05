@@ -276,8 +276,8 @@
     <Content Include="Images\PlaneWhite - Copy.png" />
     <Content Include="Images\PlaneWhite.png" />
     <Content Include="Images\PlaneWhiteSized.jpg" />
-    <Content Include="Images\rush - Copy.jpg" />
-    <Content Include="Images\rush.jpg" />
+    <Content Include="Uploads\Products\18\rush - Copy.jpg" />
+    <Content Include="Uploads\Products\18\rush.jpg" />
     <Content Include="Images\SignInCustomer_orBand.JPG" />
     <Content Include="Images\SignIn_Band_vs_Customer.jpg" />
     <Content Include="Images\silver-313347_640.jpg" />
@@ -586,7 +586,6 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Bands\14\" />
-    <Folder Include="Uploads\Products\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
