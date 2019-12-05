@@ -86,7 +86,7 @@ namespace Merchbooth
                                 // MDE - Get the band name from the current loop
                                 strBandName = item.b.strBandName;
 
-                                sb.Append("<h1><strong>Band Name: </strong>" + strBandName + "</h1><h2>Products for Sale:" + "</h2>");
+                                sb.Append("<h1><strong>Band Name: </strong><a href='/Products/Product-Details/?ck=" + item.b.intBandID + "'>" +  strBandName + "</a></h1><h2>Products for Sale:" + "</h2>");
                             }
                             if (intBandID != intPreviousBandID)
                             {
@@ -95,7 +95,7 @@ namespace Merchbooth
                                 // MDE - Get the band name from the current loop
                                 strBandName = item.b.strBandName;
                                 // MDE - Show the band name and a header 'Products for Sale'
-                                sb.Append("<h1><strong>Band Name: </strong>" + strBandName + "</h1><h2>Products for Sale:"  + "</h2>");
+                                sb.Append("<h1><strong>Band Name: </strong><a href='/Products/Product-Details/?ck=" + item.b.intBandID + "'>" + strBandName + "</a></h1><h2>Products for Sale:" + "</h2>");
                             }
 
                             if (blnNewBandDetected == true)

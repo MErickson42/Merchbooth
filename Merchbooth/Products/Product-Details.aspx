@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="Product Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Product-Details.aspx.cs" Inherits="Merchbooth.Products.Product_Details" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderImage" runat="server">
-    <asp:Image ID="imgBand" ImageUrl="/" runat="server" />
+    <%--<asp:Image ID="imgBand" ImageUrl="/" runat="server" />--%>
+
+    <div class="headerImage">
+         
+   </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div style="margin-top:200px;"></div>
