@@ -28,13 +28,15 @@ namespace Merchbooth.Products
             queryBands.ToList();
             StringBuilder sbimg = new StringBuilder();
 
-            foreach (var name in queryBands)
-            {
-                ltrBandName.Text = name.strBandName;
-                sbimg.Append("/" + name.strHeaderImage);
-            }
 
-            imgBand.ImageUrl = sbimg.ToString();
+            // MDE - Commented out custom band header image
+            //foreach (var name in queryBands)
+            //{
+            //    ltrBandName.Text = name.strBandName;
+            //    sbimg.Append("/" + name.strHeaderImage);
+            //}
+
+            //imgBand.ImageUrl = sbimg.ToString();
 
             var queryProducts = from p in _siteContext.TProducts
                                 where p.intBandID == CategoryKey 
@@ -45,25 +47,18 @@ namespace Merchbooth.Products
 
             if (queryProducts.Count() > 0)
             {
-                sb.Append("<div class='row'><div class='col-md-12'><hr /></div></div>");
+                //sb.Append("<div class='row'><div class='col-md-12'><hr /></div></div>");
                 foreach (TProduct prod in queryProducts)
                 {
-                    sb.Append("<div class='row' style='padding-bottom: 10px;'>");
-                    sb.Append("<div class='col-md-12'><strong>" + prod.strProductName + "<a name='" + prod.strProductName.Replace("&", "and").Replace(" ", "-") + "'></a></strong></div>");
-                    sb.Append("</div>");
-                    sb.Append("<div class='row'>");
-                    sb.Append("<div class='col-md-2'>");
+
+                    sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:445px;' class='col-md-3'>" + "Product Name: " + prod.strProductName + "<br />" + "Price: $" + prod.decBandPrice + "<br />" + "Quantity Remaining: " + prod.intAmountAvialable + "<br />");
                     if (prod.strImageLink != "")
                     {
-                        
-                        sb.Append("<img src='/" + prod.strImageLink + "' class='imgHome' alt='" + prod.strProductName + "' />");
+                        //Ben -11/30 Changed 
+                        //sb.Append(" <img src='../" + item.p.strImageLink + "' runat='server' class='imgHome''" + " />");
+                        sb.Append(" <img src='/" + prod.strImageLink + "' runat='server' class='imgHome' onclick='addToCart(" + prod.intProductID + "," + prod.intTypeID + ",\"" + prod.strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
+                        sb.Append("</div>");
                     }
-                    sb.Append("</div>");
-                    //sb.Append("<div class='col-md-3'>" + prod.Title + "</div>");
-                    sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:445px;' class='col-md-3'>" + "Product Name: " + prod.strProductName + "<br />" + "Price: $" + prod.decBandPrice + "<br />" + "Quantity Remaining: " + prod.intAmountAvialable + "<br />");
-
-                    sb.Append("</div>");
-                    sb.Append("<div class='row'><div class='col-md-12'><hr /></div></div>");
                 }
             }
             else

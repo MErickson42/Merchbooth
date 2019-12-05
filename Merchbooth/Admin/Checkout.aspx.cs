@@ -197,7 +197,7 @@ namespace Merchbooth
                             else //If not enough in inventory for product
                             {    //sellig all products accept the one which there is not have enough in inventory
 
-                                messageNotSold += "\nWe only have" + queryProduct.intAmountAvialable + queryProduct.strProductName + ".";
+                                messageNotSold += "\n We only have" + queryProduct.intAmountAvialable + queryProduct.strProductName + ".";
                             }
 
 

@@ -44,7 +44,4 @@
 		        View order history.<br />
 		        Purchase new items.<br />
         </p>
-
-    
-    
 </asp:Content>
