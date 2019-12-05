@@ -34,6 +34,14 @@
         </label>
         <asp:TextBox ID="txtPrice" type="number" MaxLength="25" CssClass="form-control" runat="server"></asp:TextBox>
 
+        <label for="Price to Band">
+            Price to band* 
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtPriceForBand" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationExpression="^\d+(\.\d\d)?$" ControlToValidate="txtPriceForBand" runat="server" ErrorMessage="Enter A Number only"></asp:RegularExpressionValidator>    
+        </label>
+        <asp:TextBox ID="txtPriceForBand" type="number" MaxLength="25" CssClass="form-control" runat="server"></asp:TextBox>
+
+
         <label for="Quantity">
             Quantity * 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtQuantity" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>

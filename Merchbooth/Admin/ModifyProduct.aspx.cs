@@ -68,6 +68,7 @@ namespace Merchbooth.Admin
                         ProductTitle.Text = prod.strProductName;
                         ltrImagePath.Text = prod.strImageLink;
                         txtPrice.Text = prod.decBandPrice.ToString();
+                        txtPriceForBand.Text = prod.decCostToBand.ToString();
                         txtQuantity.Text = prod.intAmountAvialable.ToString();
                     }
                 }
@@ -99,7 +100,7 @@ namespace Merchbooth.Admin
             string strTitle = ProductTitle.Text;
             int intQuantity = Int32.Parse(txtQuantity.Text);
             decimal decPrice = Decimal.Parse(txtPrice.Text);
-
+            decimal decBandPrice = Decimal.Parse(txtPriceForBand.Text);
             string sOldProductPath = "";
 
             SiteDCDataContext _siteContext = new SiteDCDataContext();
@@ -117,7 +118,7 @@ namespace Merchbooth.Admin
                     prod.strImageLink = sOldProductPath;
                     prod.decBandPrice = decPrice;
                     prod.intAmountAvialable = intQuantity;
-                   
+                    prod.decCostToBand = decBandPrice;
                     prod.intBandID = intBandID;
                     prod.intTypeID = 1;
                 }
@@ -133,6 +134,7 @@ namespace Merchbooth.Admin
                 prod.strProductName = strTitle;
                 prod.strImageLink = "";
                 prod.decBandPrice = decPrice;
+                prod.decCostToBand = decBandPrice;
                 prod.intAmountAvialable = intQuantity;
                 //MDE - For now - just hardcoding TypeID 1 until  I write the join for type
                 prod.intBandID = intBandID;
