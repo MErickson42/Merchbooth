@@ -41,7 +41,7 @@ namespace Merchbooth
                 //}
 
 
-                sb.Append("<strong>" + item.strBandName + "</strong></div></a></div>");
+                sb.Append("<strong>" + item.strBandName + "</strong></div></a></div></br>"); //added </br> so list runs down page.//EH 12.04.2019
             }
             sb.Append("</div>");
 
