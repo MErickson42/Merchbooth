@@ -17,6 +17,12 @@ hr {
 }
 
 
+/*.container {
+    width: 100vw;
+    padding:0px;
+    margin:0px;
+}*/
+
 .headerImage {
     width: 100vw;
     height: 160px;
@@ -98,43 +104,67 @@ hr {
     margin-top: 25px;
     display: block;
     text-align: left;
-    position:relative;
+    position: relative;
+    top: 160px;
+    height: 300px;
+    margin: 0px;
 }
 
 .BacroundECommerceImages {
-    height: 260px;
+    height: 300px;
     width: 100vw;
     z-index: 1;
     display: inline;
-    position:absolute;
-    left:-8.5vw;
-    top:-82px;
+    position: absolute;
+    left: -10vw;
+    /*top:-82px;*/
     /*opacity:0.5;*/
-
+    margin: 0px;
+    /*opacity: 0.95;*/
 }
-
+.ecBantTitle {
+    /*margin-left: 30px;*/
+    /*height: 160px;*/
+    display: inline;
+    position: absolute;
+    left: 30px;
+    top: 24px;
+    z-index: 10;
+    margin: 0px;
+    background-color: white;
+    padding: 5px 25px;
+    border-radius: 60px;
+    -webkit-user-drag: none;
+    color: darkred;
+    font-family: 'Segoe UI Black','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .OneImage {
     margin-left: 30px;
     /*height: 160px;*/
     display: inline;
     position: relative;
+    top: 85px;
     z-index: 10;
+    height: 140px;
+    width: 140px;
 }
 
-    .OneImage:hover {
+    /*.OneImage:hover {
         cursor: pointer;
-        opacity: 0.85;
-        transition-duration: 0.3s
-    }
+        opacity: 0.9;
+        transition-duration: 0.3s;
+    }*/
 
 
 .ImageRow p {
     display: inline;
     position: relative;
-    top: 1px;
-    right: 80px;
+    top: 90px;
+    right: 95px;
     font-size: 15px;
     line-height: 25px;
+    background-color: white;
+    width: 60px;
 }
 
 .image-responsive {
@@ -143,6 +173,8 @@ hr {
     width: 140px;
     -webkit-user-drag: none;
     display: inline;
+    position:relative;
+    z-index:15;
 }
 
 .saleImage {
@@ -154,6 +186,15 @@ hr {
     margin-bottom: 25px;
 }
 
+.OneImage:hover{
+    cursor: pointer;
+    /*opacity: 0.9;*/
+    transition-duration: 0.3s;
+    border-radius: 60px;
+    height: 150px;
+    width: 150px;
+    -webkit-user-drag: none;
+}
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -166,7 +207,7 @@ textarea {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
-        margin-top: 270px;
+        /*margin-top: 270px;*/
     }
 }
 
