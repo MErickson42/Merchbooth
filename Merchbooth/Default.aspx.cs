@@ -12,6 +12,8 @@ namespace Merchbooth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+
             SiteDCDataContext _siteContext = new SiteDCDataContext();
             StringBuilder sb = new StringBuilder();
 
@@ -135,9 +137,25 @@ namespace Merchbooth
             else
             {
                 sb.Append("<div class='row'><div class='col-md-12'>No products in this category are currently available.</div></div>");
+
             }
 
             ltrProducts.Text = sb.ToString();
+
+            // MDE  - check if querystring contains a message from sign in page - and then show it in a javascript alert box.
+            string strMessage = "";
+            if (Request.QueryString["message"] != null)
+
+            {
+                strMessage = Request.QueryString["message"].ToString();
+            }
+
+            if (strMessage != "")
+            {
+                Response.Write("<script>alert('" + strMessage + "')</script>");
+                //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", strMessage, true);
+                return;
+            }
         }
 
         protected void checkout1_Click(object sender, EventArgs e)

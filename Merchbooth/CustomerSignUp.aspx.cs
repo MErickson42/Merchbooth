@@ -36,7 +36,9 @@ namespace Merchbooth
             if (blnEmailFlag == true)
             {
                 //Name used
-                Response.Write("This email is already used.");
+                //Response.Write("This email is already used.");
+                // MDE - Trying javascript alert
+                Response.Write("<script>alert('This email is already used.')</script>");
                 txtEmail.Focus();
             }
             else
@@ -53,7 +55,12 @@ namespace Merchbooth
                 string strZip = txtZip.Text;
 
                 int intState = 1;
+                //MDE Added convert to int for ddlState
+                intState = Convert.ToInt32(ddlState.SelectedValue);
                 int intGender = 1;
+
+                //MDE added Convert to int for ddlGender
+                intGender = Convert.ToInt32(ddlGender.SelectedValue);
 
                 TCustomer customer = new TCustomer();
 
@@ -76,11 +83,16 @@ namespace Merchbooth
 
                 int CustomeKey = customer.intCustomerID;
 
-                message = "Customer " + customer.strFirstName + customer.strLastName + " has registered.";
+                // MDE added a space between first and last name
+                message = "Customer " + customer.strFirstName + " " + customer.strLastName + " has registered.";
 
 
                 //So sending to modify product page
-                Response.Redirect("/?&message=" + Server.UrlEncode(message));
+                //Response.Redirect("/Default.aspx?&message=" + Server.UrlEncode(message));
+
+                //MDE do the redirect, Show sucess message - code to show message is in default.aspx - it requests the querystring.
+
+                Response.Redirect("/Default.aspx?message=" + Server.UrlEncode(message));
             }
         }
 
