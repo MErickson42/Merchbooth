@@ -120,6 +120,9 @@
     <Content Include="Admin\Reports\SalesByDate.aspx" />
     <Content Include="AllBands.aspx" />
     <Content Include="Content\Customer.css" />
+    <Content Include="Customer\About.aspx" />
+    <Content Include="Customer\Account.aspx" />
+    <Content Include="Customer\AllBands.aspx" />
     <Content Include="Customer\CheckoutMain.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Admin.css" />
@@ -130,7 +133,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="CustomerSignIn.aspx" />
     <Content Include="CustomerSignUp.aspx" />
+    <Content Include="Customer\Contact.aspx" />
     <Content Include="Customer\Default.aspx" />
+    <Content Include="Customer\OneBandProducts.aspx" />
     <Content Include="Customer\Logout.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -453,6 +458,27 @@
     <Compile Include="Admin\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\AllBands.aspx.cs">
+      <DependentUpon>AllBands.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\AllBands.aspx.designer.cs">
+      <DependentUpon>AllBands.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\CheckoutMain.aspx.cs">
       <DependentUpon>CheckoutMain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -483,6 +509,13 @@
     <Compile Include="CustomerSignUp.aspx.designer.cs">
       <DependentUpon>CustomerSignUp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\CustomerMaster.Master.cs">
       <DependentUpon>CustomerMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -496,6 +529,13 @@
     </Compile>
     <Compile Include="Customer\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\OneBandProducts.aspx.cs">
+      <DependentUpon>OneBandProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\OneBandProducts.aspx.designer.cs">
+      <DependentUpon>OneBandProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
