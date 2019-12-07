@@ -60,12 +60,21 @@
         <asp:TextBox ID="txtPhone" type="Phone" MaxLength="25" CssClass="form-control" runat="server"></asp:TextBox>
         
         <label for="State">
-            State * 
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtState" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-        </label>
-        <asp:TextBox ID="txtState" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>
+            <br />
 
-            <%--<asp:DropDownList ID="ddlState" runat="server" >
+            <%--I added a dropdown list to state and connected to the database   --%>
+
+            State * 
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="DropDownList1" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+        </label>
+<%--        <asp:TextBox ID="txtState" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>--%>
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="strStateName" DataValueField="intStateID" AutoPostBack="True" AppendDataBoundItems="True" Height="20px" Width="200px">
+                	        <asp:ListItem Value=""> Select your State</asp:ListItem>
+       </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CPDM_EricksonMConnectionString %>" SelectCommand="SELECT [intStateID], [strStateName] FROM [TStates]"></asp:SqlDataSource>
+        <br />
+        <br />
+<%--            <asp:DropDownList ID="ddlState" runat="server" >
     	        <asp:ListItem Value="">State</asp:ListItem>
     	        <asp:ListItem Value="AL">AL</asp:ListItem>
     	        <asp:ListItem Value="AK">AK</asp:ListItem>
@@ -144,13 +153,28 @@
      
           
         <label for="Gender">
+            <br />
+        <br />
+
+<%--I added a dropdown list to gender and connected to the database   --%>
+            
             Gender* 
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtZip" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="DropDownList1" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+
+        <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="strGender" DataValueField="intGenderID" AppendDataBoundItems="True" Height="20px" Width="200">
+       
+                            	        <asp:ListItem Value=""> Select your Gender</asp:ListItem>
+
+            
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CPDM_EricksonMConnectionString %>" SelectCommand="SELECT [intGenderID], [strGender] FROM [TGenders]" OnSelecting="SqlDataSource2_Selecting"></asp:SqlDataSource>
 
         </label>
-        <asp:TextBox ID="txtGender" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>
         
         <br /><br />
+        
+        <br />
+        <br />
         
         <asp:Button ID="btnCustomerSignUp" runat="server" Text="Sign Up" CssClass="btn btn-primary" OnClick="btnSignUpCustomer_Click" />
         &nbsp;&nbsp;

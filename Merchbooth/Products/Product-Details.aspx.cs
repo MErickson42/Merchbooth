@@ -43,14 +43,35 @@ namespace Merchbooth.Products
                                 orderby p.strProductName
                                 select p;
 
-            queryProducts.ToList();
+            var queryBandsProducts = from b in _siteContext.TBands
+                                     join p in _siteContext.TProducts
+                                     on b.intBandID equals p.intBandID
+                                     where p.intBandID == CategoryKey
+                                     orderby p.intBandID
+                                     select new { b, p };
 
+            queryBandsProducts.ToList();
+
+            queryProducts.ToList();
+            string strBandName = "";
+            int intBandNameCount = 1;
+            foreach (var item in queryBandsProducts)
+            {
+                strBandName = item.b.strBandName;
+
+                if (intBandNameCount == 1) { 
+                    sb.Append("<h1><strong>Home page for: </strong>" + strBandName + "</h1><h2>Products for Sale:" + "</h2>");
+                }
+                intBandNameCount += 1;
+            }
             if (queryProducts.Count() > 0)
             {
                 //sb.Append("<div class='row'><div class='col-md-12'><hr /></div></div>");
                 foreach (TProduct prod in queryProducts)
                 {
+                  
 
+                        
                     sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:445px;' class='col-md-3'>" + "Product Name: " + prod.strProductName + "<br />" + "Price: $" + prod.decBandPrice + "<br />" + "Quantity Remaining: " + prod.intAmountAvialable + "<br />");
                     if (prod.strImageLink != "")
                     {
