@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="OneBandProducts.aspx.cs" Inherits="Merchbooth.Customer.OneBandProducts" %>
+﻿<%@ Page Title="Band Product" Language="C#" MasterPageFile="~/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="OneBandProducts.aspx.cs" Inherits="Merchbooth.Customer.OneBandProducts" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderImage" runat="server">
     <div class="headerImage">
          

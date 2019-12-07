@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sign.Master" AutoEventWireup="true" CodeBehind="CustomerSignIn.aspx.cs" Inherits="Merchbooth.CustomerSignIn1" %>
+﻿<%@ Page Title="Customer Sign In" Language="C#" MasterPageFile="~/Sign.Master" AutoEventWireup="true" CodeBehind="CustomerSignIn.aspx.cs" Inherits="Merchbooth.CustomerSignIn1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderImage" runat="server">

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Merchbooth.Customer.Default" %>
+﻿<%@ Page Title="Customer Home" Language="C#" MasterPageFile="~/Customer/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Merchbooth.Customer.Default" %>
 <asp:Content ID="HeaderImage1" ContentPlaceHolderID="HeaderImage" runat="server">
   
     <div class="headerImage">
