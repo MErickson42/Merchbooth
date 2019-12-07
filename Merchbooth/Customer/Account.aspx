@@ -48,10 +48,15 @@
         
         <label for="State">
             State * 
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtState" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvState" runat="server" ErrorMessage="Please select a state from the drop down list" SetFocusOnError="True" ControlToValidate="ddlState" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
         </label>
-        <asp:TextBox ID="txtState" MaxLength="255" CssClass="form-control" runat="server"></asp:TextBox>
-              
+        <asp:DropDownList ID="ddlState" runat="server" DataSourceID="SqlDataSource1" DataTextField="strStateName" DataValueField="intStateID" AutoPostBack="False" AppendDataBoundItems="True" Height="20px" Width="200px">
+                	        <asp:ListItem Value=""> Select your State</asp:ListItem>
+       </asp:DropDownList>
+        <br />
+        <br />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CPDM_EricksonMConnectionString %>" SelectCommand="SELECT [intStateID], [strStateName] FROM [TStates]"></asp:SqlDataSource>
+    
         <label for="City">
             City*  
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtCity" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -75,11 +80,15 @@
      
         <label for="Gender">
             Gender * 
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtGender" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvGeder" runat="server" ErrorMessage="Please select a gender from the drop down list" SetFocusOnError="True" ControlToValidate="ddlGender" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
         </label>
-        <asp:TextBox ID="txtGender" MaxLength="255" CssClass="form-control" runat="server"></asp:TextBox>
-                                                                                             
-        
+        <asp:DropDownList ID="ddlGender" runat="server" DataSourceID="SqlDataSource2" DataTextField="strGender" DataValueField="intGenderID" AutoPostBack="False" AppendDataBoundItems="True" Height="20px" Width="200px">
+                	        <asp:ListItem Value=""> Select your Gender</asp:ListItem>
+       </asp:DropDownList>
+        <br />
+        <br />                                                                                 
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CPDM_EricksonMConnectionString %>" SelectCommand="SELECT [intGenderID], [strGender] FROM [TGenders]"></asp:SqlDataSource>
+
         <asp:Button ID="btnUpdate" runat="server" CssClass="btn btn-primary" Text ="Update" OnClick="btnUpdateCustomerAccount_Click"/> &nbsp; 
         <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="btn btn-primary" OnClick="btnCancel_Click" CausesValidation="false" />
     </div>

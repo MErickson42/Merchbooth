@@ -36,11 +36,11 @@ namespace Merchbooth.Customer
                     txtPassword.Text = custumer.strPassword.ToString();
                     txtPhone.Text = custumer.strPhone;
                     txtEmail.Text = custumer.strEmail;
-                    txtState.Text = custumer.intStateID.ToString();
+                    ddlState.SelectedValue = custumer.intStateID.ToString();
                     txtCity.Text = custumer.strCity;
                     txtAddress.Text = custumer.strAddress;
                     txtZip.Text = custumer.strZip;
-                    txtGender.Text = custumer.intGenderID.ToString();
+                    ddlGender.Text = custumer.intGenderID.ToString();
                 }
             }
         }
@@ -77,11 +77,16 @@ namespace Merchbooth.Customer
                     cst.strPassword = txtPassword.Text;
                     cst.strEmail = txtEmail.Text;
                     cst.strPhone = txtPhone.Text;
-                    cst.intStateID = 1;
+                    int intState = 1;
+                    int intGeder = 1;
+                    //MDE Added convert to int for ddlState
+                    intState = Convert.ToInt32(ddlState.SelectedValue);
+                    intGeder = Convert.ToInt32(ddlGender.SelectedValue);
+                    cst.intStateID = intState;
+                    cst.intGenderID = intGeder;
                     cst.strCity = txtCity.Text;
                     cst.strAddress = txtAddress.Text;
                     cst.strZip = txtZip.Text;
-                    cst.intGenderID = 1;
 
                 }
 
