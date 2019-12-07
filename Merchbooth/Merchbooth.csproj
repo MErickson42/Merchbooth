@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="Admin\Logout.aspx" />
     <Content Include="Admin\ModifyAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\ModifyProduct.aspx" />
@@ -130,6 +131,7 @@
     <Content Include="CustomerSignIn.aspx" />
     <Content Include="CustomerSignUp.aspx" />
     <Content Include="Customer\Default.aspx" />
+    <Content Include="Customer\Logout.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -344,6 +346,13 @@
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ModifyAccount.aspx.cs">
       <DependentUpon>ModifyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -487,6 +496,13 @@
     </Compile>
     <Compile Include="Customer\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

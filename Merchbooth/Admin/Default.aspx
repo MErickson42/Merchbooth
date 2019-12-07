@@ -12,7 +12,7 @@
                 <li><a href="/Admin/Products/">Products</a></li>
                 <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
                 <li><a href="/Admin/ModifyAccount/">Account</a></li>
-
+                <li><a href="/Admin/Logout.aspx" >Logout</a></li>
             </ul>
         </div>
         <div class="col-lg-1 col-sm-1"></div>
