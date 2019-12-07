@@ -31,7 +31,7 @@
 
         <label for="Email">
             Email * 
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter your Band's email address" SetFocusOnError="True" ControlToValidate="txtEmail" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="Please enter your Band's email address" SetFocusOnError="True" ControlToValidate="txtEmail" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="regEmail" runat="server" ErrorMessage="Please enter a valid email address" ControlToValidate="txtEmail" Display="Dynamic" Font-Bold="True" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
         </label>
         <asp:TextBox ID="txtEmail"  type="Email" MaxLength="255" CssClass="form-control" runat="server" Text =""></asp:TextBox>

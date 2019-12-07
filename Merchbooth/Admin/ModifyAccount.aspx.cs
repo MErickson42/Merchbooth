@@ -30,13 +30,15 @@ namespace Merchbooth.Admin
                                 where b.intBandID == intBandID
                                 select b;
 
+                
+
                 foreach (TBand band in queryBand)
                 {
                     txtBandName.Text = band.strBandName;
                     txtEmail.Text = band.strEmail;
                     txtPassword.Text = band.strPassword.ToString();
                     txtPhone.Text = band.strPhone;
-                    txtState.Text = band.intStateID.ToString();
+                    ddlState.SelectedValue= band.intStateID.ToString();
                     txtCity.Text = band.strCity;
                     txtAddress.Text = band.strAddress;
                     txtZip.Text = band.strZip;
@@ -84,11 +86,15 @@ namespace Merchbooth.Admin
                 {
                     //BUG
                     //todo  This is not getting the new information FROM the textboxes  
+                    // MDE - Fixed
                     band.strBandName = txtBandName.Text;
                     band.strEmail = txtEmail.Text;
                     band.strPassword = txtPassword.Text;
                     band.strPhone = txtPhone.Text;
-                    band.intStateID = 1;           
+                    int intState = 1;
+                    //MDE Added convert to int for ddlState
+                    intState = Convert.ToInt32(ddlState.SelectedValue);
+                    band.intStateID = intState;
                     band.strCity = txtCity.Text;
                     band.strAddress = txtAddress.Text;
                     band.strZip = txtZip.Text;
