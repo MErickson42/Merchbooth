@@ -15,26 +15,12 @@
 
     <%--Added ben 11/30--%>
     <asp:HiddenField ID="hdnCartItemsVariable" value="" runat="server" />
-    <%--<asp:LinkButton ID="LnkButtion" CssClass="buttonClass" runat="server" Text="Checkout" OnClick="checkout1_Click"/>--%>
+    <asp:LinkButton ID="LnkButtion" CssClass="buttonClass" runat="server" Text="Checkout" OnClick="checkout1_Click"/>
 
 
     <style type="text/css">
-                 /*#testing
-                 {
-                    padding: 5px 10px;
-                    text-decoration: none;
-                    background-color: bisque;
-                    z-index:50;
-                    position:fixed;
-                    right:0px;
-                    top:225px;
-                    height: 100px;
-                    width:400px;
-                    color:#262422;
-                    font-size: 20px;
-                    border-radius:4px 4px 4px 4px;
-                 }*/
-                /*.buttonClass
+ 
+                .buttonClass
                 {
 
                     background-color: #ed7f11;
@@ -54,7 +40,7 @@
                     padding:20px,10px;
                     text-decoration:none;
 
-                }*/
+                }
             </style>
     	    <script type="text/javascript">
 

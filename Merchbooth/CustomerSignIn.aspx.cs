@@ -28,13 +28,13 @@ namespace Merchbooth
             }
 
             txtEmail.Focus();
-
         }
 
         protected void btnSignInCustomer_Click(object sender, EventArgs e)
         {
             SiteDCDataContext _siteContext = new SiteDCDataContext();
             string message = "Customer email and password do not match.";
+            string cart= Server.UrlDecode(Request.QueryString["cart"]);
             int CustomerKey = 0;
             string strCustomerName = "";
 
@@ -71,7 +71,7 @@ namespace Merchbooth
 
                     if (DataHelper.ValidateCustomer(txtEmail.Text, txtPassword.Text))
                     {
-                        Response.Redirect("/Customer/Default?&message=" + Server.UrlEncode(message), false);
+                        Response.Redirect("/Customer/Default?cart=" + Server.UrlEncode(cart), false);
                     }
 
 

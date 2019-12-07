@@ -160,7 +160,7 @@ namespace Merchbooth
 
         protected void checkout1_Click(object sender, EventArgs e)
         {
-            string strUrl = "http://localhost:10349/Customer/CheckoutMain.aspx?" + hdnCartItemsVariable.Value.ToString();
+            string strUrl = "http://localhost:10349/CustomerSignIn.aspx?cart=" + hdnCartItemsVariable.Value.ToString();
             Response.RedirectPermanent(strUrl);
         }
     }
