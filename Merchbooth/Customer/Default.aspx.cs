@@ -74,7 +74,7 @@ namespace Merchbooth.Customer
                             //sb.Append("<h1 class='ecBantTitle'> <strong>" + strBandName + " </strong></h1>");
                             strBandName = item.b.strBandName;
 
-                            sb.Append("<h1 class='ecBantTitle'><a style='color:darkred;' href='/Products/Product-Details/?ck=" + item.b.intBandID + "'>" + strBandName + "</a></h1>");
+                            sb.Append("<h1 class='ecBantTitle'><a style='color:darkred;' href='/Customer/OneBandProducts/?ck=" + item.b.intBandID + "'>" + strBandName + "</a></h1>");
 
                             //ben 12/4
                             if (item.b.strBackroundImage != "")

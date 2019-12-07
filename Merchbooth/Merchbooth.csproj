@@ -134,6 +134,7 @@
     <Content Include="CustomerSignUp.aspx" />
     <Content Include="Customer\Contact.aspx" />
     <Content Include="Customer\Default.aspx" />
+    <Content Include="Customer\OneBandProducts.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -519,6 +520,13 @@
     </Compile>
     <Compile Include="Customer\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\OneBandProducts.aspx.cs">
+      <DependentUpon>OneBandProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\OneBandProducts.aspx.designer.cs">
+      <DependentUpon>OneBandProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
