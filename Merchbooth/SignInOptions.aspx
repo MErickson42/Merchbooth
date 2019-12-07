@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SignInOptions.aspx.cs" Inherits="Merchbooth.SignInOptions" %>
+﻿<%@ Page Title="Sign In Options" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SignInOptions.aspx.cs" Inherits="Merchbooth.SignInOptions" %>
 
 
 <asp:Content ID="HeaderImage1" ContentPlaceHolderID="HeaderImage" runat="server">

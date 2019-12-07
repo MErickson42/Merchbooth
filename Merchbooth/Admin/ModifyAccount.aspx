@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="ModifyAccount.aspx.cs" Inherits="Merchbooth.Admin.Account" %>
+﻿<%@ Page Title="Modify Account" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="ModifyAccount.aspx.cs" Inherits="Merchbooth.Admin.Account" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderImage" runat="server">
