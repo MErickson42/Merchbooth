@@ -76,7 +76,7 @@
             </asp:ContentPlaceHolder>
         </div>   
     </div>
-        <footer class="site-footer">
+        <footer class="site-footer" style="margin:0px">
                 <p style="padding-left:10%;color:white;">&copy; <%: DateTime.Now.Year %> - Merchbooth</p>
          </footer>
     </form>

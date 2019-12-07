@@ -114,23 +114,16 @@ hr {
     height: 300px;
     width: 100vw;
     z-index: 1;
-    display: inline;
     position: absolute;
     left: -10vw;
-    /*top:-82px;*/
-    /*opacity:0.5;*/
     margin: 0px;
-    /*opacity: 0.95;*/
 }
 .ecBantTitle {
-    /*margin-left: 30px;*/
-    /*height: 160px;*/
     display: inline;
     position: absolute;
     left: 30px;
-    top: 24px;
+    top: 18px;
     z-index: 10;
-    margin: 0px;
     background-color: white;
     padding: 5px 25px;
     border-radius: 60px;
@@ -140,20 +133,22 @@ hr {
 }
 .OneImage {
     margin-left: 30px;
-    /*height: 160px;*/
-    display: inline;
+    display: inline;        
     position: relative;
     top: 85px;
     z-index: 10;
-    height: 140px;
-    width: 140px;
+    /*height: 140px;
+    width: 140px;11111111111*/
 }
 
-    /*.OneImage:hover {
+    .OneImage:hover {
         cursor: pointer;
-        opacity: 0.9;
         transition-duration: 0.3s;
-    }*/
+        border-radius: 60px;
+        height: 150px;
+        width: 150px;
+        -webkit-user-drag: none;
+    }
 
 
 .ImageRow p {
@@ -164,7 +159,8 @@ hr {
     font-size: 15px;
     line-height: 25px;
     background-color: white;
-    width: 60px;
+    color:darkred;
+    font-weight:bold;
 }
 
 .image-responsive {
@@ -172,7 +168,7 @@ hr {
     height: 140px;
     width: 140px;
     -webkit-user-drag: none;
-    display: inline;
+    /*display: inline;11111111*/
     position:relative;
     z-index:15;
 }
@@ -182,19 +178,49 @@ hr {
     height: 140px;
     width: 140px;
     -webkit-user-drag: none;
-    display: inline;
-    margin-bottom: 25px;
+    /*display: inline;11111111*/
+    margin-top: 24px;
+    margin-bottom: 10px;
 }
 
-.OneImage:hover{
-    cursor: pointer;
-    /*opacity: 0.9;*/
-    transition-duration: 0.3s;
-    border-radius: 60px;
-    height: 150px;
-    width: 150px;
-    -webkit-user-drag: none;
+
+/*used i ecommerce page of one band only product page*/
+.OneBandOnly_BacroundImage {
+    position: absolute;
+    height: 100%;
+    min-height:500px;
+    width: 105vw;
+    z-index: 1;
+    margin: 0px;
 }
+.oneBandsProductPAGE {
+    position: absolute;
+    left: 0px;
+    top: 160px;
+    min-width:300px;
+}
+.image-responsiveOneBand {
+    border-radius: 50px;
+    height: 140px;
+    width: 140px;
+    -webkit-user-drag: none;
+    /*display: inline;11111111*/
+    position: relative;
+    z-index: 15;
+    margin-top: 54px;
+}
+
+.saleImageOneBand {
+    border-radius: 50px;
+    height: 140px;
+    width: 140px;
+    -webkit-user-drag: none;
+    /*display: inline;11111111*/
+    margin-top: 24px;
+    margin-bottom: 10px;
+    z-index: 15;
+}
+/*/////////////////////////////////////////////////////*/
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -205,11 +231,10 @@ textarea {
 
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+/*@media screen and (min-width: 768px) {
     .jumbotron {
-        /*margin-top: 270px;*/
     }
-}
+}11111*/
 
 .imgHome {
     max-width:250px !important;

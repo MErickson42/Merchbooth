@@ -7,7 +7,6 @@
    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="margin-top:200px;"></div>
     <div class="row" style="z-index:9999">
                 <div class="col-md-12">
                     <h1><asp:Literal ID="ltrBandName" runat="server"></asp:Literal></h1>
