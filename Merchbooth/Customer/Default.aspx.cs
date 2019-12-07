@@ -15,8 +15,6 @@ namespace Merchbooth.Customer
             SiteDCDataContext _siteContext = new SiteDCDataContext();
             StringBuilder sb = new StringBuilder();
 
-
-
             var queryProducts = from p in _siteContext.TProducts
                                 select p;
 
@@ -32,11 +30,6 @@ namespace Merchbooth.Customer
                                          orderby p.intBandID
                                          select new { b, p };
 
-                //Ben -11/30 Changed from queryBands to queryBandsProducts
-
-
-
-
                 queryBandsProducts.ToList();
                 if (queryBandsProducts.Count() > 0)
                 {
@@ -45,14 +38,10 @@ namespace Merchbooth.Customer
                     int intPreviousBandID = 1;
                     bool blnFirstTimeThroughLoop = true;
                     bool blnNewBandDetected = false;
-                    //int intProductCount = 1;
 
                     // This loop will loop through each product from the queryBands query we made
                     foreach (var item in queryBandsProducts)
                     {
-
-
-
 
                         // MDE - item.p refrers to the 'p' in the 'select new {b, p}' part of the linq query. p represents products
                         // we are setting the variable intBandID equal to the band ID of the item in the current loop
@@ -70,19 +59,13 @@ namespace Merchbooth.Customer
 
                         if (blnNewBandDetected == true)
                         {
-                            //11111sb.Append("</div>");
                             sb.Append("</div>");
-
-
-                            //11111.sb.Append("<div class='row'><div class='col-md-12'><br /><hr /></div></div>");
                         }
-
 
                         if (intCount > 4) continue;
 
                         if (blnFirstTimeThroughLoop == true)
                         {
-                            //11111sb.Append("<div class='row'>");
                             sb.Append("<div class='row ImageRow'>");
 
                             // MDE - Get the band name from the current loop
@@ -96,13 +79,8 @@ namespace Merchbooth.Customer
                                 //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage+ "')\"; \"background-repeat: no-repeat\"; \"background-size:cover\"; >");
                                 //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage + "');\" >");
 
-                                //11111sb.Append("<div class='ImageRow'> <img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
                                 sb.Append("<img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
 
-                            }
-                            else
-                            {
-                                //11111sb.Append("<div class='ImageRow'>");
                             }
                         }
 
@@ -110,8 +88,7 @@ namespace Merchbooth.Customer
                         //if (intBandID != intPreviousBandID)
                         if (intBandID != intPreviousBandID && blnFirstTimeThroughLoop == false)
                         {
-                            //11111sb.Append("<br />");
-                            //11111sb.Append("<div class='row'>");
+
 
                             sb.Append("<div class='row ImageRow'>");
 
@@ -120,24 +97,11 @@ namespace Merchbooth.Customer
                             // MDE - Show the band name and a header 'Products for Sale'
                             sb.Append("<h1 class='ecBantTitle'> <strong>" + strBandName + " </strong></h1>");
 
-
-                            //ben 12/4
-
                             //ben 12/4
                             if (item.b.strBackroundImage != "")
                             {
-                                //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage+ "')\"; \"background-repeat: no-repeat\"; \"background-size:cover\"; >");
-                                //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage + "');\" >");
-                                //11111sb.Append("<div class='ImageRow'> <img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
-
                                 sb.Append("<img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
-
                             }
-                            else
-                            {
-                                //11111sb.Append("<div class='ImageRow'>");
-                            }
-
                         }
 
                         if (blnNewBandDetected == true)
@@ -153,8 +117,6 @@ namespace Merchbooth.Customer
                         if (item.p.strImageLink != "")
                         {
                             //Ben -11/30 Changed 
-                            //sb.Append(" <img src='../" + item.p.strImageLink + "' runat='server' class='imgHome''" + " />");
-
                             //Instead added
                             sb.Append("<div class='OneImage'>");
                             sb.Append(" <img style='display:inline;' class='image-responsive saleImage' src='../" + item.p.strImageLink + "' runat='server' onclick='addToCart(" + item.p.intProductID + "," + item.p.intTypeID + ",\"" + item.p.strImageLink + "\"," + item.p.decBandPrice + "," + 1 + ")'" + "/>");
@@ -163,10 +125,6 @@ namespace Merchbooth.Customer
                             sb.Append("</p>");
                             sb.Append("</div>");
                         }
-
-                        ////sb.Append("</div>");
-
-
 
                         intCount += 1;
                         if (intCount > 4) continue;
@@ -179,13 +137,7 @@ namespace Merchbooth.Customer
                     //Added due due to changes on 12/4
                     sb.Append("</div>");
                     
-                    //11111sb.Append("</div>");
                 }
-
-
-
-
-
             }
             else
             {
@@ -199,7 +151,6 @@ namespace Merchbooth.Customer
         {
             string strUrl = "http://localhost:10349/Customer/CheckoutMain.aspx?" + hdnCartItemsVariable.Value.ToString();
             Response.RedirectPermanent(strUrl);
-            //base.OnLoad(e);??
         }
     }
 }
