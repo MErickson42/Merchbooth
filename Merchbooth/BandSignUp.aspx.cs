@@ -73,6 +73,8 @@ namespace Merchbooth {
                 string strZip       = txtZip.Text;
 
                 int intState = 1;
+                //MDE Added convert to int for ddlState
+                intState = Convert.ToInt32(ddlState.SelectedValue);
 
                 TBand band = new TBand();
 
