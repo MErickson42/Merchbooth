@@ -9,16 +9,13 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="margin-top:200px"></div>
     <asp:Literal  ID="ltrProducts" runat="server"></asp:Literal>
-   
-    <%--Removed ben 11/30--%> 
-    <%--<img src="Images/download1.jpg" />--%>
+
 
 
     <%--Added ben 11/30--%>
     <asp:HiddenField ID="hdnCartItemsVariable" value="" runat="server" />
-    <%--<asp:LinkButton ID="LnkButtion" CssClass="buttonClass" runat="server" Text="Checkout" OnClick="checkoutMain_Click"/>--%>
+    <%--<asp:LinkButton ID="LnkButtion" CssClass="buttonClass" runat="server" Text="Checkout" OnClick="checkout1_Click"/>--%>
 
 
     <style type="text/css">
