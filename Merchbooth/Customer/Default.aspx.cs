@@ -70,40 +70,39 @@ namespace Merchbooth.Customer
 
                         if (blnNewBandDetected == true)
                         {
-                            // istead of line 106**  Added:
-                            sb.Append("</div>");
+                            //11111sb.Append("</div>");
                             sb.Append("</div>");
 
-                            sb.Append("<div class='row'><div class='col-md-12'><br /><hr /></div></div>");
+
+                            //11111.sb.Append("<div class='row'><div class='col-md-12'><br /><hr /></div></div>");
                         }
 
-                        //if (blnNewBandDetected == true)
-                        //{
-                        //    sb.Append("</div>");
-
-                        //}
 
                         if (intCount > 4) continue;
 
                         if (blnFirstTimeThroughLoop == true)
                         {
-                            sb.Append("<div class='row'>");
+                            //11111sb.Append("<div class='row'>");
+                            sb.Append("<div class='row ImageRow'>");
+
                             // MDE - Get the band name from the current loop
                             strBandName = item.b.strBandName;
 
-                            sb.Append("<h1><strong>Band Name: </strong>" + strBandName + "</h1><h2>Products for Sale:" + "</h2>");
+                            sb.Append("<h1 class='ecBantTitle'> <strong>" + strBandName + " </strong></h1>");
 
                             //ben 12/4
-                            if(item.b.strBackroundImage != "")
+                            if (item.b.strBackroundImage != "")
                             {
                                 //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage+ "')\"; \"background-repeat: no-repeat\"; \"background-size:cover\"; >");
                                 //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage + "');\" >");
-                                sb.Append("<div class='ImageRow'> <img class='BacroundECommerceImages' src='..\\"+ item.b.strBackroundImage + "'  >");
+
+                                //11111sb.Append("<div class='ImageRow'> <img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
+                                sb.Append("<img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
 
                             }
                             else
                             {
-                                sb.Append("<div class='ImageRow'>");
+                                //11111sb.Append("<div class='ImageRow'>");
                             }
                         }
 
@@ -111,13 +110,15 @@ namespace Merchbooth.Customer
                         //if (intBandID != intPreviousBandID)
                         if (intBandID != intPreviousBandID && blnFirstTimeThroughLoop == false)
                         {
-                            sb.Append("<br />");
-                            sb.Append("<div class='row'>");
-                      
+                            //11111sb.Append("<br />");
+                            //11111sb.Append("<div class='row'>");
+
+                            sb.Append("<div class='row ImageRow'>");
+
                             // MDE - Get the band name from the current loop
                             strBandName = item.b.strBandName;
                             // MDE - Show the band name and a header 'Products for Sale'
-                            sb.Append("<h1><strong>Band Name: </strong>" + strBandName + "</h1><h2>Products for Sale:" + "</h2>");
+                            sb.Append("<h1 class='ecBantTitle'> <strong>" + strBandName + " </strong></h1>");
 
 
                             //ben 12/4
@@ -127,12 +128,14 @@ namespace Merchbooth.Customer
                             {
                                 //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage+ "')\"; \"background-repeat: no-repeat\"; \"background-size:cover\"; >");
                                 //sb.Append("<div class='ImageRow' style= \"background-image: url('" + item.b.strBackroundImage + "');\" >");
-                                sb.Append("<div class='ImageRow'> <img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
+                                //11111sb.Append("<div class='ImageRow'> <img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
+
+                                sb.Append("<img class='BacroundECommerceImages' src='..\\" + item.b.strBackroundImage + "'  >");
 
                             }
                             else
                             {
-                                sb.Append("<div class='ImageRow'>");
+                                //11111sb.Append("<div class='ImageRow'>");
                             }
 
                         }
@@ -155,7 +158,7 @@ namespace Merchbooth.Customer
                             //Instead added
                             sb.Append("<div class='OneImage'>");
                             sb.Append(" <img style='display:inline;' class='image-responsive saleImage' src='../" + item.p.strImageLink + "' runat='server' onclick='addToCart(" + item.p.intProductID + "," + item.p.intTypeID + ",\"" + item.p.strImageLink + "\"," + item.p.decBandPrice + "," + 1 + ")'" + "/>");
-                            sb.Append("<p>");
+                            sb.Append("<p>$ ");
                             sb.Append(item.p.decBandPrice);
                             sb.Append("</p>");
                             sb.Append("</div>");
@@ -175,7 +178,8 @@ namespace Merchbooth.Customer
 
                     //Added due due to changes on 12/4
                     sb.Append("</div>");
-                    sb.Append("</div>");
+                    
+                    //11111sb.Append("</div>");
                 }
 
 

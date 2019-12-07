@@ -142,9 +142,25 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Images\abstract-architectural-art-artistic-532563.jpg" />
+    <Content Include="Images\adorable-blur-breed-close-up-406014.jpg" />
+    <Content Include="Images\agriculture-countryside-crop-cropland-259280.jpg" />
+    <Content Include="Images\airport-bolt-bright-danger-355989.jpg" />
     <Content Include="Images\AwerrnessaLBUM2_200.jpg" />
     <Content Include="Images\AwerrnessBeginging_200.jpg" />
+    <Content Include="Images\background-blur-bokeh-bright-220067.jpg" />
     <Content Include="Images\basketbalAwarrness_200.jpg" />
+    <Content Include="Images\basketbalBB_200.jpg" />
+    <Content Include="Images\basketball_200.jpg" />
+    <Content Include="Images\blue-water-2860705.jpg" />
+    <Content Include="Images\blueWater3.jpg" />
+    <Content Include="Images\brekwall2.jpg" />
+    <Content Include="Images\calm-body-of-water-1363876.jpg" />
+    <Content Include="Images\chelsea-ferenando-WJRZNL7rDF8-unsplash.jpg" />
+    <Content Include="Images\chris-herath-uTEl14s8t9Q-unsplash.jpg" />
+    <Content Include="Images\close-up-photography-of-tiger-792381.jpg" />
+    <Content Include="Images\closeup-photo-of-brown-brick-wall-1227511.jpg" />
+    <Content Include="Images\cold-dark-eerie-fear-207985.jpg" />
     <Content Include="Images\CrowdSized_160.jpg" />
     <Content Include="Images\CrowdSized_87h_483w.jpg" />
     <Content Include="BandSignIn.aspx" />
@@ -174,6 +190,19 @@
     <Content Include="Images\CrowdSized_d.jpg" />
     <Content Include="Images\CrowdSized_f.jpg" />
     <Content Include="Images\CrowdSized_h.jpg" />
+    <Content Include="Images\disks\alex-iby-FXICSEPaxAM-unsplash.jpg" />
+    <Content Include="Images\disks\Awakining_200.jpg" />
+    <Content Include="Images\disks\Awerrness_200.jpg" />
+    <Content Include="Images\disks\brett-jordan-EIsideS4lTI-unsplash.jpg" />
+    <Content Include="Images\disks\chris-herath-t0AzlsdTSmk-unsplash.jpg" />
+    <Content Include="Images\disks\chris-herath-uTEl14s8t9Q-unsplash.jpg" />
+    <Content Include="Images\disks\efe-kurnaz-RnCPiXixooY-unsplash.jpg" />
+    <Content Include="Images\disks\First_Album_200.jpg" />
+    <Content Include="Images\disks\roland-denes-A2AAhf7_tfA-unsplash.jpg" />
+    <Content Include="Images\disks\ShiversBB_200.jpg" />
+    <Content Include="Images\disks\Shiver_200.jpg" />
+    <Content Include="Images\disks\siora-photography-jq_kYYPR7Mg-unsplash.jpg" />
+    <Content Include="Images\dogb.jpg" />
     <Content Include="Images\download1.jpg" />
     <Content Include="Images\download2.jpg" />
     <Content Include="Images\download3.jpg" />
@@ -183,7 +212,9 @@
     <Content Include="Images\electric-guitar-161740_640.png" />
     <Content Include="Images\ElectricGuitarSized.png" />
     <Content Include="Images\fantasy-2955354_1920.jpg" />
+    <Content Include="Images\field1.jpg" />
     <Content Include="Images\grid-826831_1920.jpg" />
+    <Content Include="Images\group-of-people-gathering-at-party-1537636.jpg" />
     <Content Include="Images\guitar-2925274_640.jpg" />
     <Content Include="Images\GuitarSized.jpg" />
     <Content Include="Images\GuitarSized_b.jpg" />
@@ -195,6 +226,8 @@
     <Content Include="Images\jellyfish-3964165_1920PixlerB.jpg" />
     <Content Include="Images\jellyfish-3964165_1920Pixler_UPSIDE.jpg" />
     <Content Include="Images\jellyfish-3964165_1920_pixler.jpg" />
+    <Content Include="Images\landscape-photography-of-green-grass-field-2086347.jpg" />
+    <Content Include="Images\light-sun-cloud-japan-45848.jpg" />
     <Content Include="Images\LightLarger.jpg" />
     <Content Include="Images\Lights_440.jpg" />
     <Content Include="Images\Lights_Sized.jpg" />
@@ -225,6 +258,7 @@
     <Content Include="Images\navbar_background_c.jpg" />
     <Content Include="Images\navbar_background_d.jpg" />
     <Content Include="Images\navbar_bakround_b.jpg" />
+    <Content Include="Images\notavandal-ttAhBmEfNIk-unsplash.jpg" />
     <Content Include="Images\painted-guitar-1087209_640.jpg" />
     <Content Include="Images\PaintedGuitarSized.jpg" />
     <Content Include="Images\PaintedGuitarSized_c.jpg" />
@@ -242,6 +276,8 @@
     <Content Include="Images\PlaneWhite - Copy.png" />
     <Content Include="Images\PlaneWhite.png" />
     <Content Include="Images\PlaneWhiteSized.jpg" />
+    <Content Include="Uploads\Products\18\rush - Copy.jpg" />
+    <Content Include="Uploads\Products\18\rush.jpg" />
     <Content Include="Images\SignInCustomer_orBand.JPG" />
     <Content Include="Images\SignIn_Band_vs_Customer.jpg" />
     <Content Include="Images\silver-313347_640.jpg" />
@@ -252,6 +288,11 @@
     <Content Include="Images\t-shirt-181707_1280.png" />
     <Content Include="Images\t-shirt-181707_640 - Copy.png" />
     <Content Include="Images\t-shirt-181707_640.png" />
+    <Content Include="Images\tigersb.jpg" />
+    <Content Include="Images\untitled_4.jpg" />
+    <Content Include="Images\water2.jpg" />
+    <Content Include="Images\water3.jpg" />
+    <Content Include="Images\water3_b.jpg" />
     <Content Include="Images\whiteSpace.JPG" />
     <Content Include="Practice.aspx" />
     <Content Include="Products\Product-Details.aspx" />
@@ -545,7 +586,6 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Bands\14\" />
-    <Folder Include="Uploads\Products\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
