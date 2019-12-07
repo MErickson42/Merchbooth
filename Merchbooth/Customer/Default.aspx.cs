@@ -138,6 +138,14 @@ namespace Merchbooth.Customer
             }
 
             ltrProducts.Text = sb.ToString();
+
+            string cart= Server.UrlDecode(Request.QueryString["cart"]); 
+            if(cart!="")
+            {
+                hdnPassedCartItemsVariable.Value = cart;
+            }
+            
+
         }
 
         protected void checkoutMain_Click(object sender, EventArgs e)
