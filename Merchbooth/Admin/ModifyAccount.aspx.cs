@@ -13,37 +13,39 @@ namespace Merchbooth.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SiteDCDataContext _siteContext = new SiteDCDataContext();
-
-            int intBandID = 0;
-            if (HttpContext.Current.Session["UserDetails"] != null)
+            if (!IsPostBack)
             {
-                UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+                SiteDCDataContext _siteContext = new SiteDCDataContext();
 
-                intBandID = ud.UserKey;
-            }
+                int intBandID = 0;
+                if (HttpContext.Current.Session["UserDetails"] != null)
+                {
+                    UserDetails ud = HttpContext.Current.Session["UserDetails"] as UserDetails;
+
+                    intBandID = ud.UserKey;
+                }
 
 
-            var queryBand = from b in _siteContext.TBands
+                var queryBand = from b in _siteContext.TBands
                                 where b.intBandID == intBandID
                                 select b;
 
-            foreach (TBand band in queryBand)
-            {
-                txtBandName.Text = band.strBandName;
-                txtEmail.Text = band.strEmail;
-                txtPassword.Text = band.strPassword.ToString();
-                txtPhone.Text = band.strPhone;
-                txtState.Text = band.intStateID.ToString();
-                txtCity.Text = band.strCity;
-                txtAddress.Text = band.strAddress;
-                txtZip.Text = band.strZip;
-                ltrHeaderImagePath.Text = band.strHeaderImage;
-                ltrBackgroundImagePath.Text = band.strBackroundImage;
+                foreach (TBand band in queryBand)
+                {
+                    txtBandName.Text = band.strBandName;
+                    txtEmail.Text = band.strEmail;
+                    txtPassword.Text = band.strPassword.ToString();
+                    txtPhone.Text = band.strPhone;
+                    txtState.Text = band.intStateID.ToString();
+                    txtCity.Text = band.strCity;
+                    txtAddress.Text = band.strAddress;
+                    txtZip.Text = band.strZip;
+                    ltrHeaderImagePath.Text = band.strHeaderImage;
+                    ltrBackgroundImagePath.Text = band.strBackroundImage;
 
+                }
             }
         }
-
 
 
 

@@ -12,6 +12,21 @@ namespace Merchbooth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // MDE  - check if querystring contains a message from sign in page - and then show it in a javascript alert box.
+            string strMessage = "";
+            if (Request.QueryString["message"] != null)
+
+            {
+                strMessage = Request.QueryString["message"].ToString();
+            }
+
+            if (strMessage != "")
+            {
+                Response.Write("<script>alert('" + strMessage + "')</script>");
+                //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", strMessage, true);
+                return;
+            }
+
             txtEmail.Focus();
         }
 
@@ -76,7 +91,7 @@ namespace Merchbooth
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/", false);
+            Response.Redirect("/Default.aspx", false);
         }
     }
 }

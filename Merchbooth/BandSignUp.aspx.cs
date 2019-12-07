@@ -23,6 +23,8 @@ namespace Merchbooth {
 
             //First: test the band name is not being used
             bool blnNameFlag = false;
+            //test the custome eamil is not being used
+            bool blnEmailFlag = false;
             var queryBnads = from b in _siteContext.TBands
 
                              select b;
@@ -34,17 +36,33 @@ namespace Merchbooth {
                     blnNameFlag = true;
                     break;
                 }
+                if(bndBand.strEmail == txtEmail.Text)
+                {
+                    blnEmailFlag = true;
+                    break;
+                }
             }
 
             if(blnNameFlag == true)
             {
                 //Name used
                 Response.Write("The band name is already used.");
+                Response.Write("<script>alert('The band name is already used.')</script>");
                 txtBandName.Focus();
+            }
+            else if(blnEmailFlag == true)
+            {
+                //Name used
+                //Response.Write("This email is already used.");
+                // MDE - Trying javascript alert
+                Response.Write("<script>alert('This email is already used.')</script>");
+                txtEmail.Focus();
             }
             else
             {
                 string message = "";
+
+                string strMusicLink = "";
 
                 string strBandName  = txtBandName.Text;
                 string strPassword  = txtPassword.Text;
@@ -64,7 +82,7 @@ namespace Merchbooth {
                 band.strEmail = strEmail;
                 band.intStateID = intState;
                 band.strCity = strCity;
-
+                band.strMusicLink = strMusicLink;
                 band.strAddress = strAddress;
                 band.strZip = strZip;
 
@@ -154,7 +172,10 @@ namespace Merchbooth {
                     _siteContext.SubmitChanges();
                 }
 
-                Response.Redirect("/Admin/Defaults.aspx?&message=" + Server.UrlEncode(message));
+                //Response.Redirect("/Admin/Defaults.aspx?message=" + Server.UrlEncode(message));
+
+                //MDE - changed redirect to the band login page
+                Response.Redirect("/BandSignIn.aspx?message=" + Server.UrlEncode(message));
             }
         }
 
