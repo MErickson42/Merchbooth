@@ -21,6 +21,7 @@
                         <asp:Image ID="Image1" runat="server" ImageAlign="Right" Height="300" Width="550" ImageUrl="~/Images/download1.jpg" />
 
         <div class="errormessage"><asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal></div>
+     
         <h2 class="form-signin-heading"><asp:Literal ID="FormHeader" runat="server" EnableViewState="True" Text="Customer Sign In"></asp:Literal></h2>
         <label for="Email">
             Email 
@@ -40,7 +41,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-primary" OnClick="btnCancel_Click" Text="Cancel" CausesValidation="False" />
 
-
+         <%-- Added link to customer sign up page to increase site mobility. EH 10/07/2019 --%>
+        <br /><br /><a runat="server" href="~/CustomerSignUp">Sign up as Customer</a><br /><br />
 
 
 </asp:Content>
