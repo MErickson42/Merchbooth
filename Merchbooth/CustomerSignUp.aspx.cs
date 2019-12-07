@@ -92,13 +92,13 @@ namespace Merchbooth
 
                 //MDE do the redirect, Show sucess message - code to show message is in default.aspx - it requests the querystring.
 
-                Response.Redirect("/Default.aspx?message=" + Server.UrlEncode(message));
+                Response.Redirect("/CustomerSignIn.aspx?message=" + Server.UrlEncode(message));
             }
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/");
+            Response.Redirect("/Default.aspx");
         }
 
         protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)

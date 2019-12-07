@@ -40,13 +40,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.Literal FormHeader;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// rfvFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstName;
         
         /// <summary>
         /// txtFirstName control.
@@ -58,13 +58,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
         
         /// <summary>
-        /// RequiredFieldValidator7 control.
+        /// rfvLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLastName;
         
         /// <summary>
         /// txtLastName control.
@@ -76,13 +76,22 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// rfvEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+        
+        /// <summary>
+        /// regEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regEmail;
         
         /// <summary>
         /// txtEmail control.
@@ -94,13 +103,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// RequiredFieldValidator10 control.
+        /// rfvPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
         
         /// <summary>
         /// txtPassword control.
@@ -112,13 +121,22 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// rfvPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPhoneNumber;
+        
+        /// <summary>
+        /// regPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regPhoneNumber;
         
         /// <summary>
         /// txtPhone control.
@@ -130,13 +148,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtPhone;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// rfvState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvState;
         
         /// <summary>
         /// ddlState control.
@@ -157,13 +175,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// rfvCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCity;
         
         /// <summary>
         /// txtCity control.
@@ -175,13 +193,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtCity;
         
         /// <summary>
-        /// RequiredFieldValidator6 control.
+        /// rfvAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAddress;
         
         /// <summary>
         /// txtAddress control.
@@ -193,22 +211,22 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
-        /// RequiredFieldValidator9 control.
+        /// rfvZip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvZip;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// regZip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regZip;
         
         /// <summary>
         /// txtZip control.
@@ -220,13 +238,13 @@ namespace Merchbooth {
         protected global::System.Web.UI.WebControls.TextBox txtZip;
         
         /// <summary>
-        /// RequiredFieldValidator8 control.
+        /// rfvGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvGender;
         
         /// <summary>
         /// ddlGender control.
