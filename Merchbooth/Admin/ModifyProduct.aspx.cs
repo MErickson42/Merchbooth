@@ -49,6 +49,13 @@ namespace Merchbooth.Admin
                     Response.Redirect("/admin/products.aspx?message=" + Server.UrlEncode("Product has been deleted."));
                 }
 
+
+                var queryProductsandTypes = from p in _siteContext.TProducts
+                                            where p.intProductID == ProductKey && p.intBandID == intBandID
+                                            join t in _siteContext.TTypes
+                                            on p.intTypeID equals t.intTypeID
+                                            select new { p, t };
+
                 //  Populate the Drop Down Box for basetype
                 var queryProductTypes = from type in _siteContext.TBaseTypes
                                         where type.intIsDeleted == 0
@@ -110,15 +117,29 @@ namespace Merchbooth.Admin
 
                     //var queryType = from 
 
-                    foreach (TProduct prod in queryProducts)
+                    foreach (var prod in queryProductsandTypes)
                     {
-                        ProductTitle.Text = prod.strProductName;
-                        ltrImagePath.Text = prod.strImageLink;
-                        
-                        txtPrice.Text = prod.decBandPrice.ToString();
-                        txtPriceForBand.Text = prod.decCostToBand.ToString();
-                        txtQuantity.Text = prod.intAmountAvialable.ToString();
+                        ProductTitle.Text = prod.p.strProductName;
+                        ltrImagePath.Text = prod.p.strImageLink;
+
+                        txtPrice.Text = prod.p.decBandPrice.ToString();
+                        txtPriceForBand.Text = prod.p.decCostToBand.ToString();
+                        txtQuantity.Text = prod.p.intAmountAvialable.ToString();
+
+                        ddlColor.SelectedIndex = prod.t.intColorID;
+                        ddlGender.SelectedIndex = prod.t.intGenderID;
+
                     }
+
+                    //foreach (TProduct prod in queryProducts)
+                    //{
+                    //    ProductTitle.Text = prod.strProductName;
+                    //    ltrImagePath.Text = prod.strImageLink;
+
+                    //    txtPrice.Text = prod.decBandPrice.ToString();
+                    //    txtPriceForBand.Text = prod.decCostToBand.ToString();
+                    //    txtQuantity.Text = prod.intAmountAvialable.ToString();
+                    //}
                 }
 
 
@@ -151,6 +172,12 @@ namespace Merchbooth.Admin
             decimal decBandPrice = Decimal.Parse(txtPriceForBand.Text);
             string sOldProductPath = "";
 
+            // Get values of dropdowns and store in variable
+            int intGender = Convert.ToInt32(ddlGender.SelectedValue);
+            int intColor = Convert.ToInt32(ddlColor.SelectedValue);
+            int intSize = Convert.ToInt32(ddlSize.SelectedValue);
+            int intBaseType = Convert.ToInt32(ddlProductBaseType.SelectedValue);
+
             SiteDCDataContext _siteContext = new SiteDCDataContext();
 
             if (ProductKey > 0) // Update the Product
@@ -158,17 +185,30 @@ namespace Merchbooth.Admin
                 var queryProducts = from p in _siteContext.TProducts
                                     where p.intProductID== ProductKey && p.intBandID == intBandID
                                     select p;
+                 
+                // MDE Join for getting types joined to products
+                var queryProductsandTypes = from p in _siteContext.TProducts
+                                            where p.intProductID == ProductKey && p.intBandID == intBandID 
+                                            join t in _siteContext.TTypes
+                                            on p.intTypeID equals t.intTypeID
+                                            select new { p, t };
 
-                foreach (TProduct prod in queryProducts)
+                foreach (var prod in queryProductsandTypes)
                 {
-                    prod.strProductName = strTitle;
-                    sOldProductPath = prod.strImageLink;
-                    prod.strImageLink = sOldProductPath;
-                    prod.decBandPrice = decPrice;
-                    prod.intAmountAvialable = intQuantity;
-                    prod.decCostToBand = decBandPrice;
-                    prod.intBandID = intBandID;
-                    prod.intTypeID = 1;
+                    prod.p.strProductName = strTitle;
+                    sOldProductPath = prod.p.strImageLink;
+                    prod.p.strImageLink = sOldProductPath;
+                    prod.p.decBandPrice = decPrice;
+                    prod.p.intAmountAvialable = intQuantity;
+                    prod.p.decCostToBand = decBandPrice;
+                    prod.p.intBandID = intBandID;
+                    prod.p.intTypeID = prod.t.intTypeID;
+
+                    // update type table
+                    prod.t.intGenderID = intGender;
+                    prod.t.intColorID = intColor;
+                    prod.t.intBaseTypeID = intBaseType;
+                    prod.t.intSizeID = intSize;
                 }
 
                 _siteContext.SubmitChanges();
