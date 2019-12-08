@@ -49,6 +49,51 @@ namespace Merchbooth.Admin
                     Response.Redirect("/admin/products.aspx?message=" + Server.UrlEncode("Product has been deleted."));
                 }
 
+                //  Populate the Drop Down Box for basetype
+                var queryProductTypes = from type in _siteContext.TBaseTypes
+                                        where type.intIsDeleted == 0
+                                        orderby type.intBaseTypeID
+                                        select type;
+
+                ddlProductBaseType.DataTextField = "strBaseType";
+                ddlProductBaseType.DataValueField = "intBaseTypeID";
+                ddlProductBaseType.DataSource = queryProductTypes;
+                ddlProductBaseType.DataBind();
+
+                //  Populate the Drop Down Box for color
+                var queryColors = from color in _siteContext.TColors
+                                        where color.intIsDeleted == 0
+                                        orderby color.intColorID
+                                        select color;
+
+                ddlColor.DataTextField = "strColor";
+                ddlColor.DataValueField = "intColorID";
+                ddlColor.DataSource = queryColors;
+                ddlColor.DataBind();
+
+                //  Populate the Drop Down Box for Size
+                var querySize = from size in _siteContext.TSizes
+                                  where size.intIsDeleted == 0
+                                  orderby size.intSizeID
+                                  select size;
+
+                ddlSize.DataTextField = "strFullSize";
+                ddlSize.DataValueField = "intSizeID";
+                ddlSize.DataSource = querySize;
+                ddlSize.DataBind();
+
+                //  //  Populate the Drop Down Box for Gender
+                var queryGender = from gender in _siteContext.TGenders
+                                where gender.intIsDeleted == 0
+                                orderby gender.intGenderID
+                                select gender;
+
+                ddlGender.DataTextField = "strGender";
+                ddlGender.DataValueField = "intGenderID";
+                ddlGender.DataSource = queryGender;
+                ddlGender.DataBind();
+
+
                 if (ProductKey == 0)
                 {
                     btnUpdateProduct.Text = "Add";
@@ -63,10 +108,13 @@ namespace Merchbooth.Admin
                                         where p.intProductID == ProductKey && p.intBandID == intBandID
                                         select p;
 
+                    //var queryType = from 
+
                     foreach (TProduct prod in queryProducts)
                     {
                         ProductTitle.Text = prod.strProductName;
                         ltrImagePath.Text = prod.strImageLink;
+                        
                         txtPrice.Text = prod.decBandPrice.ToString();
                         txtPriceForBand.Text = prod.decCostToBand.ToString();
                         txtQuantity.Text = prod.intAmountAvialable.ToString();
@@ -140,6 +188,8 @@ namespace Merchbooth.Admin
                 prod.intBandID = intBandID;
                 prod.intTypeID = 1;
                 prod.intSortLevel = 10;
+
+
 
                 _siteContext.TProducts.InsertOnSubmit(prod);
 

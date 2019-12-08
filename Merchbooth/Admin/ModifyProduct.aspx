@@ -28,6 +28,37 @@
         </label>
         <asp:TextBox ID="ProductTitle" MaxLength="255" CssClass="form-control" runat="server"></asp:TextBox>
 
+        <%-- MDE - Added dropdownlist for  product base type --%>
+        <label for="ProductBaseType">
+            Product Base Type *
+            <asp:RequiredFieldValidator ID="rfvProductBaseType" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="ddlProductBaseType" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+        </label>
+        <asp:DropDownList ID="ddlProductBaseType" runat="server"></asp:DropDownList>
+        <br />
+
+        <%-- MDE - Added Product Color dropdown --%>
+        <label for="ProductColor">
+            Product Color *
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="ddlColor" runat="server" Display="Dynamic" Font-Bold="True" ForeColor="Red" ErrorMessage="[REQUIRED]"></asp:RequiredFieldValidator>
+        </label>
+        <asp:DropDownList ID="ddlColor" runat="server"></asp:DropDownList>
+        <br />
+
+        <%-- MDE added Size dropdown --%>
+        <label for="ProductSize">
+            Product Size *
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="ddlSize" runat="server" Display="Dynamic" Font-Bold="True" ForeColor="Red" ErrorMessage="[REQUIRED]"></asp:RequiredFieldValidator>
+        </label>
+        <asp:DropDownList ID="ddlSize" runat="server"></asp:DropDownList>
+        <br />
+         <%-- MDE added Gender dropdown --%>
+        <label for="ProductGender">
+            Product Gender*
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="ddlGender" runat="server" Display="Dynamic" Font-Bold="True" ForeColor="Red" ErrorMessage="[REQUIRED]"></asp:RequiredFieldValidator>
+        </label>
+        <asp:DropDownList ID="ddlGender" runat="server"></asp:DropDownList>
+        <br />
+
         <label for="Price">
             Price * 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtPrice" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
