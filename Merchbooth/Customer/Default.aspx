@@ -56,6 +56,7 @@
 
                 intTotalCount += 1;
                 var strProductNumber = "" + intProductID;
+                    var cartString;
 
                 if (strProductNumber in Products) {
 
@@ -81,6 +82,13 @@
 
                 document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
 
+                 cartString =  ObjToString(Products);                        
+                document.getElementById("home").href="http://localhost:10349/Customer/Default.aspx?cart=" + cartString; 
+                document.getElementById("allbands").href="http://localhost:10349/Customer/AllBands.aspx?cart="+cartString; 
+                document.getElementById("about").href="http://localhost:10349/Customer/About.aspx?cart="+cartString; 
+                document.getElementById("contact").href="http://localhost:10349/Customer/Contact.aspx?cart="+cartString; 
+                document.getElementById("account").href="http://localhost:10349/Customer/Account.aspx?cart="+cartString; 
+
                 }
 
 
@@ -103,6 +111,7 @@
                 {
 
                     var strCart = document.getElementById("<%= hdnPassedCartItemsVariable.ClientID%>").value;
+                    var cartStringB = strCart;
                     var intId = 0;
                     var intTypeId = 0;
                     var strImage = "";
@@ -152,6 +161,12 @@
                         document.getElementById("cartCountCustomer").innerHTML = intTotalCount;
 
                         document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
+                       
+                        document.getElementById("home").href="http://localhost:10349/Customer/Default.aspx?cart=" + cartStringB; 
+                        document.getElementById("allbands").href="http://localhost:10349/Customer/AllBands.aspx?cart="+cartStringB; 
+                        document.getElementById("about").href="http://localhost:10349/Customer/About.aspx?cart="+cartStringB; 
+                        document.getElementById("contact").href="http://localhost:10349/Customer/Contact.aspx?cart="+cartStringB; 
+                        document.getElementById("account").href="http://localhost:10349/Customer/Account.aspx?cart="+cartStringB; 
 
                     }
                 }
@@ -165,6 +180,12 @@
                         intTotalCount = 0;  
                         document.getElementById("cartCountCustomer").innerHTML = "";
                         document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = "";
+                          
+                        document.getElementById("home").href="http://localhost:10349/Customer/Default"; 
+                        document.getElementById("allbands").href="http://localhost:10349/Customer/AllBands"; 
+                        document.getElementById("about").href="http://localhost:10349/Customer/About"; 
+                        document.getElementById("contact").href="http://localhost:10349/Customer/Contact"; 
+                        document.getElementById("account").href="http://localhost:10349/Customer/Account"; 
                     }
                 }
                 

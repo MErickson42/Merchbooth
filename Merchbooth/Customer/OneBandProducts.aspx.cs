@@ -116,6 +116,14 @@ namespace Merchbooth.Customer
                     sb.Append("</div>");
                     sb.Append("</div>");
 
+
+                    //cart memory
+                    string cart = Server.UrlDecode(Request.QueryString["cart"]);
+                    if (cart != "")
+                    {
+                        hdnPassedCartItemsVariable.Value = cart;
+                    }
+
                 }
                 else
                 {
