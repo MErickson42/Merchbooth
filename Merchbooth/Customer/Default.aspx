@@ -11,10 +11,6 @@
     <%--<div style="margin-top:200px"></div>--%>
     <asp:Literal  ID="ltrProducts" runat="server"></asp:Literal>
    
-    <%--Removed ben 11/30--%> 
-    <%--<img src="Images/download1.jpg" />--%>
-
-
     <%--Added ben 11/30--%>
     <asp:HiddenField ID="hdnCartItemsVariable" value="" runat="server" />
     <asp:HiddenField ID="hdnPassedCartItemsVariable" value="" runat="server" />
@@ -22,21 +18,6 @@
 
 
     <style type="text/css">
-                 /*#testing
-                 {
-                    padding: 5px 10px;
-                    text-decoration: none;
-                    background-color: bisque;
-                    z-index:50;
-                    position:fixed;
-                    right:0px;
-                    top:225px;
-                    height: 100px;
-                    width:400px;
-                    color:#262422;
-                    font-size: 20px;
-                    border-radius:4px 4px 4px 4px;
-                 }*/
                 .buttonClass
                 {
                     padding: 5px 10px;

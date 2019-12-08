@@ -673,3 +673,90 @@ textarea {
 
 
 /*//////////////////////////////*/
+
+/*Customer/Account (includes Orders) page*/
+.tableCaption{
+    font-size:30px;
+    text-align:left;
+    color:darkblue;
+    margin-bottom:20px;
+}
+
+.CuatomerDivBorderTableWrapp {
+    border-right: 1px solid #52527a;
+    margin-right: 10px;
+    height: 300px;
+    max-width: 440px;
+    margin-top: 200px;
+    font-size: 15px;
+}
+
+.CustomerReportTable td {
+    border: 1px solid #52527a;
+    padding: 5px 20px;
+}
+
+.reportTableHeader {
+    height: 40px;
+    vertical-align: text-top;
+    color: #47476b;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.reportTitle {
+    color: mediumblue;
+    margin-bottom: 30px;
+}
+
+.datecolumnCustomerID {
+    color: darkblue;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.datecolumnCustomerID {
+    color: darkblue;
+    font-size: 16px;
+    background-color:white;
+}
+
+.datecolumnCustomerGray {
+    background-color: #c2c2d6;
+}
+.datecolumnCustomer {
+    background-color: white;
+}
+.productName {
+    font-weight: bold;
+}
+
+.productTotal {
+    color: darkblue;
+    font-weight:bold;
+}
+
+.CustomerTableDataHeaders {
+    text-align: center;
+    font-size: 18px;
+    padding: 5px 20px;
+    border: 2px solid #52527a;
+}
+.titleCustomerDefualt {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: darkblue;
+}
+
+.C_small {
+    width: 50px;
+}
+
+.C_large {
+    min-width: 140px;
+}
+
+.C_med {
+    width: 90px;
+}
+/*//////////////////////////////*/
