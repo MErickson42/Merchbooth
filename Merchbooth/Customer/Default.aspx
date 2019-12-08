@@ -11,10 +11,6 @@
     <%--<div style="margin-top:200px"></div>--%>
     <asp:Literal  ID="ltrProducts" runat="server"></asp:Literal>
    
-    <%--Removed ben 11/30--%> 
-    <%--<img src="Images/download1.jpg" />--%>
-
-
     <%--Added ben 11/30--%>
     <asp:HiddenField ID="hdnCartItemsVariable" value="" runat="server" />
     <asp:HiddenField ID="hdnPassedCartItemsVariable" value="" runat="server" />
@@ -22,21 +18,6 @@
 
 
     <style type="text/css">
-                 /*#testing
-                 {
-                    padding: 5px 10px;
-                    text-decoration: none;
-                    background-color: bisque;
-                    z-index:50;
-                    position:fixed;
-                    right:0px;
-                    top:225px;
-                    height: 100px;
-                    width:400px;
-                    color:#262422;
-                    font-size: 20px;
-                    border-radius:4px 4px 4px 4px;
-                 }*/
                 .buttonClass
                 {
                     padding: 5px 10px;
@@ -94,7 +75,7 @@
                 //
 
 
-                document.getElementById("cartCount").innerHTML = intTotalCount;
+                document.getElementById("cartCountCustomer").innerHTML = intTotalCount;
 
                 //document.getElementById("testing").innerHTML =  Products;
 
@@ -118,7 +99,8 @@
                     return strProductString;
                 }
 
-                window.onload = function(){
+                window.onload = function ()
+                {
 
                     var strCart = document.getElementById("<%= hdnPassedCartItemsVariable.ClientID%>").value;
                     var intId = 0;
@@ -132,48 +114,60 @@
 
                     while (strCart.indexOf("{") != -1)
                     {
-                            
+
                         intStartIndex = strCart.indexOf("Id");
                         intEndIndex = strCart.indexOf(",", intStartIndex);
-                        intCharctersToCopy = intEndIndex - intStartIndex-3;
+                        intCharctersToCopy = intEndIndex - intStartIndex - 3;
                         intId = strCart.substring(intStartIndex + 3, intEndIndex);
 
                         intStartIndex = strCart.indexOf("TypeId");
                         intEndIndex = strCart.indexOf(",", intStartIndex);
-                        intCharctersToCopy = intEndIndex - intStartIndex-7;
-                        intTypeId = 1*(strCart.substring(intStartIndex + 7, intEndIndex));
+                        intCharctersToCopy = intEndIndex - intStartIndex - 7;
+                        intTypeId = 1 * (strCart.substring(intStartIndex + 7, intEndIndex));
 
                         intStartIndex = strCart.indexOf("Image");
                         intEndIndex = strCart.indexOf(",", intStartIndex);
-                        intCharctersToCopy = intEndIndex - intStartIndex-6;
+                        intCharctersToCopy = intEndIndex - intStartIndex - 6;
                         strImage = strCart.substring(intStartIndex + 6, intEndIndex);
 
                         intStartIndex = strCart.indexOf("Price");
                         intEndIndex = strCart.indexOf(",", intStartIndex);
-                        intCharctersToCopy = intEndIndex - intStartIndex-6;
-                        decPrice = 1*(strCart.substring(intStartIndex + 6, intEndIndex));
+                        intCharctersToCopy = intEndIndex - intStartIndex - 6;
+                        decPrice = 1 * (strCart.substring(intStartIndex + 6, intEndIndex));
 
                         intStartIndex = strCart.indexOf("Amount");
                         intEndIndex = strCart.indexOf("}", intStartIndex);
-                        intCharctersToCopy = intEndIndex - intStartIndex-7;
-                        intAmount = 1*(strCart.substring(intStartIndex + 7, intEndIndex));
+                        intCharctersToCopy = intEndIndex - intStartIndex - 7;
+                        intAmount = 1 * (strCart.substring(intStartIndex + 7, intEndIndex));
 
-                        intTotalCount += 1*intAmount;
+                        intTotalCount += 1 * intAmount;
 
-                        Products[intId] = { Id: intId, TypeId: intTypeId, Image:  strImage , Price: decPrice, Amount: intAmount };
+                        Products[intId] = { Id: intId, TypeId: intTypeId, Image: strImage, Price: decPrice, Amount: intAmount };
 
                         strCart = strCart.substring(intEndIndex);
                     }
 
-                    if (intTotalCount > 0) {
-                        document.getElementById("cartCount").innerHTML = intTotalCount;
+                    if (intTotalCount > 0)
+                    {
+                        document.getElementById("cartCountCustomer").innerHTML = intTotalCount;
 
                         document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
 
                     }
-
-
                 }
+
+                function ClearCart()
+                {
+
+                    if (intTotalCount > 0)
+                    {
+                        for (var member in Products) delete Products[member];
+                        intTotalCount = 0;  
+                        document.getElementById("cartCountCustomer").innerHTML = "";
+                        document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = "";
+                    }
+                }
+                
 
 
                 </script>

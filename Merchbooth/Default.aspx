@@ -75,7 +75,7 @@
                 //
 
 
-                document.getElementById("cartCount").innerHTML = intTotalCount + " +";
+                document.getElementById("cartCount").innerHTML = intTotalCount;
 
                 //document.getElementById("testing").innerHTML =  Products;
 
@@ -97,6 +97,22 @@
 
                     }
                     return strProductString;
+                }
+
+
+                function ClearCart()
+                {
+
+                    if (intTotalCount > 0)
+                    {
+                        for (var member in Products) delete Products[member];
+                        intTotalCount = 0;  
+                        document.getElementById("cartCount").innerHTML = "";
+                        document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = "";
+
+                    }
+
+
                 }
 
 
