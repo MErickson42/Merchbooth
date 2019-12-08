@@ -251,7 +251,8 @@ textarea {
     color: white;
     width: 100%;
     position: absolute;
-    bottom: 0px;
+    /*MDE - Fixed footer*/
+    /*bottom: 0px;*/
     /*margin-top:25px;
     margin-bottom:0px;
     padding-bottom:20px;*/
