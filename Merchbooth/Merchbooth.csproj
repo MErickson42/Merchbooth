@@ -670,6 +670,7 @@
     <Folder Include="Uploads\Bands\14\" />
     <Folder Include="Uploads\Bands\16\" />
     <Folder Include="Uploads\Bands\2\" />
+    <Folder Include="Uploads\Events\" />
     <Folder Include="Uploads\Products\15\" />
   </ItemGroup>
   <ItemGroup>
