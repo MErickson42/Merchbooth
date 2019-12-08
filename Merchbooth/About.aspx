@@ -94,11 +94,11 @@
                     document.getElementById("cartCount").innerHTML = "";
                     document.getElementById("<%= hdnPassedCartItemsVariable.ClientID%>").value = "";
                           
-                    document.getElementById("home").href="http://localhost:10349/Customer/Default"; 
-                    document.getElementById("allbands").href="http://localhost:10349/Customer/AllBands"; 
-                    document.getElementById("about").href="http://localhost:10349/Customer/About"; 
-                    document.getElementById("contact").href="http://localhost:10349/Customer/Contact"; 
-                    document.getElementById("account").href="http://localhost:10349/Customer/Account"; 
+                document.getElementById("home").href = "http://localhost:10349/Default.aspx?cart=" ;
+                document.getElementById("allbands").href = "http://localhost:10349/AllBands.aspx?cart=";
+                document.getElementById("about").href = "http://localhost:10349/About.aspx?cart=" ;
+                document.getElementById("contact").href = "http://localhost:10349/Contact.aspx?cart=";
+                document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart=";
                 }
             }
         

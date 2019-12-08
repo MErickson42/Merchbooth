@@ -12,6 +12,13 @@ namespace Merchbooth.Products
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //cart memory
+            string cart = Server.UrlDecode(Request.QueryString["cart"]);
+            if (cart != "")
+            {
+                hdnPassedCartItemsVariable.Value = cart;
+            }
+
             SiteDCDataContext _siteContext = new SiteDCDataContext();
             StringBuilder sb = new StringBuilder();
 
@@ -75,7 +82,7 @@ namespace Merchbooth.Products
                 {
 
                     sb.Append("<div class='oneBandsProductPAGE'>");
-                    sb.Append("<h1 class='ecBantTitle'>"+ queryBand.strBandName + "</h1>");
+                    sb.Append("<h1 class='ecBantTitle'>" + queryBand.strBandName + "</h1>");
 
                     if (queryBand.strBackroundImage != "")
                     {
@@ -92,7 +99,7 @@ namespace Merchbooth.Products
                     foreach (TProduct prod in queryProducts)
                     {
                         intCurrentType = prod.intTypeID;
-                        if (intCurrentType != intPreviousType && (intCurrentType==9 || intCurrentType ==10 || intCurrentType ==11))
+                        if (intCurrentType != intPreviousType && (intCurrentType == 9 || intCurrentType == 10 || intCurrentType == 11))
                         {
                             intPreviousType = intCurrentType;
                             sb.Append("</div>");
@@ -100,7 +107,13 @@ namespace Merchbooth.Products
                             sb.Append("<div class='row'style='margin-left:40px;'>");
 
                         }
+                        //sb.Append("</div>");
+
                         sb.Append(" <img style='display:inline; margin-right:100px;' class='image-responsive saleImage' src='/" + prod.strImageLink + "' runat='server' onclick='addToCart(" + prod.intProductID + "," + prod.intTypeID + ",\"" + prod.strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
+                       // sb.Append("<p>$ ");
+                        //sb.Append(prod.decBandPrice);
+                        //sb.Append("</p>");
+                       // sb.Append("</div>");
 
                         //////ben 12/7 
                         //sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:445px;' class='col-md-3'>" + "Product Name: " + prod.strProductName + "<br />" + "Price: $" + prod.decBandPrice + "<br />" + "Quantity Remaining: " + prod.intAmountAvialable + "<br />");
@@ -129,6 +142,13 @@ namespace Merchbooth.Products
                 sb.Append("<div class='row'><div class='col-md-12'>Band key was not provided</div></div>");
             }
 
+        }
+
+
+        protected void checkout1_Click(object sender, EventArgs e)
+        {
+            string strUrl = "http://localhost:10349/CustomerSignIn.aspx?cart=" + hdnCartItemsVariable.Value.ToString();
+            Response.RedirectPermanent(strUrl);
         }
     }
 }

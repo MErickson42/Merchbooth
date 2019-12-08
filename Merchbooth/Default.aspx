@@ -43,81 +43,6 @@
 
                 }
             </style>
-<%--    	    <script type="text/javascript">
-
-                var Products = {};
-
-                //var objCart = { intTotalCount: 0, Products};
-                var cartUrl = "http://localhost:10349/About.aspx";
-
-                var intTotalCount = 0;
-
-
-                function addToCart(intProductID, intTypeID,strImageUrl, decPrice, intAmount) {
-
-                intTotalCount += 1;
-                var strProductNumber = "" + intProductID;
-
-                if (strProductNumber in Products) {
-
-                    Products[strProductNumber].Amount += intAmount
-
-                }
-                else
-                {
-
-                    Products[strProductNumber] = { Id: intProductID, TypeId: intTypeID, Image: "\""+ strImageUrl +"\"", Price: decPrice, Amount: intAmount };
-
-
-                }
-
-                //objCart.Products{objCart.intTotalCount-1 } = "{Id:" + intProductID + ",TypeId:" + intTypeID + ",Image:" + strImageUrl + ",Price:" + decPrice + ",Amount:" + intAmount + "},";
-			    //document.getElementById(id).innerHTML =  objCart.ThirstIDs + objCart.intTotalCount;
-                //
-
-
-                document.getElementById("cartCount").innerHTML = intTotalCount;
-
-                //document.getElementById("testing").innerHTML =  Products;
-
-                document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
-
-                }
-
-
-                function ObjToString(Products) {
-
-                    var strProductString = "";
-
-                    var intcount = 0;
-                    for(ProductNumber in Products)
-                    {
-                        intcount += 1;
-                        //strProductString += "" +intcount +"{Id:" + prod['Id'] + ",TypeId:" + prod['TypeId'] + ",Image:" + prod['Image'] + ",Price:" + prod['Price'] + ",Amount:" + prod['Amount'] + "}";
-                        strProductString +="{Id:" + Products[ProductNumber].Id + ",TypeId:" + Products[ProductNumber].TypeId + ",Image:" +Products[ProductNumber].Image + ",Price:" + Products[ProductNumber].Price + ",Amount:" + Products[ProductNumber].Amount + "}";
-
-                    }
-                    return strProductString;
-                }
-
-
-                function ClearCart()
-                {
-
-                    if (intTotalCount > 0)
-                    {
-                        for (var member in Products) delete Products[member];
-                        intTotalCount = 0;  
-                        document.getElementById("cartCount").innerHTML = "";
-                        document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = "";
-
-                    }
-
-
-                }
-
-
-                </script>--%>
 
         	    <script type="text/javascript">
 
@@ -259,11 +184,11 @@
                         document.getElementById("cartCount").innerHTML = "";
                         document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = "";
                           
-                        document.getElementById("home").href="http://localhost:10349/Customer/Default"; 
-                        document.getElementById("allbands").href="http://localhost:10349/Customer/AllBands"; 
-                        document.getElementById("about").href="http://localhost:10349/Customer/About"; 
-                        document.getElementById("contact").href="http://localhost:10349/Customer/Contact"; 
-                        document.getElementById("account").href="http://localhost:10349/Customer/Account"; 
+                        document.getElementById("home").href = "http://localhost:10349/Default.aspx?cart=" ;
+                        document.getElementById("allbands").href = "http://localhost:10349/AllBands.aspx?cart=";
+                        document.getElementById("about").href = "http://localhost:10349/About.aspx?cart=" ;
+                        document.getElementById("contact").href = "http://localhost:10349/Contact.aspx?cart=";
+                        document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart="; 
                     }
                 }
                 
