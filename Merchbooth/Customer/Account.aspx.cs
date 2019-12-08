@@ -104,6 +104,15 @@ namespace Merchbooth.Customer
 
                 lblCustomerOrders.Text = tl.ToString();
 
+
+
+                //cart memory
+                string cart = Server.UrlDecode(Request.QueryString["cart"]);
+                if (cart != "")
+                {
+                    hdnPassedCartItemsVariable.Value = cart;
+                }
+
             }
         }
 

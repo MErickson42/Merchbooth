@@ -12,6 +12,14 @@ namespace Merchbooth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //cart memory
+            string cart = Server.UrlDecode(Request.QueryString["cart"]);
+            if (cart != "")
+            {
+                hdnPassedCartItemsVariable.Value = cart;
+            }
+
+
             // MDE  - check if querystring contains a message from sign in page - and then show it in a javascript alert box.
             string strMessage = "";
             if (Request.QueryString["message"] != null)

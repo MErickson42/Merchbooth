@@ -12,7 +12,13 @@ namespace Merchbooth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
+            //cart memory
+            string cart = Server.UrlDecode(Request.QueryString["cart"]);
+            if (cart != "")
+            {
+                hdnPassedCartItemsVariable.Value = cart;
+            }
 
             SiteDCDataContext _siteContext = new SiteDCDataContext();
             StringBuilder sb = new StringBuilder();

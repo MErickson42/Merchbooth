@@ -59,11 +59,11 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Default">Home</a></li>
-                        <li><a runat="server" href="~/AllBands">All Bands</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <li><a runat="server" href="~/SignInOptions">Sign In</a></li>
+                        <li><a id="home" runat="server" href="~/Default">Home</a></li>
+                        <li><a id="allbands" runat="server" href="~/AllBands">All Bands</a></li>
+                        <li><a id="about" runat="server" href="~/About">About</a></li>
+                        <li><a id="contact" runat="server" href="~/Contact">Contact</a></li>
+                        <li><a id="sign" runat="server" href="~/SignInOptions">Sign In</a></li>
                         <li><img id = "clearCart" src="../../Images/xcart.jpg" title="clear cart" alt="" onclick="ClearCart()"></li>
                         <li><img id = "cartImage" src="../../Images/cart_c.jpg" alt="" ></li>
                         <li><div id="cartCount"></div> </li>
