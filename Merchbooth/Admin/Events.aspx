@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Products" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="Products.aspx.cs" Inherits="Merchbooth.Admin.Products" %>
+﻿<%@ Page Title="Events" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="Events.aspx.cs" Inherits="Merchbooth.Admin.Events" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -8,8 +8,8 @@
         <div class="col-lg-10 col-sm-10">
             <ul class="breadcrumb pull-right">
                 <li><a href="/Admin/Default/">Home</a></li>
-                <li class="active">Products</li>
-                <li><a href="/Admin/Events/">Events</a></li>
+                <li><a href="/admin/products.aspx">Products</a></li>
+                <li class="active">Events</li>
                 <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
                 <li><a href="/Admin/ModifyAccount/">Account</a></li>
                 <li><a href="/Admin/Logout.aspx" >Logout</a></li>
@@ -22,13 +22,13 @@
         <div class="col-lg-10 col-sm-10">
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <h1 class="titleAdminDefualt">Products</h1>
+                    <h1 class="titleAdminDefualt">Events</h1>
                 </div>
             </div>
             <div class="row"><div class="col-lg-12 col-sm-12" style="text-align: center;"><asp:Label ID="lblMessage" runat="server" CssClass="errormessage" Text=""></asp:Label></div></div>
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <asp:Label ID="lblProducts" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblEvents" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </div>

@@ -10,6 +10,7 @@
             <ul class="breadcrumb pull-right">
                 <li class= "active">Home</li>
                 <li><a href="/Admin/Products/">Products</a></li>
+                <li><a href="/Admin/Events/">Events</a></li>
                 <li><a href="/Admin/BoothSalePoint/">Booth</a></li>
                 <li><a href="/Admin/ModifyAccount/">Account</a></li>
                 <li><a href="/Admin/Logout.aspx" >Logout</a></li>

@@ -186,7 +186,7 @@ namespace Merchbooth.Admin
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Admin/Defualt/");
+            Response.Redirect("/Admin/Default/");
         }
 
 

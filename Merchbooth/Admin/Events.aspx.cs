@@ -9,7 +9,7 @@ using Merchbooth.Classes;
 
 namespace Merchbooth.Admin
 {
-    public partial class Products : System.Web.UI.Page
+    public partial class Events : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,30 +24,28 @@ namespace Merchbooth.Admin
 
             SiteDCDataContext _siteContent = new SiteDCDataContext();
 
-            var queryProducts = from p in _siteContent.TProducts
+            var queryEvents = from ev in _siteContent.TEvents
+                                orderby ev.dtmDate
+                                where ev.intBandID == intBandID
+                                select ev;
 
-                                orderby p.intProductID
-                                
-                                where p.intBandID == intBandID
-                                select p;
-
-            queryProducts.ToList();
+            queryEvents.ToList();
 
             StringBuilder tl = new StringBuilder();
 
             tl.Append("<table class='table table-condensed'>");
             tl.Append("<thead>");
-            tl.Append("<tr><th colspan='3' class='alignright'><strong><a style='font-size:18px;' href='/Admin/ModifyProduct.aspx'>add Product &nbsp; <i class='fa fa-plus fa-lg'></i></a></strong></th></tr>");
+            tl.Append("<tr><th colspan='3' class='alignright'><strong><a style='font-size:18px;' href='/Admin/ModifyEvent.aspx'>add Event &nbsp; <i class='fa fa-plus fa-lg'></i></a></strong></th></tr>");
             tl.Append("</thead>");
             tl.Append("<tbody>");
 
-            if (queryProducts.Count() > 0)
+            if (queryEvents.Count() > 0)
             {
-                foreach (var item in queryProducts)
+                foreach (var item in queryEvents)
                 {
-                   
 
-                    tl.Append("<tr><td><strong>" + item.strProductName + "</strong></td><td><strong>" + "</strong></td><td style='width: 300px;'><div class='pull-right'><strong><a href='/Admin/ModifyProduct.aspx?pk=" + item.intProductID + "'>Edit Product <i class='fa fa-pencil-square-o fa-lg'></i></a> &nbsp; | &nbsp; <a href ='/Admin/ModifyProduct.aspx?pk=" + item.intProductID + "&a=d' class='delete' data-confirm='Are you sure to delete this product?'>Delete Product <i class='fa fa-trash fa-lg'></i></a></strong></div></td></tr>");
+
+                    tl.Append("<tr><td><strong>" + item.strEventName + "</strong></td><td><strong>" + "</strong></td><td style='width: 300px;'><div class='pull-right'><strong><a href='/Admin/ModifyEvent.aspx?pk=" + item.intEventID + "'>Edit Event <i class='fa fa-pencil-square-o fa-lg'></i></a> &nbsp; | &nbsp; <a href ='/Admin/ModifyEvent.aspx?pk=" + item.intEventID + "&a=d' class='delete' data-confirm='Are you sure to delete this event?'>Delete Event <i class='fa fa-trash fa-lg'></i></a></strong></div></td></tr>");
 
                 }
                 tl.Append("<tr><td colspan='3'>&nbsp;</td></tr>");
@@ -60,7 +58,7 @@ namespace Merchbooth.Admin
             tl.Append("</tbody>");
             tl.Append("</table>");
 
-            lblProducts.Text = tl.ToString();
+            lblEvents.Text = tl.ToString();
         }
     }
 }
