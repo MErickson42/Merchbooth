@@ -282,6 +282,10 @@
     <Content Include="Images\PlaneWhite - Copy.png" />
     <Content Include="Images\PlaneWhite.png" />
     <Content Include="Images\PlaneWhiteSized.jpg" />
+    <Content Include="Uploads\Bands\5\download3.jpg" />
+    <Content Include="Uploads\Products\10\guitar-2925274_640.jpg" />
+    <Content Include="Uploads\Products\14\chelsea-ferenando-WJRZNL7rDF8-unsplash.jpg" />
+    <Content Include="Uploads\Products\17\PlaneWhiteSized.jpg" />
     <Content Include="Uploads\Products\18\rush - Copy.jpg" />
     <Content Include="Uploads\Products\18\rush.jpg" />
     <Content Include="Images\SignInCustomer_orBand.JPG" />
@@ -336,6 +340,10 @@
     <Content Include="Uploads\Bands\13\background-2944077_1920.jpg" />
     <Content Include="Uploads\Bands\6\background-2944077_1920.jpg" />
     <Content Include="Uploads\Bands\7\background-2944077_1920.jpg" />
+    <Content Include="Uploads\Products\1\blurred-1226286_1920.jpg" />
+    <Content Include="Uploads\Products\20\cryonics is cool.jpg" />
+    <Content Include="Uploads\Products\6\painted-guitar-1087209_640.jpg" />
+    <Content Include="Uploads\Products\8\PlaneRedSized.jpg" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -641,6 +649,9 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Bands\14\" />
+    <Folder Include="Uploads\Bands\16\" />
+    <Folder Include="Uploads\Bands\2\" />
+    <Folder Include="Uploads\Products\15\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
