@@ -110,9 +110,11 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="Admin\Events.aspx" />
     <Content Include="Admin\Logout.aspx" />
     <Content Include="Admin\ModifyAccount.aspx" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\ModifyEvent.aspx" />
     <Content Include="Admin\ModifyProduct.aspx" />
     <Content Include="Admin\Products.aspx" />
     <Content Include="Admin\BoothSalePoint.aspx" />
@@ -362,6 +364,13 @@
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,6 +405,13 @@
     </Compile>
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ModifyEvent.aspx.cs">
+      <DependentUpon>ModifyEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ModifyEvent.aspx.designer.cs">
+      <DependentUpon>ModifyEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ModifyProduct.aspx.cs">
       <DependentUpon>ModifyProduct.aspx</DependentUpon>
