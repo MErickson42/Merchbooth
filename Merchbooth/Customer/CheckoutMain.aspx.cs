@@ -40,9 +40,9 @@ namespace Merchbooth
             StringBuilder sb = new StringBuilder();
 
             //If somthig was past in as query string 
-            if (n.Length > 23)
+            if (n.Length > 28)
             {
-                n = n.Substring(23);
+                n = n.Substring(28);
 
                 String[] spearator = { "}" };
 

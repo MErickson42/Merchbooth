@@ -61,10 +61,11 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <%--Added Manager home page link to booth sales/checkout navbar / EH 11-29-19--%>
-                        <li><a runat="server" href="../Default">MERCHBOOTH</a></li>
-                        <li><a runat="server"> Products  </a></li>
-                        <%--<li><img id = "cartImage" src="../../Images/untitled_4.jpg" alt="" ></li>--%>
-				        <%--<li><div id="cartCount"></div> </li>--%>
+                        <li><a id="home" runat="server" href="~/Customer/Default">Home</a></li>
+                        <li><a id="allbands" runat="server" href="~/Customer/AllBands">All Bands</a></li>
+                        <li><a id="account" runat="server" href="~/Customer/Account">Account</a></li>
+                        <li><a runat="server" href="~/Customer/Logout.aspx" >Sign Out</a></li>
+
                     </ul>
                 </div>
             </div>
