@@ -28,7 +28,8 @@ namespace Merchbooth.Admin
 
                                 orderby p.intProductID
                                 
-                                where p.intBandID == intBandID
+                                where p.intBandID == intBandID &&
+                                p.intIsDeleted == 0 || p.intIsDeleted == null
                                 select p;
 
             queryProducts.ToList();

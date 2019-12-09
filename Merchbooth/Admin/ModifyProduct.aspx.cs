@@ -36,12 +36,12 @@ namespace Merchbooth.Admin
                 {
                     if (ProductKey > 0) // Delete a product.
                     {
-                        var queryProducts = from p in _siteContext.TProducts
-                                            where p.intProductID == ProductKey && p.intBandID == intBandID
+                        var queryProducts = (from p in _siteContext.TProducts
+                                            where p.intProductID == ProductKey 
 
-                                            select p;
+                                            select p).First();
 
-                      
+                        queryProducts.intIsDeleted = 1;
 
                         _siteContext.SubmitChanges();
                     }
