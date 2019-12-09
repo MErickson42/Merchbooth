@@ -54,43 +54,58 @@
                 var intTotalCount = 0;
 
 
-                function addToCart(intProductID, intTypeID,strImageUrl, decPrice, intAmount) {
-
-                intTotalCount += 1;
-                var strProductNumber = "" + intProductID;
-                    var cartString;
-
-                if (strProductNumber in Products) {
-
-                    Products[strProductNumber].Amount += intAmount
-
-                }
-                else
+                function addToCart(intProductID, intTypeID, strImageUrl, decPrice, intAmount)
                 {
 
-                    Products[strProductNumber] = { Id: intProductID, TypeId: intTypeID, Image: "\""+ strImageUrl +"\"", Price: decPrice, Amount: intAmount };
+                    intTotalCount += 1;
+                    var strProductNumber = "" + intProductID;
+                        var cartString;
+
+                    if (strProductNumber in Products) {
+
+                        Products[strProductNumber].Amount += intAmount
+
+                    }
+                    else
+                    {
+
+                        Products[strProductNumber] = { Id: intProductID, TypeId: intTypeID, Image: "\""+ strImageUrl +"\"", Price: decPrice, Amount: intAmount };
 
 
-                }
+                    }
 
-                //objCart.Products{objCart.intTotalCount-1 } = "{Id:" + intProductID + ",TypeId:" + intTypeID + ",Image:" + strImageUrl + ",Price:" + decPrice + ",Amount:" + intAmount + "},";
-			    //document.getElementById(id).innerHTML =  objCart.ThirstIDs + objCart.intTotalCount;
-                //
+                    //objCart.Products{objCart.intTotalCount-1 } = "{Id:" + intProductID + ",TypeId:" + intTypeID + ",Image:" + strImageUrl + ",Price:" + decPrice + ",Amount:" + intAmount + "},";
+			        //document.getElementById(id).innerHTML =  objCart.ThirstIDs + objCart.intTotalCount;
+                    //
 
 
-                document.getElementById("cartCount").innerHTML = intTotalCount;
+                    document.getElementById("cartCount").innerHTML = intTotalCount;
 
-                //document.getElementById("testing").innerHTML =  Products;
+                    //document.getElementById("testing").innerHTML =  Products;
 
-                document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
+                    document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
 
-                 cartString =  ObjToString(Products);                        
-                document.getElementById("home").href = "http://localhost:10349/Default.aspx?cart=" + cartString;
-                document.getElementById("allbands").href = "http://localhost:10349/AllBands.aspx?cart=" + cartString;
-                document.getElementById("about").href = "http://localhost:10349/About.aspx?cart=" + cartString;
-                document.getElementById("contact").href = "http://localhost:10349/Contact.aspx?cart=" + cartString;
-                document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart=" + cartString; 
+                    cartString =  ObjToString(Products);                        
+                    document.getElementById("home").href = "http://localhost:10349/Default.aspx?cart=" + cartString;
+                    document.getElementById("allbands").href = "http://localhost:10349/AllBands.aspx?cart=" + cartString;
+                    document.getElementById("about").href = "http://localhost:10349/About.aspx?cart=" + cartString;
+                    document.getElementById("contact").href = "http://localhost:10349/Contact.aspx?cart=" + cartString;
+                    document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart=" + cartString; 
 
+
+
+                    var intIndex = 0;
+                    var strBandID = 0;
+                    for (intIndex = 1; intIndex <= 20; intIndex += 1)
+                    {
+                        strBandID = "band" + intIndex;
+                        var linkToBand = document.getElementById(strBandID);
+
+                        if (linkToBand)
+                        {
+                        linkToBand.href = "/Products/Product-Details/?ck=" + intIndex +"&cart=" +cartString;
+                        }
+                    }
                 }
 
 
@@ -170,7 +185,18 @@
                         document.getElementById("contact").href = "http://localhost:10349/Contact.aspx?cart=" + cartStringB;
                         document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart=" + cartStringB;
  
+                        var intIndex = 0;
+                        var strBandID = 0;
+                        for (intIndex = 1; intIndex <= 20; intIndex += 1)
+                        {
+                            strBandID = "band" + intIndex;
+                            var linkToBand = document.getElementById(strBandID);
 
+                            if (linkToBand)
+                            {
+                            linkToBand.href = "Products/Product-Details/?ck=" + intIndex +"&cart=" +cartStringB;
+                            }
+                        }
                     }
                 }
 
@@ -188,7 +214,20 @@
                         document.getElementById("allbands").href = "http://localhost:10349/AllBands.aspx?cart=";
                         document.getElementById("about").href = "http://localhost:10349/About.aspx?cart=" ;
                         document.getElementById("contact").href = "http://localhost:10349/Contact.aspx?cart=";
-                        document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart="; 
+                        document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart=";
+
+                        var intIndex = 0;
+                        var strBandID = 0;
+                        for (intIndex = 1; intIndex <= 20; intIndex += 1)
+                        {
+                            strBandID = "band" + intIndex;
+                            var linkToBand = document.getElementById(strBandID);
+
+                            if (linkToBand)
+                            {
+                                linkToBand.href = "/Products/Product-Details/?ck=" + intIndex;
+                            }
+                        }
                     }
                 }
                 

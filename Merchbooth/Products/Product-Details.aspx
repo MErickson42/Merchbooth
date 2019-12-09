@@ -16,15 +16,36 @@
     <asp:Literal ID="ltrProducts" runat="server"></asp:Literal>
         <asp:HiddenField ID="hdnCartItemsVariable" value="" runat="server" />
         <asp:HiddenField ID="hdnPassedCartItemsVariable" value="" runat="server" />
+        <asp:LinkButton ID="LnkButtion" CssClass="buttonClass" runat="server" Text="Checkout" OnClick="checkout1_Click"/>
 
+    <style type="text/css">
+ 
+                .buttonClass
+                {
+
+                    background-color: #ed7f11;
+                    z-index:50;
+                    position:fixed;
+                    right:0px;
+                    top:185px;
+                    color:#262422;
+                    font-size: 20px;
+                    border-radius:4px 4px 4px 4px;
+                }
+                .buttonClass:hover
+                {
+                    transition-duration:300ms;
+                    font-size: 22px;
+                    border-radius:30px;
+                    padding:20px,10px;
+                    text-decoration:none;
+
+                }
+            </style>
 
      <script type="text/javascript">
 
                 var Products = {};
-
-                //var objCart = { intTotalCount: 0, Products};
-                var cartUrl = "http://localhost:10349/About.aspx";
-
                 var intTotalCount = 0;
 
 
@@ -37,25 +58,13 @@
                 if (strProductNumber in Products) {
 
                     Products[strProductNumber].Amount += intAmount
-
                 }
                 else
                 {
-
                     Products[strProductNumber] = { Id: intProductID, TypeId: intTypeID, Image: "\""+ strImageUrl +"\"", Price: decPrice, Amount: intAmount };
-
-
                 }
 
-                //objCart.Products{objCart.intTotalCount-1 } = "{Id:" + intProductID + ",TypeId:" + intTypeID + ",Image:" + strImageUrl + ",Price:" + decPrice + ",Amount:" + intAmount + "},";
-			    //document.getElementById(id).innerHTML =  objCart.ThirstIDs + objCart.intTotalCount;
-                //
-
-
                 document.getElementById("cartCount").innerHTML = intTotalCount;
-
-                //document.getElementById("testing").innerHTML =  Products;
-
                 document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
 
                  cartString =  ObjToString(Products);                        
@@ -143,8 +152,6 @@
                         document.getElementById("about").href = "http://localhost:10349/About.aspx?cart=" + cartStringB;
                         document.getElementById("contact").href = "http://localhost:10349/Contact.aspx?cart=" + cartStringB;
                         document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart=" + cartStringB;
- 
-
                     }
                 }
 

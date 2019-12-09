@@ -13,7 +13,7 @@ namespace Merchbooth
         {
             //cart memory
             string cart = Server.UrlDecode(Request.QueryString["cart"]);
-            if (cart != "")
+            if (cart != "" && cart != null)
             {
                 hdnPassedCartItemsVariable.Value = cart;
             }

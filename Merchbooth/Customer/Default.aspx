@@ -89,6 +89,19 @@
                 document.getElementById("contact").href="http://localhost:10349/Customer/Contact.aspx?cart="+cartString; 
                 document.getElementById("account").href="http://localhost:10349/Customer/Account.aspx?cart="+cartString; 
 
+
+                    var intIndex = 0;
+                    var strBandID = 0;
+                    for (intIndex = 1; intIndex <= 20; intIndex += 1)
+                    {
+                        strBandID = "band" + intIndex;
+                        var linkToBand = document.getElementById(strBandID);
+
+                        if (linkToBand)
+                        {
+                            linkToBand.href = "/Customer/OneBandProducts/?ck=" + intIndex +"&cart=" +cartString;
+                        }
+                    }
                 }
 
 
@@ -168,6 +181,18 @@
                         document.getElementById("contact").href="http://localhost:10349/Customer/Contact.aspx?cart="+cartStringB; 
                         document.getElementById("account").href="http://localhost:10349/Customer/Account.aspx?cart="+cartStringB; 
 
+                        var intIndex = 0;
+                        var strBandID = 0;
+                        for (intIndex = 1; intIndex <= 20; intIndex += 1)
+                        {
+                            strBandID = "band" + intIndex;
+                            var linkToBand = document.getElementById(strBandID);
+
+                            if (linkToBand)
+                            {
+                            linkToBand.href = "/Customer/OneBandProducts/?ck=" + intIndex +"&cart=" +cartStringB;
+                            }
+                        }
                     }
                 }
 
@@ -185,7 +210,21 @@
                         document.getElementById("allbands").href="http://localhost:10349/Customer/AllBands"; 
                         document.getElementById("about").href="http://localhost:10349/Customer/About"; 
                         document.getElementById("contact").href="http://localhost:10349/Customer/Contact"; 
-                        document.getElementById("account").href="http://localhost:10349/Customer/Account"; 
+                        document.getElementById("account").href = "http://localhost:10349/Customer/Account";
+
+
+                        var intIndex = 0;
+                        var strBandID = 0;
+                        for (intIndex = 1; intIndex <= 20; intIndex += 1)
+                        {
+                            strBandID = "band" + intIndex;
+                            var linkToBand = document.getElementById(strBandID);
+
+                            if (linkToBand)
+                            {
+                                linkToBand.href = "/Customer/OneBandProducts/?ck=" + intIndex;
+                            }
+                        }
                     }
                 }
                 

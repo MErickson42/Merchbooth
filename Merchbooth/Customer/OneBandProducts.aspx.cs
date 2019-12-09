@@ -119,7 +119,7 @@ namespace Merchbooth.Customer
 
                     //cart memory
                     string cart = Server.UrlDecode(Request.QueryString["cart"]);
-                    if (cart != "")
+                    if (cart != "" && cart != null)
                     {
                         hdnPassedCartItemsVariable.Value = cart;
                     }
@@ -137,5 +137,12 @@ namespace Merchbooth.Customer
                 sb.Append("<div class='row'><div class='col-md-12'>Band key was not provided</div></div>");
             }
         }
+
+        protected void checkout1_Click(object sender, EventArgs e)
+        {
+            string strUrl = "http://localhost:10349/Customer/CheckoutMain.aspx?" + hdnCartItemsVariable.Value.ToString();
+            Response.RedirectPermanent(strUrl);
+        }
+
     }
 }
