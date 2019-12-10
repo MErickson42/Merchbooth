@@ -36,11 +36,15 @@ namespace Merchbooth
             n = HttpUtility.UrlDecode(n);
             StringBuilder sb = new StringBuilder();
 
-            if (n.Length >21)
-            {
-                n = n.Substring(21);
 
-            String[] spearator = { "}" };
+            int intSubIndex = n.IndexOf("{");
+
+            //If somthig was past in as query string 
+            if (intSubIndex >= 0)
+            {
+                n = n.Substring(intSubIndex);
+
+                String[] spearator = { "}" };
 
 
                 //If somthig was past in as query string 

@@ -39,10 +39,12 @@ namespace Merchbooth
             n = HttpUtility.UrlDecode(n);
             StringBuilder sb = new StringBuilder();
 
+            int intSubIndex = n.IndexOf("{");
+
             //If somthig was past in as query string 
-            if (n.Length > 28)
+            if (intSubIndex >= 0)
             {
-                n = n.Substring(28);
+                n = n.Substring(intSubIndex);
 
                 String[] spearator = { "}" };
 

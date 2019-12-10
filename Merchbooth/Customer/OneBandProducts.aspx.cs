@@ -101,6 +101,9 @@ namespace Merchbooth.Customer
 
                         }
                         sb.Append(" <img style='display:inline; margin-right:100px;' class='image-responsive saleImage' src='/" + prod.strImageLink + "' runat='server' onclick='addToCart(" + prod.intProductID + "," + prod.intTypeID + ",\"" + prod.strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
+                        sb.Append("<p style='display:inline; z-index:15; color:darkred;position:relative; top:90px; right:200px; background-color:white; font-weight:bold;'>$ ");
+                        sb.Append(prod.decBandPrice);
+                        sb.Append("</p>");
 
                         //////ben 12/7 
                         //sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:445px;' class='col-md-3'>" + "Product Name: " + prod.strProductName + "<br />" + "Price: $" + prod.decBandPrice + "<br />" + "Quantity Remaining: " + prod.intAmountAvialable + "<br />");

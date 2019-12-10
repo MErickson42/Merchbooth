@@ -43,8 +43,6 @@ namespace Merchbooth.Admin
                                 select p;
             
 
-
-
             queryProducts.ToList();
 
             StringBuilder tl = new StringBuilder();
@@ -74,6 +72,7 @@ namespace Merchbooth.Admin
             tl.Append("</tbody>");
             tl.Append("</table>");
 
+            //based on  *added user entered low threshhold //EH 11.29.19 
             tl.Append("<form action = '#' onsubmit = 'return inputOutfocus(this);'style='font-size:14px;'>");
             tl.Append("<label for='Threshold'>Threshold:</label>");
             tl.Append("<input type='text' id='Threshold' name='Threshold' runat='server' value='"+ intQuantity.ToString() + "' onchange='changeNum()'/>");
