@@ -273,7 +273,7 @@ namespace Merchbooth
 
             message = "Purchase proccesed:" + messageSold + messageNotSold;
 
-            Response.Redirect("/Default.aspx?message=" + Server.UrlEncode(message));
+            Response.Redirect("/Customer/Default.aspx?message=" + Server.UrlEncode(message));
 
             //string strUrl = "../Admin/BoothSalePoint.aspx?message=Purchase complete.";
             //Response.RedirectPermanent(strUrl);
