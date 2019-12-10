@@ -98,6 +98,12 @@ namespace Merchbooth.Products
 
                     foreach (TProduct prod in queryProducts)
                     {
+                        //Only products with image will be displayed in page to user
+                        if (prod.strImageLink == "" || prod.strImageLink == null)
+                        {
+                            continue;
+                        }
+
                         intCurrentType = prod.intTypeID;
                         if (intCurrentType != intPreviousType && (intCurrentType == 9 || intCurrentType == 10 || intCurrentType == 11))
                         {

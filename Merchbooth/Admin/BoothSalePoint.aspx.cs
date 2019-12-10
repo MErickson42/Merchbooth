@@ -69,7 +69,7 @@ namespace Merchbooth
 
             if (queryProducts.Count() > 0)
             {
-                int intBaseTypeCompare = 1;
+                int intBaseTypeCompare = queryProducts.First().tbp.intBaseTypeID;
 
                 sb.Append("<div class = 'Wrapper'>");
 
@@ -78,6 +78,11 @@ namespace Merchbooth
 
                 foreach (var prod in queryProducts)
                 {
+                    //Only products with image will be displayed in page to booth sales personal
+                    if (prod.p.strImageLink == "" || prod.p.strImageLink == null)
+                    {
+                        continue;
+                    }
 
                     int intProductID = prod.p.intProductID;
                     int intTypeID = prod.p.intTypeID;

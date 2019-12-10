@@ -50,6 +50,11 @@ namespace Merchbooth
                     // This loop will loop through each product from the queryBands query we made
                     foreach (var item in queryBandsProducts)
                     {
+                        //Only products with image will be displayed in page to user
+                        if (item.p.strImageLink == "" || item.p.strImageLink == null)
+                        {
+                            continue;
+                        }
 
                         // MDE - item.p refrers to the 'p' in the 'select new {b, p}' part of the linq query. p represents products
                         // we are setting the variable intBandID equal to the band ID of the item in the current loop
