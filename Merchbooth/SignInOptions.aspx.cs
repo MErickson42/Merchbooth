@@ -25,7 +25,7 @@ namespace Merchbooth
             sb.Append("<a id='signInBand' runat='server' href='~/ BandSignIn'>Sign In as Band</a><br/><br/>");
             sb.Append("<a id='signInCst' runat='server' href='~/ BandSignIn'>Sign In as Customer</a><br/><br/>");
             sb.Append("<br/><br/>");
-            sb.Append("<a id='signUpBand' runat='server' href='~/ BandSignIn'>Sign Up as Customer</a><br/><br/>");
+            sb.Append("<a id='signUpBand' runat='server' href='~/ BandSignIn'>Sign Up as Band</a><br/><br/>");
             sb.Append("<a id='signUpCst' runat='server' href='~/ BandSignIn'>Sign Up as Customer</a><br/><br/>");
 
             ltrSignInOptions.Text = sb.ToString();
