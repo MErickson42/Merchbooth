@@ -112,7 +112,7 @@ namespace Merchbooth
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            string strUrl = "../Checkout.aspx?" + hdnCartItemsVariable.Value.ToString();
+            string strUrl = "/Admin/Checkout.aspx?" + hdnCartItemsVariable.Value.ToString();
             Response.RedirectPermanent(strUrl);
            //base.OnLoad(e);??
         }

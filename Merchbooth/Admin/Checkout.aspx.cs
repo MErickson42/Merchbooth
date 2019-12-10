@@ -173,12 +173,15 @@ namespace Merchbooth
                                             where c.intProductID == Convert.ToInt32(htProd["Id"])
                                             select c).First();
 
-                        var queryEvent = (from ev in _siteContext.TEvents
+                        var queryEvent = from ev in _siteContext.TEvents
                                             where ev.intBandID == intBandID &&
                                             ev.dtmDate == dtmTodayDate
-                                            select ev).First();
+                                            select ev;
 
-                        if (queryProduct !=null && queryEvent!= null)
+                        //ben 12_9
+                        //if (queryProduct != null && queryEvent != null)
+
+                        if (queryProduct !=null )
                         {
 
                             if (queryProduct.intAmountAvialable >= Convert.ToInt32(htProd["Amount"]))
@@ -186,8 +189,13 @@ namespace Merchbooth
                                 //Removing amount from inventory
                                 queryProduct.intAmountAvialable -= Convert.ToInt32(htProd["Amount"]);
 
-                                //Adding amount sold in this sale from booth to event sales
-                                queryEvent.decEventSales += Convert.ToDecimal(htProd["Amount"])* Convert.ToDecimal(htProd["Price"]);
+                                if(queryEvent.Count() > 0)
+                                {
+                                    queryEvent.First().decEventSales += Convert.ToDecimal(htProd["Amount"]) * Convert.ToDecimal(htProd["Price"]);
+                                }
+                                //ben 12_9
+                                ////Adding amount sold in this sale from booth to event sales
+                                //queryEvent.decEventSales += Convert.ToDecimal(htProd["Amount"])* Convert.ToDecimal(htProd["Price"]);
 
                                 messageSold += "\n" + Convert.ToInt32(htProd["Amount"]) + " " + queryProduct.strProductName + " sold!.";
 
