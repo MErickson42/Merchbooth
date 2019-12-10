@@ -14,6 +14,7 @@ namespace Merchbooth.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             //lblMessage.Text = Server.UrlDecode(Request.QueryString["message"]);
             int intBandID = 0;
             if (HttpContext.Current.Session["UserDetails"] != null)
@@ -26,15 +27,23 @@ namespace Merchbooth.Admin
             SiteDCDataContext _siteContent = new SiteDCDataContext();
 
 			// *added user entered low threshhold variable //EH 11.29.19
-			int intQuantity = Convert.ToInt32(lowInventoryThreshold.Text);
-	
-			//Ceating- Low Inventory String
-				var queryProducts = from p in _siteContent.TProducts
+			int intQuantity = Convert.ToInt32(hdnThreshold.Value);
+
+            if (intQuantity <= 0)
+            {
+                intQuantity = 50;
+            }
+
+            //Ceating- Low Inventory String
+            var queryProducts = from p in _siteContent.TProducts
 
                                 orderby p.intProductID
-                                where   p.intBandID == intBandID &&
-                                        p.intAmountAvialable < intQuantity
-								select p;
+                                where p.intBandID == intBandID &&
+                                        p.intAmountAvialable <= intQuantity
+                                select p;
+            
+
+
 
             queryProducts.ToList();
 
@@ -64,6 +73,12 @@ namespace Merchbooth.Admin
 
             tl.Append("</tbody>");
             tl.Append("</table>");
+
+            tl.Append("<form action = '#' onsubmit = 'return inputOutfocus(this);'style='font-size:14px;'>");
+            tl.Append("<label for='Threshold'>Threshold:</label>");
+            tl.Append("<input type='text' id='Threshold' name='Threshold' runat='server' value='"+ intQuantity.ToString() + "' onchange='changeNum()'/>");
+            tl.Append("</form>");
+
             tl.Append("</div>");
 
             lblLowInventory.Text = tl.ToString();

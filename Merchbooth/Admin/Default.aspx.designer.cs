@@ -13,6 +13,15 @@ namespace Merchbooth.Admin {
     public partial class Default {
         
         /// <summary>
+        /// hdnThreshold control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnThreshold;
+        
+        /// <summary>
         /// lblMessage control.
         /// </summary>
         /// <remarks>
@@ -29,24 +38,6 @@ namespace Merchbooth.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLowInventory;
-        
-        /// <summary>
-        /// lbllowInventoryThreshold control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbllowInventoryThreshold;
-        
-        /// <summary>
-        /// lowInventoryThreshold control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lowInventoryThreshold;
         
         /// <summary>
         /// lblSales control.

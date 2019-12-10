@@ -19,7 +19,8 @@
         <div class="col-lg-1 col-sm-1"></div>
     </div>
     
-    
+            <asp:HiddenField ID="hdnThreshold" value="0" runat="server" />
+
     <div class="row">
         
         
@@ -50,8 +51,8 @@
                 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">         
                    <asp:Label ID="lblLowInventory" runat="server" Text=""></asp:Label>
                     <%-- *added user entered low threshhold //EH 11.29.19 --%>
-                    <asp:Label ID="lbllowInventoryThreshold" runat="server" Text="Low Inventory Threshold:"></asp:Label>
-                    <asp:TextBox ID="lowInventoryThreshold" type="text" MaxLength="25" CssClass="form-control" runat="server" Text="50" Width="80%"></asp:TextBox>                
+<%--                    <asp:Label ID="lbllowInventoryThreshold" runat="server" Text="Low Inventory Threshold:"></asp:Label>
+                    <asp:TextBox ID="lowInventoryThreshold" type="text" MaxLength="25" CssClass="form-control" runat="server" Text="50" Width="80%"></asp:TextBox>                --%>
                 </div>
                 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
                     <asp:Label ID="lblSales" runat="server" Text="Reports"></asp:Label>
@@ -73,18 +74,33 @@
     </div>
 
         <script type="text/javascript">
-        var deleteLinks = document.querySelectorAll('.delete');
+        //var deleteLinks = document.querySelectorAll('.delete');
 
-        for (var i = 0; i < deleteLinks.length; i++) {
-            deleteLinks[i].addEventListener('click', function (event) {
-                event.preventDefault();
+        //for (var i = 0; i < deleteLinks.length; i++) {
+        //    deleteLinks[i].addEventListener('click', function (event) {
+        //        event.preventDefault();
 
-                var choice = confirm(this.getAttribute('data-confirm'));
+        //        var choice = confirm(this.getAttribute('data-confirm'));
 
-                if (choice) {
-                    window.location.href = this.getAttribute('href');
-                }
-            });
-        }
+        //        if (choice) {
+        //            window.location.href = this.getAttribute('href');
+        //        }
+        //    });
+        //    }
+            function changeNum()
+            {
+                document.getElementById("<%= hdnThreshold.ClientID%>").value = document.getElementById("Threshold").value;
+
+            }
     </script>
+
+     <style type="text/css">
+         input[type=text] {
+              width: 70px;
+              margin-left:20px;
+              box-sizing: border-box;
+              color:#807675;
+              text-align:right;
+            }
+    </style>
 </asp:Content>
