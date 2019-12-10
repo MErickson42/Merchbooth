@@ -22,13 +22,6 @@
      <div class="row">
         
         
-        
-        <div class="col-lg-1 col-sm-1">
-        </div>
-        
-
-        <div class="col-lg-10 col-sm-10">
-            
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
                     <h1 class="reportTitle">Sales by Customer</h1>
@@ -38,16 +31,35 @@
 
             <div class="row">
 
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <asp:Label ID="lblSalesByCustomer" runat="server" Text=""></asp:Label>
                 </div>
             
             </div>
-            
+
+
+            <div class="row">
+                   
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <asp:Label ID="lblSelectedCustomerPurchases" runat="server" Text=""> </asp:Label>
+                    
+
+                    </div>
+            </div>
+
+             <asp:HiddenField ID="hdnSelecteCustomer" value="" runat="server"/>
+
 
         </div>
         
+        <script type="text/javascript">
 
-        <div class="col-lg-1 col-sm-1"></div>
-    </div>
+            function radioOnClick(radioButtonId,intCustomerID) {
+                //document.getElementById(radioButtonId).checked = true;
+                document.getElementById("<%= hdnSelecteCustomer.ClientID%>").value = intCustomerID;
+                __doPostBack('hfStartDate');
+            }
+        </script>
+
+
 </asp:Content>

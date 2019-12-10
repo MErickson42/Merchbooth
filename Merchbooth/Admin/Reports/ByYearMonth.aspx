@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Sales By Date" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="SalesByDate.aspx.cs" Inherits="Merchbooth.Admin.Reports.SalesByYear" %>
+﻿<%@ Page Title="Sales By Date" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="ByYearMonth.aspx.cs" Inherits="Merchbooth.Admin.Reports.ByYearMonth" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderImage" runat="server">
@@ -30,7 +30,7 @@
             
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <h1 class="reportTitle">Sales by Date</h1>
+                    <h1 class="reportTitle">Sales by Year/Month</h1>
                 </div>
             </div>
            

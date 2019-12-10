@@ -10,7 +10,7 @@
 namespace Merchbooth.Admin.Reports {
     
     
-    public partial class SalesByYear {
+    public partial class ByYearMonth {
         
         /// <summary>
         /// lblSalesByYear control.

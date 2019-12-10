@@ -47,7 +47,7 @@ namespace Merchbooth.Admin.Reports
             tl.Append("<th class='tableDataHeaders'>Type</th>");
             tl.Append("<th class='tableDataHeaders'>Total</th>");
             tl.Append("<th class='tableDataHeaders'>Av. Price</th>");
-            tl.Append("<th class='tableDataHeaders'>#Num</th>");
+            tl.Append("<th class='tableDataHeaders'>#Units</th>");
             tl.Append("<th class='tableDataHeaders'>Selected</th>");
             tl.Append("</tr>");
             tl.Append("</thead>");

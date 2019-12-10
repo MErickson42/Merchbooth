@@ -123,7 +123,7 @@
     <Content Include="Admin\Reports\SalesByCustomer.aspx" />
     <Content Include="Admin\Reports\SalesByEvent.aspx" />
     <Content Include="Admin\Reports\SalesByProduct.aspx" />
-    <Content Include="Admin\Reports\SalesByDate.aspx" />
+    <Content Include="Admin\Reports\ByYearMonth.aspx" />
     <Content Include="AllBands.aspx" />
     <Content Include="Content\Customer.css" />
     <Content Include="Customer\About.aspx" />
@@ -456,12 +456,12 @@
     <Compile Include="Admin\Reports\SalesByProduct.aspx.designer.cs">
       <DependentUpon>SalesByProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Reports\SalesByDate.aspx.cs">
-      <DependentUpon>SalesByDate.aspx</DependentUpon>
+    <Compile Include="Admin\Reports\ByYearMonth.aspx.cs">
+      <DependentUpon>ByYearMonth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Reports\SalesByDate.aspx.designer.cs">
-      <DependentUpon>SalesByDate.aspx</DependentUpon>
+    <Compile Include="Admin\Reports\ByYearMonth.aspx.designer.cs">
+      <DependentUpon>ByYearMonth.aspx</DependentUpon>
     </Compile>
     <Compile Include="AllBands.aspx.cs">
       <DependentUpon>AllBands.aspx</DependentUpon>

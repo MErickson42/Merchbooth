@@ -64,7 +64,7 @@ namespace Merchbooth.Customer
                 tl.Append("<thead>");
                 tl.Append("<tr class='reportTableHeader'>");
 
-                tl.Append("<th class='CustomerTableDataHeaders C_small'>ID</th>");
+                tl.Append("<th class='CustomerTableDataHeaders C_med'>#Purchase</th>");
                 tl.Append("<th class='CustomerTableDataHeaders C_large'>Product Name</th>");
                 tl.Append("<th class='CustomerTableDataHeaders C_med'>Price</th>");
                 tl.Append("<th class='CustomerTableDataHeaders C_small'>#Units</th>");

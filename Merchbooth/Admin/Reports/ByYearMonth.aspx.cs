@@ -10,7 +10,7 @@ using Merchbooth.Classes;
 
 namespace Merchbooth.Admin.Reports
 {
-    public partial class SalesByYear : System.Web.UI.Page
+    public partial class ByYearMonth : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
