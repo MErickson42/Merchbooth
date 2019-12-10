@@ -57,7 +57,10 @@
             function radioOnClick(radioButtonId,intCustomerID) {
                 //document.getElementById(radioButtonId).checked = true;
                 document.getElementById("<%= hdnSelecteCustomer.ClientID%>").value = intCustomerID;
-                __doPostBack('hfStartDate');
+                postBack();
+            }
+            function postBack() {
+                 __doPostBack('hfStartDate');
             }
         </script>
 

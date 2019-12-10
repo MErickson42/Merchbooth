@@ -55,40 +55,44 @@ namespace Merchbooth
             //A tool that we use to bild the html fof each data item comig in from the database
             StringBuilder sb = new StringBuilder();
 
-            var queryProducts = from c in _siteContext.TProducts
-                                    where c.intBandID == intBandID
-                                orderby c.intTypeID
-                                select c ;
+            var queryProducts = from p in _siteContext.TProducts
+                                    where p.intBandID == intBandID
+                                join tp in _siteContext.TTypes
+                                on p.intTypeID equals tp.intTypeID
+                                join tbp in _siteContext.TBaseTypes
+                                on tp.intBaseTypeID equals tbp.intBaseTypeID
+                                orderby tp.intBaseTypeID
+                                select new { p, tp, tbp };
 
 
             queryProducts.ToList();
 
             if (queryProducts.Count() > 0)
             {
-                int intTypeCompare = 1;
+                int intBaseTypeCompare = 1;
 
                 sb.Append("<div class = 'Wrapper'>");
 
                 sb.Append("<div class = 'ImRows'>");
                 sb.Append("<div class = 'ImageRow'>");
 
-                foreach (TProduct prod in queryProducts)
+                foreach (var prod in queryProducts)
                 {
 
-                    int intProductID = prod.intProductID;
-                    int intTypeID = prod.intTypeID;
-                    string strImageLink = prod.strImageLink;
+                    int intProductID = prod.p.intProductID;
+                    int intTypeID = prod.p.intTypeID;
+                    string strImageLink = prod.p.strImageLink;
 
 
-                    if (prod.strImageLink != "" )
+                    if (prod.p.strImageLink != "" )
                     {
-                        if (prod.intTypeID == intTypeCompare)
+                        if (prod.tbp.intBaseTypeID == intBaseTypeCompare)
                         {
                             sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='../../"  + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
+                            sb.Append(" <img src='../../"  + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.p.decBandPrice + "," + 1 + ")'" + "/>");
 
                             sb.Append("<p>");
-                            sb.Append(prod.decBandPrice);
+                            sb.Append(prod.p.decBandPrice);
                             sb.Append("</p>");
                             sb.Append("</div>");
                         }
@@ -97,14 +101,14 @@ namespace Merchbooth
                             sb.Append("</div>");
                             sb.Append("<div class = 'ImageRow'>");
                             sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='../../"   + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.decBandPrice + ","+ 1 + ")'" + "/>");
+                            sb.Append(" <img src='../../"   + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.p.decBandPrice + ","+ 1 + ")'" + "/>");
 
                             sb.Append("<p>");
                             sb.Append("<p>");
-                            sb.Append(prod.decBandPrice);
+                            sb.Append(prod.p.decBandPrice);
                             sb.Append("</p>");
                             sb.Append("</div>");
-                            intTypeCompare += 1;
+                            intBaseTypeCompare += 1;
                         }
                     }
 
