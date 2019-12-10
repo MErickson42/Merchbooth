@@ -217,6 +217,17 @@ namespace Merchbooth.Admin
             }
             else // Add a Product
             {
+                //add new entry to ttypes
+                TType type = new TType();
+                type.intBaseTypeID = intBaseType;
+                type.intColorID = intColor;
+                type.intGenderID = intGender;
+                type.intSizeID = intSize;
+                type.strQrCode = "";
+                type.intIsDeleted = 0;
+                _siteContext.TTypes.InsertOnSubmit(type);
+                _siteContext.SubmitChanges();
+
                 TProduct prod = new TProduct();
 
                 prod.strProductName = strTitle;
@@ -224,11 +235,12 @@ namespace Merchbooth.Admin
                 prod.decBandPrice = decPrice;
                 prod.decCostToBand = decBandPrice;
                 prod.intAmountAvialable = intQuantity;
-                //MDE - For now - just hardcoding TypeID 1 until  I write the join for type
+              
                 prod.intBandID = intBandID;
-                prod.intTypeID = 1;
+                // Get the ID of the TType entry we just created
+                prod.intTypeID = type.intTypeID;
                 prod.intSortLevel = 10;
-
+             
 
 
                 _siteContext.TProducts.InsertOnSubmit(prod);
