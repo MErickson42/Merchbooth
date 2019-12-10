@@ -119,6 +119,7 @@
     <Content Include="Admin\Products.aspx" />
     <Content Include="Admin\BoothSalePoint.aspx" />
     <Content Include="Admin\Checkout.aspx" />
+    <Content Include="Admin\Reports\AllSales.aspx" />
     <Content Include="Admin\Reports\SalesByCustomer.aspx" />
     <Content Include="Admin\Reports\SalesByEvent.aspx" />
     <Content Include="Admin\Reports\SalesByProduct.aspx" />
@@ -426,6 +427,13 @@
     </Compile>
     <Compile Include="Admin\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports\AllSales.aspx.cs">
+      <DependentUpon>AllSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\AllSales.aspx.designer.cs">
+      <DependentUpon>AllSales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Reports\SalesByCustomer.aspx.cs">
       <DependentUpon>SalesByCustomer.aspx</DependentUpon>
