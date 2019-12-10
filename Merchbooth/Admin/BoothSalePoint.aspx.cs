@@ -27,6 +27,19 @@ namespace Merchbooth
             }
 
 
+            string strMessage = "";
+            if (Request.QueryString["message"] != null)
+
+            {
+                strMessage = Request.QueryString["message"].ToString();
+            }
+
+            if (strMessage != "")
+            {
+                Response.Write("<script>alert('" + strMessage + "')</script>");
+
+            }
+
 
             //string strUrl = HttpContext.Current.Request.Url.AbsoluteUri;
 
@@ -112,7 +125,7 @@ namespace Merchbooth
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            string strUrl = "/Admin/Checkout.aspx?" + hdnCartItemsVariable.Value.ToString();
+            string strUrl = "/Admin/Checkout.aspx?cart=" + hdnCartItemsVariable.Value.ToString();
             Response.RedirectPermanent(strUrl);
            //base.OnLoad(e);??
         }

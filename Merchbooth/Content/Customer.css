@@ -221,7 +221,8 @@ ul {
 
 .CartWrapper {
     position: absolute;
-    top: 300px;
+    top: 190px;
+    left: 30vw;
     /*margin-left:auto;*/
     border: 3px solid black;
     background-color: bisque;

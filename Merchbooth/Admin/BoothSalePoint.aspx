@@ -50,7 +50,7 @@
                 //
 
 
-                document.getElementById("cartCount").innerHTML = intTotalCount + " +";
+                document.getElementById("cartCount").innerHTML = intTotalCount;
 
                 //document.getElementById("testing").innerHTML =  Products;
 
@@ -82,7 +82,7 @@
                 //
 
 
-                document.getElementById("cartCount").innerHTML = intTotalCount + " +";
+                document.getElementById("cartCount").innerHTML = intTotalCount;
 
                 //document.getElementById("testing").innerHTML =  Products;
 

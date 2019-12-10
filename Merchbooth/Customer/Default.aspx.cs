@@ -12,6 +12,20 @@ namespace Merchbooth.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            string strMessage = "";
+            if (Request.QueryString["message"] != null)
+
+            {
+                strMessage = Request.QueryString["message"].ToString();
+            }
+
+            if (strMessage != "")
+            {
+                Response.Write("<script>alert('" + strMessage + "')</script>");
+
+            }
+
             SiteDCDataContext _siteContext = new SiteDCDataContext();
             StringBuilder sb = new StringBuilder();
 

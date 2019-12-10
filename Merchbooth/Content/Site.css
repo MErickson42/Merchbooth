@@ -575,9 +575,9 @@ textarea {
     object-fit: cover;
     /* padding-top: 15px; */
     position: absolute;
-    left: 414px;
-    top: 9px;
-    height: 18px;
+    left: 420px;
+    top: 13px;
+    height: 13px;
     z-index: 25;
 }
 
@@ -591,9 +591,9 @@ textarea {
     object-fit: cover;
     /* padding-top: 15px; */
     position: absolute;
-    left: 455px;
-    top: 9px;
-    height: 18px;
+    left: 461px;
+    top: 13px;
+    height: 13px;
     z-index: 25;
 }
     #clearCart:hover {

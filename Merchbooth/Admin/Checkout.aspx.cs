@@ -23,14 +23,22 @@ namespace Merchbooth
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //cart memory
+            string cart = Server.UrlDecode(Request.QueryString["cart"]);
+            if (cart != "" && cart != null)
+            {
+                hdnPassedCartItemsVariable.Value = cart;
+            }
+
             int intCount = 0;
             string n = Request.RawUrl;
             n = HttpUtility.UrlDecode(n);
             StringBuilder sb = new StringBuilder();
 
-            if (n.Length >15)
+            if (n.Length >21)
             {
-                n = n.Substring(16);
+                n = n.Substring(21);
 
             String[] spearator = { "}" };
 
@@ -197,7 +205,7 @@ namespace Merchbooth
                                 ////Adding amount sold in this sale from booth to event sales
                                 //queryEvent.decEventSales += Convert.ToDecimal(htProd["Amount"])* Convert.ToDecimal(htProd["Price"]);
 
-                                messageSold += "\n" + Convert.ToInt32(htProd["Amount"]) + " " + queryProduct.strProductName + " sold!.";
+                                messageSold +=  Convert.ToInt32(htProd["Amount"]) + " " + queryProduct.strProductName + " sold!.";
 
                                 _siteContext.SubmitChanges();
 
@@ -205,7 +213,7 @@ namespace Merchbooth
                             else //If not enough in inventory for product
                             {    //sellig all products accept the one which there is not have enough in inventory
 
-                                messageNotSold += "\n We only have" + queryProduct.intAmountAvialable + queryProduct.strProductName + ".";
+                                messageNotSold += "We only have" + queryProduct.intAmountAvialable + queryProduct.strProductName + ".";
                             }
 
 

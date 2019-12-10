@@ -79,6 +79,9 @@ namespace Merchbooth
                 //now that all the product are orgeized as Hastables in ArrayList - populate view
 
 
+                sb.Append("<div class='row'>");
+                sb.Append("<div class='col-lg-1 col-sm-1'></div>");
+                sb.Append("<div class='col-lg-10 col-sm-10'>");
                 sb.Append("<div class = 'CartWrapper'>");
 
                 int intProductID = 0;
@@ -149,6 +152,10 @@ namespace Merchbooth
                 sb.Append("</p>");
                 sb.Append("</div>");
 
+                sb.Append("</div>");
+                sb.Append("</div>");
+
+                sb.Append("<div class='col-lg-1 col-sm-1'></div>");
                 sb.Append("</div>");
 
                 ltrCartMain.Text += sb.ToString();
@@ -253,7 +260,7 @@ namespace Merchbooth
 
                                 //}
 
-                                messageSold += "\n" + Convert.ToInt32(htProd["Amount"]) + " " + queryProduct.strProductName + " sold!.";
+                                messageSold += Convert.ToInt32(htProd["Amount"]) + " " + queryProduct.strProductName + " sold!.";
 
                                 _siteContext.SubmitChanges();
 
@@ -261,7 +268,7 @@ namespace Merchbooth
                             else //If not enough in inventory for product
                             {    //sellig all products accept the one which there is not have enough in inventory
 
-                                messageNotSold += "\nWe only have" + queryProduct.intAmountAvialable + queryProduct.strProductName + ".";
+                                messageNotSold += "We only have" + queryProduct.intAmountAvialable + queryProduct.strProductName + ".";
                             }
 
 
