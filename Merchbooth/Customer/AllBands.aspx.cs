@@ -20,11 +20,19 @@ namespace Merchbooth.Customer
                              orderby b.strBandName
                              select b;
 
+            //cart memory
+            string cart = Server.UrlDecode(Request.QueryString["cart"]);
+            if (cart != "" && cart != null)
+            {
+                hdnPassedCartItemsVariable.Value = cart;
+            }
+
+
             queryBands.ToList();
             sb.Append("<div class='row'>");
             foreach (var item in queryBands)
             {
-                sb.Append("<div class='col-md-3'><a href='/Products/Product-Details/?ck=" + item.intBandID + "&ct=" + item.strBandName.Replace(" ", "-").Replace("&", "and") + "' title='" + item.strBandName + "'><div class='resource-box'>");
+                sb.Append("<div class='col-md-3'><a href='/Customer/OneBandProducts/?cart="+ cart + "&ck=" + item.intBandID + "&ct=" + item.strBandName.Replace(" ", "-").Replace("&", "and") + "' title='" + item.strBandName + "'><div class='resource-box'>");
 
 
                 // MDE - Placeholder until we setup band image (if we get to it)
@@ -46,12 +54,7 @@ namespace Merchbooth.Customer
 
             ltrBands.Text = sb.ToString();
 
-            //cart memory
-            string cart = Server.UrlDecode(Request.QueryString["cart"]);
-            if (cart != "" && cart != null)
-            {
-                hdnPassedCartItemsVariable.Value = cart;
-            }
+
         }
     }
 }
