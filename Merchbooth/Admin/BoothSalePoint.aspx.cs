@@ -113,7 +113,7 @@ namespace Merchbooth
                             sb.Append(prod.p.decBandPrice);
                             sb.Append("</p>");
                             sb.Append("</div>");
-                            intBaseTypeCompare += 1;
+                            intBaseTypeCompare = prod.tbp.intBaseTypeID;
                         }
                     }
 
