@@ -39,6 +39,12 @@
         <br>
         <asp:Button ID="btnBandSignIn" runat="server" CssClass="btn btn-primary" Text ="Sign In" OnClick="btnSignInBand_Click"/> &nbsp; 
         <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="btn btn-primary" OnClick="btnCancel_Click" CausesValidation="false" />
+        
+        <%-- Added link to band sign up page to increase site mobility. EH 12/11/2019 --%>
+        <br /><br /><a runat="server" href="~/BandSignUp">Sign up as Band</a><br /><br />
+
+          <%-- Added link to customer sign in page to increase site mobility. EH 12/11/2019 --%>
+        <a runat="server" href="~/CustomerSignIn">Sign in as Customer</a><br /><br />
 
 
     </div>

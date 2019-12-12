@@ -22,13 +22,19 @@ namespace Merchbooth
             StringBuilder sb = new StringBuilder();
             sb.Append("<h2 style='color:darkblue'>Options:</h2>");
             sb.Append("<br/><br/>");
-            sb.Append("<a id='signInBand' runat='server' href='~/ BandSignIn'>Sign In as Band</a><br/><br/>");
-            sb.Append("<a id='signInCst' runat='server' href='~/ BandSignIn'>Sign In as Customer</a><br/><br/>");
-            sb.Append("<br/><br/>");
-            sb.Append("<a id='signUpBand' runat='server' href='~/ BandSignIn'>Sign Up as Band</a><br/><br/>");
-            sb.Append("<a id='signUpCst' runat='server' href='~/ BandSignIn'>Sign Up as Customer</a><br/><br/>");
 
-            ltrSignInOptions.Text = sb.ToString();
+			//added images and decreased options to remove clutter. Links for sign up now under sign in for cleaner interface, sign in has been cross-linked//EH 12.11.2019
+			sb.Append("  <a id='signInBand' runat='server' href='~/ BandSignIn'><img  src='/images/download2.jpg'></br>Bands</a><br/><br/>");
+			sb.Append("</br><a id='signInCst' runat='server' href='~/ CustomerSignIn'><img  src='/images/CrowdSized_c.jpg'></br>Fans</a><br/><br/>");
+			//sb.Append("<br/><br/>");
+			//sb.Append("<a id='signUpBand' runat='server' href='~/ BandSignIn'>Sign Up as Band</a><br/><br/>");
+			//sb.Append("<a id='signUpCst' runat='server' href='~/ BandSignIn'>Sign Up as Customer</a><br/><br/>");
+
+			ltrSignInOptions.Text = sb.ToString();
         }
+
+
+
+
     }
 }

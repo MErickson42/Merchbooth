@@ -63,7 +63,7 @@ namespace Merchbooth
                                 on tp.intBaseTypeID equals tbp.intBaseTypeID
                                 orderby tp.intBaseTypeID
                                 select new { p, tp, tbp };
-
+			
 
             queryProducts.ToList();
 

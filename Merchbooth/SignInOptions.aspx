@@ -12,7 +12,7 @@
                 <asp:HiddenField ID="hdnPassedCartItemsVariable" value="" runat="server" />
 
     <div style="margin-top:200px"></div>
-        <asp:Image ID="Image1" runat="server" ImageAlign="Right" Width="750" Height="350" ImageUrl="~/Images/download2.jpg" BorderStyle="Groove" />
+      <%--  <asp:Image ID="Image1" runat="server" ImageAlign="Right" Width="750" Height="350" ImageUrl="~/Images/download2.jpg" BorderStyle="Groove" />--%>
         <asp:Literal  ID="ltrSignInOptions" runat="server"></asp:Literal>
 
 <%--    <h2>Sign IN:</h2>
