@@ -243,7 +243,7 @@ namespace Merchbooth.Admin
                 prod.decBandPrice = decPrice;
                 prod.decCostToBand = decBandPrice;
                 prod.intAmountAvialable = intQuantity;
-              
+                prod.intIsDeleted = 0;
                 prod.intBandID = intBandID;
                 // Get the ID of the TType entry we just created
                 prod.intTypeID = type.intTypeID;
