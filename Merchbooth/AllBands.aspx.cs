@@ -43,7 +43,7 @@ namespace Merchbooth
             sb.Append("<div class='row'>");
             foreach (var item in queryBandsProducts)
             {
-                sb.Append("<div class='col-md-3'><a href='/Products/Product-Details/?ck=" + item.intBandID + "&ct=" + item.strBandName.Replace(" ", "-").Replace("&", "and") + "' title='" + item.strBandName + "'><div class='resource-box'>");
+                sb.Append("<div class='col-md-3'><a href='/Products/Product-Details/?cart="+ cart + "&ck=" + item.intBandID + "&ct=" + item.strBandName.Replace(" ", "-").Replace("&", "and") + "' title='" + item.strBandName + "'><div class='resource-box'>");
 
 
                 // MDE - Placeholder until we setup band image (if we get to it)
