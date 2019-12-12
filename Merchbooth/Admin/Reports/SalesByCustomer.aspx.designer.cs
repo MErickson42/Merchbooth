@@ -13,6 +13,15 @@ namespace Merchbooth.Admin.Reports {
     public partial class SaleByCustomer {
         
         /// <summary>
+        /// ScriptMgr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptMgr;
+        
+        /// <summary>
         /// lblSalesByCustomer control.
         /// </summary>
         /// <remarks>
@@ -31,12 +40,12 @@ namespace Merchbooth.Admin.Reports {
         protected global::System.Web.UI.WebControls.Label lblSelectedCustomerPurchases;
         
         /// <summary>
-        /// hdnSelecteCustomer control.
+        /// hdnSelectedCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnSelecteCustomer;
+        protected global::System.Web.UI.WebControls.HiddenField hdnSelectedCustomer;
     }
 }

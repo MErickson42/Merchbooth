@@ -58,7 +58,7 @@
                     </button>
                    
                 </div>
-                <div class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse" style="z-index: 301;">
                     <ul class="nav navbar-nav">
                         <%--Added Manager home page link to booth sales/checkout navbar / EH 11-29-19--%>
                         <%--Added MClear cart image to booth sales/checkout navbar / EH 11-29-19--%>

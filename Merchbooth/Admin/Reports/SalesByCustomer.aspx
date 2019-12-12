@@ -5,6 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <asp:ScriptManager ID="ScriptMgr" runat="server" EnablePageMethods="true"></asp:ScriptManager>
+
     <div class="row">
         <div class="col-lg-1 col-sm-1"></div>
         <div class="col-lg-10 col-sm-10">
@@ -24,7 +26,7 @@
         
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <h1 class="reportTitle">Sales by Customer</h1>
+                    <%--<h1 class="reportTitle">Sales by Customer</h1>--%>
                 </div>
             </div>
            
@@ -42,12 +44,13 @@
                    
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <asp:Label ID="lblSelectedCustomerPurchases" runat="server" Text=""> </asp:Label>
-                    
+                                 
+                        <asp:HiddenField ID="hdnSelectedCustomer" value="" runat="server"/>
+
 
                     </div>
             </div>
 
-             <asp:HiddenField ID="hdnSelecteCustomer" value="" runat="server"/>
 
 
         </div>
@@ -56,11 +59,8 @@
 
             function radioOnClick(radioButtonId,intCustomerID) {
                 //document.getElementById(radioButtonId).checked = true;
-                document.getElementById("<%= hdnSelecteCustomer.ClientID%>").value = intCustomerID;
-                postBack();
-            }
-            function postBack() {
-                 __doPostBack('hfStartDate');
+                document.getElementById("<%= hdnSelectedCustomer.ClientID%>").value = intCustomerID;
+                __doPostBack('hfStartDate');
             }
         </script>
 

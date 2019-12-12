@@ -196,7 +196,7 @@ namespace Merchbooth.Admin
             tl.Append("<tr><td class='reports'>&nbsp;</td></tr>");
 
 
-            tl.Append("<tr><td class='reports'> <a href ='/Admin/Reports/SalesByCustomer/' >Top Customers</a></td></tr>");
+            tl.Append("<tr><td class='reports'> <a href ='/Admin/Reports/SalesByCustomer/' >Sales by Customer</a></td></tr>");
             tl.Append("<tr><td class='reports'> <a href ='/Admin/Reports/SalesByProduct/' >Sales by Product</a></d></tr>");
 
             tl.Append("<tr><td class='reports'>&nbsp;</td></tr>");

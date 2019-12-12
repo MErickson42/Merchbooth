@@ -32,17 +32,18 @@ body {
     background-image: url("../Images/CrowdSized_87h_483w.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 10;
+    z-index: 300;
     -webkit-user-drag: none;
 }
+
 
 #cartImage {
     object-fit: cover;
     /* padding-top: 15px; */
-    position:absolute;   
+    position: absolute;
     /*top:-10px;*/
-    right:57px;
-    height:30px;
+    right: 57px;
+    height: 30px;
     z-index: 15;
     margin-top: -10px;
 }
@@ -239,3 +240,40 @@ ul {
     border:none;
 }
 
+
+
+
+/*used BOOTH page e*/
+.Booth_BackgroundImage {
+    position: absolute;
+    height: 103%;
+    min-height: 500px;
+    width: 105vw;
+    z-index: 1;
+    margin: 0px;
+}
+.BoothProductPAGE {
+    position: absolute;
+    left: 0px;
+    top: 160px;
+    min-width: 300px;
+}
+.image-responsiveBooth {
+    border-radius: 50px;
+    height: 140px;
+    width: 140px;
+    -webkit-user-drag: none;
+    /*display: inline;11111111*/
+    position: relative;
+    z-index: 15;
+}
+
+.saleImageBooth {
+    border-radius: 50px;
+    height: 140px;
+    width: 140px;
+    -webkit-user-drag: none;
+    /*display: inline;11111111*/
+    margin-top: 24px;
+    margin-bottom: 10px;
+}

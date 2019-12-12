@@ -41,9 +41,10 @@ namespace Merchbooth.Admin.Reports
 
 
             StringBuilder tl = new StringBuilder();
-            tl.Append("<div class='DivBorderTableWrappCustomer' style='margin-bottom:60px;'>");
+            tl.Append("<div class='DivBorderTableWrappCustomerLeft' style='margin-bottom:60px;'>");
             tl.Append("<table class='ReportTable'>");
             tl.Append("<thead>");
+            tl.Append("<caption style='color:darkblue; font-size:42px;'>Sales by Customer</caption>");
 
             tl.Append("<tr class='reportTableHeader'>");
 
@@ -92,7 +93,7 @@ namespace Merchbooth.Admin.Reports
 
 
 
-                    if (hdnSelecteCustomer.Value.ToString() == "")
+                    if (hdnSelectedCustomer.Value.ToString() == "")
                     {
                         if (intCount == 1)
                         {
@@ -107,7 +108,7 @@ namespace Merchbooth.Admin.Reports
                     else
                     {
 
-                        if (hdnSelecteCustomer.Value.ToString() == cus.intCustomerID.ToString())
+                        if (hdnSelectedCustomer.Value.ToString() == cus.intCustomerID.ToString())
                         {
                             tl.Append("<td class='datecolumnProduct TypeSelected'><input id='" + radioButtonId + "' onclick='radioOnClick(\"" + radioButtonId + "\",\"" + cus.intCustomerID + "\")' type = 'radio' name = 'customerID' checked value = '" + cus.intCustomerID + "'>" + cus.strLastName + "," + cus.strFirstName + "</td>");
                             intCustomerId = cus.intCustomerID;
@@ -145,13 +146,13 @@ namespace Merchbooth.Admin.Reports
             lblSalesByCustomer.Text = tl.ToString();
 
 
-            if (hdnSelecteCustomer.Value.ToString() == "")
+            if (hdnSelectedCustomer.Value.ToString() == "")
             {
                 populateOneCustomerPurchases(intCustomerId);
             }
             else
             {
-                populateOneCustomerPurchases(Convert.ToInt32(hdnSelecteCustomer.Value));
+                populateOneCustomerPurchases(Convert.ToInt32(hdnSelectedCustomer.Value));
             }
         }
 
