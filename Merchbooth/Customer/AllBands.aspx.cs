@@ -16,6 +16,20 @@ namespace Merchbooth.Customer
 
             StringBuilder sb = new StringBuilder();
 
+            //var queryBandsProducts = from b in _siteContent.TBands
+            //                         join p in _siteContent.TProducts
+            //                         on b.intBandID equals p.intBandID
+            //                         where _siteContent.TProducts.Any()
+            //                         orderby b.intBandID
+            //                         select new { b };
+            var queryBandsProducts = (from b in _siteContent.TBands
+                                     join p in _siteContent.TProducts
+                                     on b.intBandID equals p.intBandID
+                                     where _siteContent.TProducts.Any()
+                                     orderby b.intBandID
+                                     select   b).Distinct();
+
+
             var queryBands = from b in _siteContent.TBands
                              orderby b.strBandName
                              select b;
@@ -27,12 +41,18 @@ namespace Merchbooth.Customer
                 hdnPassedCartItemsVariable.Value = cart;
             }
 
-
+            queryBandsProducts.ToList();
             queryBands.ToList();
             sb.Append("<div class='row'>");
-            foreach (var item in queryBands)
+            foreach (var item in queryBandsProducts)
             {
-                sb.Append("<div class='col-md-3'><a href='/Customer/OneBandProducts/?cart="+ cart + "&ck=" + item.intBandID + "&ct=" + item.strBandName.Replace(" ", "-").Replace("&", "and") + "' title='" + item.strBandName + "'><div class='resource-box'>");
+               //if (item.p.intBandID > 0)
+               // {
+              
+                    sb.Append("<div class='col-md-3'><a href='/Customer/OneBandProducts/?cart=" + cart + "&ck=" + item.intBandID + "&ct=" + item.strBandName.Replace(" ", "-").Replace("&", "and") + "' title='" + item.strBandName + "'><div class='resource-box'>");
+                //}
+
+                
 
 
                 // MDE - Placeholder until we setup band image (if we get to it)
