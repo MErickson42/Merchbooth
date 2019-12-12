@@ -56,7 +56,7 @@ namespace Merchbooth
             StringBuilder sb = new StringBuilder();
 
             var queryProducts = from p in _siteContext.TProducts
-                                    where p.intBandID == intBandID
+                                    where p.intBandID == intBandID && p.intIsDeleted == 0
                                 join tp in _siteContext.TTypes
                                 on p.intTypeID equals tp.intTypeID
                                 join tbp in _siteContext.TBaseTypes
