@@ -42,7 +42,7 @@ namespace Merchbooth.Admin
                     txtCity.Text = band.strCity;
                     txtAddress.Text = band.strAddress;
                     txtZip.Text = band.strZip;
-                    ltrHeaderImagePath.Text = band.strHeaderImage;
+                    //ltrHeaderImagePath.Text = band.strHeaderImage;
                     ltrBackgroundImagePath.Text = band.strBackroundImage;
 
                 }
@@ -67,11 +67,11 @@ namespace Merchbooth.Admin
 
             string message = "";
             string strTitle = txtBandName.Text;
-
+           
             
             
-            //string sOldHeaderPath = "";
-            //string sOldBackgroundPath = "";
+            string sOldHeaderPath = "";
+            string sOldBackgroundPath = "";
 
             SiteDCDataContext _siteContext = new SiteDCDataContext();
 
@@ -99,9 +99,10 @@ namespace Merchbooth.Admin
                     band.strAddress = txtAddress.Text;
                     band.strZip = txtZip.Text;
 
+                    sOldBackgroundPath = band.strBackroundImage;
 
-                    band.strHeaderImage = band.strHeaderImage;
-                    band.strBackroundImage = band.strBackroundImage;
+                    band.strHeaderImage = sOldHeaderPath;
+                    band.strBackroundImage = sOldBackgroundPath;
 
                 }
 
@@ -111,39 +112,61 @@ namespace Merchbooth.Admin
             }
 
             string newFileDirectory = Request.PhysicalApplicationPath.ToString() + "Uploads\\Bands\\" + intBandID + "\\";
-            string newBandHeaderPath = "";
+            //string newBandHeaderPath = "";
 
             if (!Directory.Exists(newFileDirectory))
             {
                 Directory.CreateDirectory(newFileDirectory);
             }
 
-            if ((BandHeaderImage.HasFile) && (BandHeaderImage.PostedFile.ContentType.ToLower() == "image/jpeg"))
-            {
-                string newFileName = BandHeaderImage.FileName;
+            //if ((BandHeaderImage.HasFile) && (BandHeaderImage.PostedFile.ContentType.ToLower() == "image/jpeg"))
+            //{
+            //    if (sOldBackgroundPath.Length > 0)
+            //    {
+
+            //        string OldDocumentFilePath = Request.PhysicalApplicationPath.ToString() + sOldBackgroundPath.Replace("/", "\\");
+
+            //        if (File.Exists(OldDocumentFilePath))
+            //        {
+            //            File.Delete(OldDocumentFilePath);
+            //        }
+            //    }
+
+            //    if (sOldHeaderPath.Length > 0)
+            //    {
+
+            //        string OldDocumentFilePath2 = Request.PhysicalApplicationPath.ToString() + sOldHeaderPath.Replace("/", "\\");
+
+            //        if (File.Exists(OldDocumentFilePath2))
+            //        {
+            //            File.Delete(OldDocumentFilePath2);
+            //        }
+            //    }
+
+            //    string newFileName = BandHeaderImage.FileName;
 
 
-                string newFilePath = newFileDirectory + newFileName;
+            //    string newFilePath = newFileDirectory + newFileName;
 
-                BandHeaderImage.PostedFile.SaveAs(newFilePath);
+            //    BandHeaderImage.PostedFile.SaveAs(newFilePath);
 
-                newBandHeaderPath = "Uploads/Bands/" + intBandID + "/" + BandHeaderImage.FileName;
+            //    newBandHeaderPath = "Uploads/Bands/" + intBandID + "/" + BandHeaderImage.FileName;
 
-            }
+            //}
 
-            if (newBandHeaderPath.Length > 0)
-            {
-                var queryBands = from b in _siteContext.TBands
-                                 where b.intBandID == intBandID
-                                 select b;
+            //if (newBandHeaderPath.Length > 0)
+            //{
+            //    var queryBands = from b in _siteContext.TBands
+            //                     where b.intBandID == intBandID
+            //                     select b;
 
-                foreach (TBand tband in queryBands)
-                {
-                    tband.strHeaderImage = newBandHeaderPath;
-                }
+            //    foreach (TBand tband in queryBands)
+            //    {
+            //        tband.strHeaderImage = newBandHeaderPath;
+            //    }
 
-                _siteContext.SubmitChanges();
-            }
+            //    _siteContext.SubmitChanges();
+            //}
 
 
 
@@ -154,17 +177,31 @@ namespace Merchbooth.Admin
                 Directory.CreateDirectory(newFileDirectory);
             }
 
-            if ((BandHeaderImage.HasFile) && (BandHeaderImage.PostedFile.ContentType.ToLower() == "image/jpeg"))
+            if ((BandBackgroundImage.HasFile) && (BandBackgroundImage.PostedFile.ContentType.ToLower() == "image/jpeg"))
             {
-                string newFileName = BandHeaderImage.FileName;
+                if (sOldBackgroundPath.Length > 0)
+                {
+                    string OldDocumentFilePath = Request.PhysicalApplicationPath.ToString() + sOldBackgroundPath.Replace("/", "\\");
+
+                    if (File.Exists(OldDocumentFilePath))
+                    {
+                        File.Delete(OldDocumentFilePath);
+                    }
+                }
+
+                    string newFileName = BandBackgroundImage.FileName;
 
 
                 string newFilePath = newFileDirectory + newFileName;
 
-                BandHeaderImage.PostedFile.SaveAs(newFilePath);
+                BandBackgroundImage.PostedFile.SaveAs(newFilePath);
 
-                newBandBackgroundPath = "Uploads/Bands/" + intBandID + "/" + BandHeaderImage.FileName;
+                newBandBackgroundPath = "Uploads/Bands/" + intBandID + "/" + BandBackgroundImage.FileName;
 
+            }
+            else
+            {
+                newBandBackgroundPath = sOldBackgroundPath;
             }
 
             if (newBandBackgroundPath.Length > 0)

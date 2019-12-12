@@ -92,10 +92,10 @@
         <asp:TextBox ID="txtZip" MaxLength="10" CssClass="form-control" runat="server"></asp:TextBox>
      
                                                                                                     
-        <label for="BandHeaderImage">Header Image (JPG): </label>
+        <%--<label for="BandHeaderImage">Header Image (JPG): </label>
         <asp:FileUpload ID="BandHeaderImage" runat="server" />
         <strong>Current Image Path: <asp:Literal ID="ltrHeaderImagePath" runat="server"></asp:Literal></strong>
-        <br /><br />
+        <br /><br />--%>
 
         <label for="BandBackgroundImage">Background Image (JPG): </label>
         <asp:FileUpload ID="BandBackgroundImage" runat="server" />
