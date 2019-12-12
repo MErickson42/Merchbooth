@@ -804,3 +804,14 @@ textarea {
     margin: 0px;
 
 }*/
+.prodtitle {
+    display: inline;
+  
+    top: 90px;
+    right: 95px;
+    font-size: 15px;
+    line-height: 25px;
+    background-color: white !important;
+    color: darkred !important;
+    font-weight: bold;
+}
