@@ -67,7 +67,6 @@ namespace Merchbooth.Admin
                 ddlProductBaseType.DataValueField = "intBaseTypeID";
                 ddlProductBaseType.DataSource = queryProductTypes;
                 ddlProductBaseType.DataBind();
-                ddlProductBaseType.SelectedIndex = queryProductsandTypes.First().t.intBaseTypeID-1;
 
 
                 //  Populate the Drop Down Box for color
@@ -80,7 +79,6 @@ namespace Merchbooth.Admin
                 ddlColor.DataValueField = "intColorID";
                 ddlColor.DataSource = queryColors;
                 ddlColor.DataBind();
-                //ddlColor.SelectedIndex = queryProductsandTypes.First().t.intColorID - 1;
 
                 //  Populate the Drop Down Box for Size
                 var querySize = from size in _siteContext.TSizes
@@ -103,7 +101,6 @@ namespace Merchbooth.Admin
                 ddlGender.DataValueField = "intGenderID";
                 ddlGender.DataSource = queryGender;
                 ddlGender.DataBind();
-                //ddlGender.SelectedIndex = queryProductsandTypes.First().t.intGenderID - 1;
 
                 if (ProductKey == 0)
                 {
@@ -132,6 +129,7 @@ namespace Merchbooth.Admin
 
                         ddlColor.SelectedIndex = prod.t.intColorID - 1;
                         ddlGender.SelectedIndex = prod.t.intGenderID-1;
+                        ddlProductBaseType.SelectedIndex = prod.t.intBaseTypeID - 1;
 
                     }
 
