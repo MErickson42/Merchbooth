@@ -64,11 +64,24 @@ namespace Merchbooth
                                 orderby tp.intBaseTypeID
                                 select new { p, tp, tbp };
 			
+			////get band object with ID for background images EH 12.11.2019			
+			//var queryBand = (from b in _siteContext.TBands
+			//				 where b.intBandID == intBandID
+			//				 select b).First();
 
-            queryProducts.ToList();
+			////add band background image EH 12.11.2019
+			//if (queryBand.strBackroundImage != "") {
+			//	sb.Append("<img class='Booth_BackgroundImage' style=diplay:absolute src='/" + queryBand.strBackroundImage + "'  >");
+			//}
+
+			queryProducts.ToList();
 
             if (queryProducts.Count() > 0)
             {
+				
+
+
+
                 int intBaseTypeCompare = queryProducts.First().tbp.intBaseTypeID;
 
                 sb.Append("<div class = 'Wrapper'>");
@@ -76,7 +89,11 @@ namespace Merchbooth
                 sb.Append("<div class = 'ImRows'>");
                 sb.Append("<div class = 'ImageRow'>");
 
-                foreach (var prod in queryProducts)
+				
+
+
+
+				foreach (var prod in queryProducts)
                 {
                     //Only products with image will be displayed in page to booth sales personal
                     if (prod.p.strImageLink == "" || prod.p.strImageLink == null)
