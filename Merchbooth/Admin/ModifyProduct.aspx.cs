@@ -67,7 +67,7 @@ namespace Merchbooth.Admin
                 ddlProductBaseType.DataValueField = "intBaseTypeID";
                 ddlProductBaseType.DataSource = queryProductTypes;
                 ddlProductBaseType.DataBind();
-                ddlProductBaseType.SelectedIndex = queryProductsandTypes.First().t.intBaseTypeID-1;
+                //ddlProductBaseType.SelectedIndex = queryProductsandTypes.First().t.intBaseTypeID-1;
 
 
                 //  Populate the Drop Down Box for color
