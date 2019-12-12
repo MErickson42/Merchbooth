@@ -63,88 +63,65 @@ namespace Merchbooth
                                 on tp.intBaseTypeID equals tbp.intBaseTypeID
                                 orderby tp.intBaseTypeID
                                 select new { p, tp, tbp };
-			
-			////get band object with ID for background images EH 12.11.2019			
-			//var queryBand = (from b in _siteContext.TBands
-			//				 where b.intBandID == intBandID
-			//				 select b).First();
 
-			////add band background image EH 12.11.2019
-			//if (queryBand.strBackroundImage != "") {
-			//	sb.Append("<img class='Booth_BackgroundImage' style=diplay:absolute src='/" + queryBand.strBackroundImage + "'  >");
-			//}
+            //get band object with ID for background images EH 12.11.2019			
+            var queryBand = (from b in _siteContext.TBands
+                             where b.intBandID == intBandID
+                             select b).First();
 
-			queryProducts.ToList();
+
+
+            queryProducts.ToList();
 
             if (queryProducts.Count() > 0)
             {
-				
 
+                sb.Append("<div class='BoothProductPAGE'>");
+                //sb.Append("<h1 class='ecBantTitle'>" + queryBand.strBandName + "</h1>");
 
-
-                int intBaseTypeCompare = queryProducts.First().tbp.intBaseTypeID;
-
-                sb.Append("<div class = 'Wrapper'>");
-
-                sb.Append("<div class = 'ImRows'>");
-                sb.Append("<div class = 'ImageRow'>");
-
-				
-
-
-
-				foreach (var prod in queryProducts)
+                if (queryBand.strBackroundImage != "")
                 {
-                    //Only products with image will be displayed in page to booth sales personal
+                    sb.Append("<img class='Booth_BackgroundImage' src='/" + queryBand.strBackroundImage + "'  >");
+                }
+
+                sb.Append("<div style='margin-top:25px;'>");
+                sb.Append("<div class='row'style='margin-left:40px;'>");
+
+                //sb.Append("<div class='row'><div class='col-md-12'><hr /></div></div>");
+                int intPreviousBaseType = queryProducts.First().tbp.intBaseTypeID;
+                int intCurrentBaseType = queryProducts.First().tbp.intBaseTypeID;
+
+                foreach (var prod in queryProducts)
+                {
+                    //Only products with image will be displayed in page to customer
                     if (prod.p.strImageLink == "" || prod.p.strImageLink == null)
                     {
                         continue;
                     }
-
-                    int intProductID = prod.p.intProductID;
-                    int intTypeID = prod.p.intTypeID;
-                    string strImageLink = prod.p.strImageLink;
-
-
-                    if (prod.p.strImageLink != "" )
+                    intCurrentBaseType = prod.tbp.intBaseTypeID;
+                    if (intCurrentBaseType != intPreviousBaseType)
                     {
-                        if (prod.tbp.intBaseTypeID == intBaseTypeCompare)
-                        {
-                            sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='../../"  + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.p.decBandPrice + "," + 1 + ")'" + "/>");
+                        intPreviousBaseType = intCurrentBaseType;
+                        sb.Append("</div>");
 
-                            sb.Append("<p>");
-                            sb.Append(prod.p.decBandPrice);
-                            sb.Append("</p>");
-                            sb.Append("</div>");
-                        }
-                        else
-                        {
-                            sb.Append("</div>");
-                            sb.Append("<div class = 'ImageRow'>");
-                            sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img src='../../"   + strImageLink + "' class='image-responsive saleImage' onclick='addToCart(" + intProductID + "," + intTypeID + ",\"" + strImageLink + "\"," + prod.p.decBandPrice + ","+ 1 + ")'" + "/>");
+                        sb.Append("<div class='row'style='margin-left:40px;'>");
 
-                            sb.Append("<p>");
-                            sb.Append("<p>");
-                            sb.Append(prod.p.decBandPrice);
-                            sb.Append("</p>");
-                            sb.Append("</div>");
-                            intBaseTypeCompare = prod.tbp.intBaseTypeID;
-                        }
                     }
+                    sb.Append(" <img style='display:inline; margin-right:100px;' class='image-responsiveBooth saleImageBooth' src='/" + prod.p.strImageLink + "' runat='server' onclick='addToCart(" + prod.p.intProductID + "," + prod.p.intTypeID + ",\"" + prod.p.strImageLink + "\"," + prod.p.decBandPrice + "," + 1 + ")'" + "/>");
+                    sb.Append("<p style='display:inline; z-index:15; color:darkred;position:relative; top:7px; right:200px; background-color:white; font-weight:bold;'>$ ");
+                    sb.Append(prod.p.decBandPrice);
+                    sb.Append("</p>");
 
                 }
+                sb.Append("</div>");
+                sb.Append("</div>");
+                sb.Append("</div>");
+
             }
             else
             {
-                sb.Append("<div class='row'><div class='col-md-12'>No products are currently available.</div></div>");
+                sb.Append("<div class='row'><div class='col-md-12'>No products for this band are currently available.</div></div>");
             }
-
-            sb.Append("</div>");
-
-            sb.Append("</div>");
-            sb.Append("</div>");
 
             ltrProducts.Text += sb.ToString();
         }
