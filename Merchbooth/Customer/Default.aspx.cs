@@ -133,7 +133,7 @@ namespace Merchbooth.Customer
                         if (item.p.strImageLink != "")
                         {
                             sb.Append("<div class='OneImage'>");
-                            sb.Append(" <img style='display:inline;' class='image-responsive saleImage' src='../" + item.p.strImageLink + "' runat='server' onclick='addToCart(" + item.p.intProductID + "," + item.p.intTypeID + ",\"" + item.p.strImageLink + "\"," + item.p.decBandPrice + "," + 1 + ")'" + "/>");
+                            sb.Append(" <img style='display:inline;' title=' " + item.p.strProductName + "' class='image-responsive saleImage' src='../" + item.p.strImageLink + "' runat='server' onclick='addToCart(" + item.p.intProductID + "," + item.p.intTypeID + ",\"" + item.p.strImageLink + "\"," + item.p.decBandPrice + "," + 1 + ")'" + "/>");
                             sb.Append("<p>$ ");
                             sb.Append(item.p.decBandPrice);
                             sb.Append("</p>");

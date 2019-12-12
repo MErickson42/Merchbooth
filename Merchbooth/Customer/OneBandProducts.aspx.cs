@@ -118,7 +118,7 @@ namespace Merchbooth.Customer
                             sb.Append("<div class='row'style='margin-left:40px;'>");
 
                         }
-                        sb.Append(" <img style='display:inline; margin-right:100px;' class='image-responsive saleImage' src='/" + prod.p.strImageLink + "' runat='server' onclick='addToCart(" + prod.p.intProductID + "," + prod.p.intTypeID + ",\"" + prod.p.strImageLink + "\"," + prod.p.decBandPrice + "," + 1 + ")'" + "/>");
+                        sb.Append(" <img style='display:inline; margin-right:100px;' title=' " + prod.p.strProductName + "' class='image-responsive saleImage' src='/" + prod.p.strImageLink + "' runat='server' onclick='addToCart(" + prod.p.intProductID + "," + prod.p.intTypeID + ",\"" + prod.p.strImageLink + "\"," + prod.p.decBandPrice + "," + 1 + ")'" + "/>");
                         sb.Append("<p style='display:inline; z-index:15; color:darkred;position:relative; top:90px; right:200px; background-color:white; font-weight:bold;'>$ ");
                         sb.Append(prod.p.decBandPrice);
                         sb.Append("</p>");
