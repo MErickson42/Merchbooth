@@ -52,7 +52,7 @@ namespace Merchbooth.Customer
                 //imgBand.ImageUrl = sbimg.ToString();
 
                 var queryProducts = from p in _siteContext.TProducts
-                                    where p.intBandID == CategoryKey
+                                    where p.intBandID == CategoryKey && p.intIsDeleted == 0
                                     join tp in _siteContext.TTypes
                                     on p.intTypeID equals tp.intTypeID
                                     join tbp in _siteContext.TBaseTypes

@@ -67,7 +67,7 @@ namespace Merchbooth.Admin
                 ddlProductBaseType.DataValueField = "intBaseTypeID";
                 ddlProductBaseType.DataSource = queryProductTypes;
                 ddlProductBaseType.DataBind();
-                ddlProductBaseType.SelectedIndex = queryProductsandTypes.First().t.intBaseTypeID-1;
+                //ddlProductBaseType.SelectedIndex = queryProductsandTypes.First().t.intBaseTypeID-1;
 
 
                 //  Populate the Drop Down Box for color
@@ -131,7 +131,9 @@ namespace Merchbooth.Admin
                         txtQuantity.Text = prod.p.intAmountAvialable.ToString();
 
                         ddlColor.SelectedIndex = prod.t.intColorID - 1;
-                        ddlGender.SelectedIndex = prod.t.intGenderID-1;
+                        ddlGender.SelectedIndex = prod.t.intGenderID - 1;
+                        ddlProductBaseType.SelectedIndex = prod.t.intBaseTypeID - 1;
+                        ddlSize.SelectedIndex = prod.t.intSizeID - 1;
 
                     }
 
