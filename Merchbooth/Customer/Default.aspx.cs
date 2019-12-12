@@ -41,6 +41,7 @@ namespace Merchbooth.Customer
                 var queryBandsProducts = from b in _siteContext.TBands
                                          join p in _siteContext.TProducts
                                          on b.intBandID equals p.intBandID
+                                         where p.intIsDeleted == 0
                                          orderby p.intBandID
                                          select new { b, p };
 

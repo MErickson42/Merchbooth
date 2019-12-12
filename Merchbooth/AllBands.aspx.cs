@@ -24,15 +24,26 @@ namespace Merchbooth
 
             StringBuilder sb = new StringBuilder();
 
+
+            var queryBandsProducts = (from b in _siteContent.TBands
+                                      join p in _siteContent.TProducts
+                                      on b.intBandID equals p.intBandID
+                                      where _siteContent.TProducts.Any()
+                                      orderby b.intBandID
+                                      select b).Distinct();
+
+
+            queryBandsProducts.ToList();
+
             var queryBands = from b in _siteContent.TBands                                
                                   orderby b.strBandName
                                   select b;
 
             queryBands.ToList();
             sb.Append("<div class='row'>");
-            foreach (var item in queryBands)
+            foreach (var item in queryBandsProducts)
             {
-                sb.Append("<div class='col-md-3'><a href='/Products/Product-Details/?ck=" + item.intBandID + "&ct=" + item.strBandName.Replace(" ", "-").Replace("&", "and") + "' title='" + item.strBandName + "'><div class='resource-box'>");
+                sb.Append("<div class='col-md-3'><a href='/Products/Product-Details/?cart="+ cart + "&ck=" + item.intBandID + "&ct=" + item.strBandName.Replace(" ", "-").Replace("&", "and") + "' title='" + item.strBandName + "'><div class='resource-box'>");
 
 
                 // MDE - Placeholder until we setup band image (if we get to it)

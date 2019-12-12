@@ -33,8 +33,11 @@ namespace Merchbooth
                 int intCount = 1;
                 // MDE this linq to sql query does a join - joining the intBandID from tables TBands and TProducts 
                 var queryBandsProducts = from b in _siteContext.TBands
+                                         
                                          join p in _siteContext.TProducts
+                                         
                                          on b.intBandID equals p.intBandID
+                                         where p.intIsDeleted == 0
                                          orderby p.intBandID
                                          select new { b, p };
 
