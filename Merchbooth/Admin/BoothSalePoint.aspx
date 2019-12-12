@@ -89,8 +89,33 @@
                 document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = ObjToString(Products);
 
             }
+            <%--Added clear cart function to booth sales/ EH 11-29-19--%>
+            function ClearCart() {
 
+                if (intTotalCount > 0) {
+                    for (var member in Products) delete Products[member];
+                    intTotalCount = 0;
+                    document.getElementById("cartCount").innerHTML = "";
+                    document.getElementById("<%= hdnCartItemsVariable.ClientID%>").value = "";
 
+                        document.getElementById("home").href = "http://localhost:10349/Default.aspx?cart=";
+                        document.getElementById("allbands").href = "http://localhost:10349/AllBands.aspx?cart=";
+                        document.getElementById("about").href = "http://localhost:10349/About.aspx?cart=";
+                        document.getElementById("contact").href = "http://localhost:10349/Contact.aspx?cart=";
+                        document.getElementById("sign").href = "http://localhost:10349/SignInOptions.aspx?cart=";
+
+                        var intIndex = 0;
+                        var strBandID = 0;
+                        for (intIndex = 1; intIndex <= 20; intIndex += 1) {
+                            strBandID = "band" + intIndex;
+                            var linkToBand = document.getElementById(strBandID);
+
+                            if (linkToBand) {
+                                linkToBand.href = "/Products/Product-Details/?ck=" + intIndex;
+                            }
+                        }
+                 }
+             }
 
 
 			function ObjToString(Products) {

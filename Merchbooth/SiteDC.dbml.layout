@@ -32,18 +32,6 @@
         <elementListCompartment Id="d445b7dc-c4c8-489a-9b77-1b15e3ecb4ba" absoluteBounds="0.765, 14.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b2d82cc3-234a-4bf4-adcd-165980e02e80" absoluteBounds="12, 10.5, 2, 2.3478011067708344">
-      <DataClassMoniker Name="/SiteDCDataContext/TCustomerPurchaseProduct" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7eb8435c-f36d-4d17-883c-8f9037f2d55a" absoluteBounds="12.015, 10.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="ab47c7b1-6420-4f04-9622-c1cca0707a38" absoluteBounds="9.25, 8.5, 2, 1.9631982421874987">
-      <DataClassMoniker Name="/SiteDCDataContext/TCustomerPurchase" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7acd589a-fc01-42fa-8eb1-c8fe401c34c9" absoluteBounds="9.265, 8.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="dc536279-43e5-41f8-bc0e-70d18c4df58b" absoluteBounds="6.5, 7.875, 2, 3.1170068359375005">
       <DataClassMoniker Name="/SiteDCDataContext/TCustomer" />
       <nestedChildShapes>
@@ -111,91 +99,70 @@
         <classShapeMoniker Id="0bc8bcfd-685e-4d34-8090-a149560aa4d9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 11.5618490375601); (3.01920193490112 : 11.292647102659 : JumpStart); (3.30892556509888 : 11.0029234724612 : JumpEnd); (3.3125 : 10.9993490375601); (3.3125 : 9.45274983723958); (3.5 : 9.45274983723958)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 11.5618490375601); (3.01920193490112 : 11.292647102659 : JumpStart); (3.30892556509888 : 11.0029234724612 : JumpEnd); (3.3125 : 10.9993490375601); (3.3125 : 9.45274983723958); (3.5 : 9.45274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TBaseType/TBaseType_TType" />
       <nodes>
         <classShapeMoniker Id="415f1e2d-070e-4b84-b18f-90d0fa3c1d6c" />
         <classShapeMoniker Id="a42bede2-f26b-44a7-be55-ca8e6025cb6f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 13.6868490375601); (3.01920193490112 : 13.417647102659 : JumpStart); (3.13705306509888 : 13.2997959724612 : JumpEnd); (3.1875 : 13.2493490375601); (3.1875 : 10.0228767558594); (3.22916666666667 : 10.0228767558594 : JumpStart); (3.45833333333333 : 10.0228767558594 : JumpEnd); (3.5 : 10.0228767558594)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 13.6868490375601); (3.01920193490112 : 13.417647102659 : JumpStart); (3.13705306509888 : 13.2997959724612 : JumpEnd); (3.1875 : 13.2493490375601); (3.1875 : 10.0228767558594); (3.22916666666667 : 10.0228767558594 : JumpStart); (3.45833333333333 : 10.0228767558594 : JumpEnd); (3.5 : 10.0228767558594)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TColor/TColor_TType" />
       <nodes>
         <classShapeMoniker Id="074259e7-287b-4bcc-a3f5-e6410e54e5ea" />
         <classShapeMoniker Id="a42bede2-f26b-44a7-be55-ca8e6025cb6f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 9.48159912109375); (13 : 9.48159912109375); (13 : 10.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SiteDCDataContext/TCustomerPurchase/TCustomerPurchase_TCustomerPurchaseProduct" />
-      <nodes>
-        <classShapeMoniker Id="ab47c7b1-6420-4f04-9622-c1cca0707a38" />
-        <classShapeMoniker Id="b2d82cc3-234a-4bf4-adcd-165980e02e80" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 9.48159912109375); (9.25 : 9.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SiteDCDataContext/TCustomer/TCustomer_TCustomerPurchase" />
-      <nodes>
-        <classShapeMoniker Id="dc536279-43e5-41f8-bc0e-70d18c4df58b" />
-        <classShapeMoniker Id="ab47c7b1-6420-4f04-9622-c1cca0707a38" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.71769230769231 : 7.25160970052083); (2.90982443490112 : 7.44374182772965 : JumpStart); (3.18392556509888 : 7.7178429579274 : JumpEnd); (3.25 : 7.78391739282853); (3.25 : 13.3950512695312); (3.29166666666667 : 13.3950512695312 : JumpStart); (3.45833333333333 : 13.3950512695312 : JumpEnd); (3.5 : 13.3950512695312)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.71769230769231 : 7.25160970052083); (2.90982443490112 : 7.44374182772964 : JumpStart); (3.18392556509888 : 7.71784295792741 : JumpEnd); (3.25 : 7.78391739282853); (3.25 : 13.3950512695312); (3.29166666666667 : 13.3950512695312 : JumpStart); (3.45833333333333 : 13.3950512695312 : JumpEnd); (3.5 : 13.3950512695312)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TBand/TBand_TEvent" />
       <nodes>
         <classShapeMoniker Id="31e8d3dd-6efa-4030-8a4d-f0da9ddf727d" />
         <classShapeMoniker Id="37739232-efdc-467f-a39a-1cb72f9d873c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 9.03887491861979); (2.99479416666667 : 9.03887491861979 : JumpStart); (3.45833333333333 : 9.03887491861979 : JumpEnd); (3.5 : 9.03887491861979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 9.03887491861979); (2.99479416666667 : 9.03887491861979 : JumpStart); (3.45833333333333 : 9.03887491861979 : JumpEnd); (3.5 : 9.03887491861979)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TGender/TGender_TType" />
       <nodes>
         <classShapeMoniker Id="5a52bdcf-ca27-4458-95ab-2c10ef0ebc41" />
         <classShapeMoniker Id="a42bede2-f26b-44a7-be55-ca8e6025cb6f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 10.1362939453125); (1.75 : 10.7925032552083); (2.99479416666667 : 10.7925032552083 : JumpStart); (3.45833333333333 : 10.7925032552083 : JumpEnd); (5.67867024739583 : 10.7925032552083 : JumpStart); (5.8453369140625 : 10.7925032552083 : JumpEnd); (6.5 : 10.7925032552083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 10.1362939453125); (1.75 : 10.7925032552083); (2.99479416666667 : 10.7925032552083 : JumpStart); (3.45833333333333 : 10.7925032552083 : JumpEnd); (5.67867024739577 : 10.7925032552083 : JumpStart); (5.84533691406243 : 10.7925032552083 : JumpEnd); (6.5 : 10.7925032552083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TGender/TGender_TCustomer" />
       <nodes>
         <classShapeMoniker Id="5a52bdcf-ca27-4458-95ab-2c10ef0ebc41" />
         <classShapeMoniker Id="dc536279-43e5-41f8-bc0e-70d18c4df58b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.45262877333734); (2.88541666666667 : 5.45262877333734 : JumpStart); (3.16146083333333 : 5.45262877333734 : JumpEnd); (3.5 : 5.45262877333734)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.45262877333734); (2.88541666666667 : 5.45262877333734 : JumpStart); (3.16146083333333 : 5.45262877333734 : JumpEnd); (3.5 : 5.45262877333734)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TBand/TBand_TMember" />
       <nodes>
         <classShapeMoniker Id="31e8d3dd-6efa-4030-8a4d-f0da9ddf727d" />
         <classShapeMoniker Id="e5d85e6c-f1bb-4a23-8fc4-204728013fe1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.75); (3.125 : 8.375); (3.125 : 6.38337123692909); (3.5 : 6.38337123692909)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.75); (3.125 : 8.375); (3.125 : 6.38337123692909); (3.5 : 6.38337123692909)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TGender/TGender_TMember" />
       <nodes>
         <classShapeMoniker Id="5a52bdcf-ca27-4458-95ab-2c10ef0ebc41" />
         <classShapeMoniker Id="e5d85e6c-f1bb-4a23-8fc4-204728013fe1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 15.9815991210937); (11.75 : 15.9815991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 15.9815991210937); (11.75 : 15.9815991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TBandsOrder/TBandsOrder_TOrdersSupplierProduct" />
       <nodes>
         <classShapeMoniker Id="0bc8bcfd-685e-4d34-8090-a149560aa4d9" />
         <classShapeMoniker Id="0affc042-f79d-448d-b05f-5a4ed2839bf0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 12.28125); (12 : 12.28125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SiteDCDataContext/TProduct/TProduct_TCustomerPurchaseProduct" />
-      <nodes>
-        <classShapeMoniker Id="d76d56fe-1d2f-4434-9077-1df5c6e09488" />
-        <classShapeMoniker Id="b2d82cc3-234a-4bf4-adcd-165980e02e80" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 10.5304996744792); (5.875 : 10.9054996744792); (5.875 : 13.4912019856771); (6.25 : 13.4912019856771)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 10.5304996744792); (5.875 : 10.9054996744792); (5.875 : 13.4912019856771); (6.25 : 13.4912019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TType/TType_TProduct" />
       <nodes>
         <classShapeMoniker Id="a42bede2-f26b-44a7-be55-ca8e6025cb6f" />
         <classShapeMoniker Id="d76d56fe-1d2f-4434-9077-1df5c6e09488" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 15.7815709075521); (3.01920193490112 : 15.512368972651 : JumpStart); (3.13705306509888 : 15.3945178424532 : JumpEnd); (3.15625 : 15.3753209075521); (3.15625 : 8.6756854593099); (3.16666666666667 : 8.67568545930989 : JumpStart); (3.45833333333333 : 8.6756854593099 : JumpEnd); (3.5 : 8.6756854593099)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 15.7815709075521); (3.01920193490112 : 15.512368972651 : JumpStart); (3.13705306509888 : 15.3945178424532 : JumpEnd); (3.15625 : 15.3753209075521); (3.15625 : 8.6756854593099); (3.16666666666667 : 8.6756854593099 : JumpStart); (3.45833333333333 : 8.6756854593099 : JumpEnd); (3.5 : 8.6756854593099)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TSize/TSize_TType" />
       <nodes>
         <classShapeMoniker Id="85ce9a6f-1c33-4cf6-9dcd-1e3525c62253" />
@@ -216,28 +183,28 @@
         <classShapeMoniker Id="dc536279-43e5-41f8-bc0e-70d18c4df58b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.5 : 1.44314697265625); (4.53125 : 1.44314697265625); (4.53125 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.5 : 1.44314697265625); (4.53125 : 1.44314697265625); (4.53125 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TState/TState_TMember" />
       <nodes>
         <classShapeMoniker Id="d38cbcd1-ca28-44fb-8159-fe58409d84ce" />
         <classShapeMoniker Id="e5d85e6c-f1bb-4a23-8fc4-204728013fe1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 13.5905989583333); (11.84375 : 13.5905989583333); (11.84375 : 14.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 13.5905989583333); (11.84375 : 13.5905989583333); (11.84375 : 14.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TSupplierProduct/TSupplierProduct_TOrdersSupplierProduct" />
       <nodes>
         <classShapeMoniker Id="1839b3b4-0bce-4d2d-a1b1-03efeedd05a1" />
         <classShapeMoniker Id="0affc042-f79d-448d-b05f-5a4ed2839bf0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 13.3854484049479); (9 : 13.3854484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 13.3854484049479); (9 : 13.3854484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TProduct/TProduct_TSupplierProduct" />
       <nodes>
         <classShapeMoniker Id="d76d56fe-1d2f-4434-9077-1df5c6e09488" />
         <classShapeMoniker Id="1839b3b4-0bce-4d2d-a1b1-03efeedd05a1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 16.125); (8.625 : 15.75); (8.625 : 13.8594246074219); (9 : 13.8594246074219)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 16.125); (8.625 : 15.75); (8.625 : 13.8594246074219); (9 : 13.8594246074219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteDCDataContext/TSupplier/TSupplier_TSupplierProduct" />
       <nodes>
         <classShapeMoniker Id="4afaea7f-d771-48b7-a0c7-7e3342a104f9" />
@@ -275,5 +242,38 @@
         <elementListCompartment Id="238338fe-b634-4c8f-a619-3c1b6d9f8a9f" absoluteBounds="14.39, 14.21, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="fd73d99a-8dda-449e-b2d6-e13057da1961" absoluteBounds="11.625, 9.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/SiteDCDataContext/TCustomerPurchase" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f27b6a05-caaf-432d-9451-bcb87662c898" absoluteBounds="11.64, 10.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.5 : 10.3085034179688); (11.625 : 10.3085034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SiteDCDataContext/TCustomer/TCustomer_TCustomerPurchase" />
+      <nodes>
+        <classShapeMoniker Id="dc536279-43e5-41f8-bc0e-70d18c4df58b" />
+        <classShapeMoniker Id="fd73d99a-8dda-449e-b2d6-e13057da1961" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1b3978af-8cf3-4ee5-b705-780832de24bb" absoluteBounds="14.375, 12.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/SiteDCDataContext/TCustomerPurchaseProduct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a63c5641-f56e-4761-92b4-429230a4a656" absoluteBounds="14.39, 12.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.65625 : 11.5881982421875); (11.65625 : 12.9202994791667); (14.375 : 12.9202994791667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SiteDCDataContext/TCustomerPurchase/TCustomerPurchase_TCustomerPurchaseProduct" />
+      <nodes>
+        <classShapeMoniker Id="fd73d99a-8dda-449e-b2d6-e13057da1961" />
+        <classShapeMoniker Id="1b3978af-8cf3-4ee5-b705-780832de24bb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 12.34375); (11.5729166666667 : 12.34375 : JumpStart); (11.7395833333333 : 12.34375 : JumpEnd); (14.375 : 12.34375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SiteDCDataContext/TProduct/TProduct_TCustomerPurchaseProduct" />
+      <nodes>
+        <classShapeMoniker Id="d76d56fe-1d2f-4434-9077-1df5c6e09488" />
+        <classShapeMoniker Id="1b3978af-8cf3-4ee5-b705-780832de24bb" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

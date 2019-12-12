@@ -18,7 +18,7 @@ namespace Merchbooth
 
         ArrayList productArrayList = new ArrayList();
         float sngCartTotal = 0;
-        DateTime dtmTodayDate = DateTime.Now.Date;
+        DateTime dtmTodayDate = DateTime.Now;
         int intCustomerID = 0;
         int intNewPurchaseNumber = 0;
         int intNewCustomerPurchaseID=0;

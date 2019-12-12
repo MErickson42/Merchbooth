@@ -66,32 +66,6 @@
       <Association Name="TColor_TType" Member="TTypes" ThisKey="intColorID" OtherKey="intColorID" Type="TType" />
     </Type>
   </Table>
-  <Table Name="db_owner.TCustomerPurchaseProducts" Member="TCustomerPurchaseProducts">
-    <Type Name="TCustomerPurchaseProduct">
-      <Column Name="intCustomerPurchaseProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="intCustomerPurchaseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="decMomentPurchaseUnitPrice" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
-      <Column Name="intProductPurchaseCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="decProductTotal" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
-      <Column Name="strMomentPurchaseIMG" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="intIsDeleted" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TCustomerPurchase_TCustomerPurchaseProduct" Member="TCustomerPurchase" ThisKey="intCustomerPurchaseID" OtherKey="intCustomerPurchaseID" Type="TCustomerPurchase" IsForeignKey="true" />
-      <Association Name="TProduct_TCustomerPurchaseProduct" Member="TProduct" ThisKey="intProductID" OtherKey="intProductID" Type="TProduct" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="db_owner.TCustomerPurchases" Member="TCustomerPurchases">
-    <Type Name="TCustomerPurchase">
-      <Column Name="intCustomerPurchaseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="intCustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="intPurchaseNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
-      <Column Name="dtmDateTime" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="intIsDeleted" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TCustomerPurchase_TCustomerPurchaseProduct" Member="TCustomerPurchaseProducts" ThisKey="intCustomerPurchaseID" OtherKey="intCustomerPurchaseID" Type="TCustomerPurchaseProduct" />
-      <Association Name="TCustomer_TCustomerPurchase" Member="TCustomer" ThisKey="intCustomerID" OtherKey="intCustomerID" Type="TCustomer" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="db_owner.TCustomers" Member="TCustomers">
     <Type Name="TCustomer">
       <Column Name="intCustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -180,8 +154,8 @@
       <Column Name="intIsDeleted" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="intSortLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="decCostToBand" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
-      <Association Name="TProduct_TCustomerPurchaseProduct" Member="TCustomerPurchaseProducts" ThisKey="intProductID" OtherKey="intProductID" Type="TCustomerPurchaseProduct" />
       <Association Name="TProduct_TSupplierProduct" Member="TSupplierProducts" ThisKey="intProductID" OtherKey="intProductID" Type="TSupplierProduct" />
+      <Association Name="TProduct_TCustomerPurchaseProduct" Member="TCustomerPurchaseProducts" ThisKey="intProductID" OtherKey="intProductID" Type="TCustomerPurchaseProduct" />
       <Association Name="TType_TProduct" Member="TType" ThisKey="intTypeID" OtherKey="intTypeID" Type="TType" IsForeignKey="true" />
     </Type>
   </Table>
@@ -353,6 +327,32 @@
       <Column Name="strColor" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="intBandID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="strBandName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="db_owner.TCustomerPurchases" Member="TCustomerPurchases">
+    <Type Name="TCustomerPurchase">
+      <Column Name="intCustomerPurchaseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intCustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intPurchaseNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="decTotal" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
+      <Column Name="dtmDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="intIsDeleted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TCustomerPurchase_TCustomerPurchaseProduct" Member="TCustomerPurchaseProducts" ThisKey="intCustomerPurchaseID" OtherKey="intCustomerPurchaseID" Type="TCustomerPurchaseProduct" />
+      <Association Name="TCustomer_TCustomerPurchase" Member="TCustomer" ThisKey="intCustomerID" OtherKey="intCustomerID" Type="TCustomer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="db_owner.TCustomerPurchaseProducts" Member="TCustomerPurchaseProducts">
+    <Type Name="TCustomerPurchaseProduct">
+      <Column Name="intCustomerPurchaseProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intCustomerPurchaseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="decMomentPurchaseUnitPrice" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
+      <Column Name="intProductPurchaseCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="decProductTotal" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
+      <Column Name="strMomentPurchaseIMG" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="intIsDeleted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TCustomerPurchase_TCustomerPurchaseProduct" Member="TCustomerPurchase" ThisKey="intCustomerPurchaseID" OtherKey="intCustomerPurchaseID" Type="TCustomerPurchase" IsForeignKey="true" />
+      <Association Name="TProduct_TCustomerPurchaseProduct" Member="TProduct" ThisKey="intProductID" OtherKey="intProductID" Type="TProduct" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="db_owner.uspAddBand" Method="uspAddBand">

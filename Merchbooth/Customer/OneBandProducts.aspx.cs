@@ -12,6 +12,15 @@ namespace Merchbooth.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //cart memory
+            string cart = Server.UrlDecode(Request.QueryString["cart"]);
+            if (cart != "" && cart != null)
+            {
+                hdnPassedCartItemsVariable.Value = cart;
+            }
+
+
             SiteDCDataContext _siteContext = new SiteDCDataContext();
             StringBuilder sb = new StringBuilder();
 
@@ -44,10 +53,12 @@ namespace Merchbooth.Customer
 
                 var queryProducts = from p in _siteContext.TProducts
                                     where p.intBandID == CategoryKey
-                                    orderby p.strProductName
-                                    orderby p.intTypeID
-
-                                    select p;
+                                    join tp in _siteContext.TTypes
+                                    on p.intTypeID equals tp.intTypeID
+                                    join tbp in _siteContext.TBaseTypes
+                                    on tp.intBaseTypeID equals tbp.intBaseTypeID
+                                    orderby tp.intBaseTypeID
+                                    select new { p, tp, tbp };
 
                 var queryBandsProducts = from b in _siteContext.TBands
                                          join p in _siteContext.TProducts
@@ -55,6 +66,8 @@ namespace Merchbooth.Customer
                                          where p.intBandID == CategoryKey
                                          orderby p.intTypeID
                                          select new { b, p };
+
+
 
                 queryBandsProducts.ToList();
 
@@ -86,46 +99,34 @@ namespace Merchbooth.Customer
                     sb.Append("<div class='row'style='margin-left:40px;'>");
 
                     //sb.Append("<div class='row'><div class='col-md-12'><hr /></div></div>");
-                    int intPreviousType = queryProducts.First().intTypeID;
-                    int intCurrentType = queryProducts.First().intTypeID;
+                    int intPreviousBaseType = queryProducts.First().tbp.intBaseTypeID;
+                    int intCurrentBaseType = queryProducts.First().tbp.intBaseTypeID;
 
-                    foreach (TProduct prod in queryProducts)
+                    foreach (var prod in queryProducts)
                     {
-                        intCurrentType = prod.intTypeID;
-                        if (intCurrentType != intPreviousType && (intCurrentType == 9 || intCurrentType == 10 || intCurrentType == 11))
+                        //Only products with image will be displayed in page to customer
+                        if(prod.p.strImageLink =="" || prod.p.strImageLink ==null)
                         {
-                            intPreviousType = intCurrentType;
+                            continue;
+                        }
+                        intCurrentBaseType = prod.tbp.intBaseTypeID;
+                        if (intCurrentBaseType != intPreviousBaseType)
+                        {
+                            intPreviousBaseType = intCurrentBaseType;
                             sb.Append("</div>");
 
                             sb.Append("<div class='row'style='margin-left:40px;'>");
 
                         }
-                        sb.Append(" <img style='display:inline; margin-right:100px;' class='image-responsive saleImage' src='/" + prod.strImageLink + "' runat='server' onclick='addToCart(" + prod.intProductID + "," + prod.intTypeID + ",\"" + prod.strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
+                        sb.Append(" <img style='display:inline; margin-right:100px;' class='image-responsive saleImage' src='/" + prod.p.strImageLink + "' runat='server' onclick='addToCart(" + prod.p.intProductID + "," + prod.p.intTypeID + ",\"" + prod.p.strImageLink + "\"," + prod.p.decBandPrice + "," + 1 + ")'" + "/>");
                         sb.Append("<p style='display:inline; z-index:15; color:darkred;position:relative; top:90px; right:200px; background-color:white; font-weight:bold;'>$ ");
-                        sb.Append(prod.decBandPrice);
+                        sb.Append(prod.p.decBandPrice);
                         sb.Append("</p>");
 
-                        //////ben 12/7 
-                        //sb.Append("<div style='margin-top:5px;padding-top:20px;padding-bottom-10px;margin-left:5px;border:1px solid gray;border-radius:6px;height:445px;' class='col-md-3'>" + "Product Name: " + prod.strProductName + "<br />" + "Price: $" + prod.decBandPrice + "<br />" + "Quantity Remaining: " + prod.intAmountAvialable + "<br />");
-                        //if (prod.strImageLink != "")
-                        //{
-                        //    //Ben -11/30 Changed 
-                        //    //sb.Append(" <img src='../" + item.p.strImageLink + "' runat='server' class='imgHome''" + " />");
-                        //    sb.Append(" <img src='/" + prod.strImageLink + "' runat='server' class='imgHome' onclick='addToCart(" + prod.intProductID + "," + prod.intTypeID + ",\"" + prod.strImageLink + "\"," + prod.decBandPrice + "," + 1 + ")'" + "/>");
-                        //    sb.Append("</div>");
-                        //}
                     }
                     sb.Append("</div>");
                     sb.Append("</div>");
                     sb.Append("</div>");
-
-
-                    //cart memory
-                    string cart = Server.UrlDecode(Request.QueryString["cart"]);
-                    if (cart != "" && cart != null)
-                    {
-                        hdnPassedCartItemsVariable.Value = cart;
-                    }
 
                 }
                 else

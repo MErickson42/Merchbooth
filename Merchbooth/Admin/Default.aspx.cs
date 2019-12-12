@@ -85,11 +85,11 @@ namespace Merchbooth.Admin
 
             //Ceating- Sales String
             tl.Clear();
-            int intCount = 0;
+            int intEventCount = 0;
             var queryLastEvents = from E in _siteContent.TEvents
 
-                              orderby E.dtmDate
-                              where E.dtmDate < DateTime.Now &&
+                              orderby E.dtmDate descending
+                                  where E.dtmDate <= DateTime.Now &&
                                     E.dtmDate.Year == DateTime.Now.Year &&  //This year only
 
                                   E.intBandID == intBandID
@@ -108,15 +108,63 @@ namespace Merchbooth.Admin
             {
                 foreach (var LastEvents in queryLastEvents)
                 {
-                    intCount += 1;
-                    if (intCount > 3) { break; }
+                    intEventCount += 1;
+                    if (intEventCount > 3) { break; }
                     //TODO
                     tl.Append("<tr><td class='bandNaeSales'> <a href ='' >" + LastEvents.strEventName + "</a></td><td style='color:#7575a3'>$ " + Convert.ToInt32(LastEvents.decEventSales)  + " </td></tr>");
 
                 }
                 tl.Append("<tr><td colspan='2'>&nbsp;</td></tr>");
             }
-            else
+
+
+
+            int intCostomerPurchaseCount = 0;
+            int intCurrentPurchaseID = 0;
+            bool blnFirstLoop = true;
+            var queryLastCustomerPurchases = from CP in _siteContent.VCustomersPurchases
+                                             orderby CP.dtmDateTime descending
+                                             where CP.intBandID == intBandID
+                                             select CP;
+
+            queryLastCustomerPurchases.ToList();
+
+            if (queryLastCustomerPurchases.Count() > 0)
+            {
+
+                intCurrentPurchaseID = queryLastCustomerPurchases.First().intCustomerPurchaseID;
+
+                foreach (var purc in queryLastCustomerPurchases)
+                {
+                    if (blnFirstLoop == false)
+                    {
+                        if(intCurrentPurchaseID == purc.intCustomerPurchaseID)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            intCurrentPurchaseID = purc.intCustomerPurchaseID;
+                            intCostomerPurchaseCount += 1;
+                        }
+                    }
+                    else
+                    {
+                        blnFirstLoop = false;
+                        intCostomerPurchaseCount += 1;
+                    }
+
+                    if (intCostomerPurchaseCount > 3) { break; }
+                    
+                    tl.Append("<tr><td class='bandNaeSales'> <a href ='' >" + purc.strLastName +", " + purc.strFirstName + "</a></td><td style='color:#7575a3'>$ " + Convert.ToInt32(purc.Purchase_Total) + " </td></tr>");
+
+                }
+
+
+                tl.Append("<tr><td colspan='2'>&nbsp;</td></tr>");
+            }
+
+            if(queryLastCustomerPurchases.Count() <= 0 && queryLastEvents.Count() <= 0)
             {
                 tl.Append("<tr><td colspan='2'>No Content currently available.</td></tr>");
             }
@@ -124,6 +172,9 @@ namespace Merchbooth.Admin
             tl.Append("</tbody>");
             tl.Append("</table>");
             tl.Append("</div>");
+
+
+
 
             lblSales.Text = tl.ToString();
 
