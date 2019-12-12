@@ -66,6 +66,7 @@ namespace Merchbooth.Admin
                 ddlProductBaseType.DataValueField = "intBaseTypeID";
                 ddlProductBaseType.DataSource = queryProductTypes;
                 ddlProductBaseType.DataBind();
+                
 
                 //  Populate the Drop Down Box for color
                 var queryColors = from color in _siteContext.TColors
@@ -126,9 +127,10 @@ namespace Merchbooth.Admin
                         txtPriceForBand.Text = prod.p.decCostToBand.ToString();
                         txtQuantity.Text = prod.p.intAmountAvialable.ToString();
 
-                        ddlColor.SelectedIndex = prod.t.intColorID;
-                        ddlGender.SelectedIndex = prod.t.intGenderID;
-
+                        ddlColor.SelectedIndex = prod.t.intColorID - 1;
+                        ddlGender.SelectedIndex = prod.t.intGenderID - 1;
+                        ddlProductBaseType.SelectedIndex = prod.t.intBaseTypeID - 1;
+                        ddlSize.SelectedIndex = prod.t.intSizeID - 1;
                     }
 
                     //foreach (TProduct prod in queryProducts)
