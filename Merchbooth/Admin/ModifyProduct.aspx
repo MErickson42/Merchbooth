@@ -58,20 +58,20 @@
         </label>
         <asp:DropDownList ID="ddlGender" runat="server"></asp:DropDownList>
         <br />
-
+        <%--EH changed prices and price to band to allow decimals - 12.12.2019--%>
         <label for="Price">
             Price * 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtPrice" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="regPrice" ValidationExpression="^\d+(\.\d\d)?$" ControlToValidate="txtPrice" runat="server" ErrorMessage="Enter A Number only"></asp:RegularExpressionValidator>    
         </label>
-        <asp:TextBox ID="txtPrice" type="number" MaxLength="25" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtPrice" type="number" MaxLength="25" step=".01" CssClass="form-control" runat="server"></asp:TextBox>
 
         <label for="Price to Band">
             Price to band* 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="[REQUIRED]" SetFocusOnError="True" ControlToValidate="txtPriceForBand" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationExpression="^\d+(\.\d\d)?$" ControlToValidate="txtPriceForBand" runat="server" ErrorMessage="Enter A Number only"></asp:RegularExpressionValidator>    
         </label>
-        <asp:TextBox ID="txtPriceForBand" type="number" MaxLength="25" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtPriceForBand" type="number" step=".01" MaxLength="25" CssClass="form-control" runat="server"></asp:TextBox>
 
 
         <label for="Quantity">
