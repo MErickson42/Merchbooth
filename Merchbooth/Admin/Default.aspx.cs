@@ -39,7 +39,7 @@ namespace Merchbooth.Admin
 
                                 orderby p.intProductID
                                 where p.intBandID == intBandID &&
-                                        p.intAmountAvialable <= intQuantity
+                                        p.intAmountAvialable <= intQuantity && p.intIsDeleted == 0
                                 select p;
             
 
