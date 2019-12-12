@@ -41,8 +41,11 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-primary" OnClick="btnCancel_Click" Text="Cancel" CausesValidation="False" />
 
-         <%-- Added link to customer sign up page to increase site mobility. EH 10/07/2019 --%>
+         <%-- Added link to customer sign up page to increase site mobility. EH 12/07/2019 --%>
         <br /><br /><a runat="server" href="~/CustomerSignUp">Sign up as Customer</a><br /><br />
+
+          <%-- Added link to band sign in page to increase site mobility. EH 12/11/2019 --%>
+        <a runat="server" href="~/BandSignIn">Sign in as Band</a><br /><br />
 
         <asp:HiddenField ID="hdnPassedCartItemsVariable" value="" runat="server" />
 

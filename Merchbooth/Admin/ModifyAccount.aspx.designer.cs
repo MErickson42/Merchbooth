@@ -211,24 +211,6 @@ namespace Merchbooth.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtZip;
         
         /// <summary>
-        /// BandHeaderImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload BandHeaderImage;
-        
-        /// <summary>
-        /// ltrHeaderImagePath control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrHeaderImagePath;
-        
-        /// <summary>
         /// BandBackgroundImage control.
         /// </summary>
         /// <remarks>
