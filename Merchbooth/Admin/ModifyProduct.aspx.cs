@@ -131,7 +131,9 @@ namespace Merchbooth.Admin
                         txtQuantity.Text = prod.p.intAmountAvialable.ToString();
 
                         ddlColor.SelectedIndex = prod.t.intColorID - 1;
-                        ddlGender.SelectedIndex = prod.t.intGenderID-1;
+                        ddlGender.SelectedIndex = prod.t.intGenderID - 1;
+                        ddlProductBaseType.SelectedIndex = prod.t.intBaseTypeID - 1;
+                        ddlSize.SelectedIndex = prod.t.intSizeID - 1;
 
                     }
 
