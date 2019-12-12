@@ -209,12 +209,14 @@ namespace Merchbooth.Admin
                     prod.p.decCostToBand = decBandPrice;
                     prod.p.intBandID = intBandID;
                     prod.p.intTypeID = prod.t.intTypeID;
+                    prod.p.intIsDeleted = 0;
 
                     // update type table
                     prod.t.intGenderID = intGender;
                     prod.t.intColorID = intColor;
                     prod.t.intBaseTypeID = intBaseType;
                     prod.t.intSizeID = intSize;
+                    
                 }
 
                 _siteContext.SubmitChanges();
